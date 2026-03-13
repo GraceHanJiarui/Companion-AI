@@ -1,0 +1,286 @@
+import json
+import time
+import uuid
+from datetime import datetime, timezone
+
+from fastapi import APIRouter, Depends
+from fastapi.responses import JSONResponse
+from pydantic import BaseModel, Field
+from sqlalchemy.orm import Session
+from sqlalchemy import select
+
+from app.db.session import get_db
+from app.core.llm_client import LLMClient
+from app.memory.events import log_event, create_turn_event
+
+from app.memory.memories import (
+    retrieve_memories,
+    should_create_summary_now,
+    build_summary_for_last_n_turns,
+    write_memory_summary,
+)
+
+from app.beliefs.extract import extract_beliefs_from_user_text
+from app.beliefs.store import add_belief, list_active_beliefs, AddBeliefResult
+from app.beliefs.policy import compute_ack_level, record_ack
+from app.beliefs.ack import build_ack_block, belief_to_ack_topic
+from app.beliefs.policy import apply_beliefs_to_policy, get_or_create_state, _load_policy, _save_policy
+
+from app.models.belief import Belief
+from app.outbox.enqueue import enqueue_job
+
+from app.controller.controller_client import ControllerClient, fallback_plan_from_policy
+from app.generation.actor_prompt import build_actor_system_prompt
+from app.core.core_self import get_active_core_self
+from app.core.config import settings
+
+# relational delta (ΔR) evaluator (class name kept)
+from app.inference.tone_evaluator import ToneEvaluatorClient
+from app.beliefs.policy import apply_tone_delta, slim_policy_snapshot
+
+
+router = APIRouter()
+
+
+class ChatIn(BaseModel):
+    session_id: str = Field(..., min_length=1, max_length=64)
+    user_text: str = Field(..., min_length=1)
+
+
+@router.post("/chat")
+async def chat(payload: ChatIn, db: Session = Depends(get_db)):
+    trace_id = uuid.uuid4().hex
+    t0 = time.perf_counter()
+
+    timings = {
+        "trace_id": trace_id,
+        "started_at": datetime.now(timezone.utc).isoformat(),
+        "segments": {},
+        "segments_ms": {},
+        "total_s": 0.0,
+        "total_ms": 0,
+        "summary_triggered": False,
+    }
+
+    def _mark(name: str, t_start: float) -> None:
+        t_end = time.perf_counter()
+        dt = t_end - t_start
+        timings["segments"][name] = round(dt, 6)
+        timings["segments_ms"][name] = int(dt * 1000)
+
+    # 1) log user event
+    t = time.perf_counter()
+    user_event_id = log_event(db, payload.session_id, "user", payload.user_text)
+    _mark("event_user_write", t)
+
+    # 2) extract & store beliefs
+    ack_block = ""
+    active_beliefs = []
+    state = None
+
+    try:
+        add_results: list[AddBeliefResult] = []
+
+        # 2.1) rule-based
+        rule_cands = extract_beliefs_from_user_text(payload.user_text)
+
+        # 2.2) (optional) enqueue async extractor job if your project uses outbox
+        if getattr(settings, "belief_extractor_async", False):
+            try:
+                enqueue_job(db, payload.session_id, "belief_extract", {"event_id": user_event_id})
+            except Exception:
+                pass
+
+        # 2.3) apply rule candidates synchronously
+        if rule_cands:
+            for c in rule_cands:
+                res = add_belief(db, payload.session_id, c, evidence_event_id=user_event_id)
+                add_results.append(res)
+
+        # refresh active beliefs / ack
+        state = get_or_create_state(db, payload.session_id)
+        active_beliefs = list_active_beliefs(db, payload.session_id, limit=50)
+
+        # ack duplicate boundary (based on store results)
+        try:
+            policy = _load_policy(state)
+            dup_ids = [r.duplicate_of_id for r in add_results if (not r.created and r.duplicate_of_id)]
+            if dup_ids:
+                dup_belief_id = dup_ids[-1]
+                dup_belief = db.execute(select(Belief).where(Belief.id == dup_belief_id)).scalar_one_or_none()
+                if dup_belief:
+                    level = compute_ack_level(policy, dup_belief.key, user_event_id)
+                    topic = belief_to_ack_topic(dup_belief)
+                    ack_block = build_ack_block(topic, level=level)
+                    record_ack(policy, dup_belief.key or "", user_event_id)
+                    _save_policy(db, state, policy)
+        except Exception:
+            pass
+
+    except Exception:
+        ack_block = ""
+        try:
+            state = get_or_create_state(db, payload.session_id)
+            active_beliefs = list_active_beliefs(db, payload.session_id, limit=50)
+        except Exception:
+            active_beliefs = []
+
+    if state is None:
+        state = get_or_create_state(db, payload.session_id)
+
+    # 3) relational delta (ΔR)
+    t = time.perf_counter()
+    try:
+        policy = _load_policy(state)
+        boundary_keys = [b.key for b in active_beliefs if (b.kind == "boundary" and b.key)]
+
+        evaluator = ToneEvaluatorClient(model=(getattr(settings, "tone_model", None) or settings.llm_model))
+        eval_payload = {
+            "user_text": payload.user_text,
+            "prev": slim_policy_snapshot(policy),
+            "active_boundary_keys": boundary_keys,
+        }
+
+        delta_obj = await evaluator.infer_delta(eval_payload)
+        delta_debug = apply_tone_delta(policy, delta_obj, boundary_keys)
+
+        policy["_last_rel_delta"] = {
+            "ok": True,
+            "error": None,
+            "confidence": delta_obj.get("confidence"),
+            "signals": delta_obj.get("signals"),
+            "scene": delta_obj.get("scene"),
+            "delta_R": delta_obj.get("delta_R"),
+            "before": delta_debug.get("before"),
+            "after": delta_debug.get("after"),
+            "rel_effective": policy.get("rel_effective"),
+            "behavior_effective": policy.get("behavior_effective"),
+        }
+        # backward compatible debug field name (if you still inspect it)
+        policy["_last_tone_delta"] = policy["_last_rel_delta"]
+
+        _save_policy(db, state, policy)
+    except Exception as e:
+        try:
+            policy = _load_policy(state)
+            policy["_last_rel_delta"] = {"ok": False, "error": str(e)}
+            policy["_last_tone_delta"] = policy["_last_rel_delta"]
+            _save_policy(db, state, policy)
+        except Exception:
+            pass
+    _mark("tone_delta", t)
+
+    # 4) retrieve episodic memories
+    t = time.perf_counter()
+    try:
+        memories = await retrieve_memories(db, payload.session_id, payload.user_text, k=5)
+    except Exception as e:
+        return JSONResponse(
+            status_code=502,
+            content={"detail": f"memory retrieval failed: {e}"},
+            media_type="application/json; charset=utf-8",
+        )
+    _mark("memory_retrieve", t)
+
+    memory_previews = []
+    for m in (memories or [])[:2]:
+        preview = getattr(m, "text", None) or getattr(m, "preview", None) or ""
+        # 更紧凑，减少 controller tokens
+        memory_previews.append({"id": getattr(m, "id", None), "preview": str(preview)[:220]})
+
+    boundary_keys = [b.key for b in active_beliefs if (b.kind == "boundary" and b.key)]
+
+    core_self_text = ""
+    try:
+        core_self_text = get_active_core_self(db)
+    except Exception:
+        core_self_text = ""
+
+    controller = ControllerClient(model=(getattr(settings, "controller_model", None) or settings.llm_model))
+
+    controller_err = None
+    t = time.perf_counter()
+    try:
+        policy = _load_policy(state)
+        # 只传 slim snapshot，且 core self 只传 preview（省 token）
+        plan = await controller.plan(
+            user_text=payload.user_text,
+            policy_json=json.dumps(slim_policy_snapshot(policy), ensure_ascii=False),
+            active_boundary_keys=boundary_keys,
+            memory_previews=memory_previews,
+            core_self_preview=(core_self_text or "")[:220],
+        )
+
+        if not plan.selected_memories:
+            from app.controller.plan import MemoryPoint
+            plan.selected_memories = [MemoryPoint(memory_id=x.get("id"), preview=x.get("preview", "")) for x in memory_previews]
+    except Exception as e:
+        controller_err = str(e)
+        policy = _load_policy(state)
+        plan = fallback_plan_from_policy(policy, boundary_keys)
+        from app.controller.plan import MemoryPoint
+        plan.selected_memories = [MemoryPoint(memory_id=x.get("id"), preview=x.get("preview", "")) for x in memory_previews]
+    _mark("controller", t)
+
+    # persist debug + timings
+    try:
+        policy = _load_policy(state)
+        policy["_last_controller"] = {
+            "ok": controller_err is None,
+            "error": controller_err,
+            "intent": getattr(plan, "intent", None),
+            "behavior": getattr(plan, "behavior", None).model_dump() if getattr(plan, "behavior", None) else None,
+            "policy_slimmed": True,
+        }
+        policy["_last_trace_id"] = trace_id
+
+        total_s = time.perf_counter() - t0
+        timings["total_s"] = round(total_s, 6)
+        timings["total_ms"] = int(total_s * 1000)
+        policy["_last_latency"] = timings
+
+        _save_policy(db, state, policy)
+    except Exception:
+        pass
+
+    # 5) Actor generate
+    t = time.perf_counter()
+    try:
+        system_prompt = build_actor_system_prompt(core_self_text, plan)
+
+        llm = LLMClient(model=settings.llm_model)
+        reply = await llm.generate(system=system_prompt, user=payload.user_text)
+
+        if ack_block:
+            reply = (ack_block.strip() + "\n\n" + reply.strip()).strip()
+
+        log_event(db, payload.session_id, "assistant", reply)
+    except Exception as e:
+        return JSONResponse(
+            status_code=502,
+            content={"detail": f"llm generation failed: {e}"},
+            media_type="application/json; charset=utf-8",
+        )
+    _mark("actor_generate", t)
+    create_turn_event(
+        db,
+        session_id=payload.session_id,
+        user_text=payload.user_text,
+        assistant_text=reply,
+        behavior=policy["behavior_effective"],
+        scene=policy.get("_last_controller", {}).get("intent"),
+        # trace_id=policy.get("_last_trace_id"),
+    )
+
+    # 6) optional summary
+    t = time.perf_counter()
+    try:
+        if should_create_summary_now(db, payload.session_id, every_n_turns=getattr(settings, "summary_every_n", 8)):
+            timings["summary_triggered"] = True
+            summary_text = await build_summary_for_last_n_turns(db, payload.session_id, n=12)
+            write_memory_summary(db, payload.session_id, summary_text)
+    except Exception:
+        pass
+    _mark("summary", t)
+
+    return {"reply": reply}
