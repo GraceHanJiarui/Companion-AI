@@ -30,14 +30,6 @@ def build_actor_system_prompt(core_self_block: str, plan: Plan) -> str:
         lines.append(core_self_block.strip())
         lines.append("")
 
-    hc = plan.hard_constraints
-
-    if hc.forbidden_moves:
-        lines.append("【禁区（严禁）】")
-        for s in hc.forbidden_moves:
-            lines.append(f"- {s}")
-        lines.append("")
-
     # lines.append("【最低服务线 MHR（必须满足）】")
     # lines.append("1) 直接回应用户问题/诉求，给出结论或下一步。")
     # lines.append("2) 至少给出一个可执行动作/建议。")

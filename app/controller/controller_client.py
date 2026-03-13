@@ -5,7 +5,7 @@ import json
 from typing import Any, Dict, List
 
 from app.core.config import settings
-from app.controller.plan import Plan, Behavior, HardConstraints, MemoryPoint
+from app.controller.plan import Plan, Behavior, MemoryPoint
 from app.controller.prompts import CONTROLLER_SYSTEM
 
 
@@ -43,16 +43,6 @@ def _plan_json_schema() -> Dict[str, Any]:
                     "Disclosure_Style",
                 ],
             },
-            "hard_constraints": {
-                "type": "object",
-                "additionalProperties": False,
-                "properties": {
-                    "mhr_required": {"type": "boolean"},
-                    "boundary_keys": {"type": "array", "items": {"type": "string"}},
-                    "forbidden_moves": {"type": "array", "items": {"type": "string"}},
-                },
-                "required": ["mhr_required", "boundary_keys", "forbidden_moves"],
-            },
             "selected_memories": {
                 "type": "array",
                 "items": {
@@ -67,7 +57,7 @@ def _plan_json_schema() -> Dict[str, Any]:
             },
             "notes": {"type": ["string", "null"]},
         },
-        "required": ["intent", "behavior", "hard_constraints", "selected_memories", "notes"],
+        "required": ["intent", "behavior", "selected_memories", "notes"],
     }
 
 
@@ -153,13 +143,6 @@ class ControllerClient:
         intent = obj.get("intent") if obj.get("intent") in ALLOWED_INTENTS else "chat"
         beh = _normalize_behavior(obj.get("behavior") or {})
 
-        hc = obj.get("hard_constraints") or {}
-        hard_constraints = HardConstraints(
-            mhr_required=bool(hc.get("mhr_required", True)),
-            boundary_keys=list(hc.get("boundary_keys") or []),
-            forbidden_moves=list(hc.get("forbidden_moves") or []),
-        )
-
         mems: List[MemoryPoint] = []
         for m in obj.get("selected_memories") or []:
             if not isinstance(m, dict):
@@ -174,20 +157,18 @@ class ControllerClient:
         return Plan(
             intent=intent,
             behavior=Behavior(**beh),
-            hard_constraints=hard_constraints,
             selected_memories=mems,
             notes=obj.get("notes"),
         )
 
 
-def fallback_plan_from_policy(policy: dict, boundary_keys: List[str]) -> Plan:
+def fallback_plan_from_policy(policy: dict) -> Plan:
     beh = (policy or {}).get("behavior_effective") or {}
     beh = _normalize_behavior(beh)
 
     return Plan(
         intent="ask_help",
         behavior=Behavior(**beh),
-        hard_constraints=HardConstraints(mhr_required=True, boundary_keys=boundary_keys, forbidden_moves=[]),
         selected_memories=[],
         notes="fallback_plan_from_policy",
     )

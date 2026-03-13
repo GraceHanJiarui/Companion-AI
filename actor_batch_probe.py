@@ -26,13 +26,6 @@ ALLOWED_INTENTS = ["chat", "ask_help", "task", "venting", "other"]
 
 
 @dataclass
-class SimpleHardConstraints:
-    mhr_required: bool
-    boundary_keys: List[str]
-    forbidden_moves: List[str]
-
-
-@dataclass
 class SimpleMemory:
     memory_id: Optional[int]
     preview: str
@@ -42,7 +35,6 @@ class SimpleMemory:
 class SimplePlan:
     intent: str
     behavior: Dict[str, float]
-    hard_constraints: SimpleHardConstraints
     selected_memories: List[SimpleMemory]
     notes: Optional[str] = None
 
@@ -84,11 +76,6 @@ def build_plan(behavior: Dict[str, float]) -> SimplePlan:
     return SimplePlan(
         intent="chat",  # probe 阶段统一即可
         behavior=build_behavior(behavior),
-        hard_constraints=SimpleHardConstraints(
-            mhr_required=True,
-            boundary_keys=[],
-            forbidden_moves=[],
-        ),
         selected_memories=[],  # LoRA 训练阶段可以为空
         notes="offline actor batch probe",
     )

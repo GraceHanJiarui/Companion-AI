@@ -47,6 +47,19 @@ class ChatIn(BaseModel):
     user_text: str = Field(..., min_length=1)
 
 
+def _summarize_active_beliefs_for_extractor(active_beliefs: list) -> str:
+    lines: list[str] = []
+    for b in active_beliefs[:20]:
+        kind = getattr(b, "kind", "") or ""
+        key = getattr(b, "key", None)
+        value = getattr(b, "value", "") or ""
+        if key:
+            lines.append(f"[{kind}:{key}] {value}")
+        else:
+            lines.append(f"[{kind}] {value}")
+    return "\n".join(lines)
+
+
 @router.post("/chat")
 async def chat(payload: ChatIn, db: Session = Depends(get_db)):
     trace_id = uuid.uuid4().hex
@@ -84,14 +97,7 @@ async def chat(payload: ChatIn, db: Session = Depends(get_db)):
         # 2.1) rule-based
         rule_cands = extract_beliefs_from_user_text(payload.user_text)
 
-        # 2.2) (optional) enqueue async extractor job if your project uses outbox
-        if getattr(settings, "belief_extractor_async", False):
-            try:
-                enqueue_job(db, payload.session_id, "belief_extract", {"event_id": user_event_id})
-            except Exception:
-                pass
-
-        # 2.3) apply rule candidates synchronously
+        # 2.2) apply rule candidates synchronously
         if rule_cands:
             for c in rule_cands:
                 res = add_belief(db, payload.session_id, c, evidence_event_id=user_event_id)
@@ -100,6 +106,25 @@ async def chat(payload: ChatIn, db: Session = Depends(get_db)):
         # refresh active beliefs / ack
         state = get_or_create_state(db, payload.session_id)
         active_beliefs = list_active_beliefs(db, payload.session_id, limit=50)
+
+        # 2.3) (optional) enqueue async extractor job
+        if getattr(settings, "belief_extractor_async", False):
+            try:
+                policy = _load_policy(state)
+                enqueue_job(
+                    db,
+                    kind="belief_extractor_llm",
+                    payload={
+                        "session_id": payload.session_id,
+                        "user_text": payload.user_text,
+                        "evidence_event_id": user_event_id,
+                        "model": getattr(settings, "llm_model", "gpt-5-nano"),
+                        "active_beliefs_text": _summarize_active_beliefs_for_extractor(active_beliefs),
+                        "policy_json": json.dumps(slim_policy_snapshot(policy), ensure_ascii=False),
+                    },
+                )
+            except Exception:
+                pass
 
         # ack duplicate boundary (based on store results)
         try:
@@ -217,7 +242,7 @@ async def chat(payload: ChatIn, db: Session = Depends(get_db)):
     except Exception as e:
         controller_err = str(e)
         policy = _load_policy(state)
-        plan = fallback_plan_from_policy(policy, boundary_keys)
+        plan = fallback_plan_from_policy(policy)
         from app.controller.plan import MemoryPoint
         plan.selected_memories = [MemoryPoint(memory_id=x.get("id"), preview=x.get("preview", "")) for x in memory_previews]
     _mark("controller", t)
@@ -230,6 +255,9 @@ async def chat(payload: ChatIn, db: Session = Depends(get_db)):
             "error": controller_err,
             "intent": getattr(plan, "intent", None),
             "behavior": getattr(plan, "behavior", None).model_dump() if getattr(plan, "behavior", None) else None,
+            "selected_memories": [m.model_dump() for m in getattr(plan, "selected_memories", [])],
+            "notes": getattr(plan, "notes", None),
+            "plan": plan.model_dump(),
             "policy_slimmed": True,
         }
         policy["_last_trace_id"] = trace_id
@@ -248,7 +276,8 @@ async def chat(payload: ChatIn, db: Session = Depends(get_db)):
     try:
         system_prompt = build_actor_system_prompt(core_self_text, plan)
 
-        llm = LLMClient(model=settings.llm_model)
+        actor_model = getattr(settings, "actor_model", None) or settings.llm_model
+        llm = LLMClient(model=actor_model)
         reply = await llm.generate(system=system_prompt, user=payload.user_text)
 
         if ack_block:
@@ -275,10 +304,24 @@ async def chat(payload: ChatIn, db: Session = Depends(get_db)):
     # 6) optional summary
     t = time.perf_counter()
     try:
-        if should_create_summary_now(db, payload.session_id, every_n_turns=getattr(settings, "summary_every_n", 8)):
+        if should_create_summary_now(
+            db,
+            payload.session_id,
+            every_n_user_turns=getattr(settings, "summary_every_n", 8),
+        ):
             timings["summary_triggered"] = True
-            summary_text = await build_summary_for_last_n_turns(db, payload.session_id, n=12)
-            write_memory_summary(db, payload.session_id, summary_text)
+            summary_text, from_event_id, to_event_id = await build_summary_for_last_n_turns(
+                db,
+                payload.session_id,
+                n_user_turns=12,
+            )
+            await write_memory_summary(
+                db,
+                payload.session_id,
+                summary_text,
+                from_event_id=from_event_id,
+                to_event_id=to_event_id,
+            )
     except Exception:
         pass
     _mark("summary", t)

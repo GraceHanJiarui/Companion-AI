@@ -216,7 +216,8 @@
 
 当前状态说明：
 
-- 这条 summary 路径已经有实现框架，但主链路中的参数调用和函数签名还没有完全对齐，因此目前更应视为“开发中能力”
+- 这条 summary 路径已经完成第一轮主链路接线修复
+- 当前更准确的状态是“代码契约已初步对齐，待做真实端到端写入验证”
 
 ## 6. Controller / Actor 分层
 
@@ -231,7 +232,6 @@
 职责：
 
 - 输出结构化 plan，而不是直接回复用户
-- 保留硬约束
 - 以当前行为态为基线做本轮规划
 - 选择需要注入的 memory
 
@@ -239,7 +239,6 @@
 
 - `intent`
 - `behavior`
-- `hard_constraints`
 - `selected_memories`
 - `notes`
 
@@ -266,7 +265,6 @@
 当前 Actor prompt 中包含：
 
 - core self / 人格基线
-- forbidden moves
 - 行为变量解释
 - disclosure gating 规则
 - 明确的 anti-obligation / anti-manipulation 约束
@@ -392,7 +390,8 @@
 
 当前状态说明：
 
-- 异步 belief extraction 这一块的接线目前看起来还没有完全收口，具体调用契约需要再整理
+- 异步 belief extraction 的代码接线已经完成第一轮修复
+- 当前更准确的状态是“代码链路已接通，待做真实运行验证”
 
 ## 11. 测试与分析脚本
 
@@ -465,9 +464,9 @@
 
 以下内容是“当前实现状态说明”，不是设计目标：
 
-- 异步 belief extraction 的入队逻辑与当前 `enqueue_job()` 的签名看起来不完全一致
-- summary memory 相关流程在 `app/api/chat.py` 和 `app/memory/memories.py` 之间尚未完全对齐
-- 配置中已经有 `actor_model` 字段，但当前主链路 Actor 仍然使用 `settings.llm_model`
+- 异步 belief extraction 链路已完成第一轮代码修复，但仍缺少真实端到端运行验证
+- summary memory 主链路与 `memories.py` 的调用契约已完成第一轮修复，但仍缺少真实写入验证
+- Actor 已接入 `actor_model -> llm_model` fallback，后续仍需要做多模型配置下的真实运行验证
 - 部分实验脚本带有本地环境假设，复用前需要手动核对
 
 ## 14. Roadmap 对齐性

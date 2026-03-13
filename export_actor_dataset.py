@@ -76,19 +76,18 @@ def extract_actor_samples(events_by_session, states_by_session):
         if not controller:
             continue
 
-        plan = controller.get("plan")
-        behavior = plan.get("behavior") if plan else None
-        hard_constraints = plan.get("hard_constraints") if plan else None
-        selected_memories = plan.get("selected_memories", []) if plan else []
+        plan = controller.get("plan") or {}
+        behavior = plan.get("behavior") or controller.get("behavior")
+        selected_memories = plan.get("selected_memories") or controller.get("selected_memories", [])
 
-        if not behavior or not hard_constraints:
+        if not behavior:
             continue
 
         # 取 user -> ai 对
         for i in range(len(events) - 1):
             if events[i]["actor"] != "user":
                 continue
-            if events[i + 1]["actor"] != "ai":
+            if events[i + 1]["actor"] != "assistant":
                 continue
 
             user_text = events[i]["content"].strip()
@@ -99,7 +98,6 @@ def extract_actor_samples(events_by_session, states_by_session):
                 "input": {
                     "user_text": user_text,
                     "core_self_preview": CORE_SELF_PREVIEW,
-                    "active_boundary_keys": hard_constraints.get("boundary_keys", []),
                     "selected_memories_preview": [
                         {"preview": m.get("preview", "")}
                         for m in selected_memories
@@ -107,8 +105,8 @@ def extract_actor_samples(events_by_session, states_by_session):
                     ],
                     "plan": {
                         "behavior": behavior,
-                        "hard_constraints": hard_constraints,
-                        "notes": plan.get("notes")
+                        "intent": plan.get("intent") or controller.get("intent"),
+                        "notes": plan.get("notes") or controller.get("notes"),
                     }
                 },
                 "output": {

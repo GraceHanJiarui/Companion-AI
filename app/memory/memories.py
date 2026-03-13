@@ -61,8 +61,6 @@ async def retrieve_memories(db: Session, session_id: str, query: str, k: int = 5
     except Exception as e:
         raise RuntimeError(f"Embedding cast failed: {e}; sample={raw[:5]!r}")
 
-    # DEBUG（临时）
-    print("DEBUG q_emb[0] type/value:", type(q_emb[0]), q_emb[0])
     q_vec = literal(q_emb, type_=Vector(1536))
     stmt = (
     select(Memory)

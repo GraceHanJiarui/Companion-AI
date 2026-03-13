@@ -18,12 +18,6 @@ class Behavior(BaseModel):
     Disclosure_Style: float = Field(ge=0.0, le=1.0, description="披露表达强度（怎么说）")
 
 
-class HardConstraints(BaseModel):
-    mhr_required: bool = Field(default=True, description="必须满足最低服务线")
-    boundary_keys: List[str] = Field(default_factory=list)
-    forbidden_moves: List[str] = Field(default_factory=list)
-
-
 class MemoryPoint(BaseModel):
     memory_id: Optional[int] = None
     preview: str
@@ -34,7 +28,6 @@ class Plan(BaseModel):
 
     intent: Literal["chat", "ask_help", "task", "venting", "other"] = "chat"
     behavior: Behavior
-    hard_constraints: HardConstraints = HardConstraints()
     selected_memories: List[MemoryPoint] = Field(default_factory=list)
 
     notes: Optional[str] = None
