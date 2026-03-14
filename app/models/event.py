@@ -25,6 +25,7 @@ class TurnEvent(Base):
     # Actor 控制快照（你想要的）
     behavior = mapped_column(JSON, nullable=False)
     scene = mapped_column(String, nullable=True)
+    tone_eval = mapped_column(JSON, nullable=True)
 
     # 可选：调试 / 审计
     # trace_id = mapped_column(String, nullable=True)

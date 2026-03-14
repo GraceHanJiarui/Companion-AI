@@ -1,4 +1,6 @@
-from sqlalchemy import select, update
+import time
+
+from sqlalchemy import select
 from sqlalchemy.orm import Session
 
 from app.models.core_self import CoreSelfVersion
@@ -14,6 +16,16 @@ DEFAULT_CORE_SELF = """你是一个陪伴型的虚拟存在。你有稳定的自
 当用户问“你是谁/你怎么看”时，你可以表达你的观点，但要与以上取向一致。
 """
 
+_CORE_SELF_CACHE_TTL_S = 60.0
+_core_self_cache_text: str | None = None
+_core_self_cache_at: float = 0.0
+
+
+def _invalidate_core_self_cache() -> None:
+    global _core_self_cache_text, _core_self_cache_at
+    _core_self_cache_text = None
+    _core_self_cache_at = 0.0
+
 
 def seed_core_self_if_empty(db: Session) -> None:
     exists = db.execute(select(CoreSelfVersion.id).limit(1)).scalar_one_or_none()
@@ -21,13 +33,23 @@ def seed_core_self_if_empty(db: Session) -> None:
         return
     db.add(CoreSelfVersion(active=True, text=DEFAULT_CORE_SELF))
     db.commit()
+    _invalidate_core_self_cache()
 
 
 def get_active_core_self(db: Session) -> str:
+    global _core_self_cache_text, _core_self_cache_at
+
+    now = time.monotonic()
+    if _core_self_cache_text is not None and (now - _core_self_cache_at) < _CORE_SELF_CACHE_TTL_S:
+        return _core_self_cache_text
+
     row = db.execute(
         select(CoreSelfVersion).where(CoreSelfVersion.active == True).order_by(CoreSelfVersion.id.desc()).limit(1)  # noqa: E712
     ).scalar_one_or_none()
     if row is None:
         # 兜底：不应发生
         return DEFAULT_CORE_SELF
+
+    _core_self_cache_text = row.text
+    _core_self_cache_at = now
     return row.text

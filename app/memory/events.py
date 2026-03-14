@@ -16,6 +16,7 @@ def create_turn_event(
     assistant_text: str,
     behavior: dict,
     scene: str | None = None,
+    tone_eval: dict | None = None,
     # trace_id: str | None = None,
 ):
     e = TurnEvent(
@@ -24,6 +25,7 @@ def create_turn_event(
         assistant_text=assistant_text,
         behavior=behavior,
         scene=scene,
+        tone_eval=tone_eval,
         # trace_id=trace_id,
     )
     db.add(e)

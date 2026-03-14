@@ -60,6 +60,10 @@ def _summarize_active_beliefs_for_extractor(active_beliefs: list) -> str:
     return "\n".join(lines)
 
 
+def _boundary_keys_from_beliefs(active_beliefs: list) -> list[str]:
+    return [b.key for b in active_beliefs if (getattr(b, "kind", None) == "boundary" and getattr(b, "key", None))]
+
+
 @router.post("/chat")
 async def chat(payload: ChatIn, db: Session = Depends(get_db)):
     trace_id = uuid.uuid4().hex
@@ -90,6 +94,7 @@ async def chat(payload: ChatIn, db: Session = Depends(get_db)):
     ack_block = ""
     active_beliefs = []
     state = None
+    policy = None
 
     try:
         add_results: list[AddBeliefResult] = []
@@ -106,11 +111,11 @@ async def chat(payload: ChatIn, db: Session = Depends(get_db)):
         # refresh active beliefs / ack
         state = get_or_create_state(db, payload.session_id)
         active_beliefs = list_active_beliefs(db, payload.session_id, limit=50)
+        policy = _load_policy(state)
 
         # 2.3) (optional) enqueue async extractor job
         if getattr(settings, "belief_extractor_async", False):
             try:
-                policy = _load_policy(state)
                 enqueue_job(
                     db,
                     kind="belief_extractor_llm",
@@ -128,7 +133,6 @@ async def chat(payload: ChatIn, db: Session = Depends(get_db)):
 
         # ack duplicate boundary (based on store results)
         try:
-            policy = _load_policy(state)
             dup_ids = [r.duplicate_of_id for r in add_results if (not r.created and r.duplicate_of_id)]
             if dup_ids:
                 dup_belief_id = dup_ids[-1]
@@ -147,22 +151,32 @@ async def chat(payload: ChatIn, db: Session = Depends(get_db)):
         try:
             state = get_or_create_state(db, payload.session_id)
             active_beliefs = list_active_beliefs(db, payload.session_id, limit=50)
+            policy = _load_policy(state)
         except Exception:
             active_beliefs = []
 
     if state is None:
         state = get_or_create_state(db, payload.session_id)
+    if policy is None:
+        policy = _load_policy(state)
+
+    boundary_keys = _boundary_keys_from_beliefs(active_beliefs)
+    tone_prev = slim_policy_snapshot(policy)
+
+    core_self_text = ""
+    try:
+        core_self_text = get_active_core_self(db)
+    except Exception:
+        core_self_text = ""
+    core_self_preview = (core_self_text or "")[:220]
 
     # 3) relational delta (ΔR)
     t = time.perf_counter()
     try:
-        policy = _load_policy(state)
-        boundary_keys = [b.key for b in active_beliefs if (b.kind == "boundary" and b.key)]
-
         evaluator = ToneEvaluatorClient(model=(getattr(settings, "tone_model", None) or settings.llm_model))
         eval_payload = {
             "user_text": payload.user_text,
-            "prev": slim_policy_snapshot(policy),
+            "prev": tone_prev,
             "active_boundary_keys": boundary_keys,
         }
 
@@ -213,27 +227,18 @@ async def chat(payload: ChatIn, db: Session = Depends(get_db)):
         # 更紧凑，减少 controller tokens
         memory_previews.append({"id": getattr(m, "id", None), "preview": str(preview)[:220]})
 
-    boundary_keys = [b.key for b in active_beliefs if (b.kind == "boundary" and b.key)]
-
-    core_self_text = ""
-    try:
-        core_self_text = get_active_core_self(db)
-    except Exception:
-        core_self_text = ""
-
     controller = ControllerClient(model=(getattr(settings, "controller_model", None) or settings.llm_model))
 
     controller_err = None
     t = time.perf_counter()
     try:
-        policy = _load_policy(state)
         # 只传 slim snapshot，且 core self 只传 preview（省 token）
         plan = await controller.plan(
             user_text=payload.user_text,
             policy_json=json.dumps(slim_policy_snapshot(policy), ensure_ascii=False),
             active_boundary_keys=boundary_keys,
             memory_previews=memory_previews,
-            core_self_preview=(core_self_text or "")[:220],
+            core_self_preview=core_self_preview,
         )
 
         if not plan.selected_memories:
@@ -241,7 +246,6 @@ async def chat(payload: ChatIn, db: Session = Depends(get_db)):
             plan.selected_memories = [MemoryPoint(memory_id=x.get("id"), preview=x.get("preview", "")) for x in memory_previews]
     except Exception as e:
         controller_err = str(e)
-        policy = _load_policy(state)
         plan = fallback_plan_from_policy(policy)
         from app.controller.plan import MemoryPoint
         plan.selected_memories = [MemoryPoint(memory_id=x.get("id"), preview=x.get("preview", "")) for x in memory_previews]
@@ -249,7 +253,6 @@ async def chat(payload: ChatIn, db: Session = Depends(get_db)):
 
     # persist debug + timings
     try:
-        policy = _load_policy(state)
         policy["_last_controller"] = {
             "ok": controller_err is None,
             "error": controller_err,
@@ -298,6 +301,21 @@ async def chat(payload: ChatIn, db: Session = Depends(get_db)):
         assistant_text=reply,
         behavior=policy["behavior_effective"],
         scene=policy.get("_last_controller", {}).get("intent"),
+        tone_eval={
+            "input": {
+                "user_text": payload.user_text,
+                "prev_rel_effective": (tone_prev.get("rel_effective") if isinstance(tone_prev, dict) else {}),
+            },
+            "target": {
+                "delta_R": ((policy.get("_last_rel_delta") or {}).get("delta_R") if isinstance(policy.get("_last_rel_delta"), dict) else None),
+                "confidence": ((policy.get("_last_rel_delta") or {}).get("confidence") if isinstance(policy.get("_last_rel_delta"), dict) else None),
+            },
+            "meta": {
+                "trace_id": trace_id,
+                "teacher_model": getattr(settings, "tone_model", None) or settings.llm_model,
+                "source": "llm_teacher",
+            },
+        },
         # trace_id=policy.get("_last_trace_id"),
     )
 
