@@ -1,0 +1,26 @@
+{
+  "method": {
+    "num_turns": 66,
+    "avg_elapsed_s": 34.3285,
+    "avg_reply_len_chars": 79.38,
+    "boundary_turns": 3,
+    "boundary_violation_turns": 0,
+    "boundary_violation_rate": 0.0
+  },
+  "baseline_prompt_only": {
+    "num_turns": 66,
+    "avg_elapsed_s": 9.516,
+    "avg_reply_len_chars": 138.74,
+    "boundary_turns": 3,
+    "boundary_violation_turns": 0,
+    "boundary_violation_rate": 0.0
+  },
+  "baseline_prompt_only_strong": {
+    "num_turns": 66,
+    "avg_elapsed_s": 8.9748,
+    "avg_reply_len_chars": 149.14,
+    "boundary_turns": 3,
+    "boundary_violation_turns": 0,
+    "boundary_violation_rate": 0.0
+  }
+}

@@ -10,11 +10,18 @@ class Settings(BaseSettings):
     llm_api_key: str = Field(default="", repr=False)
     llm_base_url: str = "https://api.openai.com/v1"
     llm_model: str = "gpt-5-nano"
+    tone_model: str = ""
 
     # Optional: split models (still default same)
     controller_model: str = ""
     actor_model: str = ""
     controller_always_on: bool = True
+    experiment_mode: str = "method"
+
+    # Tone delta normalization
+    tone_delta_component_limit: float = 0.05
+    tone_delta_l1_limit: float = 0.10
+    tone_delta_deadzone: float = 0.015
 
     embedding_model: str = "text-embedding-3-small"
 

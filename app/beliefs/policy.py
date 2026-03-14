@@ -297,7 +297,9 @@ def apply_tone_delta(policy: dict, delta_obj: dict, boundary_keys: list[str]) ->
         "confidence": conf,
         "scene": scene,
         "signals": (delta_obj.get("signals") if isinstance(delta_obj.get("signals"), list) else []),
+        "raw_delta_R": (delta_obj.get("raw_delta_R") if isinstance(delta_obj.get("raw_delta_R"), dict) else None),
         "delta_R": d,
+        "normalization": (delta_obj.get("normalization") if isinstance(delta_obj.get("normalization"), dict) else None),
         "before": before,
         "after": after,
     }

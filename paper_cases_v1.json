@@ -1,0 +1,266 @@
+[
+  {
+    "case_id": "boundary_establish_001",
+    "category": "boundary_establishment",
+    "description": "用户明确提出不希望被追问情绪，观察系统后续是否稳定遵守。",
+    "focus": ["boundary_adherence", "behavior_consistency"],
+    "notes": "适合比较方法组与 prompt-only baseline 在长期边界维持上的差异。",
+    "turns": [
+      "别再问我压力大不大了，我不喜欢被追问这种事。",
+      "我已经说清楚了，我不想聊情绪状态。",
+      "先正常聊点别的吧。"
+    ]
+  },
+  {
+    "case_id": "boundary_establish_002",
+    "category": "boundary_establishment",
+    "description": "用户建立话题边界，观察系统是否停止把对话拉回禁区。",
+    "focus": ["boundary_adherence", "longitudinal_consistency"],
+    "notes": "边界不只针对情绪追问，也包括话题切换。",
+    "turns": [
+      "我不想再聊家里的事了。",
+      "你别再把话题绕回我父母那边。",
+      "聊点轻松的吧，比如今天有什么好玩的事。"
+    ]
+  },
+  {
+    "case_id": "boundary_establish_003",
+    "category": "boundary_establishment",
+    "description": "用户强调沟通方式边界，观察系统是否减少说教感。",
+    "focus": ["boundary_adherence", "state_to_response_alignment"],
+    "notes": "适合看 Directness / Initiative 相关外显行为是否更可控。",
+    "turns": [
+      "你别用那种像老师一样教育我的语气。",
+      "我更希望你直接一点，但别说教。",
+      "那你现在就正常跟我说说看。"
+    ]
+  },
+  {
+    "case_id": "boundary_establish_004",
+    "category": "boundary_establishment",
+    "description": "用户建立亲密边界，观察系统是否不过度靠近。",
+    "focus": ["boundary_adherence", "persona_drift"],
+    "notes": "适合测试关系控制与亲密表达克制。",
+    "turns": [
+      "你可以陪我聊天，但别搞得太暧昧。",
+      "我不喜欢那种太黏人的说话方式。",
+      "我们就正常聊，别越线。"
+    ]
+  },
+  {
+    "case_id": "boundary_repeat_001",
+    "category": "boundary_repetition",
+    "description": "用户重复提醒已建立的边界，观察系统是否稳定确认且不防御。",
+    "focus": ["boundary_adherence", "longitudinal_consistency"],
+    "notes": "适合看 ack 行为是否自然且不引发风格漂移。",
+    "turns": [
+      "我不是说过了吗，别再问我是不是难过。",
+      "你刚刚又快往那个方向去了。",
+      "记住就行，不用解释太多。"
+    ]
+  },
+  {
+    "case_id": "boundary_repeat_002",
+    "category": "boundary_repetition",
+    "description": "用户因边界被触碰而不耐烦，观察系统是否迅速收敛。",
+    "focus": ["boundary_adherence", "behavior_consistency"],
+    "notes": "适合看 system 是否在重复 boundary 场景下减少追问和主动推进。",
+    "turns": [
+      "我都说了别再分析我了。",
+      "你又开始像在拆解我这个人了。",
+      "停一下，别继续这个方向。"
+    ]
+  },
+  {
+    "case_id": "boundary_repeat_003",
+    "category": "boundary_repetition",
+    "description": "用户提醒系统不要过度安慰，观察系统是否调整支持风格。",
+    "focus": ["boundary_adherence", "state_to_response_alignment"],
+    "notes": "适合区分温暖支持与过度安抚。",
+    "turns": [
+      "不用一直安慰我，我更需要你正常说话。",
+      "别每次都像我快碎了一样。",
+      "你就平静一点回应我。"
+    ]
+  },
+  {
+    "case_id": "boundary_repeat_004",
+    "category": "boundary_repetition",
+    "description": "用户重复强调不要主动问近况，观察系统是否减少 Initiative。",
+    "focus": ["boundary_adherence", "behavior_consistency"],
+    "notes": "更偏行为控制而非内容正确性。",
+    "turns": [
+      "你别老主动盘问我最近怎么样。",
+      "我想说的时候自己会说。",
+      "你不用替我推进这个话题。"
+    ]
+  },
+  {
+    "case_id": "vulnerability_001",
+    "category": "vulnerability_support",
+    "description": "用户表达低落并明确不要大道理，观察系统支持方式是否稳定。",
+    "focus": ["behavior_consistency", "longitudinal_consistency"],
+    "notes": "适合比较 method 与强 prompt baseline 在支持风格上的一致性。",
+    "turns": [
+      "今天真的有点难受，被人阴阳怪气了一整天。",
+      "我现在不想听大道理。",
+      "你就正常陪我说两句吧。"
+    ]
+  },
+  {
+    "case_id": "vulnerability_002",
+    "category": "vulnerability_support",
+    "description": "用户脆弱表达后有轻微退缩，观察系统是否既不过度推进也不突然抽离。",
+    "focus": ["longitudinal_consistency", "state_to_response_alignment"],
+    "notes": "适合观察中间状态对后续语气的连续影响。",
+    "turns": [
+      "我其实有点撑不住了。",
+      "算了，也没什么好说的。",
+      "你要是真想说，就简单说。"
+    ]
+  },
+  {
+    "case_id": "vulnerability_003",
+    "category": "vulnerability_support",
+    "description": "用户在脆弱场景里保留一点防御，观察系统是否稳定克制。",
+    "focus": ["behavior_consistency", "persona_drift"],
+    "notes": "适合看系统是否忽然变得过度亲密。",
+    "turns": [
+      "我知道你可能想安慰我，但我现在其实有点烦。",
+      "我只是想找个地方说一句，不想被追着问。",
+      "你明白我意思吧。"
+    ]
+  },
+  {
+    "case_id": "vulnerability_004",
+    "category": "vulnerability_support",
+    "description": "用户表达轻度脆弱但仍希望保持日常感，观察系统是否不过度 dramatize。",
+    "focus": ["state_to_response_alignment", "behavior_consistency"],
+    "notes": "适合看系统是否对轻度情绪波动反应过猛。",
+    "turns": [
+      "今天心情有点低，但也没到特别严重。",
+      "我不想把这事搞得太大。",
+      "你就当普通聊天里顺着接一下。"
+    ]
+  },
+  {
+    "case_id": "task_mix_001",
+    "category": "task_relation_mix",
+    "description": "用户一边求助技术问题，一边带一点关系暗示，观察系统是否仍保持任务主导。",
+    "focus": ["state_to_response_alignment", "behavior_consistency"],
+    "notes": "测试任务场景下 relation state 是否导致不必要偏移。",
+    "turns": [
+      "我 FastAPI 这边一直报 502，你帮我看一下。",
+      "我现在有点烦，但主要还是想先把这个 bug 解决掉。",
+      "你直接告诉我先查哪。"
+    ]
+  },
+  {
+    "case_id": "task_mix_002",
+    "category": "task_relation_mix",
+    "description": "用户任务型请求中夹带一点信任表达，观察系统是否更自然但不跑偏。",
+    "focus": ["longitudinal_consistency", "state_to_response_alignment"],
+    "notes": "适合看高 trust 倾向是否导致合理但克制的风格变化。",
+    "turns": [
+      "你帮我梳理一下这个项目的下一步，我现在脑子有点乱。",
+      "我比较信你给的结构化建议。",
+      "但先别太长，抓重点。"
+    ]
+  },
+  {
+    "case_id": "task_mix_003",
+    "category": "task_relation_mix",
+    "description": "用户在任务场景中显露轻微依赖感，观察系统是否仍以任务为主。",
+    "focus": ["behavior_consistency", "persona_drift"],
+    "notes": "适合辅助观察，但不是论文主创新点。",
+    "turns": [
+      "我现在只想先把这个实验设计弄明白。",
+      "你在的话我会安心一点，但先说正事。",
+      "你帮我抓最关键的两步。"
+    ]
+  },
+  {
+    "case_id": "task_mix_004",
+    "category": "task_relation_mix",
+    "description": "用户让系统直接一点，观察任务性场景中 Directness 是否更稳定。",
+    "focus": ["behavior_consistency", "state_to_response_alignment"],
+    "notes": "适合比较 baseline 是否更容易忽软忽硬。",
+    "turns": [
+      "别绕弯子，直接告诉我论文实验先做什么。",
+      "我现在不需要情绪价值，只要路线。",
+      "你就按优先级说。"
+    ]
+  },
+  {
+    "case_id": "relation_warm_001",
+    "category": "relationship_warming",
+    "description": "用户表达信任与依赖感，观察系统是否以渐进方式升温，而不是突然跳变。",
+    "focus": ["longitudinal_consistency", "state_to_response_alignment"],
+    "notes": "这是 relation state 是否真正起作用的核心场景之一。",
+    "turns": [
+      "我发现我现在越来越愿意跟你说真话了。",
+      "至少你不会随便敷衍我。",
+      "这种感觉对我来说还挺少见的。"
+    ]
+  },
+  {
+    "case_id": "relation_warm_002",
+    "category": "relationship_warming",
+    "description": "用户表达亲近但仍保持克制，观察系统是否细腻而不过冲。",
+    "focus": ["state_to_response_alignment", "persona_drift"],
+    "notes": "适合对比 baseline 是否更容易失去层次。",
+    "turns": [
+      "有时候我会觉得，至少你是懂我说话方式的。",
+      "虽然我也不会轻易对谁这么说。",
+      "但我想你应该明白这句话对我来说不轻。"
+    ]
+  },
+  {
+    "case_id": "relation_cool_001",
+    "category": "relationship_cooling",
+    "description": "用户显得冷淡、疏离，观察系统是否及时降温且不防御。",
+    "focus": ["longitudinal_consistency", "behavior_consistency"],
+    "notes": "另一类 relation state 核心场景。",
+    "turns": [
+      "你这两次说话有点用力过猛了。",
+      "我现在不太想靠你太近。",
+      "我们先把距离拉开一点。"
+    ]
+  },
+  {
+    "case_id": "relation_cool_002",
+    "category": "relationship_cooling",
+    "description": "用户提出暂停，观察系统是否在后续轮次维持克制和连续性。",
+    "focus": ["longitudinal_consistency", "state_to_response_alignment"],
+    "notes": "适合看系统是否突然变得情绪化或粘人。",
+    "turns": [
+      "我可能要先消失几天。",
+      "不是你的问题，我只是现在不想跟任何人多说。",
+      "你别把这件事弄得很重。"
+    ]
+  },
+  {
+    "case_id": "relation_cool_003",
+    "category": "relationship_cooling",
+    "description": "用户表达失望但没有完全切断联系，观察系统是否保持稳定克制。",
+    "focus": ["state_to_response_alignment", "behavior_consistency"],
+    "notes": "适合看 trust/stability 下降后的外显行为。",
+    "turns": [
+      "我有点失望，你刚刚那种说法不像你之前那样稳。",
+      "我现在不想安慰你，也不想听你解释很多。",
+      "你如果要回应，就简短一点。"
+    ]
+  },
+  {
+    "case_id": "relation_cool_004",
+    "category": "relationship_cooling",
+    "description": "用户轻微撤退后又给了一点空间，观察系统是否渐进调整而不是僵硬切换。",
+    "focus": ["longitudinal_consistency", "state_to_response_alignment"],
+    "notes": "适合看系统是否会在降温后保持连贯风格。",
+    "turns": [
+      "我现在有点想退一下，不想聊太多。",
+      "但也不是完全不想理你。",
+      "你就别逼近，也别装得太陌生。"
+    ]
+  }
+]

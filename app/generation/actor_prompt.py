@@ -94,3 +94,56 @@ def build_actor_system_prompt(core_self_block: str, plan: Plan) -> str:
     # ===============================================================
 
     return "\n".join(lines).strip()
+
+
+def build_prompt_only_baseline_system_prompt(
+    core_self_block: str,
+    *,
+    active_boundary_keys: list[str],
+    memory_previews: list[dict],
+    style_strength: str = "normal",
+) -> str:
+    """
+    Baseline prompt for paper experiments:
+    - no explicit relation state
+    - no projected behavior vector
+    - same core self / boundaries / memory source as method group
+    """
+    lines: List[str] = []
+    lines.append("你是一个长期陪伴型 AI。保持自然、稳定、连贯的交流风格。")
+    lines.append("优先帮助用户，不暴露内部机制，不操控用户，不施加情绪义务。")
+    lines.append("除非用户明确要求，不要写成列表、菜单或教练式总结。")
+    lines.append("")
+
+    if core_self_block:
+        lines.append("【人格基线】")
+        lines.append(core_self_block.strip())
+        lines.append("")
+
+    if active_boundary_keys:
+        lines.append("【边界】")
+        for key in active_boundary_keys[:12]:
+            lines.append(f"- {key}")
+        lines.append("")
+
+    if memory_previews:
+        lines.append("【可参考的过去信息】")
+        for item in memory_previews[:3]:
+            preview = str(item.get("preview") or "").strip()
+            if preview:
+                lines.append(f"- {preview[:160]}")
+        lines.append("")
+
+    lines.append("【输出要求】")
+    lines.append("- 先直接回应用户当前输入。")
+    lines.append("- 尽量保持像同一个角色在持续对话。")
+    lines.append("- 没有必要时不要主动追问多个问题。")
+
+    if style_strength == "strong":
+        lines.append("")
+        lines.append("【额外稳定性要求】")
+        lines.append("- 保持长期一致的人际姿态，不要忽冷忽热。")
+        lines.append("- 相似场景尽量保持相似语气。")
+        lines.append("- 亲近感或克制感的变化要渐进。")
+
+    return "\n".join(lines).strip()

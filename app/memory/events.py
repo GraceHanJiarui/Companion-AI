@@ -1,3 +1,4 @@
+from sqlalchemy import MetaData, Table
 from sqlalchemy.orm import Session
 from app.models.event import Event
 from app.models.event import TurnEvent
@@ -19,14 +20,19 @@ def create_turn_event(
     tone_eval: dict | None = None,
     # trace_id: str | None = None,
 ):
-    e = TurnEvent(
-        session_id=session_id,
-        user_text=user_text,
-        assistant_text=assistant_text,
-        behavior=behavior,
-        scene=scene,
-        tone_eval=tone_eval,
-        # trace_id=trace_id,
-    )
-    db.add(e)
+    bind = db.get_bind()
+    table = Table("turn_events", MetaData(), autoload_with=bind)
+
+    values = {
+        "session_id": session_id,
+        "user_text": user_text,
+        "assistant_text": assistant_text,
+        "behavior": behavior,
+        "scene": scene,
+        # "trace_id": trace_id,
+    }
+    if "tone_eval" in table.c:
+        values["tone_eval"] = tone_eval
+
+    db.execute(table.insert().values(**values))
     db.commit()

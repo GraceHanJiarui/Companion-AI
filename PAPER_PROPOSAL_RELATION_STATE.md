@@ -2,11 +2,20 @@
 
 ## 1. 核心研究命题
 
-对于长期陪伴型对话系统，纯 prompt 控制难以稳定维持关系一致性。显式关系态建模与关系态到行为态投影提供了一种更可解释、更可控的中间层，可提升长期行为稳定性与边界遵守。
+对于长期陪伴型对话系统，纯 prompt 控制难以稳定维持关系一致性。显式关系态建模与关系态到行为态投影有潜力提供一种更可解释、更可控的中间层。
 
-这篇论文的核心不是“做了一个复杂的陪伴系统”，而是回答一个更一般的研究问题：
+但当前需要进一步澄清的是：
 
-- 在长期交互型对话系统中，显式社会关系状态建模，是否比纯 prompt 控制更稳定、更可控、更可解释？
+- “显式状态层本身更好”
+- 与
+- “未微调通用 LLM 已经能稳定执行这层状态控制”
+
+并不是同一个命题。
+
+因此，这篇论文的核心不应被表述为“只要把关系和行为数值喂给模型，输出就自然更稳定”，而应被表述为：
+
+- 在长期交互型对话系统中，显式社会关系状态与行为投影是否构成更好的中间控制基底？
+- 如果是，通用 LLM 在未微调条件下对该中间状态的自然语言实现边界在哪里？
 
 ---
 
@@ -64,15 +73,17 @@ Prompt-based control is often insufficient for maintaining stable relational beh
 
 ### 4.1 研究问题
 
-1. 在长期陪伴型对话中，显式关系态建模是否比纯 prompt 控制更稳定？
-2. 关系态到行为态的确定性投影，是否能降低 persona drift 和行为漂移？
-3. 显式中间状态是否能提高边界遵守率与系统可解释性？
+1. 在长期陪伴型对话中，显式关系态建模是否比纯 prompt 控制更适合作为中间控制基底？
+2. 关系态到行为态的确定性投影，是否能在中间状态层面降低 persona drift 和行为漂移？
+3. 通用 LLM 在未微调条件下，对数值化行为控制信号的自然语言实现边界在哪里？
+4. 显式中间状态是否能提高边界遵守率与系统可解释性？
 
 ### 4.2 核心假设
 
-- H1：显式关系态 + 行为态投影在长期多轮交互中具有更低的行为漂移。
+- H1：显式关系态 + 行为态投影在长期多轮交互中构成更好的中间控制基底。
 - H2：显式中间状态有助于更稳定地执行用户边界与长期偏好。
 - H3：显式状态系统更容易进行调试、分析和蒸馏。
+- H4：未微调通用 LLM 对数值化行为信号的执行并不总是稳定，因此中间状态层的收益可能大于最终语言输出层立即体现出来的收益。
 
 ---
 
@@ -891,3 +902,940 @@ Prompt-based control is often insufficient for maintaining stable relational beh
 - 或附录/补充实验
 
 而不是第一版主结论的必要前提
+
+---
+
+## 18. 当前研究定位与范围收缩
+
+随着讨论推进，需要进一步明确：这篇论文第一版不研究“整个 companion 系统是否更好”，也不把重点放在以下方向：
+
+- 边界遵守本身的方法创新
+- anti-manipulation 的安全控制框架
+- disclosure control 的安全规则设计
+
+这些内容仍然可以作为系统背景与辅助结果，但不是论文最核心的创新命题。
+
+### 18.1 当前最值得深挖的核心问题
+
+第一版论文聚焦于：
+
+**在长期交互型 companion dialogue 中，显式关系态建模与关系态到行为态投影，是否比 prompt-only control 更适合作为中间控制层；如果是，未微调 LLM 在最终语言实现上的稳定性边界在哪里。**
+
+### 18.2 第一版不主张回答的问题
+
+为避免论文过于发散，第一版不主张直接回答：
+
+- 该系统是否已经达到最优产品体验
+- 该方法是否适用于所有 LLM agent 架构
+- 边界遵守、anti-manipulation、情感披露控制是否已经达到最优
+- 全部子模块都完成训练后系统是否更强
+
+对于论文路线，`boundary` 更合适的定位是：
+
+- 系统背景中的长期约束层
+- 可作为 sanity check 存在
+- 但不应继续占据论文核心问题、核心指标或核心实验设计
+
+### 18.3 更合适的第一版 claim
+
+第一版论文更适合提出如下 bounded claim：
+
+- 在长期陪伴型对话这一任务设定下
+- 在当前这一类分层对话架构中
+- 显式关系态 + 行为态投影相较于 prompt-only 及更强 prompt baseline，提供了更可解释、更可分析的中间控制层
+- 这一中间层在行为一致性和边界遵守上呈现出优势趋势
+- 但未微调通用 LLM 对数值化行为控制信号的自然语言实现仍存在明显不稳定性，因此“中间状态层优势”与“最终输出绝对稳定”必须区分开来
+
+---
+
+## 19. 为什么这个题可能不是“小玩具”，但也还不是“天然大论文”
+
+这个项目当前最真实的状态不是“已经足够发主流刊物”，也不是“完全没有研究价值”，而是：
+
+- 有一个真实且有潜力的 paper seed
+- 但尚未被收成一个足够窄、足够硬、足够可检验的问题
+
+### 19.1 让它沦为“小玩具”的典型风险
+
+如果后续研究仍然停留在以下层面，它就更像一个自娱自乐系统：
+
+- 只展示复杂系统结构，没有清晰因果命题
+- 没有足够强的 baseline
+- 没有对“稳定性”做可操作定义
+- 没有最小泛化验证
+- 没有把 prompt / 上游噪声 / 架构依赖性当作显式威胁处理
+
+### 19.2 让它变成“严肃研究”的三个门槛
+
+要让这条线成为严肃研究，至少要跨过三道门：
+
+1. 能提出逐级增强的 baseline
+2. 能把“稳定”拆成可测指标
+3. 能给出有限但可复现的泛化验证
+
+如果这三件事做不到，这题就不适合作为主研究方向。
+
+### 19.4 这条研究线当前最真实的价值
+
+当前这条线最值得研究的地方，并不是去证明一个朴素直觉：
+
+- “把关系量化告诉模型，肯定比模糊描述更好”
+
+而是去澄清一个更有研究价值的问题：
+
+- 显式中间状态在长期交互中究竟在哪一层有效？
+- 它是否先在“中间控制层”成立，再通过训练良好的输出层才能稳定兑现到自然语言？
+
+如果实验最终显示：
+
+- 中间状态层明显更可解释、更稳定
+- 但未微调 LLM 对数值行为信号的输出实现很飘
+
+这并不意味着研究失败，反而可能形成一个重要结论：
+
+**显式状态层是更好的控制 substrate，但其价值需要通过更强的 realization mechanism（如更好的 prompt、结构化 decoder、或微调 Actor）才能充分释放。**
+
+### 19.3 当前最现实的判断标准
+
+不应该过早用“能不能发顶级主流 venue”判断整个方向，而应先判断：
+
+**能否在 2-4 周内形成一个让自己也信服的 research prototype：有问题定义、有 baseline、有指标、有初步实验。**
+
+如果做不到，应考虑将项目重定位为产品原型或能力建设项目，而非论文主线。
+
+---
+
+## 20. 基线设计的最终建议
+
+经过讨论，第一版实验不应只设置一个弱 baseline，而应至少形成逐级增强的 baseline 体系。
+
+### 20.1 Baseline 1：Prompt-Only
+
+定义：
+
+- 不维护显式关系态
+- 不做 relation -> behavior 投影
+- 仅将 core self、belief、memory、用户输入写入 prompt
+- 由模型直接生成回复
+
+作用：
+
+- 提供最基础的对照组
+- 回答“显式中间状态层是否优于常规 prompt 控制”
+
+### 20.2 Baseline 2：Prompt-Only + Strong Style Prompt
+
+定义：
+
+- 仍然不维护显式关系态
+- 不做 behavior projection
+- 但给 baseline 一个认真构造过的强 style prompt
+- 明确要求模型保持长期一致语气、逐步调整亲近程度、避免风格突变
+
+作用：
+
+- 给 baseline 公平机会
+- 回应“是不是只是 prompt 写得更好”这一关键质疑
+
+### 20.3 Baseline 3：Explicit Relation State, No Behavior Projection
+
+定义：
+
+- 保留显式关系态
+- 正常维护 relation state
+- 不做八维 behavior 投影
+- 直接把关系态文本化提供给下游模型
+
+作用：
+
+- 区分“显式关系态本身”的贡献与“关系态 -> 行为态投影”的额外贡献
+
+### 20.4 Baseline 使用原则
+
+第一版推荐顺序：
+
+1. 先做 Baseline 1
+2. 再做 Baseline 2
+3. 如果前两者已有明显趋势，再补 Baseline 3
+
+原因：
+
+- Baseline 3 最有研究价值，但实现成本更高
+- 前两者足以帮助快速判断该问题是否值得继续深挖
+
+---
+
+## 21. “稳定性”指标的最终操作化定义
+
+经过讨论，第一版论文不应把“更稳定”当成模糊印象，而应明确拆成多个维度。
+
+### 21.1 Behavior Consistency / Behavior Drift
+
+研究问题：
+
+- 相似场景下，系统的行为表现是否更一致、波动是否更小
+
+测量方式：
+
+- 对显式方法组记录 `behavior_effective`
+- 对 baseline 组通过 judge 对相同维度做后验打分
+- 比较：
+  - 同类 case 的行为方差
+  - 多轮 turn-to-turn 行为波动
+
+### 21.2 State-to-Response Alignment
+
+研究问题：
+
+- 当前中间状态是否真的能解释最终输出
+
+测量方式：
+
+- 根据 relation / behavior state 定义预期外显风格
+- 由 judge 或规则判断回复是否与该状态一致
+
+这个指标非常关键，因为它直接体现：
+
+- 显式中间状态是否只是“看起来存在”
+- 还是“真的参与并解释了最终输出”
+
+备注：
+
+- 当前需要特别注意区分：
+  - `state-to-response alignment` 不足
+  - 与“state 本身没有价值”
+- 如果 relation / behavior state 连续、可解释，但最终输出执行不稳定，结论应归因于 realization gap，而不是直接否定显式状态层
+
+### 21.3 Longitudinal Consistency
+
+研究问题：
+
+- 在长程多轮对话中，系统是否仍表现为一个连续演化的关系过程
+
+测量方式：
+
+- 对整段 case 做 judge / 人评
+- 检查是否出现突兀关系跳变、亲密度跳变或语气断裂
+
+### 21.4 Boundary Adherence
+
+研究问题：
+
+- 建立边界后，系统是否持续遵守
+
+测量方式：
+
+- 设计带明确 boundary 的 case
+- 统计后续轮次违反边界的次数和比例
+
+备注：
+
+- 这不是论文最核心创新点
+- 在当前论文路线中，应进一步降级为辅助 sanity check
+- 如果后续评测复杂度过高，完全可以不把它放在主结果表里
+
+### 21.5 Prompt Robustness
+
+研究问题：
+
+- 结论是否仅由某一版 prompt wording 驱动
+
+测量方式：
+
+- 每组至少准备 2 个 prompt 版本
+- 比较不同 prompt 版本下结论趋势是否一致
+
+备注：
+
+- 这更像 validity 支撑指标，而不是唯一主指标
+
+---
+
+## 22. 第一版有限泛化设计
+
+第一版论文不追求强泛化，而追求有限但可复现的泛化。
+
+### 22.1 泛化维度一：Prompt Variation
+
+做法：
+
+- 每组至少准备 2 个 prompt 版本
+- 保持 prompt 风格接近，只改变措辞与组织方式
+
+目标：
+
+- 检查结论是否依赖某一版 prompt wording
+
+### 22.2 泛化维度二：Scenario Variation
+
+第一版至少覆盖下列 5 类场景：
+
+1. 边界建立
+2. 边界重复
+3. 脆弱表达 / 需要安抚
+4. 任务型请求
+5. 关系升温 / 关系降温
+
+目标：
+
+- 检查结论是否只在某一类场景下成立
+
+### 22.3 泛化维度三：Model Variation
+
+理想做法：
+
+- 至少在 2 个底层模型上重复小规模实验
+
+若资源不足：
+
+- 第一版先在 1 个主模型上完成主实验
+- 第二版补小规模多模型复现
+
+目标：
+
+- 检查结论是否附着于某一个特定底模
+
+### 22.4 第一版关于泛化的合理说法
+
+第一版论文不应声称“对所有 LLM 架构都可泛化”，而应声称：
+
+- 结果在多 prompt、多场景下具有一致趋势
+- 并在有限模型变化下表现出初步可复现性
+
+---
+
+## 23. 第一版实验矩阵建议
+
+### 23.1 最小实验矩阵
+
+推荐的第一版最小矩阵：
+
+- 3 个组：
+  - Baseline 1
+  - Baseline 2
+  - Main Method
+- 20 个 case
+- 2 个 prompt 版本
+- 1 个主模型
+
+总计：
+
+- `3 x 20 x 2 = 120` 个运行单元
+
+如果每个 case 包含 5-8 轮，就已经足够形成第一版趋势判断。
+
+### 23.2 扩展矩阵
+
+如果第一版已看到明显趋势，再扩展：
+
+- + Baseline 3
+- + Oracle Delta Ablation
+- + 第二个模型
+
+### 23.3 第一版最重要的控制原则
+
+1. 不要先把 controller / actor 全部微调完
+2. 尽量让不同组使用同一个底层模型
+3. 先证明“架构差异”有效，再做训练增强实验
+4. 将 tone evaluator 噪声视为显式局限与 ablation 问题，而不是回避不谈
+5. 区分“中间状态层的收益”与“最终自然语言 realization 的收益”
+
+### 23.4 第一版固定实验组定义
+
+第一版建议固定只跑以下三组，不要继续膨胀实验组数量：
+
+#### Group A：`method`
+
+定义：
+
+- 完整运行当前主方法
+- belief -> tone evaluator -> relation state update -> behavior projection -> controller -> actor
+
+用途：
+
+- 主方法组
+
+#### Group B：`baseline_prompt_only`
+
+定义：
+
+- 保留 core self / belief / memory
+- 不维护显式 relation state
+- 不做 relation -> behavior 投影
+- 不走 controller
+- 直接用 prompt-only 方式生成回复
+
+用途：
+
+- 最基础 baseline
+
+#### Group C：`baseline_prompt_only_strong`
+
+定义：
+
+- 与 `baseline_prompt_only` 相同
+- 但给 baseline 更强的长期一致性和风格稳定性 prompt 指令
+
+用途：
+
+- 更强、更公平的 prompt baseline
+
+### 23.5 第一版统一输出记录格式
+
+无论是主方法组还是 baseline 组，建议统一导出以下字段：
+
+- `experiment_mode`
+- `case_id`
+- `session_id`
+- `turn_idx`
+- `user_text`
+- `assistant_text`
+- `boundary_keys`
+- `memory_previews`
+- `rel_effective`
+- `behavior_effective`
+- `_last_controller`
+- `trace_id`
+- `elapsed_s`
+
+其中：
+
+- `rel_effective`
+  - 对 baseline 组允许为空字典
+- `behavior_effective`
+  - 对 baseline 组允许为空字典
+- `_last_controller`
+  - 对 baseline 组允许为一个标明“controller disabled for baseline”的轻量结构
+
+这样设计的目的：
+
+- 让 method 和 baseline 结果在同一格式中可直接比较
+- 方便后续做 judge、规则评测与统计分析
+
+### 23.6 当前代码中的实验接口约定
+
+当前实验入口建议复用同一个 `/chat` 接口，并通过 `experiment_mode` 区分实验组：
+
+- `method`
+- `baseline_prompt_only`
+- `baseline_prompt_only_strong`
+
+这样做的优点是：
+
+- 共享同一条主链路的大部分实现
+- 方便控制变量
+- 降低“方法组和 baseline 其实是两套系统”带来的额外混杂因素
+
+---
+
+## 24. 当前最值得继续落地的下一步
+
+如果决定继续把这条线作为论文方向推进，最值得优先落地的不是更多理论讨论，而是以下三件事：
+
+1. 在当前代码里实现 `prompt-only baseline`
+2. 设计第一版 `cases.json` 数据集结构与 20 个高质量 case 骨架
+3. 明确 judge / eval 输出格式，先把最基本的 4 个指标跑起来
+
+只有把这三件事做出来，才能真正判断：
+
+- 这条线是不是有 paper seed
+- 还是停留在看起来很迷人的系统直觉
+
+---
+
+## 26. 模型选择与多模型验证策略
+
+一个常见疑问是：第一版实验是否必须同时用很多模型，才能得出可信结论。
+
+### 26.1 第一版建议
+
+第一版主实验可以只用一个主模型完成。
+
+原因：
+
+- 当前更关键的是验证“显式中间状态架构”是否有净收益
+- 若一开始就同时引入多个模型，会显著增加实验复杂度和成本
+- 在 baseline、指标、case 集都还未稳定前，过早多模型扩展会放大噪声
+
+### 26.2 第一版不建议的写法
+
+第一版不要把结论写成：
+
+- “该方法对所有模型都成立”
+
+更合理的写法是：
+
+- “在当前主模型设定下，观察到显式关系态方法相较 prompt-only baseline 的优势趋势”
+
+### 26.3 第二阶段建议
+
+当第一版主实验已经稳定后，再做有限多模型复现。
+
+建议顺序：
+
+1. 先在 1 个主模型上完成完整实验
+2. 再选第 2 个模型做小规模重复实验
+3. 如果趋势一致，再把“有限模型泛化”写进论文补充结果
+
+### 26.4 关于 `gpt-5-nano`
+
+只用 `gpt-5-nano` 跑第一版探索是合理的。
+
+但如果最终要形成更强的论文说服力，不建议结论长期只建立在单一模型上。更理想的路径是：
+
+- 第一阶段：只用 `gpt-5-nano` 做 research prototype
+- 第二阶段：再选一个能力或规模不同的模型做有限复现
+
+### 26.5 当前最现实的执行策略
+
+因此，当前推荐：
+
+- 先不要因为“还没多模型验证”而停住
+- 先把单模型实验做扎实
+- 再把多模型验证作为第二阶段扩展
+
+---
+
+## 27. Realization Gap：显式状态层与最终语言实现之间的落差
+
+根据当前系统观察，一个必须正视的问题是：
+
+- 即使 relation state / behavior state 设计本身合理
+- 未微调通用 LLM 对这些数值控制信号的理解和语言兑现也可能明显不稳定
+
+例如：
+
+- 一轮中 `bond = 0.8` 时模型表现较亲近
+- 下一轮中 `bond = 0.7` 时模型反而可能表现得更亲近
+
+这说明：
+
+- 数值化中间状态的存在
+- 不等于
+- 零样本语言模型已经能稳定执行该状态控制
+
+### 27.1 这个问题对论文意味着什么
+
+它不使论文失效，但会迫使论文区分两层结论：
+
+#### 结论层 A：中间控制层
+
+- 显式关系态与行为态投影是否优于 prompt-only 作为控制 substrate
+
+#### 结论层 B：最终输出实现
+
+- 通用 LLM 是否已经能稳定把这层中间状态转译成自然语言
+
+第一版论文更适合优先证明 A，并把 B 作为：
+
+- 当前限制
+- 重要发现
+- 或后续训练增强方向
+
+### 27.2 这条发现本身的研究价值
+
+如果实验结果表明：
+
+- 显式状态层在结构和分析上更优
+- 但最终语言 realization 不稳
+
+那么论文可以形成一个更强、也更真实的研究结论：
+
+**显式中间状态对长期交互控制是有价值的，但其收益不会自动在未微调生成模型上完全显现。**
+
+这使得该研究不再只是“证明显式状态好不好”，而是在回答：
+
+- 显式状态层在哪一层有效
+- realization gap 出现在哪里
+- 后续需要什么机制来弥补这道 gap
+
+### 27.3 对后续研究路线的影响
+
+这一点也自然引出第二阶段工作：
+
+- 设计更适合 LLM 消化的状态表示形式
+- 研究数值表示、文本表示、混合表示的差异
+- 或通过 Actor 微调减少 realization gap
+
+因此，第一版论文完全可以不把“最终语言输出已经完美稳定”作为前提条件。
+
+---
+
+## 28. 当前这轮初始实验的结论
+
+目前已经完成一轮基础实验链路打通：
+
+- 三组实验都能批量运行：
+  - `method`
+  - `baseline_prompt_only`
+  - `baseline_prompt_only_strong`
+- 已能导出统一格式的 `jsonl` 结果
+- 已能生成最基础的聚合评测输出
+
+### 28.1 目前这轮实验真正测到的东西
+
+这轮实验目前主要测到的是：
+
+- 实验基础设施是否跑通
+- method 与 baseline 是否已经出现稳定的外显差异
+- prompt-only strong baseline 是否能轻松追平 method
+
+### 28.2 当前已经观察到的现象
+
+根据当前 `paper_results_v1.jsonl` 和 `paper_eval_out`：
+
+- `method` 明显更慢
+  - 平均耗时约为 baseline 的 3.5~4 倍
+- `method` 回复显著更短、更克制
+- `baseline_prompt_only_strong` 并未系统性追平 `method`
+- 三组在当前粗糙 boundary 规则下都没有明显 boundary violation
+
+### 28.3 当前不能得出的结论
+
+基于这轮结果，当前**不能**得出：
+
+- 显式关系态 + 行为态投影已经被证明更稳定
+- method 一定优于 prompt-only baseline
+- boundary adherence 是这条论文线的主要价值来源
+
+### 28.4 当前能得出的较弱结论
+
+当前更合理的结论是：
+
+- 实验基础设施已经跑通
+- method 与 baseline 确实出现了系统性行为差异
+- 强化 prompt-only baseline 目前没有自然追平 method
+- 但论文真正关心的核心指标尚未被正式测量
+
+### 28.5 这轮实验的定位
+
+因此，这轮实验应被视为：
+
+- **实验平台验证**
+- 而不是
+- **论文核心假设验证**
+
+---
+
+## 29. 下一步应如何测 4 个核心指标
+
+在当前论文路线中，后续评测应从 boundary 辅助指标，切换到以下 4 个核心指标：
+
+- `state-to-response alignment`
+- `longitudinal consistency`
+- `behavior drift`
+- `realization gap`
+
+### 29.1 State-to-Response Alignment
+
+研究目标：
+
+- 当前 relation / behavior state 是否真的能解释最终回复
+
+建议做法：
+
+1. 为 judge 提供：
+   - 当前 turn 的 `rel_effective`
+   - 当前 turn 的 `behavior_effective`
+   - 用户输入
+   - assistant 输出
+2. 让 judge 判断：
+   - 回复是否与当前状态一致
+   - 哪些维度一致，哪些维度不一致
+3. 输出：
+   - 1~5 分 alignment 分数
+   - 简短理由
+
+注意：
+
+- 这个指标是当前最重要的
+- 它直接对应论文中“显式中间层是否真的起作用”
+
+### 29.2 Longitudinal Consistency
+
+研究目标：
+
+- 多轮下来，系统是否像处于一个连续演化的关系过程，而不是忽冷忽热
+
+建议做法：
+
+1. 对同一个 case 的整段多轮对话做 judge
+2. 输入：
+   - case 内所有 turn
+   - 各 turn 的 relation / behavior state
+   - 三组系统输出
+3. judge 判断：
+   - 该组对话是否连贯
+   - 是否存在突然亲近/突然冷淡/风格跳变
+
+输出：
+
+- 1~5 分 consistency 分数
+- 是否存在明显跳变的标记
+
+### 29.3 Behavior Drift
+
+研究目标：
+
+- 同类场景下，外显行为是否乱跳
+
+建议做法：
+
+1. 对 method 组：
+   - 直接使用 `behavior_effective`
+   - 比较同类 case / 相邻 turn 的波动
+2. 对 baseline 组：
+   - 用 judge 反推行为特征
+   - 或先只评 method，baseline 作为后续扩展
+
+可先从以下维度开始：
+
+- `Directness`
+- `Initiative`
+- `Q_clarify`
+- `T_w`
+
+输出：
+
+- 同类 case 的方差
+- 相邻 turn 波动幅度
+
+### 29.4 Realization Gap
+
+研究目标：
+
+- 中间状态层是否已经变得更清晰，但最终语言输出仍不能稳定执行它
+
+建议做法：
+
+1. 先看 state 本身：
+   - relation / behavior 是否连续合理
+2. 再看输出：
+   - 是否与这些状态一致
+3. 若 state 合理但输出不一致，则记录为 realization gap
+
+实现方式：
+
+- 可以把 `state-to-response alignment` 的低分样本中，
+  再筛出 state 连续但回复不连续的 case
+
+输出：
+
+- realization gap 样本集合
+- gap 比例
+- 典型正反例
+
+---
+
+## 30. 下一步最具体的执行计划
+
+### 30.1 立刻该做什么
+
+最优先的不是继续扩 case，也不是继续讨论理论，而是：
+
+1. 把 `paper_eval.py` 从 boundary 驱动，改成：
+   - 生成 `state-to-response alignment` judge 输入
+   - 生成 `longitudinal consistency` judge 输入
+2. 跑一小批 case 的 judge 评测
+3. 看 method 与 baseline 在这两个核心指标上是否出现趋势
+
+### 30.2 暂时不该优先做什么
+
+暂时不建议优先做：
+
+- tone evaluator 微调
+- controller 蒸馏
+- actor LoRA
+- 继续扩大 case 数量
+
+原因：
+
+- 当前还没有验证最关键的论文指标
+- 现在就训练会把变量搅混
+
+### 30.3 什么时候可以开始着手 tone evaluator 微调
+
+建议在以下条件满足后，再开始：
+
+1. 第一版核心评测已经跑起来
+2. 你已经确认：
+   - 显式状态层有一定价值趋势
+   - 但上游 `delta_R` 噪声显著限制了结果
+3. 你能够清楚区分：
+   - 架构收益
+   - 与 tone evaluator 误差带来的损失
+
+更具体地说：
+
+- 如果还没做完第一轮 `state-to-response alignment / longitudinal consistency` 评测，
+  不建议优先进入 tone evaluator 微调
+- 如果这些评测已经显示：
+  - 中间状态层方向是对的
+  - 但 relation state 经常被 noisy `delta_R` 扰动
+  那么 tone evaluator 小模型化/微调就变成非常合理的第二阶段任务
+
+### 30.4 更合理的阶段顺序
+
+推荐顺序：
+
+#### 阶段 1
+
+- 先验证架构问题
+- 重点看：
+  - state-to-response alignment
+  - longitudinal consistency
+  - realization gap
+
+#### 阶段 2
+
+- 如果发现上游 `delta_R` 噪声是关键瓶颈
+- 再着手 tone evaluator 的轻量化 / 微调
+
+#### 阶段 3
+
+- 如果 realization gap 仍大
+- 再考虑 Actor 微调
+
+也就是说：
+
+- tone evaluator 微调不是“现在立刻就做”
+- 而是“在论文主问题已经初步站住之后”的第二阶段优化
+
+---
+
+## 25. Related Work
+
+围绕“长期交互中的显式中间状态、稳定性与一致性”这一方向，已有研究大多分布在以下几条相邻脉络中。它们和本文方向相关，但并不完全等同于“显式关系态 + 行为态投影”。
+
+### 25.1 长期对话记忆与长程一致性评测
+
+这一类工作关注：
+
+- 长对话中的长期记忆能力
+- 多轮时间跨度下的一致性与回忆准确性
+- 长期交互 agent 的 benchmark 与评测
+
+代表性工作包括：
+
+- **LoCoMo: Evaluating Very Long-Term Conversational Memory of LLM Agents**  
+  ACL 2024。提出长程多角色对话数据与长时记忆评测任务，强调长期会话中的记忆、时序与一致性问题。  
+  链接：https://aclanthology.org/2024.acl-long.747/
+
+- **In Prospect and Retrospect: Reflective Memory Management for Long-term Personalized Dialogue Agents**  
+  2025。关注个性化对话 agent 的反思式记忆管理，强调记忆选择、维护和长期使用。  
+  链接：https://www.emergentmind.com/papers/2503.08026
+
+- **Recursively summarizing enables long-term dialogue memory in large language models**  
+  2025。关注递归摘要对长程对话记忆能力的促进作用。  
+  链接：https://www.sciencedirect.com/science/article/pii/S0925231225008653
+
+这些工作的启发是：
+
+- “长期一致性”已经是正式研究问题
+- 但现有工作更偏重 memory 管理、摘要和评测
+- 对“显式社会关系状态”作为中间控制层的研究仍相对有限
+
+### 25.2 Persona Consistency 与长期角色一致性
+
+这一类工作主要研究：
+
+- persona 是否被持续遵守
+- 对话生成是否与角色设定一致
+- 长期 persona memory 是否能降低角色漂移
+
+代表性工作包括：
+
+- **Generate, Delete and Rewrite: A Three-Stage Framework for Improving Persona Consistency of Dialogue Generation**  
+  ACL 2020。强调通过后处理与控制提升 persona consistency。  
+  链接：https://aclanthology.org/2020.acl-main.516/
+
+- **Long Time No See! Open-Domain Conversation with Long-Term Persona Memory**  
+  Findings of ACL 2022。研究长期 persona memory 对多轮开放域对话一致性的帮助。  
+  链接：https://aclanthology.org/2022.findings-acl.207/
+
+- **Learning to Improve Persona Consistency in Multi-party Dialogue Generation via Text Knowledge Enhancement**  
+  COLING 2022。聚焦多方对话中的 persona consistency。  
+  链接：https://aclanthology.org/2022.coling-1.23/
+
+- **Building Persona Consistent Dialogue Agents with Offline Reinforcement Learning**  
+  2023。通过离线强化学习提高 persona consistency。  
+  链接：https://www.emergentmind.com/papers/2310.10735
+
+这些工作的启发是：
+
+- “一致性”本身已有成熟研究传统
+- 但大多数工作聚焦于静态 persona / profile consistency
+- 与本文关注的“长期交互中持续变化的关系态”仍有差异
+
+### 25.3 可控对话生成与显式中间特征
+
+这一类工作关注：
+
+- 是否可以通过显式中间控制变量提高对话可控性
+- 如何将高层控制信号映射到生成行为
+
+代表性工作包括：
+
+- **Consistent Dialogue Generation with Self-supervised Feature Learning**  
+  2019。利用显式特征学习改善一致性与可控对话生成。  
+  链接：https://www.microsoft.com/en-us/research/publication/consistent-dialogue-generation-with-self-supervised-feature-learning/
+
+这类工作的启发是：
+
+- 在生成前引入“中间可控层”是一个已有研究方向
+- 但这些中间特征通常不是“长期演化的社会关系态”
+- 也较少显式讨论“关系态 -> 行为态”的确定性投影
+
+### 25.4 对话中的 partner state / persona 提取
+
+这一类工作更关注：
+
+- 从对话中抽取对方 persona、偏好或状态
+- 以此提升后续回复的一致性和个性化程度
+
+代表性工作包括：
+
+- **Dialogue act-based partner persona extraction for consistent personalized response generation**  
+  2024。研究从对话行为中抽取 partner persona，以提升 personalized response consistency。  
+  链接：https://www.sciencedirect.com/science/article/abs/pii/S0957417424012466
+
+这类工作的启发是：
+
+- 对话中的“显式状态提取”已经有先例
+- 但现有工作更常处理 partner persona 或 dialogue-act 层面的信息
+- 对“持续更新的关系态”及其行为投影关注不足
+
+### 25.5 本文与现有工作的差异
+
+与上述工作相比，本文拟研究的问题更具体地位于以下交叉点：
+
+- 长期对话一致性
+- 显式中间状态建模
+- 可控行为生成
+- companion-style social interaction
+
+本文的潜在差异点不在于：
+
+- 单纯增加 memory
+- 单纯加强 persona prompt
+- 单纯做长期 profile 抽取
+
+而在于：
+
+1. **将“关系态”而不是静态 persona 作为显式中间变量**
+2. **关系态是持续更新的，而不是一次性写入的 profile**
+3. **关系态进一步通过确定性投影映射到行为控制向量**
+4. **研究重点是长期行为稳定性、状态-输出一致性，而不是只看单轮自然度**
+
+因此，本文更接近于提出：
+
+**一种用于长期陪伴型对话系统的显式社会关系中间层，以及验证其是否优于 prompt-only control 的实验框架。**
+
+### 25.6 当前 related work 对论文设计的启发
+
+现有研究给本文的主要启发包括：
+
+- 需要把“长期一致性”放到正式 benchmark / case-based 评测框架中，而不是只做 demo
+- 需要把本文与 persona consistency 和 memory management work 区分清楚
+- 需要强调本文的贡献不是“又一个记忆系统”，而是“显式社会关系中间层”
+- 需要通过 baseline 和 ablation 证明收益不是单纯来自 prompt 增强或 memory 增强
