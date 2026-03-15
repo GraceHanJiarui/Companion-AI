@@ -453,3 +453,93 @@
 - 修正研究设计
 - 补公平 baseline
 - 重写主评测
+
+---
+
+## 14. 第二阶段实验组冻结版
+
+第二阶段不再继续扩 baseline 家族，也不再把实验组无限细分。当前冻结为下面 5 组。
+
+### G0. Strong Baseline
+
+- `baseline_relational_instruction`
+
+作用：
+- 作为外部强基线；
+- 代表“单层高层关系指导”的强 prompt 控制路线。
+
+### G1. Single-Layer Relational Control
+
+- `explicit_rel_state_direct`
+
+作用：
+- 代表显式关系态单层控制；
+- 用来回答“单层显式关系控制本身是否优于强 baseline”。
+
+### G2. Two-Layer Relational-Behavior Control
+
+- `explicit_rel_state_projected`
+
+作用：
+- 代表真实链路下的双层控制；
+- 用来回答“真实 two-layer 是否优于 single-layer，以及是否优于强 baseline”。
+
+### G3. Single-Layer Oracle Control
+
+- `explicit_rel_state_direct_oracle`
+
+作用：
+- 用 oracle 关系摘要替代真实 updater；
+- 用来隔离“single-layer 结构本身”的上限。
+
+### G4. Two-Layer Oracle Control
+
+- `explicit_rel_state_projected_oracle`
+
+作用：
+- 用 oracle 关系/行为摘要替代真实 updater；
+- 用来隔离“two-layer 结构本身”的上限。
+
+## 15. 第二阶段默认主比较
+
+第二阶段默认主比较也冻结为下面 4 组对照，不再随意新增。
+
+1. `G1 vs G0`
+- `explicit_rel_state_direct` vs `baseline_relational_instruction`
+- 回答：单层显式关系控制是否优于强 baseline。
+
+2. `G2 vs G1`
+- `explicit_rel_state_projected` vs `explicit_rel_state_direct`
+- 回答：真实链路下，two-layer 是否优于 single-layer。
+
+3. `G4 vs G3`
+- `explicit_rel_state_projected_oracle` vs `explicit_rel_state_direct_oracle`
+- 回答：理想控制信号下，two-layer 结构上限是否优于 single-layer。
+
+4. `G4 vs G0`
+- `explicit_rel_state_projected_oracle` vs `baseline_relational_instruction`
+- 回答：two-layer 的理想上限与强 baseline 的距离。
+
+## 16. 对照但不进入默认主结果表的辅助组
+
+下面这些保留为诊断或补充，不作为第二阶段默认主结果组：
+
+- `baseline_prompt_only`
+- `baseline_prompt_only_strong`
+- `baseline_relational_instruction_oracle_collapsed`
+- `explicit_rel_state_direct_vA/vB/vC`
+- `explicit_rel_state_projected_vA/vB/vC`
+
+它们的用途分别是：
+- prompt-only 家族：保留作早期 baseline 和附录；
+- oracle-collapsed：用于控制信息对齐诊断；
+- vA/vB/vC：用于 prompt-bridge 诊断。
+
+## 17. 第二阶段冻结原则
+
+在 mixed-signal 收尾和第二阶段正式启动之后，除非出现明确证据表明当前分组无法回答核心问题，否则：
+
+- 不再新增新的 baseline 名称；
+- 不再新增新的 prompt 变体主组；
+- 不再把诊断组提升为主结果组；
+- 不再把产品链路中的其他模块混入第二阶段主问题。

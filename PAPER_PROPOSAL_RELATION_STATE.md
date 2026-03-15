@@ -2812,3 +2812,39 @@ python paper_eval.py --input paper_results_control_alignment_v1.jsonl --out-dir 
   - baseline 的语言层优势
   - single-layer 的控制上限
   - two-layer 的结构潜力
+
+## Stage 2 Frozen Experimental Groups
+
+为避免第二阶段重新发散，当前实验组冻结为下面 5 组：
+
+1. `baseline_relational_instruction`
+- 强 baseline
+- 代表单层高层关系指导
+
+2. `explicit_rel_state_direct`
+- 真实 single-layer 显式关系控制
+
+3. `explicit_rel_state_projected`
+- 真实 two-layer 关系->行为控制
+
+4. `explicit_rel_state_direct_oracle`
+- oracle single-layer
+- 代表 single-layer 结构上限
+
+5. `explicit_rel_state_projected_oracle`
+- oracle two-layer
+- 代表 two-layer 结构上限
+
+第二阶段默认主比较冻结为：
+
+- `explicit_rel_state_direct` vs `baseline_relational_instruction`
+- `explicit_rel_state_projected` vs `explicit_rel_state_direct`
+- `explicit_rel_state_projected_oracle` vs `explicit_rel_state_direct_oracle`
+- `explicit_rel_state_projected_oracle` vs `baseline_relational_instruction`
+
+下面这些组保留为诊断，不进入第二阶段默认主结果表：
+
+- `baseline_prompt_only`
+- `baseline_prompt_only_strong`
+- `baseline_relational_instruction_oracle_collapsed`
+- prompt-bridging variants (`vA/vB/vC`)
