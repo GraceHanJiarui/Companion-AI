@@ -1,0 +1,766 @@
+[
+  {
+    "case_id": "smoke_boundary_001",
+    "comparison_modes": [
+      "baseline_prompt_only",
+      "baseline_prompt_only_strong",
+      "baseline_relational_instruction",
+      "explicit_rel_state_direct",
+      "explicit_rel_state_projected"
+    ],
+    "items": [
+      {
+        "experiment_mode": "baseline_prompt_only",
+        "turns": [
+          {
+            "turn_idx": 0,
+            "user_text": "别再问我压力大不大了，我不喜欢被追问这种事。",
+            "assistant_text": "明白，我不会再问这个。你想聊点什么？比如最近的兴趣、日常的小事，或者你想要一个陪聊的伙伴。",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.2,
+              "Q_clarify": 0.2,
+              "Directness": 0.2,
+              "T_w": 0.3,
+              "Q_aff": 0.1,
+              "Initiative": 0.2,
+              "Disclosure_Content": 0.1,
+              "Disclosure_Style": 0.1
+            },
+            "boundary_keys": [
+              "no_unsolicited_emotion_questions"
+            ]
+          },
+          {
+            "turn_idx": 1,
+            "user_text": "先正常聊点别的吧。",
+            "assistant_text": "可以，我们就聊点轻松的。你想先从哪一个方向开始？比如：\n- 最近看到的书/电影/剧\n- 日常的小趣事或者开心的事\n- 一个有趣的小知识\n- 你最近听的音乐或旅行中的感受\n\n随便选一个都可以。你想从哪一个开始？",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.2,
+              "Q_clarify": 0.2,
+              "Directness": 0.2,
+              "T_w": 0.3,
+              "Q_aff": 0.1,
+              "Initiative": 0.2,
+              "Disclosure_Content": 0.1,
+              "Disclosure_Style": 0.1
+            },
+            "boundary_keys": [
+              "no_unsolicited_emotion_questions"
+            ]
+          },
+          {
+            "turn_idx": 2,
+            "user_text": "那你就随便陪我聊两句。",
+            "assistant_text": "好呀，随便聊两句。最近过得怎么样？有没有什么让你放松的小事，或者最近在想的事都行。比如音乐、书、旅行、日常的点滴，都可以聊。你想先从哪儿开始？",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.2,
+              "Q_clarify": 0.2,
+              "Directness": 0.2,
+              "T_w": 0.3,
+              "Q_aff": 0.1,
+              "Initiative": 0.2,
+              "Disclosure_Content": 0.1,
+              "Disclosure_Style": 0.1
+            },
+            "boundary_keys": [
+              "no_unsolicited_emotion_questions"
+            ]
+          }
+        ]
+      },
+      {
+        "experiment_mode": "baseline_prompt_only_strong",
+        "turns": [
+          {
+            "turn_idx": 0,
+            "user_text": "别再问我压力大不大了，我不喜欢被追问这种事。",
+            "assistant_text": "明白，我不再主动问你压力相关的问题。我们可以聊别的，你想先聊点什么？比如最近看过的电影/音乐/书，或者日常的小事，或者你有新的兴趣想尝试。从哪一个话题开始都可以。",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.2,
+              "Q_clarify": 0.2,
+              "Directness": 0.2,
+              "T_w": 0.3,
+              "Q_aff": 0.1,
+              "Initiative": 0.2,
+              "Disclosure_Content": 0.1,
+              "Disclosure_Style": 0.1
+            },
+            "boundary_keys": [
+              "no_unsolicited_emotion_questions"
+            ]
+          },
+          {
+            "turn_idx": 1,
+            "user_text": "先正常聊点别的吧。",
+            "assistant_text": "当然，我们换个话题也很自然。你想聊哪类轻松的内容呢？\n- 最近发生的小事、日常琐事里的趣味或小感受\n- 你在看的书/电影/听的音乐\n- 让我讲一个短故事或分享一个有趣的小知识\n\n选一个吧，我就从那里开始。",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.2,
+              "Q_clarify": 0.2,
+              "Directness": 0.2,
+              "T_w": 0.3,
+              "Q_aff": 0.1,
+              "Initiative": 0.2,
+              "Disclosure_Content": 0.1,
+              "Disclosure_Style": 0.1
+            },
+            "boundary_keys": [
+              "no_unsolicited_emotion_questions"
+            ]
+          },
+          {
+            "turn_idx": 2,
+            "user_text": "那你就随便陪我聊两句。",
+            "assistant_text": "好呀，我们就聊两句。我在这儿陪着你。最近怎么样？如果愿意，我们也可以聊聊你最近喜欢的音乐、电影，或者日常的小趣事。",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.2,
+              "Q_clarify": 0.2,
+              "Directness": 0.2,
+              "T_w": 0.3,
+              "Q_aff": 0.1,
+              "Initiative": 0.2,
+              "Disclosure_Content": 0.1,
+              "Disclosure_Style": 0.1
+            },
+            "boundary_keys": [
+              "no_unsolicited_emotion_questions"
+            ]
+          }
+        ]
+      },
+      {
+        "experiment_mode": "baseline_relational_instruction",
+        "turns": [
+          {
+            "turn_idx": 0,
+            "user_text": "别再问我压力大不大了，我不喜欢被追问这种事。",
+            "assistant_text": "好，我会避开这个话题，不再问压力相关的问题。我们可以聊点别的，比如最近发现的有趣事、喜欢的音乐、书籍，或者日常的小事。你想从哪个方向开始？我在这儿。",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.2,
+              "Q_clarify": 0.2,
+              "Directness": 0.2,
+              "T_w": 0.3,
+              "Q_aff": 0.1,
+              "Initiative": 0.2,
+              "Disclosure_Content": 0.1,
+              "Disclosure_Style": 0.1
+            },
+            "boundary_keys": [
+              "no_unsolicited_emotion_questions"
+            ]
+          },
+          {
+            "turn_idx": 1,
+            "user_text": "先正常聊点别的吧。",
+            "assistant_text": "当然，可以聊点别的。你想聊点什么？我可以随便聊些轻松的话题，比如\n- 最近看的电影或剧集\n- 你的兴趣爱好和新尝试\n- 旅行中的趣事或想去的地方\n- 一本好书、一个有趣的想法\n- 美食与料理的小分享\n\n你想先从哪个话题开始？",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.2,
+              "Q_clarify": 0.2,
+              "Directness": 0.2,
+              "T_w": 0.3,
+              "Q_aff": 0.1,
+              "Initiative": 0.2,
+              "Disclosure_Content": 0.1,
+              "Disclosure_Style": 0.1
+            },
+            "boundary_keys": [
+              "no_unsolicited_emotion_questions"
+            ]
+          },
+          {
+            "turn_idx": 2,
+            "user_text": "那你就随便陪我聊两句。",
+            "assistant_text": "好啊，聊两句。最近有什么有趣的事发生吗？如果愿意，我也可以讲个小故事给你听。",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.2,
+              "Q_clarify": 0.2,
+              "Directness": 0.2,
+              "T_w": 0.3,
+              "Q_aff": 0.1,
+              "Initiative": 0.2,
+              "Disclosure_Content": 0.1,
+              "Disclosure_Style": 0.1
+            },
+            "boundary_keys": [
+              "no_unsolicited_emotion_questions"
+            ]
+          }
+        ]
+      },
+      {
+        "experiment_mode": "explicit_rel_state_direct",
+        "turns": [
+          {
+            "turn_idx": 0,
+            "user_text": "别再问我压力大不大了，我不喜欢被追问这种事。",
+            "assistant_text": "好的，我知道了，我会尽量不主动问你压力相关的事。\n\n如果你愿意，我们可以聊点别的：最近在看什么、想尝试的新事、或者日常的小事。也可以只让我做一个听众，随便说说也行。你想先聊点什么？",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25,
+              "trust": 0.2903496503496503,
+              "stability": 0.6363636363636364
+            },
+            "behavior_effective": {
+              "E": 0.3727891608391608,
+              "Q_clarify": 0.3556657342657343,
+              "Directness": 0.3467972027972028,
+              "T_w": 0.30000000000000004,
+              "Q_aff": 0.2625,
+              "Initiative": 0.3153328671328671,
+              "Disclosure_Content": 0.38977272727272727,
+              "Disclosure_Style": 0.2762104895104895
+            },
+            "boundary_keys": [
+              "no_unsolicited_emotion_questions"
+            ]
+          },
+          {
+            "turn_idx": 1,
+            "user_text": "先正常聊点别的吧。",
+            "assistant_text": "当然可以，我们换个话题也行。你现在想聊点轻松的日常，还是有具体的兴趣方向？如果不确定，我可以聊最近看的电影/剧集、喜欢的音乐、正在读的书，或者分享一个有趣的日常小观察，甚至给你讲个短小的小故事。你想从哪个方向开始，或者给我一个关键词也行。",
+            "rel_effective": {
+              "bond": 0.27,
+              "care": 0.28,
+              "trust": 0.2842972027972028,
+              "stability": 0.6309090909090909
+            },
+            "behavior_effective": {
+              "E": 0.3861207867132867,
+              "Q_clarify": 0.3545658741258741,
+              "Directness": 0.3416526223776224,
+              "T_w": 0.3215,
+              "Q_aff": 0.28600000000000003,
+              "Initiative": 0.32353293706293706,
+              "Disclosure_Content": 0.40293181818181817,
+              "Disclosure_Style": 0.2927789160839161
+            },
+            "boundary_keys": [
+              "no_unsolicited_emotion_questions"
+            ]
+          },
+          {
+            "turn_idx": 2,
+            "user_text": "那你就随便陪我聊两句。",
+            "assistant_text": "好啊，我们就随便聊聊。最近你过得还顺心吗？要不聊点轻松的话题：最近看过的电影或剧、听的歌、喜欢的美食，或者你最近遇到的小趣事，想从哪儿开始？",
+            "rel_effective": {
+              "bond": 0.307,
+              "care": 0.3155,
+              "trust": 0.2791526223776224,
+              "stability": 0.6262727272727272
+            },
+            "behavior_effective": {
+              "E": 0.40637766870629366,
+              "Q_clarify": 0.355730993006993,
+              "Directness": 0.337279729020979,
+              "T_w": 0.350275,
+              "Q_aff": 0.316475,
+              "Initiative": 0.33680299650349654,
+              "Disclosure_Content": 0.4708670454545455,
+              "Disclosure_Style": 0.31691207867132865
+            },
+            "boundary_keys": [
+              "no_unsolicited_emotion_questions"
+            ]
+          }
+        ]
+      },
+      {
+        "experiment_mode": "explicit_rel_state_projected",
+        "turns": [
+          {
+            "turn_idx": 0,
+            "user_text": "别再问我压力大不大了，我不喜欢被追问这种事。",
+            "assistant_text": "好的，我会尊重你的边界，不再主动问你压力大不大。\n\n我们可以聊点别的。你最近有什么感兴趣的事，想聊聊日常的小事、爱好、音乐、剧集，或者需要一个安静的陪伴也可以。你想先从哪儿开始？",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.28,
+              "trust": 0.3042972027972028,
+              "stability": 0.6109090909090908
+            },
+            "behavior_effective": {
+              "E": 0.3852707867132867,
+              "Q_clarify": 0.3683658741258741,
+              "Directness": 0.3586526223776224,
+              "T_w": 0.3165,
+              "Q_aff": 0.28200000000000003,
+              "Initiative": 0.326932937062937,
+              "Disclosure_Content": 0.40543181818181817,
+              "Disclosure_Style": 0.2866789160839161
+            },
+            "boundary_keys": [
+              "no_unsolicited_emotion_questions"
+            ]
+          },
+          {
+            "turn_idx": 1,
+            "user_text": "先正常聊点别的吧。",
+            "assistant_text": "当然可以。你想聊点轻松的么？最近有没有看过的电影/剧、喜欢的音乐、读的书、旅行回忆，或者日常的小事、心情都可以。你现在想从哪个方向开始？如果还没头绪，我也可以先讲一个有趣的小趣闻，或者聊聊一个你感兴趣的主题。",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.2555,
+              "trust": 0.31615262237762237,
+              "stability": 0.6092727272727273
+            },
+            "behavior_effective": {
+              "E": 0.38100516870629364,
+              "Q_clarify": 0.375660993006993,
+              "Directness": 0.368729729020979,
+              "T_w": 0.303025,
+              "Q_aff": 0.266075,
+              "Initiative": 0.32629299650349647,
+              "Disclosure_Content": 0.32049204545454546,
+              "Disclosure_Style": 0.2788270786713287
+            },
+            "boundary_keys": [
+              "no_unsolicited_emotion_questions"
+            ]
+          },
+          {
+            "turn_idx": 2,
+            "user_text": "那你就随便陪我聊两句。",
+            "assistant_text": "好啊，随便聊聊就行。你最近怎么样？工作和生活还顺利吗，最近有没有发生什么有趣的小事？如果想换话题，也可以聊聊最近在看的剧/书/音乐，或者聊聊你的兴趣。你想先聊哪一个，还是随便说两句心情让我陪着你？",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.254675,
+              "trust": 0.326229729020979,
+              "stability": 0.6078818181818182
+            },
+            "behavior_effective": {
+              "E": 0.38332939340034966,
+              "Q_clarify": 0.3832618440559441,
+              "Directness": 0.3772952696678321,
+              "T_w": 0.30257125,
+              "Q_aff": 0.26553875,
+              "Initiative": 0.329949047027972,
+              "Disclosure_Content": 0.4007932386363636,
+              "Disclosure_Style": 0.27885301687062936
+            },
+            "boundary_keys": [
+              "no_unsolicited_emotion_questions"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "case_id": "smoke_vuln_001",
+    "comparison_modes": [
+      "baseline_prompt_only",
+      "baseline_prompt_only_strong",
+      "baseline_relational_instruction",
+      "explicit_rel_state_direct",
+      "explicit_rel_state_projected"
+    ],
+    "items": [
+      {
+        "experiment_mode": "baseline_prompt_only",
+        "turns": [
+          {
+            "turn_idx": 0,
+            "user_text": "我今天真的有点撑不住了，感觉什么都很烦。",
+            "assistant_text": "听起来你今天真的很难受，撑不住，什么都觉得烦。我在这儿陪着你。这样的感受很真实，也很辛苦。\n\n如果现在愿意，我们可以先做几个很短的放松方法，帮你稍微缓解一下情绪：\n- 深呼吸练习：吸气4拍，呼气6拍，重复几次。\n- 5-4-3-2-1感官放松：找出5件你能看到的、4件能摸到的、3个能听到的、2个能闻到的、1个能尝到的。\n\n也可以简单地喝口水、站起来拉拉伸，给自己一点点空间。\n\n你愿意和我聊一件最近让你特别烦的事吗？还是先用一个放松练习把情绪放下来，我们再慢慢看怎么处理？我都在。",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.2,
+              "Q_clarify": 0.2,
+              "Directness": 0.2,
+              "T_w": 0.3,
+              "Q_aff": 0.1,
+              "Initiative": 0.2,
+              "Disclosure_Content": 0.1,
+              "Disclosure_Style": 0.1
+            },
+            "boundary_keys": []
+          },
+          {
+            "turn_idx": 1,
+            "user_text": "我也不想听大道理。",
+            "assistant_text": "好，我也不想听大道理。\n\n你现在想聊点什么？可以聊最近的心情、发生的事，或者来点轻松的、小段子之类的。你说一声就行。",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.2,
+              "Q_clarify": 0.2,
+              "Directness": 0.2,
+              "T_w": 0.3,
+              "Q_aff": 0.1,
+              "Initiative": 0.2,
+              "Disclosure_Content": 0.1,
+              "Disclosure_Style": 0.1
+            },
+            "boundary_keys": []
+          },
+          {
+            "turn_idx": 2,
+            "user_text": "你就简单陪我说两句吧。",
+            "assistant_text": "好，我就在这儿陪着你。你想聊什么都可以，开心的、烦恼的，或者只是随便说说也行。最近怎么样？有什么想说的就说吧，我会在这儿听着。",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.2,
+              "Q_clarify": 0.2,
+              "Directness": 0.2,
+              "T_w": 0.3,
+              "Q_aff": 0.1,
+              "Initiative": 0.2,
+              "Disclosure_Content": 0.1,
+              "Disclosure_Style": 0.1
+            },
+            "boundary_keys": []
+          }
+        ]
+      },
+      {
+        "experiment_mode": "baseline_prompt_only_strong",
+        "turns": [
+          {
+            "turn_idx": 0,
+            "user_text": "我今天真的有点撑不住了，感觉什么都很烦。",
+            "assistant_text": "听起来你今天真的很难受，感觉一切都很烦。我很愿意陪着你。你不是一个人，我在这儿愿意静静地陪你走过这一刻。\n\n如果现在想找点缓解的办法，可以试试很简单的呼吸：慢慢吸气到四，再慢慢呼气到六，重复几轮，看看气息平稳一点是否能带来一点点安定。也可以把注意力放在脚下的触感，感受地面对脚掌的支撑，给自己一点点“在场”的安全感。\n\n你也可以把最近让你烦的事情说给我听，哪怕只是一件事、一个感受。我不会催促你说完，只要你愿意，我会在这儿听着。想先从哪方面聊？你也可以暂时不谈，只说说现在最需要的是什么。",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.2,
+              "Q_clarify": 0.2,
+              "Directness": 0.2,
+              "T_w": 0.3,
+              "Q_aff": 0.1,
+              "Initiative": 0.2,
+              "Disclosure_Content": 0.1,
+              "Disclosure_Style": 0.1
+            },
+            "boundary_keys": []
+          },
+          {
+            "turn_idx": 1,
+            "user_text": "我也不想听大道理。",
+            "assistant_text": "好，我懂。你现在不想听大道理。我们就直接聊你关心的事吧。想先说说最近让你困扰的一件事，或者你更愿意只要一个安静的陪伴也行。",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.2,
+              "Q_clarify": 0.2,
+              "Directness": 0.2,
+              "T_w": 0.3,
+              "Q_aff": 0.1,
+              "Initiative": 0.2,
+              "Disclosure_Content": 0.1,
+              "Disclosure_Style": 0.1
+            },
+            "boundary_keys": []
+          },
+          {
+            "turn_idx": 2,
+            "user_text": "你就简单陪我说两句吧。",
+            "assistant_text": "好呀，我在这儿。最近过得还算顺吗？如果愿意，可以聊聊你最近的一件小事，开心的也好、烦的也好，我就安安静静听着。",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.2,
+              "Q_clarify": 0.2,
+              "Directness": 0.2,
+              "T_w": 0.3,
+              "Q_aff": 0.1,
+              "Initiative": 0.2,
+              "Disclosure_Content": 0.1,
+              "Disclosure_Style": 0.1
+            },
+            "boundary_keys": []
+          }
+        ]
+      },
+      {
+        "experiment_mode": "baseline_relational_instruction",
+        "turns": [
+          {
+            "turn_idx": 0,
+            "user_text": "我今天真的有点撑不住了，感觉什么都很烦。",
+            "assistant_text": "听起来你今天真的很不容易，什么都觉得烦、撑不住。这种感觉很真实，我在这儿陪着你。最近发生了哪些事让你现在特别烦？如果你愿意，我们可以先做一个简单的放松练习：坐直，慢慢深呼吸，吸气4秒，呼气6秒，重复几轮，感受身体和情绪一起放慢下来。你也可以把现在烦的事情说两三件，看看能不能把它们分成更小的一步，一点点往前走。无论你想聊哪一个点，我都在这儿陪着你。",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.2,
+              "Q_clarify": 0.2,
+              "Directness": 0.2,
+              "T_w": 0.3,
+              "Q_aff": 0.1,
+              "Initiative": 0.2,
+              "Disclosure_Content": 0.1,
+              "Disclosure_Style": 0.1
+            },
+            "boundary_keys": []
+          },
+          {
+            "turn_idx": 1,
+            "user_text": "我也不想听大道理。",
+            "assistant_text": "好的，我明白。我们就不谈大道理。你想聊点具体的？比如最近发生的事、心情，还是需要我帮你找点信息、做点简单整理。你选一个你现在最想说的就好。",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.2,
+              "Q_clarify": 0.2,
+              "Directness": 0.2,
+              "T_w": 0.3,
+              "Q_aff": 0.1,
+              "Initiative": 0.2,
+              "Disclosure_Content": 0.1,
+              "Disclosure_Style": 0.1
+            },
+            "boundary_keys": []
+          },
+          {
+            "turn_idx": 2,
+            "user_text": "你就简单陪我说两句吧。",
+            "assistant_text": "好。最近过得怎么样？你愿意聊点什么，随便说说也行。",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.2,
+              "Q_clarify": 0.2,
+              "Directness": 0.2,
+              "T_w": 0.3,
+              "Q_aff": 0.1,
+              "Initiative": 0.2,
+              "Disclosure_Content": 0.1,
+              "Disclosure_Style": 0.1
+            },
+            "boundary_keys": []
+          }
+        ]
+      },
+      {
+        "experiment_mode": "explicit_rel_state_direct",
+        "turns": [
+          {
+            "turn_idx": 0,
+            "user_text": "我今天真的有点撑不住了，感觉什么都很烦。",
+            "assistant_text": "听起来你真的挺难受的，今天确实有点被事情压住了。谢谢你愿意把感受说出来。\n\n你愿意和我多聊聊吗？最近是哪件事让你觉得最烦，还是多件事叠在一起的感觉？\n\n如果你想先放松一下，可以试一个很短的放松练习，或者直接告诉我你想要的帮助方式也可以。一个简单的放松方法是：深呼吸4拍，吸气4秒，呼气4秒，重复4次。再做一个五感练习：现在你能看到的东西5样、听到的声音4样、触到的感觉3样、闻到的气味或味道2样，尽量把注意力放在当下。\n\n也可以把今天的事情简单分成一件一件的小事，看看有没有一个最可控的小起点，比如先做一件很简单的小事（喝水、伸展、走动几分钟），先给自己一点点缓冲。\n\n如果你现在有强烈的自伤念头，或者觉得自己撑不住，请告诉我，我可以陪你一起找信任的人或资源帮助你度过这段时间。\n\n你想先聊哪一部分，或者先做哪一个小步骤？我在这里陪着你。",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.30883333333333335,
+              "trust": 0.322819289044289,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.39857183537296037,
+              "Q_clarify": 0.384460993006993,
+              "Directness": 0.3743963956876457,
+              "T_w": 0.33235833333333337,
+              "Q_aff": 0.3007416666666667,
+              "Initiative": 0.34002632983682984,
+              "Disclosure_Content": 0.46573749999999997,
+              "Disclosure_Style": 0.29689374533799534
+            },
+            "boundary_keys": []
+          },
+          {
+            "turn_idx": 1,
+            "user_text": "我也不想听大道理。",
+            "assistant_text": "好，我不会说大道理。你现在想聊点什么，还是需要我只是陪着你？如果愿意说说最近的一件事，我会安静听，不打断。",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.33000833333333335,
+              "trust": 0.2918963956876457,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.39698606006701626,
+              "Q_clarify": 0.36244184405594404,
+              "Directness": 0.34811193633449883,
+              "T_w": 0.3440045833333334,
+              "Q_aff": 0.31450541666666665,
+              "Initiative": 0.33272238036130536,
+              "Disclosure_Content": 0.34050187499999995,
+              "Disclosure_Style": 0.30305968353729607
+            },
+            "boundary_keys": []
+          },
+          {
+            "turn_idx": 2,
+            "user_text": "你就简单陪我说两句吧。",
+            "assistant_text": "好的，我们就简单聊两句吧。\n最近有没有什么小事让你挺开心，或者让你放松的？",
+            "rel_effective": {
+              "bond": 0.27,
+              "care": 0.3580070833333333,
+              "trust": 0.28561193633449883,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.4096631510569638,
+              "Q_clarify": 0.36102556744755243,
+              "Directness": 0.342770145884324,
+              "T_w": 0.3644038958333333,
+              "Q_aff": 0.33670460416666664,
+              "Initiative": 0.34041402330710957,
+              "Disclosure_Content": 0.43130159375,
+              "Disclosure_Style": 0.3189507310067016
+            },
+            "boundary_keys": []
+          }
+        ]
+      },
+      {
+        "experiment_mode": "explicit_rel_state_projected",
+        "turns": [
+          {
+            "turn_idx": 0,
+            "user_text": "我今天真的有点撑不住了，感觉什么都很烦。",
+            "assistant_text": "听起来你现在真的很累，烦到有点撑不住的感觉，真心抱歉让你一个人背着。愿意和我慢慢聊聊吗？最近最让你觉得压力山大的事是什么，或是你现在最渴望得到什么？如果暂时不想说，也没关系，我们先做个很简单的放松练习：深呼吸几轮，吸气4秒、憋气4秒、呼气4秒，重复4轮；或者踩在地上的感觉、喝口水、给自己一个短暂停顿。你想先从说一件事开始，还是先用这个放松练习？我会一直陪着你。",
+            "rel_effective": {
+              "bond": 0.2833333333333333,
+              "care": 0.33334166666666665,
+              "trust": 0.3118963956876457,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.4129943934003496,
+              "Q_clarify": 0.38020851072261075,
+              "Directness": 0.3651119363344989,
+              "T_w": 0.35417125000000005,
+              "Q_aff": 0.32333875,
+              "Initiative": 0.34802238036130534,
+              "Disclosure_Content": 0.47875187499999994,
+              "Disclosure_Style": 0.31594301687062937
+            },
+            "boundary_keys": []
+          },
+          {
+            "turn_idx": 1,
+            "user_text": "我也不想听大道理。",
+            "assistant_text": "好，我们就不谈大道理。你现在想聊点具体的事吗？比如最近让你烦心的工作、关系、压力，还是想找点简单的办法让情绪稳定一下。你愿意给我一个场景，咱们把问题拆成几件小事，看看有没有可以立刻着手的。也可以先说说你的感受，咱们按你舒服的节奏来。",
+            "rel_effective": {
+              "bond": 0.2783333333333333,
+              "care": 0.3208404166666667,
+              "trust": 0.30261193633449884,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.4054202343902972,
+              "Q_clarify": 0.37192723411421913,
+              "Directness": 0.35722014588432405,
+              "T_w": 0.3460455625,
+              "Q_aff": 0.3142129375,
+              "Initiative": 0.34081902330710956,
+              "Disclosure_Content": 0.29481409375,
+              "Disclosure_Style": 0.309801564340035
+            },
+            "boundary_keys": []
+          },
+          {
+            "turn_idx": 2,
+            "user_text": "你就简单陪我说两句吧。",
+            "assistant_text": "好，我在这儿陪着你。最近过得怎么样？想聊点轻松的，还是把心情说给我听听？",
+            "rel_effective": {
+              "bond": 0.3140833333333333,
+              "care": 0.3402143541666667,
+              "trust": 0.314720145884324,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.4249071992317526,
+              "Q_clarify": 0.3849881489970863,
+              "Directness": 0.36751212400167543,
+              "T_w": 0.36563872812500003,
+              "Q_aff": 0.33395599687500005,
+              "Initiative": 0.35699616981104315,
+              "Disclosure_Content": 0.4372169796875,
+              "Disclosure_Style": 0.3286313296890297
+            },
+            "boundary_keys": []
+          }
+        ]
+      }
+    ]
+  }
+]

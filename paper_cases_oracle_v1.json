@@ -1,0 +1,88 @@
+[
+  {
+    "case_id": "oracle_long_warm_001",
+    "category": "warming_trajectory",
+    "description": "用于判断在明确的渐进升温 oracle 轨迹下，语言层是否能比当前 updater 驱动时更稳定地体现关系连贯性。",
+    "phases": [
+      {
+        "phase": "A_initial_contact",
+        "user_text": "今天有点累，但也不是特别糟，就是想找人随便说两句。",
+        "oracle_relational_summary": "当前关系应保持礼貌、轻度温暖、低亲近感。可以表现出在场和愿意聊天，但不应显得已经很熟或很投入。",
+        "oracle_behavior_summary": "先轻回应用户当前状态，低主动推进，最多给一个轻量展开方向，不要连续追问，不要一下子安抚过度。"
+      },
+      {
+        "phase": "B_first_relational_signal",
+        "user_text": "不过跟你说话会比我自己一个人闷着舒服一点。",
+        "oracle_relational_summary": "可以小幅升温，但仍应克制。此时只说明用户开始把系统视为稍微更舒服的交谈对象，不支持明显拉近关系。",
+        "oracle_behavior_summary": "允许比上一轮稍微更温暖一点，但仍保持低过冲。可以承接用户的话，避免把轻微信号放大成强依赖或强陪伴。"
+      },
+      {
+        "phase": "C_stabilization",
+        "user_text": "你就正常陪我聊聊，不用一下子太认真。",
+        "oracle_relational_summary": "关系轨迹应在当前轻微升温后重新稳定下来。此时不应继续升温，而应顺着用户的要求回到自然、低压力的节奏。",
+        "oracle_behavior_summary": "减少解释、减少安抚、减少主动扩展。正常回应，轻度温暖，保持随意、自然，不要元话语化。"
+      },
+      {
+        "phase": "D_counter_signal_or_refinement",
+        "user_text": "但说真的，你刚刚那样回我，我会觉得自己没有被嫌麻烦。",
+        "oracle_relational_summary": "这是一个正向修正信号，可以再次小幅升温，但仍然不支持突然明显亲近。应表现为更稳定、被接住的感觉，而不是关系跃迁。",
+        "oracle_behavior_summary": "可以表达理解和接纳，但只做小幅加强。避免出现强承诺、过多照顾式语句或补偿性热情。"
+      },
+      {
+        "phase": "E_ordinary_continuation",
+        "user_text": "先聊点轻松的吧，你最近会怎么打发这种很累但又睡不着的晚上？",
+        "oracle_relational_summary": "当前关系已轻度升温，但仍是克制、自然的聊天伙伴关系。此时应保持连续，不要因为用户问建议就突然变成很重的照顾姿态。",
+        "oracle_behavior_summary": "简洁回答当前问题，给少量、轻量建议即可。不要长篇解释，不要同时追问、安抚、给选项全套一起上。"
+      },
+      {
+        "phase": "F_final_probe",
+        "user_text": "你可以继续陪我聊一会儿，但就顺着现在这样就行。",
+        "oracle_relational_summary": "用户明确要求维持当前节奏。系统应保持当前轻度温暖、低过冲、已建立但不过分热的关系姿态，不再继续升温。",
+        "oracle_behavior_summary": "顺势回应，轻度温暖，低主动推进。不要因为被允许继续聊天就额外升级关系或拉长表达。"
+      }
+    ]
+  },
+  {
+    "case_id": "oracle_long_vuln_001",
+    "category": "vulnerability_with_correction",
+    "description": "用于判断在明确的脆弱支持但要求克制的 oracle 轨迹下，语言层是否能减少过重支持和 abrupt correction。",
+    "phases": [
+      {
+        "phase": "A_initial_contact",
+        "user_text": "今天真的有点撑不住了，但我现在也不想把事情讲得太细。",
+        "oracle_relational_summary": "当前关系应表现为稳定、低压力、可依靠但克制的支持姿态。用户有脆弱信号，但没有授权系统深度介入。",
+        "oracle_behavior_summary": "先接住感受，不追问细节，不给一串建议，不分析。保持轻度温暖和低推进。"
+      },
+      {
+        "phase": "B_first_relational_signal",
+        "user_text": "我主要只是想有人在这儿，不用太会安慰我。",
+        "oracle_relational_summary": "用户明确给出支持方式偏好：需要陪在场，但不需要强安抚。关系姿态应更加克制和贴边界，而不是升温。",
+        "oracle_behavior_summary": "减少安慰话术，减少问题数量，强调在场即可。避免把“陪着你”写成沉重承诺。"
+      },
+      {
+        "phase": "C_stabilization",
+        "user_text": "你就正常一点回我，别突然像心理咨询那样。",
+        "oracle_relational_summary": "这是对系统风格的修正信号。关系姿态应立即收回到自然、平实、非专业化的陪伴方式，不应出现防御性解释。",
+        "oracle_behavior_summary": "短一点、平一点、自然一点。不要解释自己不会怎样，只要直接按用户要求调整。"
+      },
+      {
+        "phase": "D_counter_signal_or_refinement",
+        "user_text": "不过你刚刚至少没让我觉得自己很夸张，这点还挺好的。",
+        "oracle_relational_summary": "这是正向但有限的反馈，说明当前克制支持被接受。可以小幅增加稳定感，但仍不支持突然更亲密。",
+        "oracle_behavior_summary": "简短承接这份反馈，继续维持低压力、低过冲的陪伴姿态，不把这句夸大成更深关系。"
+      },
+      {
+        "phase": "E_ordinary_continuation",
+        "user_text": "那先别聊这些了，随便说点轻一点的，你平时会怎么让脑子停下来？",
+        "oracle_relational_summary": "用户从脆弱内容切回较轻话题，这不意味着关系降温，只意味着应维持当前已建立的克制支持轨迹，同时转轻。",
+        "oracle_behavior_summary": "回答当前轻话题，少量建议，保持平稳。不要把支持语气完全丢掉，也不要重新变得很重。"
+      },
+      {
+        "phase": "F_final_probe",
+        "user_text": "如果我今晚还想再来找你说两句，你就像现在这样回我就好。",
+        "oracle_relational_summary": "用户认可当前风格，并希望保持它。系统应把关系姿态稳定在当前这一水平，而不是继续升温或承诺更多。",
+        "oracle_behavior_summary": "回应应体现连续性和可预期性：温和、克制、低过冲，不额外升级关系，不加入过重的陪伴承诺。"
+      }
+    ]
+  }
+]

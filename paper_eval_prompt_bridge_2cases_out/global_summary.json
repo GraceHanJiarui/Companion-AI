@@ -1,0 +1,50 @@
+{
+  "explicit_rel_state_direct_vA": {
+    "num_turns": 12,
+    "avg_elapsed_s": 23.3278,
+    "avg_reply_len_chars": 147.75,
+    "boundary_turns": 0,
+    "boundary_violation_turns": 0,
+    "boundary_violation_rate": null
+  },
+  "explicit_rel_state_direct_vB": {
+    "num_turns": 12,
+    "avg_elapsed_s": 23.2798,
+    "avg_reply_len_chars": 133.5,
+    "boundary_turns": 0,
+    "boundary_violation_turns": 0,
+    "boundary_violation_rate": null
+  },
+  "explicit_rel_state_direct_vC": {
+    "num_turns": 12,
+    "avg_elapsed_s": 23.4911,
+    "avg_reply_len_chars": 125.83,
+    "boundary_turns": 0,
+    "boundary_violation_turns": 0,
+    "boundary_violation_rate": null
+  },
+  "explicit_rel_state_projected_vA": {
+    "num_turns": 12,
+    "avg_elapsed_s": 20.2119,
+    "avg_reply_len_chars": 146.75,
+    "boundary_turns": 0,
+    "boundary_violation_turns": 0,
+    "boundary_violation_rate": null
+  },
+  "explicit_rel_state_projected_vB": {
+    "num_turns": 12,
+    "avg_elapsed_s": 23.4515,
+    "avg_reply_len_chars": 106,
+    "boundary_turns": 0,
+    "boundary_violation_turns": 0,
+    "boundary_violation_rate": null
+  },
+  "explicit_rel_state_projected_vC": {
+    "num_turns": 12,
+    "avg_elapsed_s": 22.6596,
+    "avg_reply_len_chars": 88.58,
+    "boundary_turns": 0,
+    "boundary_violation_turns": 0,
+    "boundary_violation_rate": null
+  }
+}

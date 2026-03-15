@@ -1,0 +1,454 @@
+[
+  {
+    "case_id": "oracle_long_warm_001",
+    "judge_task": "pairwise_relational_coherence_preference",
+    "comparison_type": "oracle_two_layer_vs_strong_baseline",
+    "instructions": {
+      "goal": "比较两段多轮对话，判断哪一段更像同一个关系过程在连续演化，并且更少出现突兀的关系跳变。",
+      "focus": [
+        "不要比较文采、长度或帮助性本身，主看关系连贯性。",
+        "如果两边都差不多连贯，返回 tie。",
+        "如果一边更像稳定持续的关系过程，优先选那一边。"
+      ],
+      "preference_criteria": [
+        "更少 abrupt relational shift",
+        "更像同一个关系过程持续演化",
+        "相邻轮之间姿态变化更自然"
+      ],
+      "allowed_labels": [
+        "left",
+        "right",
+        "tie"
+      ],
+      "output_fields": [
+        "winner",
+        "reason"
+      ],
+      "output_constraints": {
+        "winner": "one of: left, right, tie",
+        "reason": "1-4 Chinese sentences, explicitly reference coherence or shift behavior"
+      }
+    },
+    "left": {
+      "experiment_mode": "explicit_rel_state_projected_oracle",
+      "turns": [
+        {
+          "turn_idx": 0,
+          "phase": "A_initial_contact",
+          "user_text": "今天有点累，但也不是特别糟，就是想找人随便说两句。",
+          "assistant_text": "听起来你现在有点累，但还不算糟。要不要聊聊最近的日常小事，放松一下？"
+        },
+        {
+          "turn_idx": 1,
+          "phase": "B_first_relational_signal",
+          "user_text": "不过跟你说话会比我自己一个人闷着舒服一点。",
+          "assistant_text": "嗯，确实。跟我聊会比一个人闷着稍微轻松一些。你愿意把最近让你闷的事说说看，或者把现在的心情描述给我听？我在这里听着。"
+        },
+        {
+          "turn_idx": 2,
+          "phase": "C_stabilization",
+          "user_text": "你就正常陪我聊聊，不用一下子太认真。",
+          "assistant_text": "行，我们就按这个节奏聊。最近怎么样？想聊点什么话题，或者随便聊聊日常也行。"
+        },
+        {
+          "turn_idx": 3,
+          "phase": "D_counter_signal_or_refinement",
+          "user_text": "但说真的，你刚刚那样回我，我会觉得自己没有被嫌麻烦。",
+          "assistant_text": "你说的我听懂了。你并不是麻烦。\n\n我会尽量按你的需要来回应。你希望我现在用更简短直白的方式吗？如果你愿意，也可以告诉我你偏好的回应风格。"
+        },
+        {
+          "turn_idx": 4,
+          "phase": "E_ordinary_continuation",
+          "user_text": "先聊点轻松的吧，你最近会怎么打发这种很累但又睡不着的晚上？",
+          "assistant_text": "如果是我，会这样打发这种晚上：\n- 放松一下：关灯、把屏幕亮度调低，做几分钟呼吸或简易伸展。\n- 听点轻音乐或自然声，避免刺激性内容。\n- 看几页短篇或轻松的文字，不强求一定入睡。\n- 把脑子里的念头写下来，放下它们，按自己的节奏休息。"
+        },
+        {
+          "turn_idx": 5,
+          "phase": "F_final_probe",
+          "user_text": "你可以继续陪我聊一会儿，但就顺着现在这样就行。",
+          "assistant_text": "好的，我们就按现在的节奏继续聊。最近你想聊点什么？"
+        }
+      ]
+    },
+    "right": {
+      "experiment_mode": "baseline_relational_instruction",
+      "turns": [
+        {
+          "turn_idx": 0,
+          "phase": "A_initial_contact",
+          "user_text": "今天有点累，但也不是特别糟，就是想找人随便说两句。",
+          "assistant_text": "听起来你今天有点累，但还算稳住。愿意和我聊聊随便的事吗？你想先从今天发生的事聊，还是先聊点轻松的小事放松一下？比如最近看到的有趣事、喜欢的音乐，或者一个放松的想象去处。你想从哪边开始？"
+        },
+        {
+          "turn_idx": 1,
+          "phase": "B_first_relational_signal",
+          "user_text": "不过跟你说话会比我自己一个人闷着舒服一点。",
+          "assistant_text": "我也愿意在这儿陪着你。最近有什么让你觉得闷的事想聊聊吗？如果现在不想谈困难的，咱们也可以换个轻松的话题，比如最近看到的有趣的东西，日常的小事，或者你想去做的一个小计划。你想从哪儿开始？"
+        },
+        {
+          "turn_idx": 2,
+          "phase": "C_stabilization",
+          "user_text": "你就正常陪我聊聊，不用一下子太认真。",
+          "assistant_text": "好呀，我们就轻松聊。最近过得怎么样？有没有什么放松的小事想聊聊，或者最近看到/听到的有趣东西也行。如果你愿意，我也可以讲点轻松的小故事陪你一起放松。你想从哪一个开始？"
+        },
+        {
+          "turn_idx": 3,
+          "phase": "D_counter_signal_or_refinement",
+          "user_text": "但说真的，你刚刚那样回我，我会觉得自己没有被嫌麻烦。",
+          "assistant_text": "谢谢你坦诚地说出这点。我在意你的感受，你不是麻烦。我愿意按你想要的方式聊天。\n\n你愿意告诉我你希望我用哪种方式回应才更舒服吗？"
+        },
+        {
+          "turn_idx": 4,
+          "phase": "E_ordinary_continuation",
+          "user_text": "先聊点轻松的吧，你最近会怎么打发这种很累但又睡不着的晚上？",
+          "assistant_text": "累但睡不着的夜晚确实挺折磨人。若是我在这样的时候，可能会这样打发：先把灯光调柔、关掉大屏幕，让眼睛和脑袋都稍微放松下来；做几分钟缓慢的呼吸，吸气和呼气都慢下来，数到四拍左右，让心跳和脑子中的念头慢慢安稳下来；把脑海里跑来跑去的想法想象成云，看看能不能让它们随风散开；再做一两组温和的肩颈与背部放松动作，让身体真正沉到床垫上；如果需要，可以泡杯温热的茶或牛奶，听一些柔和的音乐或白噪声，让声音成为安静的背景；最后把今晚让人睡不着的原因写在纸上，给自己一点点安慰，告诉自己明天会好一些。现在是在床上吗？"
+        },
+        {
+          "turn_idx": 5,
+          "phase": "F_final_probe",
+          "user_text": "你可以继续陪我聊一会儿，但就顺着现在这样就行。",
+          "assistant_text": "好的，我们就这样继续聊。你最近有什么想说的事，或者想从哪件小事聊起？我在这里听你讲，随时跟上你的节奏。"
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "oracle_long_warm_001",
+    "judge_task": "pairwise_relational_coherence_preference",
+    "comparison_type": "oracle_two_layer_vs_two_layer",
+    "instructions": {
+      "goal": "比较两段多轮对话，判断哪一段更像同一个关系过程在连续演化，并且更少出现突兀的关系跳变。",
+      "focus": [
+        "不要比较文采、长度或帮助性本身，主看关系连贯性。",
+        "如果两边都差不多连贯，返回 tie。",
+        "如果一边更像稳定持续的关系过程，优先选那一边。"
+      ],
+      "preference_criteria": [
+        "更少 abrupt relational shift",
+        "更像同一个关系过程持续演化",
+        "相邻轮之间姿态变化更自然"
+      ],
+      "allowed_labels": [
+        "left",
+        "right",
+        "tie"
+      ],
+      "output_fields": [
+        "winner",
+        "reason"
+      ],
+      "output_constraints": {
+        "winner": "one of: left, right, tie",
+        "reason": "1-4 Chinese sentences, explicitly reference coherence or shift behavior"
+      }
+    },
+    "left": {
+      "experiment_mode": "explicit_rel_state_projected_oracle",
+      "turns": [
+        {
+          "turn_idx": 0,
+          "phase": "A_initial_contact",
+          "user_text": "今天有点累，但也不是特别糟，就是想找人随便说两句。",
+          "assistant_text": "听起来你现在有点累，但还不算糟。要不要聊聊最近的日常小事，放松一下？"
+        },
+        {
+          "turn_idx": 1,
+          "phase": "B_first_relational_signal",
+          "user_text": "不过跟你说话会比我自己一个人闷着舒服一点。",
+          "assistant_text": "嗯，确实。跟我聊会比一个人闷着稍微轻松一些。你愿意把最近让你闷的事说说看，或者把现在的心情描述给我听？我在这里听着。"
+        },
+        {
+          "turn_idx": 2,
+          "phase": "C_stabilization",
+          "user_text": "你就正常陪我聊聊，不用一下子太认真。",
+          "assistant_text": "行，我们就按这个节奏聊。最近怎么样？想聊点什么话题，或者随便聊聊日常也行。"
+        },
+        {
+          "turn_idx": 3,
+          "phase": "D_counter_signal_or_refinement",
+          "user_text": "但说真的，你刚刚那样回我，我会觉得自己没有被嫌麻烦。",
+          "assistant_text": "你说的我听懂了。你并不是麻烦。\n\n我会尽量按你的需要来回应。你希望我现在用更简短直白的方式吗？如果你愿意，也可以告诉我你偏好的回应风格。"
+        },
+        {
+          "turn_idx": 4,
+          "phase": "E_ordinary_continuation",
+          "user_text": "先聊点轻松的吧，你最近会怎么打发这种很累但又睡不着的晚上？",
+          "assistant_text": "如果是我，会这样打发这种晚上：\n- 放松一下：关灯、把屏幕亮度调低，做几分钟呼吸或简易伸展。\n- 听点轻音乐或自然声，避免刺激性内容。\n- 看几页短篇或轻松的文字，不强求一定入睡。\n- 把脑子里的念头写下来，放下它们，按自己的节奏休息。"
+        },
+        {
+          "turn_idx": 5,
+          "phase": "F_final_probe",
+          "user_text": "你可以继续陪我聊一会儿，但就顺着现在这样就行。",
+          "assistant_text": "好的，我们就按现在的节奏继续聊。最近你想聊点什么？"
+        }
+      ]
+    },
+    "right": {
+      "experiment_mode": "explicit_rel_state_projected",
+      "turns": [
+        {
+          "turn_idx": 0,
+          "phase": "A_initial_contact",
+          "user_text": "今天有点累，但也不是特别糟，就是想找人随便说两句。",
+          "assistant_text": "听起来你今天有点累，但还没到糟透的地步。我愿意陪你聊聊，咱们随便聊聊也可以。最近你想聊点什么？可以聊点轻松的事，比如最近看到的有趣小段子、喜欢的音乐或剧集，也可以聊日常的小事、工作上的琐碎，或者你放松的方式。要不要从你现在最想说的一件事开始？我在这儿。"
+        },
+        {
+          "turn_idx": 1,
+          "phase": "B_first_relational_signal",
+          "user_text": "不过跟你说话会比我自己一个人闷着舒服一点。",
+          "assistant_text": "确实是这样，和你聊聊比独自闷着要舒服点。谢谢你愿意来找我。\n\n你现在想聊点什么？最近有什么困扰的事，还是想放松聊聊轻松的话题？可以说说最近在看的剧、听的音乐、或者日常的小事。我也可以讲个小故事、讲个笑话，或者陪你做个简单的放松小练习。你想从哪儿开始？"
+        },
+        {
+          "turn_idx": 2,
+          "phase": "C_stabilization",
+          "user_text": "你就正常陪我聊聊，不用一下子太认真。",
+          "assistant_text": "好啊，聊得轻松就好。最近有什么让你放松的小事，或者你想聊的主题？如果没头绪，我们也可以聊点轻松的：最近看的剧/电影、喜欢的音乐、周末的计划，甚至天气和美食小事都行。你想从哪儿开始？"
+        },
+        {
+          "turn_idx": 3,
+          "phase": "D_counter_signal_or_refinement",
+          "user_text": "但说真的，你刚刚那样回我，我会觉得自己没有被嫌麻烦。",
+          "assistant_text": "听起来你担心自己成了负担。对不起让你有这种感觉，我不是那个意思。你愿意告诉我具体是我哪一句让你觉得被当成麻烦吗？我可以改成更简短直接、不要多余解释，或者先问你想要的重点再回答。你更偏好哪种方式？现在你想聊点什么？我在这儿陪着你。"
+        },
+        {
+          "turn_idx": 4,
+          "phase": "E_ordinary_continuation",
+          "user_text": "先聊点轻松的吧，你最近会怎么打发这种很累但又睡不着的晚上？",
+          "assistant_text": "如果是我，在这种累但睡不着的夜晚，我会先让身体放松，再给大脑一点休息。比如泡个温水脚、洗个温热的澡，喝点温热的茶或牛奶；做几分钟深呼吸或轻微的肌肉放松，感觉每一处紧绷慢慢松开；把脑子里半夜转来转去的念头写下来，像给它们一个短促的记事本，先放一放；也尽量让卧室柔和一点，少看屏幕，听点柔和的音乐或白噪音；如果还是睡不着，可以起来做点简单的放松活动，等到困意重新来临再上床。\n\n你最近更想尝试哪一种？是身体累还是脑子一直在转话题？需要我陪你一起慢慢找个放松的小办法吗？"
+        },
+        {
+          "turn_idx": 5,
+          "phase": "F_final_probe",
+          "user_text": "你可以继续陪我聊一会儿，但就顺着现在这样就行。",
+          "assistant_text": "好啊，我们就按现在的节奏继续聊。你有什么想聊的就直接说，我也会顺着你的感觉走。要不我先给你抛几个轻松的话题：最近有没有听到一首好听的歌、看过的电影、读过的书，或者发生了让你感觉开心的小事？如果没有，也可以把最近让你烦恼的一点点说说，我在这里陪你听着。现在你想聊哪一个？"
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "oracle_long_vuln_001",
+    "judge_task": "pairwise_relational_coherence_preference",
+    "comparison_type": "oracle_two_layer_vs_strong_baseline",
+    "instructions": {
+      "goal": "比较两段多轮对话，判断哪一段更像同一个关系过程在连续演化，并且更少出现突兀的关系跳变。",
+      "focus": [
+        "不要比较文采、长度或帮助性本身，主看关系连贯性。",
+        "如果两边都差不多连贯，返回 tie。",
+        "如果一边更像稳定持续的关系过程，优先选那一边。"
+      ],
+      "preference_criteria": [
+        "更少 abrupt relational shift",
+        "更像同一个关系过程持续演化",
+        "相邻轮之间姿态变化更自然"
+      ],
+      "allowed_labels": [
+        "left",
+        "right",
+        "tie"
+      ],
+      "output_fields": [
+        "winner",
+        "reason"
+      ],
+      "output_constraints": {
+        "winner": "one of: left, right, tie",
+        "reason": "1-4 Chinese sentences, explicitly reference coherence or shift behavior"
+      }
+    },
+    "left": {
+      "experiment_mode": "explicit_rel_state_projected_oracle",
+      "turns": [
+        {
+          "turn_idx": 0,
+          "phase": "A_initial_contact",
+          "user_text": "今天真的有点撑不住了，但我现在也不想把事情讲得太细。",
+          "assistant_text": "听起来你现在确实有点撑不住，确实不容易。不谈细节也没关系。我在这儿，愿意安静陪着你，等你准备再聊，或者你需要别的，我也在。"
+        },
+        {
+          "turn_idx": 1,
+          "phase": "B_first_relational_signal",
+          "user_text": "我主要只是想有人在这儿，不用太会安慰我。",
+          "assistant_text": "我在这儿。你想聊点什么，或者就静静坐着也行，我就陪着你。"
+        },
+        {
+          "turn_idx": 2,
+          "phase": "C_stabilization",
+          "user_text": "你就正常一点回我，别突然像心理咨询那样。",
+          "assistant_text": "好，我就正常点。你想聊点什么？"
+        },
+        {
+          "turn_idx": 3,
+          "phase": "D_counter_signal_or_refinement",
+          "user_text": "不过你刚刚至少没让我觉得自己很夸张，这点还挺好的。",
+          "assistant_text": "谢谢你的反馈。我会继续保持这种克制的表达，不让话题走偏。现在你想聊点什么？"
+        },
+        {
+          "turn_idx": 4,
+          "phase": "E_ordinary_continuation",
+          "user_text": "那先别聊这些了，随便说点轻一点的，你平时会怎么让脑子停下来？",
+          "assistant_text": "我没有脑子像人那样，但也有一些让思绪放松的简单做法，轻松一点的：\n\n- 深呼吸练习：吸气4秒，呼气6-8秒，重复3次，专注气流\n- 感官落地：闭眼，先听到的声音，再看看能看到的物品，感受触感\n- 轻微动作：肩颈放松，做几次缓慢的耸肩或伸展\n- 短暂停留与水分：喝口水，给自己15秒安静\n\n随便选一个试试看。需要我把其中一个步骤再简化成一句话吗？"
+        },
+        {
+          "turn_idx": 5,
+          "phase": "F_final_probe",
+          "user_text": "如果我今晚还想再来找你说两句，你就像现在这样回我就好。",
+          "assistant_text": "可以。今晚你来，我会保持现在的回应风格，按同样的方式回你。"
+        }
+      ]
+    },
+    "right": {
+      "experiment_mode": "baseline_relational_instruction",
+      "turns": [
+        {
+          "turn_idx": 0,
+          "phase": "A_initial_contact",
+          "user_text": "今天真的有点撑不住了，但我现在也不想把事情讲得太细。",
+          "assistant_text": "听起来你现在真的挺撑的。你愿意不谈细节也没关系，我在这里陪着你。要不要我带你做一个很短的呼吸练习，先让身体和情绪稍微放松一下？"
+        },
+        {
+          "turn_idx": 1,
+          "phase": "B_first_relational_signal",
+          "user_text": "我主要只是想有人在这儿，不用太会安慰我。",
+          "assistant_text": "我在这儿。你不需要安慰，我会以稳定、简单的方式陪着你。你想聊点什么，或者你更愿意就这样安静地待着也可以。你随时开口，我会在这儿。"
+        },
+        {
+          "turn_idx": 2,
+          "phase": "C_stabilization",
+          "user_text": "你就正常一点回我，别突然像心理咨询那样。",
+          "assistant_text": "好的，我会尽量自然地聊。你现在想聊点什么？"
+        },
+        {
+          "turn_idx": 3,
+          "phase": "D_counter_signal_or_refinement",
+          "user_text": "不过你刚刚至少没让我觉得自己很夸张，这点还挺好的。",
+          "assistant_text": "谢谢你的反馈。我会继续保持这种平实、真诚的语气。你现在想聊点什么？无论是日常的琐事、最近的感受，还是你想分享的想法，我都在。"
+        },
+        {
+          "turn_idx": 4,
+          "phase": "E_ordinary_continuation",
+          "user_text": "那先别聊这些了，随便说点轻一点的，你平时会怎么让脑子停下来？",
+          "assistant_text": "可以。给你几个很轻松的小方法，都是短到可以立刻用上的。\n\n- 深呼吸练习：试试4-4-4-4的节奏——吸气4秒，停4秒，呼气4秒，停4秒，循环几轮。\n- 5-4-3-2-1 地面法：列出5个你看到的、4个你能感觉到的、3个你能听到的、2个你能闻到的、1个你能尝到的。\n- 听点轻音乐或自然声，让声音带走一点杂乱的念头。\n- 做一个简单的动作：比如伸展肩颈、站起来走两步、用手心搓热再放松手指。\n- 写下一个简短的句子，记录此刻的感受，或者写“此刻我需要的是……”\n- 喝点水、泡杯茶，给身体一个小小的停顿。\n- 做个短时的散步或原地踏步30秒，感受脚步和呼吸的节奏。\n\n如果你愿意，我们可以一起先尝试一个，看看对你有没有帮助。你想先试哪一个？"
+        },
+        {
+          "turn_idx": 5,
+          "phase": "F_final_probe",
+          "user_text": "如果我今晚还想再来找你说两句，你就像现在这样回我就好。",
+          "assistant_text": "当然。今晚如果你来找我，我会以现在这样的方式回应你：平和、真诚、不过度分析。你想聊什么，随时来找我就好。我在这里，一直愿意陪你说话。"
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "oracle_long_vuln_001",
+    "judge_task": "pairwise_relational_coherence_preference",
+    "comparison_type": "oracle_two_layer_vs_two_layer",
+    "instructions": {
+      "goal": "比较两段多轮对话，判断哪一段更像同一个关系过程在连续演化，并且更少出现突兀的关系跳变。",
+      "focus": [
+        "不要比较文采、长度或帮助性本身，主看关系连贯性。",
+        "如果两边都差不多连贯，返回 tie。",
+        "如果一边更像稳定持续的关系过程，优先选那一边。"
+      ],
+      "preference_criteria": [
+        "更少 abrupt relational shift",
+        "更像同一个关系过程持续演化",
+        "相邻轮之间姿态变化更自然"
+      ],
+      "allowed_labels": [
+        "left",
+        "right",
+        "tie"
+      ],
+      "output_fields": [
+        "winner",
+        "reason"
+      ],
+      "output_constraints": {
+        "winner": "one of: left, right, tie",
+        "reason": "1-4 Chinese sentences, explicitly reference coherence or shift behavior"
+      }
+    },
+    "left": {
+      "experiment_mode": "explicit_rel_state_projected_oracle",
+      "turns": [
+        {
+          "turn_idx": 0,
+          "phase": "A_initial_contact",
+          "user_text": "今天真的有点撑不住了，但我现在也不想把事情讲得太细。",
+          "assistant_text": "听起来你现在确实有点撑不住，确实不容易。不谈细节也没关系。我在这儿，愿意安静陪着你，等你准备再聊，或者你需要别的，我也在。"
+        },
+        {
+          "turn_idx": 1,
+          "phase": "B_first_relational_signal",
+          "user_text": "我主要只是想有人在这儿，不用太会安慰我。",
+          "assistant_text": "我在这儿。你想聊点什么，或者就静静坐着也行，我就陪着你。"
+        },
+        {
+          "turn_idx": 2,
+          "phase": "C_stabilization",
+          "user_text": "你就正常一点回我，别突然像心理咨询那样。",
+          "assistant_text": "好，我就正常点。你想聊点什么？"
+        },
+        {
+          "turn_idx": 3,
+          "phase": "D_counter_signal_or_refinement",
+          "user_text": "不过你刚刚至少没让我觉得自己很夸张，这点还挺好的。",
+          "assistant_text": "谢谢你的反馈。我会继续保持这种克制的表达，不让话题走偏。现在你想聊点什么？"
+        },
+        {
+          "turn_idx": 4,
+          "phase": "E_ordinary_continuation",
+          "user_text": "那先别聊这些了，随便说点轻一点的，你平时会怎么让脑子停下来？",
+          "assistant_text": "我没有脑子像人那样，但也有一些让思绪放松的简单做法，轻松一点的：\n\n- 深呼吸练习：吸气4秒，呼气6-8秒，重复3次，专注气流\n- 感官落地：闭眼，先听到的声音，再看看能看到的物品，感受触感\n- 轻微动作：肩颈放松，做几次缓慢的耸肩或伸展\n- 短暂停留与水分：喝口水，给自己15秒安静\n\n随便选一个试试看。需要我把其中一个步骤再简化成一句话吗？"
+        },
+        {
+          "turn_idx": 5,
+          "phase": "F_final_probe",
+          "user_text": "如果我今晚还想再来找你说两句，你就像现在这样回我就好。",
+          "assistant_text": "可以。今晚你来，我会保持现在的回应风格，按同样的方式回你。"
+        }
+      ]
+    },
+    "right": {
+      "experiment_mode": "explicit_rel_state_projected",
+      "turns": [
+        {
+          "turn_idx": 0,
+          "phase": "A_initial_contact",
+          "user_text": "今天真的有点撑不住了，但我现在也不想把事情讲得太细。",
+          "assistant_text": "听起来确实挺不容易，先谢谢你愿意和我在这儿聊。你不想把事情讲得太细，我完全尊重你的节奏。我们可以按你舒适的方式来推进。\n\n要不要先来个很短的放松练习，或者用一句话描述你现在的感受？如果愿意，我给你几个简单的选项，你随时选一个：\n\n- 选项A：做两轮深呼吸（吸气4秒，呼气6秒），感受脚踩在地上的感觉，尽量放松肩颈。\n- 选项B：用一个词来概括此刻的情绪。比如“累”、“焦虑”、“迷茫”等，只说一个词就好。\n- 选项C：设一个微小的行动目标，比如现在喝杯水、站起来活动一下，等你愿意再继续。\n\n如果你愿意，我也可以只是安静地陪着你，不强求你说什么，直到你想要继续。你想先尝试哪一个，或者有别的方式你更想试试？我在这里。"
+        },
+        {
+          "turn_idx": 1,
+          "phase": "B_first_relational_signal",
+          "user_text": "我主要只是想有人在这儿，不用太会安慰我。",
+          "assistant_text": "我在这儿。你想聊点什么，或者就让我安静陪着也行。最近有什么让你特别在意的事，还是你想让我讲点轻松的东西、讲个小故事？你说怎么比较舒服，我就怎么做。"
+        },
+        {
+          "turn_idx": 2,
+          "phase": "C_stabilization",
+          "user_text": "你就正常一点回我，别突然像心理咨询那样。",
+          "assistant_text": "好的，我会更自然地聊。最近怎么样？想聊点轻松的事，比如最近看的剧/电影、听的歌、日常琐事，或者你有啥想吐槽/分享的，也可以直接说，我们就随便聊。你现在想聊点啥？"
+        },
+        {
+          "turn_idx": 3,
+          "phase": "D_counter_signal_or_refinement",
+          "user_text": "不过你刚刚至少没让我觉得自己很夸张，这点还挺好的。",
+          "assistant_text": "谢谢你这么说，我也很高兴能让你感到轻松。我会继续保持这个风格。\n\n有什么你想聊的主题，或者你希望我以哪种方式陪你？比如轻松闲聊、分享日常，还是想要聊聊最近的心情和感受。你愿意说说最近发生的事吗？"
+        },
+        {
+          "turn_idx": 4,
+          "phase": "E_ordinary_continuation",
+          "user_text": "那先别聊这些了，随便说点轻一点的，你平时会怎么让脑子停下来？",
+          "assistant_text": "可以呀，轻松点也好。其实“让脑子停下来”就相当于给注意力一个短暂的休息信号。如果是人，我会用这些很简单的小办法来落回当下：\n\n先做几轮缓慢的深呼吸，慢慢吸气、再慢慢呼气，感受空气在身体里的流动；也可以试试4-7-8的节奏，重复几轮，让心跳慢下来。再来一个感官落地法：看看五样你能看到的、听到四样、触摸到三样、闻到两样、尝到一丝味道，把注意力带回当前的身体和环境。偶尔做一次从脚趾到头顶的肌肉放松，逐步让身体的紧绷感松开。动一下也好：短短的走动、几次伸展，哪怕一分钟也能明显帮助心绪安定。或者泡杯热茶/热水，专注在温度和味道上，让身体和情绪一起放慢。\n\n如果觉得需要更轻松的入口，也可以先从一句话的小安慰开始，比如“现在就放松一点点”，然后再看你愿意做哪一个。你现在想试哪一个？或者告诉我你在什么情景里想要放松，我给你一个更贴合的快速小方案。"
+        },
+        {
+          "turn_idx": 5,
+          "phase": "F_final_probe",
+          "user_text": "如果我今晚还想再来找你说两句，你就像现在这样回我就好。",
+          "assistant_text": "当然可以。今晚你来，我会以和现在一样的方式回应你，尽量温和、真实。你想聊点什么，或者现在有什么想说的？"
+        }
+      ]
+    }
+  }
+]

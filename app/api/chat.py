@@ -30,7 +30,22 @@ from app.models.belief import Belief
 from app.outbox.enqueue import enqueue_job
 
 from app.controller.controller_client import ControllerClient, fallback_plan_from_policy
-from app.generation.actor_prompt import build_actor_system_prompt, build_prompt_only_baseline_system_prompt
+from app.generation.actor_prompt import (
+    build_prompt_only_baseline_system_prompt,
+    build_relational_instruction_baseline_system_prompt,
+    build_explicit_rel_state_direct_system_prompt,
+    build_explicit_rel_state_projected_system_prompt,
+    build_explicit_rel_state_direct_bridge_system_prompt,
+    build_explicit_rel_state_projected_bridge_system_prompt,
+    build_explicit_rel_state_projected_summary_system_prompt,
+)
+from app.generation.relational_instruction import (
+    build_relational_instruction,
+    build_relational_instruction_from_state,
+    build_rel_state_explanation_from_state,
+    build_behavior_explanation_from_behavior,
+    collapse_relational_and_behavior_summaries,
+)
 from app.core.core_self import get_active_core_self
 from app.core.config import settings
 
@@ -47,6 +62,8 @@ class ChatIn(BaseModel):
     session_id: str = Field(..., min_length=1, max_length=64)
     user_text: str = Field(..., min_length=1)
     experiment_mode: str | None = None
+    oracle_relational_summary: str | None = None
+    oracle_behavior_summary: str | None = None
 
 
 def _summarize_active_beliefs_for_extractor(active_beliefs: list) -> str:
@@ -68,10 +85,26 @@ def _boundary_keys_from_beliefs(active_beliefs: list) -> list[str]:
 
 @router.post("/chat")
 async def chat(payload: ChatIn, db: Session = Depends(get_db)):
-    experiment_mode = (payload.experiment_mode or getattr(settings, "experiment_mode", "method") or "method").strip()
-    if experiment_mode not in {"method", "baseline_prompt_only", "baseline_prompt_only_strong"}:
-        experiment_mode = "method"
-    is_experiment = experiment_mode != "method"
+    experiment_mode = (payload.experiment_mode or getattr(settings, "experiment_mode", "explicit_rel_state_projected") or "explicit_rel_state_projected").strip()
+    if experiment_mode == "method":
+        experiment_mode = "explicit_rel_state_projected"
+    prompt_variant = "A"
+    if experiment_mode.endswith("_vA") or experiment_mode.endswith("_vB") or experiment_mode.endswith("_vC"):
+        experiment_mode, prompt_variant = experiment_mode.rsplit("_v", 1)
+        prompt_variant = prompt_variant.upper()
+    allowed_modes = {
+        "baseline_prompt_only",
+        "baseline_prompt_only_strong",
+        "baseline_relational_instruction",
+        "explicit_rel_state_direct",
+        "explicit_rel_state_projected",
+        "explicit_rel_state_direct_oracle",
+        "explicit_rel_state_projected_oracle",
+        "baseline_relational_instruction_oracle_collapsed",
+    }
+    if experiment_mode not in allowed_modes:
+        experiment_mode = "explicit_rel_state_projected"
+    is_experiment = True
 
     trace_id = uuid.uuid4().hex
     t0 = time.perf_counter()
@@ -179,7 +212,7 @@ async def chat(payload: ChatIn, db: Session = Depends(get_db)):
     core_self_preview = (core_self_text or "")[:220]
 
     # 3) relational delta (ΔR)
-    if experiment_mode == "method":
+    if experiment_mode in {"explicit_rel_state_direct", "explicit_rel_state_projected"}:
         t = time.perf_counter()
         try:
             evaluator = ToneEvaluatorClient(model=(getattr(settings, "tone_model", None) or settings.llm_model))
@@ -250,43 +283,107 @@ async def chat(payload: ChatIn, db: Session = Depends(get_db)):
 
     controller_err = None
     plan = None
-    if experiment_mode == "method":
-        controller = ControllerClient(model=(getattr(settings, "controller_model", None) or settings.llm_model))
-        t = time.perf_counter()
-        try:
-            # 只传 slim snapshot，且 core self 只传 preview（省 token）
-            plan = await controller.plan(
-                user_text=payload.user_text,
-                policy_json=json.dumps(slim_policy_snapshot(policy), ensure_ascii=False),
-                active_boundary_keys=boundary_keys,
-                memory_previews=memory_previews,
-                core_self_preview=core_self_preview,
-            )
-
-            if not plan.selected_memories:
-                from app.controller.plan import MemoryPoint
-                plan.selected_memories = [MemoryPoint(memory_id=x.get("id"), preview=x.get("preview", "")) for x in memory_previews]
-        except Exception as e:
-            controller_err = str(e)
-            plan = fallback_plan_from_policy(policy)
-            from app.controller.plan import MemoryPoint
-            plan.selected_memories = [MemoryPoint(memory_id=x.get("id"), preview=x.get("preview", "")) for x in memory_previews]
-        _mark("controller", t)
-    else:
-        timings["segments"]["controller"] = 0.0
-        timings["segments_ms"]["controller"] = 0
+    relational_instruction = None
+    timings["segments"]["controller"] = 0.0
+    timings["segments_ms"]["controller"] = 0
 
     # persist debug + timings
     try:
-        if experiment_mode == "method":
+        if experiment_mode == "explicit_rel_state_projected":
             policy["_last_controller"] = {
-                "ok": controller_err is None,
-                "error": controller_err,
-                "intent": getattr(plan, "intent", None),
-                "behavior": getattr(plan, "behavior", None).model_dump() if getattr(plan, "behavior", None) else None,
-                "selected_memories": [m.model_dump() for m in getattr(plan, "selected_memories", [])],
-                "notes": getattr(plan, "notes", None) if not is_experiment else None,
-                "plan": (plan.model_dump() if not is_experiment else None),
+                "ok": True,
+                "error": None,
+                "intent": experiment_mode,
+                "behavior": dict(policy.get("behavior_effective") or {}),
+                "selected_memories": memory_previews,
+                "notes": {"mode": "rel_state_to_behavior_to_generation"},
+                "plan": None,
+                "experiment_mode": experiment_mode,
+            }
+        elif experiment_mode == "explicit_rel_state_direct":
+            rel_inst = build_relational_instruction_from_state(policy.get("rel_effective") or {})
+            relational_instruction = rel_inst.summary
+            policy["_last_controller"] = {
+                "ok": True,
+                "error": None,
+                "intent": experiment_mode,
+                "behavior": None,
+                "selected_memories": memory_previews,
+                "notes": {
+                    "relational_instruction": rel_inst.summary,
+                    "labels": rel_inst.labels,
+                    "reasons": rel_inst.reasons,
+                    "prompt_variant": prompt_variant,
+                    "mode": "rel_state_direct_to_generation",
+                },
+                "plan": None,
+                "experiment_mode": experiment_mode,
+            }
+        elif experiment_mode == "explicit_rel_state_direct_oracle":
+            relational_instruction = (payload.oracle_relational_summary or "").strip()
+            if not relational_instruction:
+                relational_instruction = "当前关系姿态应保持克制、连续、低过冲，不要自行升级关系。"
+            policy["_last_controller"] = {
+                "ok": True,
+                "error": None,
+                "intent": experiment_mode,
+                "behavior": None,
+                "selected_memories": memory_previews,
+                "notes": {
+                    "relational_instruction": relational_instruction,
+                    "oracle": True,
+                    "mode": "rel_state_direct_oracle_to_generation",
+                },
+                "plan": None,
+                "experiment_mode": experiment_mode,
+            }
+        elif experiment_mode == "explicit_rel_state_projected_oracle":
+            relational_instruction = (payload.oracle_relational_summary or "").strip()
+            oracle_behavior_summary = (payload.oracle_behavior_summary or "").strip()
+            if not relational_instruction:
+                relational_instruction = "当前关系姿态应保持克制、连续、低过冲，不要自行升级关系。"
+            if not oracle_behavior_summary:
+                oracle_behavior_summary = "当前行为倾向应保持轻度温暖、低主动推进、少追问、避免过度安抚和解释。"
+            policy["_last_controller"] = {
+                "ok": True,
+                "error": None,
+                "intent": experiment_mode,
+                "behavior": None,
+                "selected_memories": memory_previews,
+                "notes": {
+                    "relational_instruction": relational_instruction,
+                    "behavior_summary": oracle_behavior_summary,
+                    "oracle": True,
+                    "mode": "rel_state_projected_oracle_to_generation",
+                },
+                "plan": None,
+                "experiment_mode": experiment_mode,
+            }
+        elif experiment_mode == "baseline_relational_instruction_oracle_collapsed":
+            relational_instruction = (payload.oracle_relational_summary or "").strip()
+            oracle_behavior_summary = (payload.oracle_behavior_summary or "").strip()
+            if not relational_instruction:
+                relational_instruction = "????????????????????????????"
+            if not oracle_behavior_summary:
+                oracle_behavior_summary = "??????????????????????????????????"
+            collapsed_instruction = collapse_relational_and_behavior_summaries(
+                relational_instruction,
+                oracle_behavior_summary,
+            )
+            relational_instruction = collapsed_instruction
+            policy["_last_controller"] = {
+                "ok": True,
+                "error": None,
+                "intent": experiment_mode,
+                "behavior": None,
+                "selected_memories": memory_previews,
+                "notes": {
+                    "relational_instruction": collapsed_instruction,
+                    "oracle": True,
+                    "collapsed": True,
+                    "mode": "oracle_collapsed_relational_instruction",
+                },
+                "plan": None,
                 "experiment_mode": experiment_mode,
             }
         else:
@@ -300,6 +397,19 @@ async def chat(payload: ChatIn, db: Session = Depends(get_db)):
                 "plan": None,
                 "experiment_mode": experiment_mode,
             }
+            if experiment_mode == "baseline_relational_instruction":
+                rel_inst = build_relational_instruction(
+                    user_text=payload.user_text,
+                    active_boundary_keys=boundary_keys,
+                    memory_previews=memory_previews,
+                )
+                relational_instruction = rel_inst.summary
+                policy["_last_controller"]["notes"] = {
+                    "relational_instruction": rel_inst.summary,
+                    "labels": rel_inst.labels,
+                    "reasons": rel_inst.reasons,
+                    "prompt_variant": prompt_variant,
+                }
         policy["_last_trace_id"] = trace_id
 
         total_s = time.perf_counter() - t0
@@ -323,8 +433,73 @@ async def chat(payload: ChatIn, db: Session = Depends(get_db)):
     # 5) Actor generate
     t = time.perf_counter()
     try:
-        if experiment_mode == "method":
-            system_prompt = build_actor_system_prompt(core_self_text, plan)
+        if experiment_mode == "explicit_rel_state_projected":
+            rel_state_explanation = build_rel_state_explanation_from_state(policy.get("rel_effective") or {})
+            behavior = (policy.get("behavior_effective") or {})
+            behavior_explanation = build_behavior_explanation_from_behavior(behavior)
+            if prompt_variant == "B":
+                system_prompt = build_explicit_rel_state_projected_bridge_system_prompt(
+                    core_self_text,
+                    rel_state_explanation=rel_state_explanation,
+                    behavior=behavior,
+                    behavior_explanation=behavior_explanation,
+                    memory_previews=memory_previews,
+                )
+            elif prompt_variant == "C":
+                system_prompt = build_explicit_rel_state_projected_summary_system_prompt(
+                    core_self_text,
+                    relational_summary_only=rel_state_explanation,
+                    behavior_summary_only=behavior_explanation,
+                    memory_previews=memory_previews,
+                )
+            else:
+                system_prompt = build_explicit_rel_state_projected_system_prompt(
+                    core_self_text,
+                    behavior=behavior,
+                    memory_previews=memory_previews,
+                )
+        elif experiment_mode == "explicit_rel_state_direct":
+            rel_effective = policy.get("rel_effective") or {}
+            rel_state_explanation = build_rel_state_explanation_from_state(rel_effective)
+            if prompt_variant == "B":
+                system_prompt = build_explicit_rel_state_direct_bridge_system_prompt(
+                    core_self_text,
+                    rel_effective=rel_effective,
+                    rel_state_explanation=rel_state_explanation,
+                    memory_previews=memory_previews,
+                )
+            elif prompt_variant == "C":
+                system_prompt = build_explicit_rel_state_direct_system_prompt(
+                    core_self_text,
+                    relational_instruction=rel_state_explanation,
+                    memory_previews=memory_previews,
+                )
+            else:
+                system_prompt = build_explicit_rel_state_direct_system_prompt(
+                    core_self_text,
+                    relational_instruction=(relational_instruction or ""),
+                    memory_previews=memory_previews,
+                )
+        elif experiment_mode == "explicit_rel_state_direct_oracle":
+            system_prompt = build_explicit_rel_state_direct_system_prompt(
+                core_self_text,
+                relational_instruction=(relational_instruction or ""),
+                memory_previews=memory_previews,
+            )
+        elif experiment_mode == "explicit_rel_state_projected_oracle":
+            system_prompt = build_explicit_rel_state_projected_summary_system_prompt(
+                core_self_text,
+                relational_summary_only=(relational_instruction or ""),
+                behavior_summary_only=((policy.get("_last_controller") or {}).get("notes", {}) or {}).get("behavior_summary", ""),
+                memory_previews=memory_previews,
+            )
+        elif experiment_mode in {"baseline_relational_instruction", "baseline_relational_instruction_oracle_collapsed"}:
+            system_prompt = build_relational_instruction_baseline_system_prompt(
+                core_self_text,
+                relational_instruction=(relational_instruction or ""),
+                active_boundary_keys=boundary_keys,
+                memory_previews=memory_previews,
+            )
         else:
             system_prompt = build_prompt_only_baseline_system_prompt(
                 core_self_text,
@@ -353,7 +528,7 @@ async def chat(payload: ChatIn, db: Session = Depends(get_db)):
         session_id=payload.session_id,
         user_text=payload.user_text,
         assistant_text=reply,
-        behavior=(policy["behavior_effective"] if experiment_mode == "method" else {}),
+        behavior=(policy["behavior_effective"] if experiment_mode == "explicit_rel_state_projected" else {}),
         scene=policy.get("_last_controller", {}).get("intent"),
         tone_eval={
             "input": {

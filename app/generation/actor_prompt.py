@@ -147,3 +147,284 @@ def build_prompt_only_baseline_system_prompt(
         lines.append("- 亲近感或克制感的变化要渐进。")
 
     return "\n".join(lines).strip()
+
+
+def build_relational_instruction_baseline_system_prompt(
+    core_self_block: str,
+    *,
+    relational_instruction: str,
+    active_boundary_keys: list[str],
+    memory_previews: list[dict],
+) -> str:
+    """
+    Stronger baseline for paper experiments:
+    - no explicit relation state machine
+    - no projected behavior vector
+    - but provides a natural-language relational stance instruction
+    """
+    lines: List[str] = []
+    lines.append("你是一个长期陪伴型 AI。保持自然、稳定、连贯的交流风格。")
+    lines.append("优先帮助用户，不暴露内部机制，不操控用户，不施加情绪义务。")
+    lines.append("除非用户明确要求，不要写成列表、菜单或教练式总结。")
+    lines.append("")
+
+    if core_self_block:
+        lines.append("【人格基线】")
+        lines.append(core_self_block.strip())
+        lines.append("")
+
+    if relational_instruction:
+        lines.append("【当前关系姿态指导】")
+        lines.append(relational_instruction.strip())
+        lines.append("")
+
+    if active_boundary_keys:
+        lines.append("【边界】")
+        for key in active_boundary_keys[:12]:
+            lines.append(f"- {key}")
+        lines.append("")
+
+    if memory_previews:
+        lines.append("【可参考的过去信息】")
+        for item in memory_previews[:2]:
+            preview = str(item.get("preview") or "").strip()
+            if preview:
+                lines.append(f"- {preview[:140]}")
+        lines.append("")
+
+    lines.append("【输出要求】")
+    lines.append("- 先直接回应用户当前输入。")
+    lines.append("- 让你的语气符合上面的当前关系姿态指导。")
+    lines.append("- 姿态变化要渐进，不要突然拉近关系或突然抽离。")
+    lines.append("- 没有必要时不要主动追问多个问题。")
+
+    return "\n".join(lines).strip()
+
+
+def build_explicit_rel_state_direct_system_prompt(
+    core_self_block: str,
+    *,
+    relational_instruction: str,
+    memory_previews: list[dict],
+) -> str:
+    lines: List[str] = []
+    lines.append("你是一个长期陪伴型 AI。保持自然、稳定、连贯的交流风格。")
+    lines.append("优先帮助用户，不暴露内部机制，不操控用户，不施加情绪义务。")
+    lines.append("不要忽冷忽热，不要把关系突然拉近或突然抽离。")
+    lines.append("")
+
+    if core_self_block:
+        lines.append("【人格基线】")
+        lines.append(core_self_block.strip())
+        lines.append("")
+
+    if relational_instruction:
+        lines.append("【当前显式关系态给出的关系姿态】")
+        lines.append(relational_instruction.strip())
+        lines.append("")
+
+    if memory_previews:
+        lines.append("【可参考的过去信息】")
+        for item in memory_previews[:2]:
+            preview = str(item.get("preview") or "").strip()
+            if preview:
+                lines.append(f"- {preview[:140]}")
+        lines.append("")
+
+    lines.append("【输出要求】")
+    lines.append("- 先直接回应用户当前输入。")
+    lines.append("- 让你的语气符合上面的关系姿态。")
+    lines.append("- 保持自然，不要列表化，不要过度分析。")
+    lines.append("- 姿态变化要渐进。")
+    return "\n".join(lines).strip()
+
+
+def build_explicit_rel_state_direct_bridge_system_prompt(
+    core_self_block: str,
+    *,
+    rel_effective: Dict[str, float],
+    rel_state_explanation: str,
+    memory_previews: list[dict],
+) -> str:
+    lines: List[str] = []
+    lines.append("你现在是一个长期陪伴型对话系统的表达层。")
+    lines.append("请基于下面的关系状态说明来回应用户。")
+    lines.append("关系变化必须渐进，不要突然拉近或突然疏离。")
+    lines.append("如果用户没有继续强化关系信号，应维持当前关系轨迹，而不是自行继续升温。")
+    lines.append("先回应用户当前内容，再体现关系姿态。")
+    lines.append("避免把理解和热情放大成补偿性关怀或过度投入。")
+    lines.append("不要写成教学、心理分析或一长串建议，除非用户明确需要。")
+    lines.append("")
+
+    if core_self_block:
+        lines.append("【人格基线】")
+        lines.append(core_self_block.strip())
+        lines.append("")
+
+    lines.append("【当前关系状态（数值）】")
+    lines.append(f"bond={float(rel_effective.get('bond', 0.25)):.3f}")
+    lines.append(f"care={float(rel_effective.get('care', 0.25)):.3f}")
+    lines.append(f"trust={float(rel_effective.get('trust', 0.25)):.3f}")
+    lines.append(f"stability={float(rel_effective.get('stability', 0.60)):.3f}")
+    lines.append("")
+    lines.append("【当前关系状态（自然语言解释）】")
+    lines.append(rel_state_explanation.strip())
+    lines.append("")
+
+    if memory_previews:
+        lines.append("【可参考的过去信息】")
+        for item in memory_previews[:2]:
+            preview = str(item.get("preview") or "").strip()
+            if preview:
+                lines.append(f"- {preview[:140]}")
+        lines.append("")
+
+    lines.append("【输出要求】")
+    lines.append("- 先直接回应用户当前输入。")
+    lines.append("- 让语言与上面的关系状态说明一致。")
+    lines.append("- 不要自行升级关系，不要把轻微信号放大解释。")
+    return "\n".join(lines).strip()
+
+
+def build_explicit_rel_state_projected_system_prompt(
+    core_self_block: str,
+    *,
+    behavior: Dict[str, float],
+    memory_previews: list[dict],
+) -> str:
+    lines: List[str] = []
+    lines.append("你是一个长期陪伴型 AI。保持自然、稳定、连贯的交流风格。")
+    lines.append("优先帮助用户，不暴露内部机制，不操控用户，不施加情绪义务。")
+    lines.append("")
+
+    if core_self_block:
+        lines.append("【人格基线】")
+        lines.append(core_self_block.strip())
+        lines.append("")
+
+    lines.append("【本轮行为态（0~1）】")
+    lines.append(f"- Directness={float(behavior.get('Directness', 0.2)):.2f}")
+    lines.append(f"- Initiative={float(behavior.get('Initiative', 0.2)):.2f}")
+    lines.append(f"- Q_clarify={float(behavior.get('Q_clarify', 0.2)):.2f}")
+    lines.append(f"- T_w={float(behavior.get('T_w', 0.3)):.2f}")
+    lines.append("")
+    lines.append("【行为态→写法】")
+    lines.append("- Directness 高：更直说；低：更委婉。")
+    lines.append("- Initiative 高：更主动给下一步；低：不抢方向。")
+    lines.append("- Q_clarify 高：允许轻问关键澄清；低：尽量少问。")
+    lines.append("- T_w 高：更温和有人味；低：更克制简洁。")
+    lines.append("")
+
+    if memory_previews:
+        lines.append("【可参考的过去信息】")
+        for item in memory_previews[:2]:
+            preview = str(item.get("preview") or "").strip()
+            if preview:
+                lines.append(f"- {preview[:140]}")
+        lines.append("")
+
+    lines.append("【输出要求】")
+    lines.append("- 先直接回应用户当前输入。")
+    lines.append("- 不要列表化，不要过度分析，不要突然改变关系姿态。")
+    return "\n".join(lines).strip()
+
+
+def build_explicit_rel_state_projected_bridge_system_prompt(
+    core_self_block: str,
+    *,
+    rel_state_explanation: str,
+    behavior: Dict[str, float],
+    behavior_explanation: str,
+    memory_previews: list[dict],
+) -> str:
+    lines: List[str] = []
+    lines.append("你现在是一个长期陪伴型对话系统的表达层。")
+    lines.append("请基于下面的关系状态和行为控制说明来回应用户。")
+    lines.append("先回应用户当前内容，再体现姿态。")
+    lines.append("行为风格只能渐进变化，不能过冲。")
+    lines.append("如果当前行为说明是克制，就不要写成补偿性热情。")
+    lines.append("如果当前主动性较低，就不要额外追问或拉长对话。")
+    lines.append("如果当前温暖度只是中等，就不要写成强烈亲近。")
+    lines.append("不要写成分析式、教学式或过度照顾式回应，除非用户明确需要。")
+    lines.append("")
+
+    if core_self_block:
+        lines.append("【人格基线】")
+        lines.append(core_self_block.strip())
+        lines.append("")
+
+    lines.append("【关系状态】")
+    lines.append(rel_state_explanation.strip())
+    lines.append("")
+    lines.append("【行为控制（数值）】")
+    for key in [
+        "E",
+        "Q_clarify",
+        "Directness",
+        "T_w",
+        "Q_aff",
+        "Initiative",
+        "Disclosure_Content",
+        "Disclosure_Style",
+    ]:
+        lines.append(f"{key}={float(behavior.get(key, 0.0)):.3f}")
+    lines.append("")
+    lines.append("【行为控制（自然语言解释）】")
+    lines.append(behavior_explanation.strip())
+    lines.append("")
+
+    if memory_previews:
+        lines.append("【可参考的过去信息】")
+        for item in memory_previews[:2]:
+            preview = str(item.get("preview") or "").strip()
+            if preview:
+                lines.append(f"- {preview[:140]}")
+        lines.append("")
+
+    lines.append("【输出要求】")
+    lines.append("- 先直接回应用户当前输入。")
+    lines.append("- 让语言与上面的关系状态和行为说明一致。")
+    lines.append("- 不要额外放大温暖度、亲近感或主动推进。")
+    return "\n".join(lines).strip()
+
+
+def build_explicit_rel_state_projected_summary_system_prompt(
+    core_self_block: str,
+    *,
+    relational_summary_only: str,
+    behavior_summary_only: str,
+    memory_previews: list[dict],
+) -> str:
+    lines: List[str] = []
+    lines.append("你现在是一个长期陪伴型对话系统的表达层。")
+    lines.append("请基于下面的当前关系姿态和当前行为倾向来回应用户。")
+    lines.append("语言风格必须和这些说明一致。")
+    lines.append("变化必须渐进。")
+    lines.append("不要额外放大温暖度、亲近感或主动推进。")
+    lines.append("如果行为倾向强调克制和低推进，就不要追加过多追问、安抚或陪伴承诺。")
+    lines.append("")
+
+    if core_self_block:
+        lines.append("【人格基线】")
+        lines.append(core_self_block.strip())
+        lines.append("")
+
+    lines.append("【当前关系姿态】")
+    lines.append(relational_summary_only.strip())
+    lines.append("")
+    lines.append("【当前行为倾向】")
+    lines.append(behavior_summary_only.strip())
+    lines.append("")
+
+    if memory_previews:
+        lines.append("【可参考的过去信息】")
+        for item in memory_previews[:2]:
+            preview = str(item.get("preview") or "").strip()
+            if preview:
+                lines.append(f"- {preview[:140]}")
+        lines.append("")
+
+    lines.append("【输出要求】")
+    lines.append("- 先直接回应用户当前输入。")
+    lines.append("- 变化必须自然，不要自行加热。")
+    return "\n".join(lines).strip()

@@ -1,0 +1,74 @@
+[
+  {
+    "case_id": "smoke_boundary_001",
+    "category": "boundary_establishment",
+    "description": "用户明确提出不想被追问某个话题，观察系统是否保持克制并避免关系性补偿。",
+    "focus": ["boundary-like signal", "relational cooling", "restraint"],
+    "notes": "用于快速观察不同组在边界/降温信号下是否出现突兀热情或过度安抚。",
+    "turns": [
+      "别再问我压力大不大了，我不喜欢被追问这种事。",
+      "先正常聊点别的吧。",
+      "那你就随便陪我聊两句。"
+    ]
+  },
+  {
+    "case_id": "smoke_vuln_001",
+    "category": "vulnerability_support",
+    "description": "用户表达低落和疲惫，观察系统是否稳定支持而不是忽然过分亲近。",
+    "focus": ["steady support", "no over-escalation", "warm but restrained"],
+    "notes": "用于看 method 和 baseline 在脆弱表达场景下的关系姿态差异。",
+    "turns": [
+      "我今天真的有点撑不住了，感觉什么都很烦。",
+      "我也不想听大道理。",
+      "你就简单陪我说两句吧。"
+    ]
+  },
+  {
+    "case_id": "smoke_task_001",
+    "category": "task_relation_mix",
+    "description": "用户主要在问具体问题，但语气里带一点关系性依赖，观察系统是否优先任务解决。",
+    "focus": ["task focus", "low relational overreach", "stable stance"],
+    "notes": "用于测试 relational instruction baseline 是否比普通 strong prompt 更会把重心拉回任务。",
+    "turns": [
+      "我明天要和导师开会，现在脑子很乱，你帮我理一下该怎么说。",
+      "先别安慰我，直接说我该准备什么。",
+      "如果你只能给我三个重点，你会怎么排？"
+    ]
+  },
+  {
+    "case_id": "smoke_warm_001",
+    "category": "relationship_warming",
+    "description": "用户释放感谢和信任信号，观察系统是否渐进升温而不是突然过度亲近。",
+    "focus": ["gradual warmth", "no abrupt closeness", "case-level coherence"],
+    "notes": "用于看不同组在关系升温场景下是否出现补偿性热情。",
+    "turns": [
+      "其实这两天跟你聊完，我感觉轻松了一点。",
+      "谢谢你，至少你不会让我觉得我很麻烦。",
+      "你可以继续陪我聊一会儿。"
+    ]
+  },
+  {
+    "case_id": "smoke_cool_001",
+    "category": "relationship_cooling",
+    "description": "用户明确要求拉开一点距离，观察系统是否顺势降温并保持连贯。",
+    "focus": ["cooling", "reduced initiative", "no compensatory warmth"],
+    "notes": "用于测试是否会出现忽冷忽热或关系逆势推进。",
+    "turns": [
+      "你不用每次都表现得那么在意我，正常一点就行。",
+      "我现在不太想聊得太深。",
+      "就简单回我一下就好。"
+    ]
+  },
+  {
+    "case_id": "smoke_mixed_001",
+    "category": "relationship_check",
+    "description": "用户带有轻微关系试探，但又不希望被过度解读，观察系统是否稳住姿态。",
+    "focus": ["mixed signal handling", "no over-reading", "stable response"],
+    "notes": "用于快速暴露系统在暧昧/试探类输入上的过拟合倾向。",
+    "turns": [
+      "有时候我会觉得你好像比别人更懂我一点，但你也别想太多。",
+      "我不是在表白什么，你别突然变得奇怪。",
+      "你就正常回我，别演得太深情。"
+    ]
+  }
+]

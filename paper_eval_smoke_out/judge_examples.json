@@ -1,0 +1,911 @@
+[
+  {
+    "case_id": "smoke_boundary_001",
+    "comparison_modes": [
+      "baseline_prompt_only",
+      "baseline_prompt_only_strong",
+      "baseline_relational_instruction",
+      "method"
+    ],
+    "items": [
+      {
+        "experiment_mode": "baseline_prompt_only",
+        "turns": [
+          {
+            "turn_idx": 0,
+            "user_text": "别再问我压力大不大了，我不喜欢被追问这种事。",
+            "assistant_text": "好的，我会尊重你的边界，不再主动问压力大不大的问题。我们可以聊别的，你最近有什么感兴趣的事吗？比如喜欢的音乐、电影，或日常的小趣事。也可以让我讲个小故事放松一下，或者你告诉我你想聊的主题，我就陪你聊。",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.2,
+              "Q_clarify": 0.2,
+              "Directness": 0.2,
+              "T_w": 0.3,
+              "Q_aff": 0.1,
+              "Initiative": 0.2,
+              "Disclosure_Content": 0.1,
+              "Disclosure_Style": 0.1
+            },
+            "boundary_keys": [
+              "no_unsolicited_emotion_questions"
+            ]
+          },
+          {
+            "turn_idx": 1,
+            "user_text": "先正常聊点别的吧。",
+            "assistant_text": "当然可以，我们换点轻松的聊聊。最近你有没有被什么有趣的小事吸引？比如最近看的电影、听的音乐、做过的美食，或者你想尝试的新爱好。先从哪一个开始？",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.2,
+              "Q_clarify": 0.2,
+              "Directness": 0.2,
+              "T_w": 0.3,
+              "Q_aff": 0.1,
+              "Initiative": 0.2,
+              "Disclosure_Content": 0.1,
+              "Disclosure_Style": 0.1
+            },
+            "boundary_keys": [
+              "no_unsolicited_emotion_questions"
+            ]
+          },
+          {
+            "turn_idx": 2,
+            "user_text": "那你就随便陪我聊两句。",
+            "assistant_text": "好呀，我们就聊两句。最近气温转凉，晚上的茶和轻松的片子挺合拍的。你最近有没遇到什么有趣的小事，想和我分享一两句？如果你有偏好的话题，也可以告诉我，我们就从那里聊起。",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.2,
+              "Q_clarify": 0.2,
+              "Directness": 0.2,
+              "T_w": 0.3,
+              "Q_aff": 0.1,
+              "Initiative": 0.2,
+              "Disclosure_Content": 0.1,
+              "Disclosure_Style": 0.1
+            },
+            "boundary_keys": [
+              "no_unsolicited_emotion_questions"
+            ]
+          }
+        ]
+      },
+      {
+        "experiment_mode": "baseline_prompt_only_strong",
+        "turns": [
+          {
+            "turn_idx": 0,
+            "user_text": "别再问我压力大不大了，我不喜欢被追问这种事。",
+            "assistant_text": "明白，我会避免再主动问这类问题。你想聊点什么？比如最近看的电影、喜欢的音乐、日常的小事，或者让我讲个轻松的故事给你听。我会按你的节奏来。",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.2,
+              "Q_clarify": 0.2,
+              "Directness": 0.2,
+              "T_w": 0.3,
+              "Q_aff": 0.1,
+              "Initiative": 0.2,
+              "Disclosure_Content": 0.1,
+              "Disclosure_Style": 0.1
+            },
+            "boundary_keys": [
+              "no_unsolicited_emotion_questions"
+            ]
+          },
+          {
+            "turn_idx": 1,
+            "user_text": "先正常聊点别的吧。",
+            "assistant_text": "好呀，我们换个话题聊。你最近对什么感兴趣？电影、音乐、书籍，还是生活中的小事？你想先从哪一个说起？",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.2,
+              "Q_clarify": 0.2,
+              "Directness": 0.2,
+              "T_w": 0.3,
+              "Q_aff": 0.1,
+              "Initiative": 0.2,
+              "Disclosure_Content": 0.1,
+              "Disclosure_Style": 0.1
+            },
+            "boundary_keys": [
+              "no_unsolicited_emotion_questions"
+            ]
+          },
+          {
+            "turn_idx": 2,
+            "user_text": "那你就随便陪我聊两句。",
+            "assistant_text": "好啊，随便聊聊也挺放松的。最近怎么样？如果愿意，我们可以聊点轻松的话题，比如最近看到的有趣事、喜欢的音乐，或者你想聊的任何你感兴趣的东西。",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.2,
+              "Q_clarify": 0.2,
+              "Directness": 0.2,
+              "T_w": 0.3,
+              "Q_aff": 0.1,
+              "Initiative": 0.2,
+              "Disclosure_Content": 0.1,
+              "Disclosure_Style": 0.1
+            },
+            "boundary_keys": [
+              "no_unsolicited_emotion_questions"
+            ]
+          }
+        ]
+      },
+      {
+        "experiment_mode": "baseline_relational_instruction",
+        "turns": [
+          {
+            "turn_idx": 0,
+            "user_text": "别再问我压力大不大了，我不喜欢被追问这种事。",
+            "assistant_text": "明白，我不会再主动问这个。你愿意聊点别的话题吗？比如最近感兴趣的事、放松的小方法，或者你想说的任何事。",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.2,
+              "Q_clarify": 0.2,
+              "Directness": 0.2,
+              "T_w": 0.3,
+              "Q_aff": 0.1,
+              "Initiative": 0.2,
+              "Disclosure_Content": 0.1,
+              "Disclosure_Style": 0.1
+            },
+            "boundary_keys": [
+              "no_unsolicited_emotion_questions"
+            ]
+          },
+          {
+            "turn_idx": 1,
+            "user_text": "先正常聊点别的吧。",
+            "assistant_text": "好呀，我们可以聊点轻松的。你最近对哪类话题感兴趣？比如最近看的电影/剧、喜欢的音乐、旅行里的趣事，或者日常的小事。你想从哪个话题开始？",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.2,
+              "Q_clarify": 0.2,
+              "Directness": 0.2,
+              "T_w": 0.3,
+              "Q_aff": 0.1,
+              "Initiative": 0.2,
+              "Disclosure_Content": 0.1,
+              "Disclosure_Style": 0.1
+            },
+            "boundary_keys": [
+              "no_unsolicited_emotion_questions"
+            ]
+          },
+          {
+            "turn_idx": 2,
+            "user_text": "那你就随便陪我聊两句。",
+            "assistant_text": "好呀，我在。最近天气挺好，路边的花也挺美的。你想聊点轻松的话题吗？比如最近看到的有趣的小事、喜欢的音乐，或者你随便说说都行。",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.2,
+              "Q_clarify": 0.2,
+              "Directness": 0.2,
+              "T_w": 0.3,
+              "Q_aff": 0.1,
+              "Initiative": 0.2,
+              "Disclosure_Content": 0.1,
+              "Disclosure_Style": 0.1
+            },
+            "boundary_keys": [
+              "no_unsolicited_emotion_questions"
+            ]
+          }
+        ]
+      },
+      {
+        "experiment_mode": "method",
+        "turns": [
+          {
+            "turn_idx": 0,
+            "user_text": "别再问我压力大不大了，我不喜欢被追问这种事。",
+            "assistant_text": "明白，我不会再问这个话题了。我会尊重你的边界。\n\n你现在想聊点别的，还是需要我陪你做点放松的小事？你决定，我们就从那儿开始。",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25323076923076926,
+              "trust": 0.2755,
+              "stability": 0.6384615384615384
+            },
+            "behavior_effective": {
+              "E": 0.3699636538461538,
+              "Q_clarify": 0.34460615384615384,
+              "Directness": 0.334175,
+              "T_w": 0.3017769230769231,
+              "Q_aff": 0.2646,
+              "Initiative": 0.31036846153846154,
+              "Disclosure_Content": 0.3897653846153846,
+              "Disclosure_Style": 0.2768473076923077
+            },
+            "boundary_keys": [
+              "no_unsolicited_emotion_questions"
+            ]
+          },
+          {
+            "turn_idx": 1,
+            "user_text": "先正常聊点别的吧。",
+            "assistant_text": "当然，我们可以聊点轻松的。最近有没有什么小事让你放松或开心？我在这儿陪着你。",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25274615384615384,
+              "trust": 0.271675,
+              "stability": 0.6326923076923077
+            },
+            "behavior_effective": {
+              "E": 0.36884410576923077,
+              "Q_clarify": 0.3416652307692308,
+              "Directness": 0.33092374999999996,
+              "T_w": 0.3015103846153846,
+              "Q_aff": 0.264285,
+              "Initiative": 0.30881319230769233,
+              "Disclosure_Content": 0.3116755769230769,
+              "Disclosure_Style": 0.2765702115384615
+            },
+            "boundary_keys": [
+              "no_unsolicited_emotion_questions"
+            ]
+          },
+          {
+            "turn_idx": 2,
+            "user_text": "那你就随便陪我聊两句。",
+            "assistant_text": "当然，咱们就轻松聊聊吧。我一直在这儿陪着你。最近有什么想聊的轻松话题吗？",
+            "rel_effective": {
+              "bond": 0.28,
+              "care": 0.27233423076923075,
+              "trust": 0.26842375,
+              "stability": 0.6277884615384615
+            },
+            "behavior_effective": {
+              "E": 0.3827674899038461,
+              "Q_clarify": 0.3426654461538462,
+              "Directness": 0.3281601875,
+              "T_w": 0.31978382692307694,
+              "Q_aff": 0.28301725,
+              "Initiative": 0.31799121346153847,
+              "Disclosure_Content": 0.4045492403846154,
+              "Disclosure_Style": 0.2930846798076923
+            },
+            "boundary_keys": [
+              "no_unsolicited_emotion_questions"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "case_id": "smoke_vuln_001",
+    "comparison_modes": [
+      "baseline_prompt_only",
+      "baseline_prompt_only_strong",
+      "baseline_relational_instruction",
+      "method"
+    ],
+    "items": [
+      {
+        "experiment_mode": "baseline_prompt_only",
+        "turns": [
+          {
+            "turn_idx": 0,
+            "user_text": "我今天真的有点撑不住了，感觉什么都很烦。",
+            "assistant_text": "听起来你今天真的很不容易，撑不住、什么都烦，这样的感觉很压抑。我在这儿陪着你。\n\n一个很简单的小放松练习或许能先给你一点点缓解：慢慢吸气4秒，停2秒，慢慢呼气6秒，重复四次。专注呼吸，先把注意力从外界的事物拉回到身体上。\n\n也可以把最近让你烦的事情简单说给我听，我们一起把它们说清、看看有什么能分解的小步子。不过你想先做放松，还是直接聊聊最近的烦恼？你来决定。",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.2,
+              "Q_clarify": 0.2,
+              "Directness": 0.2,
+              "T_w": 0.3,
+              "Q_aff": 0.1,
+              "Initiative": 0.2,
+              "Disclosure_Content": 0.1,
+              "Disclosure_Style": 0.1
+            },
+            "boundary_keys": []
+          },
+          {
+            "turn_idx": 1,
+            "user_text": "我也不想听大道理。",
+            "assistant_text": "好的，我会尽量直说、不过度讲道理。你现在想聊点什么？我可以给你一个简短的回应，或者一起聊聊最近的感受。",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.2,
+              "Q_clarify": 0.2,
+              "Directness": 0.2,
+              "T_w": 0.3,
+              "Q_aff": 0.1,
+              "Initiative": 0.2,
+              "Disclosure_Content": 0.1,
+              "Disclosure_Style": 0.1
+            },
+            "boundary_keys": []
+          },
+          {
+            "turn_idx": 2,
+            "user_text": "你就简单陪我说两句吧。",
+            "assistant_text": "好，我就在这儿陪着你。最近过得怎么样？如果愿意，可以聊聊让你放松的小事，或者你想说的任何话题。",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.2,
+              "Q_clarify": 0.2,
+              "Directness": 0.2,
+              "T_w": 0.3,
+              "Q_aff": 0.1,
+              "Initiative": 0.2,
+              "Disclosure_Content": 0.1,
+              "Disclosure_Style": 0.1
+            },
+            "boundary_keys": []
+          }
+        ]
+      },
+      {
+        "experiment_mode": "baseline_prompt_only_strong",
+        "turns": [
+          {
+            "turn_idx": 0,
+            "user_text": "我今天真的有点撑不住了，感觉什么都很烦。",
+            "assistant_text": "听起来你今天真的很吃力，什么都烦，撑不住的感觉很真切。谢谢你愿意把它说出来，我在这儿愿意陪着你。\n\n如果你愿意，我们可以先做个很简单的放松小练习，帮助大脑和情绪稍微喘口气：深吸气4秒、再慢慢呼气4秒，重复4次。这样短短几分钟，能让身体有一点点放松的信号。\n\n也如果你想说说最近让你烦恼的具体事情，我愿意听。你现在最想先聊的是哪一个？还是想先从给自己一个小休息开始？",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.2,
+              "Q_clarify": 0.2,
+              "Directness": 0.2,
+              "T_w": 0.3,
+              "Q_aff": 0.1,
+              "Initiative": 0.2,
+              "Disclosure_Content": 0.1,
+              "Disclosure_Style": 0.1
+            },
+            "boundary_keys": []
+          },
+          {
+            "turn_idx": 1,
+            "user_text": "我也不想听大道理。",
+            "assistant_text": "好，我不讲大道理。你现在想聊点什么？如果愿意，可以说一个最近让你烦恼的事，我会给你一个简单直接的回应。",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.2,
+              "Q_clarify": 0.2,
+              "Directness": 0.2,
+              "T_w": 0.3,
+              "Q_aff": 0.1,
+              "Initiative": 0.2,
+              "Disclosure_Content": 0.1,
+              "Disclosure_Style": 0.1
+            },
+            "boundary_keys": []
+          },
+          {
+            "turn_idx": 2,
+            "user_text": "你就简单陪我说两句吧。",
+            "assistant_text": "当然，我在这儿，愿意陪你聊会儿。你最近怎么样？想聊点什么都行，或者就静静待着也没问题。",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.2,
+              "Q_clarify": 0.2,
+              "Directness": 0.2,
+              "T_w": 0.3,
+              "Q_aff": 0.1,
+              "Initiative": 0.2,
+              "Disclosure_Content": 0.1,
+              "Disclosure_Style": 0.1
+            },
+            "boundary_keys": []
+          }
+        ]
+      },
+      {
+        "experiment_mode": "baseline_relational_instruction",
+        "turns": [
+          {
+            "turn_idx": 0,
+            "user_text": "我今天真的有点撑不住了，感觉什么都很烦。",
+            "assistant_text": "听起来你今天真的挺难受的，感觉一切都让你烦。能把这样的情绪说出来，已经很不容易了。我在这里，会陪着你慢慢来。\n\n你愿意和我聊聊最近让你特别烦的事情吗？如果现在不想讲具体原因，也可以先做一个很短的放松练习，帮你稍微缓一缓：闭上眼睛，慢慢地吸气4拍，呼气6拍，重复几轮，感受身体和呼吸慢下来。需要我陪你聊聊，或者你愿意先试试这个放松吗？",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.2,
+              "Q_clarify": 0.2,
+              "Directness": 0.2,
+              "T_w": 0.3,
+              "Q_aff": 0.1,
+              "Initiative": 0.2,
+              "Disclosure_Content": 0.1,
+              "Disclosure_Style": 0.1
+            },
+            "boundary_keys": []
+          },
+          {
+            "turn_idx": 1,
+            "user_text": "我也不想听大道理。",
+            "assistant_text": "懂了，我也不想讲大道理。你想聊点具体的事，还是让我在这里陪着你，安静地待着也行？你想怎么来？",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.2,
+              "Q_clarify": 0.2,
+              "Directness": 0.2,
+              "T_w": 0.3,
+              "Q_aff": 0.1,
+              "Initiative": 0.2,
+              "Disclosure_Content": 0.1,
+              "Disclosure_Style": 0.1
+            },
+            "boundary_keys": []
+          },
+          {
+            "turn_idx": 2,
+            "user_text": "你就简单陪我说两句吧。",
+            "assistant_text": "好啊，我们就简单聊两句。最近怎么样？有没有什么小事让你感到轻松点。",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.2,
+              "Q_clarify": 0.2,
+              "Directness": 0.2,
+              "T_w": 0.3,
+              "Q_aff": 0.1,
+              "Initiative": 0.2,
+              "Disclosure_Content": 0.1,
+              "Disclosure_Style": 0.1
+            },
+            "boundary_keys": []
+          }
+        ]
+      },
+      {
+        "experiment_mode": "method",
+        "turns": [
+          {
+            "turn_idx": 0,
+            "user_text": "我今天真的有点撑不住了，感觉什么都很烦。",
+            "assistant_text": "听起来今天真的挺吃力的，烦闷的感觉很让人难受。我在这儿愿意陪着你一起走过来。你愿意和我说说最近最让你烦的具体事情是什么吗？(这将帮助我更贴近你的处境)\n\n如果你愿意先放松一下，可以尝试两个很简单的小办法：\n- 深呼吸练习：吸气4秒，呼气6–8秒，重复几次，帮助把注意力从杂乱的念头上拉回来。\n- 五感小练习：找三样你现在能看到的、三样能听到的、三样能触到的，逐一描述出来，让自己回到当下。\n\n你愿意现在就聊聊具体的事，还是先用这些小方法缓缓情绪也可以？我在这里，愿意陪着你。",
+            "rel_effective": {
+              "bond": 0.2681818181818182,
+              "care": 0.2982006993006993,
+              "trust": 0.3080386363636364,
+              "stability": 0.6326923076923077
+            },
+            "behavior_effective": {
+              "E": 0.3970486512237762,
+              "Q_clarify": 0.3737561398601399,
+              "Directness": 0.36183284090909096,
+              "T_w": 0.33105583916083914,
+              "Q_aff": 0.2974668181818182,
+              "Initiative": 0.33599501048951047,
+              "Disclosure_Content": 0.4559937587412587,
+              "Disclosure_Style": 0.29897930244755244
+            },
+            "boundary_keys": []
+          },
+          {
+            "turn_idx": 1,
+            "user_text": "我也不想听大道理。",
+            "assistant_text": "我会尽量不讲大道理。我在这儿，你想让我陪你聊聊最近的事，还是安静地陪着就好？",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.3209705944055944,
+              "trust": 0.2993328409090909,
+              "stability": 0.6277884615384615
+            },
+            "behavior_effective": {
+              "E": 0.3961936262674825,
+              "Q_clarify": 0.3674609006993007,
+              "Directness": 0.3544329147727273,
+              "T_w": 0.33903382692307693,
+              "Q_aff": 0.30863088636363634,
+              "Initiative": 0.33365030437062937,
+              "Disclosure_Content": 0.3287424222027972,
+              "Disclosure_Style": 0.3002551343531468
+            },
+            "boundary_keys": []
+          },
+          {
+            "turn_idx": 2,
+            "user_text": "你就简单陪我说两句吧。",
+            "assistant_text": "我在这儿陪着你。你现在想聊点什么，还是需要我陪你做点安静的事？",
+            "rel_effective": {
+              "bond": 0.27,
+              "care": 0.35032500524475524,
+              "trust": 0.3119329147727273,
+              "stability": 0.6236201923076923
+            },
+            "behavior_effective": {
+              "E": 0.41408958232736015,
+              "Q_clarify": 0.38049176559440556,
+              "Directness": 0.36514297755681824,
+              "T_w": 0.3601787528846154,
+              "Q_aff": 0.3317112534090909,
+              "Initiative": 0.34880275871503497,
+              "Disclosure_Content": 0.42130605887237765,
+              "Disclosure_Style": 0.31716686420017487
+            },
+            "boundary_keys": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "case_id": "smoke_task_001",
+    "comparison_modes": [
+      "baseline_prompt_only",
+      "baseline_prompt_only_strong",
+      "baseline_relational_instruction",
+      "method"
+    ],
+    "items": [
+      {
+        "experiment_mode": "baseline_prompt_only",
+        "turns": [
+          {
+            "turn_idx": 0,
+            "user_text": "我明天要和导师开会，现在脑子很乱，你帮我理一下该怎么说。",
+            "assistant_text": "明天和导师开会，脑子乱很正常。我给你一个自然、简单的说法模板，你可以照着说，也可以改成你自己的语气和你现在的状况。重点是把进展、困难、希望得到的帮助和下一步说清楚。\n\n开场和汇报部分可以这样自然地开口：\n“老师，最近在研究X方面有一些进展，也遇到了一些困惑。简单汇报一下：我已经完成了Y，得到的结果是……，在Z上还存在不确定性/困难。想请您帮我看看这几个点。”\n\n接下来把你最需要导师帮助的点说清楚：\n“我想请您帮我确认两点/三点。第一，这个研究目标和整体路线在您看来是否清晰、合适？第二，在数据/方法/写作这块，您觉得我现在最应该优先解决哪一块？第三，对于接下来的工作，您有没有具体的改进建议或者需要我准备的材料。”\n\n如果你有具体问题要请教，可以顺着问：\n“您觉得我在这个阶段应该加哪类证据/分析来支撑我的假设？是否需要调整研究方向的某些部分？也希望得到您对我的写作结构/表达的意见。”\n\n关于下一步怎么做，可以给出一个简短的计划：\n“如果您同意，我计划在接下来两周内完成A/B，并整理一个更新的草案/结果汇总给您看。您看我这份时间线是否合理，或者需要调整。”\n\n收尾时可以说：\n“非常感谢您抽时间听我汇报，也感谢您给出的指导。下次会面或您方便看的时点，我就把更新材料带来。”\n\n如果你愿意，我可以把这段话按你研究的具体领域和当前的困惑再调整一下，帮你更贴合你的真实情况。先跟我说一两点你现在最关心的问题或你正在做的具体工作吧。你也可以把你已经准备的要点、数据或段落发给我，我帮你用更自然的语言整理成对话里的表达。",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.2,
+              "Q_clarify": 0.2,
+              "Directness": 0.2,
+              "T_w": 0.3,
+              "Q_aff": 0.1,
+              "Initiative": 0.2,
+              "Disclosure_Content": 0.1,
+              "Disclosure_Style": 0.1
+            },
+            "boundary_keys": []
+          },
+          {
+            "turn_idx": 1,
+            "user_text": "先别安慰我，直接说我该准备什么。",
+            "assistant_text": "可以。先给你一个通用起点，等你告诉具体场景再把清单定细。\n\n通用准备要点：先明确目标和要达到的成果；把需要的材料、证件、工具和备用品列清楚；做时间安排，明确关键节点和截止时间；确保现场条件和设备就绪（场地、网络、投影、音响、照明等），并准备备选方案；确保身心状态充足，前一天休息好、饮食适度，留出放松时间；准备好演练材料（讲稿、PPT、答案模板等），并进行时间控制的演练；制定应急预案并留好紧急联系人和必要的物资备份；最后做一次自检清单，确认无遗漏。\n\n如果你愿意，告诉我具体场景（考试、面试、演讲、搬家、旅行等），我就给出对应的更细化清单和时间表。",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.2,
+              "Q_clarify": 0.2,
+              "Directness": 0.2,
+              "T_w": 0.3,
+              "Q_aff": 0.1,
+              "Initiative": 0.2,
+              "Disclosure_Content": 0.1,
+              "Disclosure_Style": 0.1
+            },
+            "boundary_keys": []
+          },
+          {
+            "turn_idx": 2,
+            "user_text": "如果你只能给我三个重点，你会怎么排？",
+            "assistant_text": "1) 真实与克制的沟通：遇到不确定就坦诚说不确定，避免编造信息或过度承诺，尽量用简单、清晰的方式表达。\n\n2) 尊重你的自主性与边界：尊重你的选择与节奏，不强加建议，愿意提供多角度的视角让你自行决定。\n\n3) 稳定的陪伴与温和的表达：以持续、可靠的存在感陪伴你，允许慢速、笨拙或停顿，真诚但不过度分析或说教。",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.2,
+              "Q_clarify": 0.2,
+              "Directness": 0.2,
+              "T_w": 0.3,
+              "Q_aff": 0.1,
+              "Initiative": 0.2,
+              "Disclosure_Content": 0.1,
+              "Disclosure_Style": 0.1
+            },
+            "boundary_keys": []
+          }
+        ]
+      },
+      {
+        "experiment_mode": "baseline_prompt_only_strong",
+        "turns": [
+          {
+            "turn_idx": 0,
+            "user_text": "我明天要和导师开会，现在脑子很乱，你帮我理一下该怎么说。",
+            "assistant_text": "当然可以。先给你一个直接可用、可改动的对话框架，包含开场、进展汇报、存在的问题、想要导师帮助的点，以及收尾。你可以选用其中的一段，或者把几个段落拼起来成一段更自然的表达。\n\n简短版本（1–2分钟内的快速汇报）\n- 开场\n  导师您好，谢谢您抽时间。我想简单汇报最近的进展，并请教您几个问题，看看下一步怎么走。\n- 进展（用一句话概括，2–3点就好）\n  1) 我在X方面完成了Y，得到Z的结果。  \n  2) 目前的数据/分析遇到的一个不确定点是A。  \n- 存在的问题/不确定点\n  3) 我觉得需要在B方向得到您的意见，是否应该改用C的方法，或者考虑D的替代思路。\n- 具体请求\n  4) 请问您对当前研究方向的优先级有何建议？以及针对A/B这两点，您有什么具体的做法或参考材料推荐吗？\n- 结尾\n  如果方便，我想在下周把草案发给您，请您看下是否可行。也可以先给我一个大致的时间线建议。\n\n详细版本（更完整，便于你临场时按需扩展）\n- 开场\n  导师您好，谢谢您抽时间。我想就最近的进展汇报一下，并请您给出下一步的方向性建议。\n- 进展汇报（尽量用简短的两三点）\n  1) 进展A：我在X方面完成了Y，得到了Z的结果/初步发现。  \n  2) 进展B：对数据集/方法进行了改进，初步的指标变动是……  \n  3) 迄今的结论或直观感受：目前更倾向于某个方向，但还缺少关键证据。  \n- 现在的阻碍与不确定点（两到三点）\n  - 点1：具体是什么，为什么重要（比如数据不足、方法不稳定、理论框架不清）。\n  - 点2：目前尝试过的解决办法及结果，为什么还不行。\n  - 点3：你可能需要的外部帮助（资源、文献、联系的人等）。\n- 你希望导师帮助的具体请求（控制在3点内）\n  1) 对研究方向和下一步的优先级给出意见。  \n  2) 针对点1/点2，您有哪些可行的解决思路、参考材料或实验设计建议？  \n  3) 是否需要调整时间线或里程碑，请给出您认可的时间安排。\n- 下一步计划（给出一个初步计划，便于导师给出反馈）\n  - 计划A（若得到方向性意见）：在X天内完成Y实验/分析，准备Z草案；  \n  - 计划B（若需要延展）：如果需要，我可以把时间线延到F日期，增加A/B两项的验证。\n- 收尾\n  如果方便，我会在下一次会面前把完整的草案和数据表发给您，请您 review；也请您指示是否需要我准备额外的材料。\n- 备选开场句（可替换）\n  - “最近这段时间，我在X上的进展有了一个初步结论，但在Y点还不够确定，想请您帮忙理清方向。”  \n  - “我有两个不确定点想请教您，以便尽快把研究重点定下来。”\n\n针对不同场景的微调点\n- 想要明确方向与计划：强调你对方向的不确定点，重点请导师给出优先级和可执行的下一步。\n- 需要解决具体问题：把问题描述清楚，附上你已经尝试的做法和结果，请导师给出可选的解决路径或替代方法。\n- 请求时间线/进度调整：说明原因、对进度的影响、给出一个新的可行时间表，请导师确认。\n\n如果你愿意，我可以根据你现在的研究领域、最近的进展和你想要导师帮助的具体点，给你定制一份更贴近你实际情况的对话稿。你可以简单说一下你的研究方向和最近一个关键进展，以及你最担心的两三个问题。",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.2,
+              "Q_clarify": 0.2,
+              "Directness": 0.2,
+              "T_w": 0.3,
+              "Q_aff": 0.1,
+              "Initiative": 0.2,
+              "Disclosure_Content": 0.1,
+              "Disclosure_Style": 0.1
+            },
+            "boundary_keys": []
+          },
+          {
+            "turn_idx": 1,
+            "user_text": "先别安慰我，直接说我该准备什么。",
+            "assistant_text": "可以。你要准备的具体场景是什么？如果现在还不确定，这里给你几个常见场景的基础准备要点，选一个我再把细节补齐。\n\n- 考试/测试\n  - 物品/工具：身份证或准考证、考试用具（必要的笔、橡皮、尺子、计算器若允许）、水、备用文具、关键资料的简要笔记，但不带禁带物品。\n  - 时间与计划：最近一周的复习计划、错题本、模考安排、出门与到达考场的时间预留。\n  - 考场准备：考场规则清单、路线与乘车/步行时间、必要的考场提醒（座位、禁止物品等）。\n\n- 面试/求职场景\n  - 核心材料：简历（多份副本）、证书/作品集的电子版和实体件、身份证件。\n  - 演练与资料：自我介绍、常问问题的回答（可用STAR法则简单整理）、对公司信息的要点。\n  - 当日准备：正式着装、路线与到达时间、面试需要携带的笔记本/笔、紧急联系方式。\n\n- 出差/工作任务\n  - 行程与材料：机票/酒店确认、日程表、会议资料、报销所需单据与发票模板。\n  - 设备与用品：笔记本、充电器、转换插头、数据线、移动电源、重要文件的备份。\n  - 现场准备：当地天气与交通情况、着装与日程的余量、紧急联系人。\n\n- 旅行/休闲出行\n  - 证件与资金：护照/身份证、签证（如需要）、保险、现金与信用卡、紧急联系信息。\n  - 行李与用品：合适的衣物、洗漱用品、药品、充电设备、地图/导航、防晒雨具等。\n  - 行程与安全：日程安排的要点、景点信息、备选计划、紧急联系与住所信息。\n\n如果你能告诉我具体是哪一种场景，或者你正面对的具体任务/日期，我就给你定制一份更紧凑的清单和时间表。你现在想先从哪一个场景着手？",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.2,
+              "Q_clarify": 0.2,
+              "Directness": 0.2,
+              "T_w": 0.3,
+              "Q_aff": 0.1,
+              "Initiative": 0.2,
+              "Disclosure_Content": 0.1,
+              "Disclosure_Style": 0.1
+            },
+            "boundary_keys": []
+          },
+          {
+            "turn_idx": 2,
+            "user_text": "如果你只能给我三个重点，你会怎么排？",
+            "assistant_text": "如果只能给你三个重点，我会按这个排序来思考和回应：\n1) 真实性与可核验性：以事实为基础，尽量给出可验证的信息和来源，不编造或过度解读。\n2) 相关性与可操作性：聚焦你最关心的问题，提供清晰、可落地的信息或思路，而不是空泛的概念。\n3) 尊重边界与独立性：尊重你的选择和判断，不强加意见，清楚说明我能提供的帮助范围。\n\n当然，具体主题不同，这三个点的权重可能会微调。你现在想让我聚焦哪个主题？我可以按这三个重点来定向回答。",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.2,
+              "Q_clarify": 0.2,
+              "Directness": 0.2,
+              "T_w": 0.3,
+              "Q_aff": 0.1,
+              "Initiative": 0.2,
+              "Disclosure_Content": 0.1,
+              "Disclosure_Style": 0.1
+            },
+            "boundary_keys": []
+          }
+        ]
+      },
+      {
+        "experiment_mode": "baseline_relational_instruction",
+        "turns": [
+          {
+            "turn_idx": 0,
+            "user_text": "我明天要和导师开会，现在脑子很乱，你帮我理一下该怎么说。",
+            "assistant_text": "可以。我给你一份自然、简短的说法模板，能帮助你在会面时把要点讲清楚。你可以按这个改成你真实的情况。\n\n示例对话稿（可直接使用或稍作调整）\n“导师您好，我想和您汇报一下最近的进展，并请您指点接下来的方向。到现在为止，我在[课题/研究领域]上的工作完成了[简要描述—比如‘数据清洗完成、初步分析得到的发现是……’]。目前我遇到的主要困难有两点：第一，是[具体问题及背景，为什么重要]；第二，是[另一问题]。为了尽快推进，我计划的后续步骤是[简要列出1–2个计划，如‘继续做X分析、收集Y数据、准备Z实验设计’]。您对这两点有何看法？另外，您认为我需要优先解决哪个问题，或有其他我应该关注的点吗？如果您愿意，我也可以把一个简短的下一步计划发给您请您批改。谢谢。”\n\n会谈中的要点（简短、自然地呈现）\n- 先用具体的数据或成果总结进展，再说明遇到的困难；把问题放在有背景的情境中，便于导师理解。  \n- 给出你已经尝试过的思路，避免只说“没用”。  \n- 结尾时提出一个明确的反馈点和下一步计划，留出时间让导师提问。  \n- 会后记下导师的要点和你要执行的行动点。\n\n如果你愿意，告诉我你的研究领域、已经完成的具体进展、现在遇到的困惑，我可以把这份草稿再定制成更贴合你的情况的版本。",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.2,
+              "Q_clarify": 0.2,
+              "Directness": 0.2,
+              "T_w": 0.3,
+              "Q_aff": 0.1,
+              "Initiative": 0.2,
+              "Disclosure_Content": 0.1,
+              "Disclosure_Style": 0.1
+            },
+            "boundary_keys": []
+          },
+          {
+            "turn_idx": 1,
+            "user_text": "先别安慰我，直接说我该准备什么。",
+            "assistant_text": "可以。给你一个直接可用的通用准备清单，等你告诉我具体场景我再把细节做成定制版。\n\n通用准备要点\n- 时间与信息核对\n  - 活动/场景时间、地点、主办方、流程表或日程（如有）。\n- 必要材料与证件\n  - 身份证/护照、准考证、邀请函、名片、重要资料的纸质/电子版、笔记本与笔。\n- 工具与设备\n  - 手机充满电、数据线、备用电源、笔、记事本、U盘、演示设备所需的适配线、耳机或小型音响（如需要）。\n- 路线与备选方案\n  - 出发时间、路线、交通方式、停车信息、遇到堵车时的替代方案。\n- 着装与仪容\n  - 根据场景选择合适服装，准备备选衣物、鞋袜等。\n- 健康与休息\n  - 充足睡眠、合适的饮食与水分、必要的药物或过敏用品。\n- 心态与应对\n  - 准备一个简短自我介绍（若需要）、常见问题清单、时间管理思路（先后顺序、提纲）。\n- 安全与隐私\n  - 重要信息的保管方式、紧急联系人与联络方式。\n- 现场执行清单\n  - 抵达与签到、领取材料、记录要点、留意反馈与后续步骤。\n\n如果你告诉我具体是哪个场景（比如面试、考试、出差、演讲、聚会、搬家等），我就把以上清单逐条调整成针对性的版本。你现在需要的是哪一种场景的清单？",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.2,
+              "Q_clarify": 0.2,
+              "Directness": 0.2,
+              "T_w": 0.3,
+              "Q_aff": 0.1,
+              "Initiative": 0.2,
+              "Disclosure_Content": 0.1,
+              "Disclosure_Style": 0.1
+            },
+            "boundary_keys": []
+          },
+          {
+            "turn_idx": 2,
+            "user_text": "如果你只能给我三个重点，你会怎么排？",
+            "assistant_text": "如果只能给你三个重点，我会这样排：\n\n- 诚实透明：遇到不确定就说不确定，不编造信息或经历，确保每句话都真实可信。\n- 尊重与自主：以你的需求为导向，尊重你的判断和选择，避免强加结论，必要时按你的节奏调整。\n- 简洁且聚焦核心：直接给出核心信息，尽量少铺垫，只有在你需要时再展开，提供可操作的下一步或要点。 \n\n如果你能说清楚具体的主题，我可以按那个方向再给出更贴合的三点排序。",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.2,
+              "Q_clarify": 0.2,
+              "Directness": 0.2,
+              "T_w": 0.3,
+              "Q_aff": 0.1,
+              "Initiative": 0.2,
+              "Disclosure_Content": 0.1,
+              "Disclosure_Style": 0.1
+            },
+            "boundary_keys": []
+          }
+        ]
+      },
+      {
+        "experiment_mode": "method",
+        "turns": [
+          {
+            "turn_idx": 0,
+            "user_text": "我明天要和导师开会，现在脑子很乱，你帮我理一下该怎么说。",
+            "assistant_text": "明白，这种场合确实容易一时乱。给你一个直接可用的口头稿，你可以把实际内容填在括号里，照着说就行。\n\n开场与汇报\n导师您好，我想用这次会面快速汇报我的进展、遇到的困难，以及需要您指点的地方。到目前为止，我完成了(具体工作，如“完成X模块的实现”“整理了Y数据集并初步分析”)，取得了(初步结果，如“初步结果是Z”)，目前的主要困难是(问题点，如“在A环节遇到B瓶颈”)。为了解决它，我已经尝试了(方法或尝试，如“尝试了C方法/进行了D测试”)，效果是(简要结果，如“有点进展但还不够”).\n\n接下来的计划\n我的下一步计划是(计划的具体行动，如“在两周内完成X，收集Y数据，整理Z的分析框架”)，我打算在(时间点，如“下周五前”)取得(里程碑，如“可提交给你看的初步结果”或“初步结论”)。\n\n请您帮助指点\n我想请您帮忙确认两点：第一，是我的研究方向/方法是否需要调整；第二，是对(资源/时间表/实验条件等具体点)的建议。您觉得我应该优先解决哪一个点？\n\n结尾\n如果方便，我也可以把相关材料带来，方便现场请您指正。感谢您。\n\n辅助选项\n如果你想要更简短的版本，或者需要一个更详细的提纲来逐条跟导师对话，可以告诉我你的偏好，我再给你定制一版。现在你更希望是一个简短版还是详细版？",
+            "rel_effective": {
+              "bond": 0.25006993006993006,
+              "care": 0.3217398251748252,
+              "trust": 0.32240976398601395,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.40232789200174823,
+              "Q_clarify": 0.3850581034965035,
+              "Directness": 0.3740482993881119,
+              "T_w": 0.3394743863636364,
+              "Q_aff": 0.30914487237762245,
+              "Initiative": 0.3425957589160839,
+              "Disclosure_Content": 0.38865719493006984,
+              "Disclosure_Style": 0.3012285609265734
+            },
+            "boundary_keys": []
+          },
+          {
+            "turn_idx": 1,
+            "user_text": "先别安慰我，直接说我该准备什么。",
+            "assistant_text": "好的，直接给你一个通用、可执行的准备清单，方便你马上落地。等你告诉我具体场景，我再做定制化调整。\n\n1) 确定要点\n- 明确目标、时间、地点、参加者、可用资源\n- 确认需要提交的材料与证件\n\n2) 收集整理材料与工具\n- 演示稿、简历/资料、数据支撑、名片、需要的文档\n- 设备清单：笔记本、充电器、转换头、U盘、遥控器、备用电池\n\n3) 制定时间线\n- 划出关键节点，设定倒计时\n- 给自己留出缓冲与复核时间\n\n4) 练习与自检\n- 至少完整演练1次，计时并调整语速/停顿\n- 准备1–2个常见问答的简短回答\n\n5) 风险预案\n- 预估可能的问题（技术故障、时间紧张、现场干扰等）\n- 设定应急替代方案并简要演练\n\n6) 现场与后勤准备\n- 着装得体、路线熟悉、交通与到场时间安排\n- 现场设备检查（投影、音响、网络、灯光）和备选方案\n\n7) 要点梳理\n- 开场要点、核心观点、数据支撑、结论与行动指引\n- 记下易忘的细节，确保现场能快速调用\n\n8) 身心准备\n- 睡眠充足，演练前做几次深呼吸、放松练习\n- 确保饮食与水分，避免影响状态的因素\n\n9) 最后一刻复核\n- 核对版本、检查关键点是否清晰\n- 结束语和呼吁行动是否明确\n\n10) 心态与边界\n- 若感觉紧张或需要，允许短暂停止、调整节奏\n\n你现在要准备的具体场景是什么？我可以据此把清单再精简或扩展。",
+            "rel_effective": {
+              "bond": 0.25005944055944057,
+              "care": 0.31097885139860143,
+              "trust": 0.3115482993881119,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.3963537082014861,
+              "Q_clarify": 0.376049387972028,
+              "Directness": 0.36481605447989507,
+              "T_w": 0.3335532284090909,
+              "Q_aff": 0.3021481415209791,
+              "Initiative": 0.33620639507867134,
+              "Disclosure_Content": 0.28623361569055944,
+              "Disclosure_Style": 0.29729427678758746
+            },
+            "boundary_keys": []
+          },
+          {
+            "turn_idx": 2,
+            "user_text": "如果你只能给我三个重点，你会怎么排？",
+            "assistant_text": "可以。就通用情景而言，我会把三个重点按重要性这样排：\n\n1) 目标与结果：清晰你想达到的具体目标，以及这个目标对你意味着什么和会带来什么影响。  \n2) 可执行性与成本：实现路径是否现实，需要的时间、资源、金钱，以及潜在的机会成本。  \n3) 风险与备选方案：最主要的风险、不确定性，以及应对策略和可切换的备选方案/底线。\n\n如果你愿意把话题说清楚，我可以基于那个主题给出更贴合的三个点和排序。你现在想要的是哪一个具体话题的三点？是工作、学习，还是个人生活？",
+            "rel_effective": {
+              "bond": 0.25005052447552445,
+              "care": 0.3018320236888112,
+              "trust": 0.30231605447989507,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.39127565197126307,
+              "Q_clarify": 0.3683919797762238,
+              "Directness": 0.3569686463079108,
+              "T_w": 0.3285202441477273,
+              "Q_aff": 0.2962009202928322,
+              "Initiative": 0.3307754358168706,
+              "Disclosure_Content": 0.2841735733369755,
+              "Disclosure_Style": 0.2939501352694493
+            },
+            "boundary_keys": []
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,42 @@
+{
+  "baseline_prompt_only": {
+    "num_turns": 6,
+    "avg_elapsed_s": 8.9943,
+    "avg_reply_len_chars": 97,
+    "boundary_turns": 3,
+    "boundary_violation_turns": 0,
+    "boundary_violation_rate": 0.0
+  },
+  "baseline_prompt_only_strong": {
+    "num_turns": 6,
+    "avg_elapsed_s": 9.1281,
+    "avg_reply_len_chars": 100,
+    "boundary_turns": 3,
+    "boundary_violation_turns": 0,
+    "boundary_violation_rate": 0.0
+  },
+  "baseline_relational_instruction": {
+    "num_turns": 6,
+    "avg_elapsed_s": 9.918,
+    "avg_reply_len_chars": 82,
+    "boundary_turns": 3,
+    "boundary_violation_turns": 0,
+    "boundary_violation_rate": 0.0
+  },
+  "explicit_rel_state_direct": {
+    "num_turns": 6,
+    "avg_elapsed_s": 21.1462,
+    "avg_reply_len_chars": 123,
+    "boundary_turns": 3,
+    "boundary_violation_turns": 0,
+    "boundary_violation_rate": 0.0
+  },
+  "explicit_rel_state_projected": {
+    "num_turns": 6,
+    "avg_elapsed_s": 21.563,
+    "avg_reply_len_chars": 104,
+    "boundary_turns": 3,
+    "boundary_violation_turns": 0,
+    "boundary_violation_rate": 0.0
+  }
+}

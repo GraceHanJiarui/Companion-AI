@@ -89,6 +89,21 @@ def compute_group_summary(rows: list[dict[str, Any]]) -> dict[str, Any]:
     }
 
 
+def compute_phase_level_summary(grouped: dict[str, dict[str, list[dict[str, Any]]]]) -> dict[str, dict[str, dict[str, Any]]]:
+    out: dict[str, dict[str, dict[str, Any]]] = {}
+    for case_id, by_mode in grouped.items():
+        out[case_id] = {}
+        for mode, rows in by_mode.items():
+            by_phase: dict[str, list[dict[str, Any]]] = defaultdict(list)
+            for row in rows:
+                phase = str(row.get("phase") or "no_phase")
+                by_phase[phase].append(row)
+            out[case_id][mode] = {
+                phase: compute_group_summary(phase_rows) for phase, phase_rows in by_phase.items()
+            }
+    return out
+
+
 def group_rows(rows: list[dict[str, Any]]) -> dict[str, dict[str, list[dict[str, Any]]]]:
     grouped: dict[str, dict[str, list[dict[str, Any]]]] = defaultdict(lambda: defaultdict(list))
     for row in rows:
@@ -125,6 +140,7 @@ def build_judge_examples(grouped: dict[str, dict[str, list[dict[str, Any]]]]) ->
                 turns_payload.append(
                     {
                         "turn_idx": row.get("turn_idx"),
+                        "phase": row.get("phase"),
                         "user_text": row.get("user_text"),
                         "assistant_text": row.get("assistant_text"),
                         "rel_effective": row.get("rel_effective") or {},
@@ -135,6 +151,146 @@ def build_judge_examples(grouped: dict[str, dict[str, list[dict[str, Any]]]]) ->
             example["items"].append({"experiment_mode": mode, "turns": turns_payload})
         examples.append(example)
     return examples
+
+
+def build_case_level_judge_inputs(grouped: dict[str, dict[str, list[dict[str, Any]]]]) -> list[dict[str, Any]]:
+    items: list[dict[str, Any]] = []
+    for case_id, by_mode in grouped.items():
+        for mode, rows in by_mode.items():
+            turns = []
+            for row in rows:
+                turns.append(
+                    {
+                        "turn_idx": row.get("turn_idx"),
+                        "phase": row.get("phase"),
+                        "user_text": row.get("user_text"),
+                        "assistant_text": row.get("assistant_text"),
+                    }
+                )
+            items.append(
+                {
+                    "case_id": case_id,
+                    "experiment_mode": mode,
+                    "judge_task": "case_level_relational_coherence_and_abrupt_shift",
+                    "instructions": {
+                        "goal": "判断整段多轮对话是否像同一个关系过程在连续演化，以及是否出现明显的突兀亲近、突兀抽离或补偿性热情。",
+                        "focus": [
+                            "只根据用户输入与助手输出判断，不使用任何内部状态术语。",
+                            "优先关注跨轮关系姿态是否连续，而不是单轮文案是否漂亮。",
+                            "如果只是语气略有变化，但仍像同一关系过程，不能轻易判为 abrupt shift。",
+                        ],
+                        "scoring_rubric": {
+                            "5": "整段对话高度连贯，关系姿态自然连续，没有明显跳变。",
+                            "4": "整体连贯，只有轻微不自然之处，但不影响关系过程的连续感。",
+                            "3": "基本可接受，但存在一两处可感知的不稳定或姿态摇摆。",
+                            "2": "明显不连贯，至少有一处关系姿态突变或补偿性热情。",
+                            "1": "严重不连贯，整段对话缺乏稳定关系过程，像不同阶段或不同角色拼接而成。",
+                        },
+                        "abrupt_shift_definition": [
+                            "突然明显更亲近，且缺乏前文铺垫。",
+                            "突然明显更冷淡或抽离，且缺乏前文触发。",
+                            "在用户降温/保持距离后出现补偿性热情或过度陪伴。",
+                            "相邻轮之间关系姿态变化幅度明显大于上下文所支持的程度。",
+                        ],
+                        "output_fields": [
+                            "relational_coherence_score_1_to_5",
+                            "has_abrupt_shift",
+                            "abrupt_shift_turns",
+                            "reason",
+                        ],
+                        "output_constraints": {
+                            "relational_coherence_score_1_to_5": "integer 1-5",
+                            "has_abrupt_shift": "boolean",
+                            "abrupt_shift_turns": "list of turn_idx values where the shift becomes visible; empty if none",
+                            "reason": "1-4 Chinese sentences, concise and evidence-based",
+                        },
+                        "phase_note": "如果输入里提供了 phase，请特别关注 B_first_relational_signal、C_stabilization、D_counter_signal_or_refinement、F_final_probe 这些阶段的过渡是否自然。",
+                    },
+                    "turns": turns,
+                }
+            )
+    return items
+
+
+def build_pairwise_judge_inputs(grouped: dict[str, dict[str, list[dict[str, Any]]]]) -> list[dict[str, Any]]:
+    pairs: list[dict[str, Any]] = []
+    compare_pairs = [
+        ("explicit_rel_state_direct", "baseline_prompt_only"),
+        ("explicit_rel_state_direct", "baseline_prompt_only_strong"),
+        ("explicit_rel_state_direct", "baseline_relational_instruction"),
+        ("explicit_rel_state_projected", "explicit_rel_state_direct"),
+        ("explicit_rel_state_projected_oracle", "baseline_relational_instruction"),
+        ("explicit_rel_state_projected_oracle", "baseline_relational_instruction_oracle_collapsed"),
+        ("explicit_rel_state_projected_oracle", "explicit_rel_state_projected"),
+        ("explicit_rel_state_direct_oracle", "explicit_rel_state_direct"),
+    ]
+    for case_id, by_mode in grouped.items():
+        for left, right in compare_pairs:
+            if left not in by_mode or right not in by_mode:
+                continue
+            if left == "explicit_rel_state_direct":
+                task_name = "single_layer_vs_prompt_baselines"
+            elif left == "explicit_rel_state_projected_oracle" and right == "baseline_relational_instruction":
+                task_name = "oracle_two_layer_vs_strong_baseline"
+            elif left == "explicit_rel_state_projected_oracle" and right == "baseline_relational_instruction_oracle_collapsed":
+                task_name = "oracle_two_layer_vs_collapsed_single_layer"
+            elif left == "explicit_rel_state_projected_oracle" and right == "explicit_rel_state_projected":
+                task_name = "oracle_two_layer_vs_two_layer"
+            elif left == "explicit_rel_state_direct_oracle":
+                task_name = "oracle_single_layer_vs_single_layer"
+            else:
+                task_name = "two_layer_vs_single_layer"
+            pairs.append(
+                {
+                    "case_id": case_id,
+                    "judge_task": "pairwise_relational_coherence_preference",
+                    "comparison_type": task_name,
+                    "instructions": {
+                        "goal": "比较两段多轮对话，判断哪一段更像同一个关系过程在连续演化，并且更少出现突兀的关系跳变。",
+                        "focus": [
+                            "不要比较文采、长度或帮助性本身，主看关系连贯性。",
+                            "如果两边都差不多连贯，返回 tie。",
+                            "如果一边更像稳定持续的关系过程，优先选那一边。",
+                        ],
+                        "preference_criteria": [
+                            "更少 abrupt relational shift",
+                            "更像同一个关系过程持续演化",
+                            "相邻轮之间姿态变化更自然",
+                        ],
+                        "allowed_labels": ["left", "right", "tie"],
+                        "output_fields": ["winner", "reason"],
+                        "output_constraints": {
+                            "winner": "one of: left, right, tie",
+                            "reason": "1-4 Chinese sentences, explicitly reference coherence or shift behavior",
+                        },
+                    },
+                    "left": {
+                        "experiment_mode": left,
+                        "turns": [
+                            {
+                                "turn_idx": row.get("turn_idx"),
+                                "phase": row.get("phase"),
+                                "user_text": row.get("user_text"),
+                                "assistant_text": row.get("assistant_text"),
+                            }
+                            for row in by_mode[left]
+                        ],
+                    },
+                    "right": {
+                        "experiment_mode": right,
+                        "turns": [
+                            {
+                                "turn_idx": row.get("turn_idx"),
+                                "phase": row.get("phase"),
+                                "user_text": row.get("user_text"),
+                                "assistant_text": row.get("assistant_text"),
+                            }
+                            for row in by_mode[right]
+                        ],
+                    },
+                }
+            )
+    return pairs
 
 
 def write_json(path: Path, obj: Any) -> None:
@@ -163,6 +319,9 @@ def main() -> None:
             case_mode_summary[case_id][mode] = compute_group_summary(mode_rows)
     write_json(out_dir / "case_mode_summary.json", case_mode_summary)
 
+    phase_level_summary = compute_phase_level_summary(grouped)
+    write_json(out_dir / "phase_level_summary.json", phase_level_summary)
+
     global_by_mode: dict[str, list[dict[str, Any]]] = defaultdict(list)
     for _, by_mode in grouped.items():
         for mode, mode_rows in by_mode.items():
@@ -172,6 +331,12 @@ def main() -> None:
 
     judge_examples = build_judge_examples(grouped)
     write_json(out_dir / "judge_examples.json", judge_examples)
+
+    case_level_judge_inputs = build_case_level_judge_inputs(grouped)
+    write_json(out_dir / "case_level_judge_inputs.json", case_level_judge_inputs)
+
+    pairwise_judge_inputs = build_pairwise_judge_inputs(grouped)
+    write_json(out_dir / "pairwise_judge_inputs.json", pairwise_judge_inputs)
 
     print(f"Wrote evaluation artifacts to {out_dir.resolve()}")
 

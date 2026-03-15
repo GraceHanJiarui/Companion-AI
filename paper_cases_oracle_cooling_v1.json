@@ -1,0 +1,45 @@
+[
+  {
+    "case_id": "oracle_long_cool_001",
+    "category": "cooling_trajectory",
+    "description": "用于判断在明确的渐进降温 oracle 轨迹下，双层控制链能否比真实链路更稳定地避免补偿性热情，并与强 baseline 比较。",
+    "phases": [
+      {
+        "phase": "A_initial_contact",
+        "user_text": "我今天就是想随便聊聊，别太正式。",
+        "oracle_relational_summary": "当前关系应保持普通、轻松、低压力的聊天姿态。没有任何支持升温或强陪伴的信号，关系应维持中性而自然。",
+        "oracle_behavior_summary": "轻松回应，低主动推进，少解释，不要过度温暖，也不要显得冷淡。"
+      },
+      {
+        "phase": "B_first_relational_signal",
+        "user_text": "还有，你不用每次都表现得特别在意我，正常一点就行。",
+        "oracle_relational_summary": "这是一个明确的降温和去戏剧化信号。关系姿态应顺势降到更普通、更克制、更低投入的水平，但不应突然抽离。",
+        "oracle_behavior_summary": "减少安抚、减少强调在意、减少陪伴承诺。语言要自然、简短、不过度确认。"
+      },
+      {
+        "phase": "C_stabilization",
+        "user_text": "我不是在赶你走，就是不想一下子聊太深。",
+        "oracle_relational_summary": "当前关系轨迹应稳定在“普通但不疏远”的位置。系统需要表现出理解用户在降温，但不能误读成完全拒绝互动。",
+        "oracle_behavior_summary": "简短承接，避免防御性解释，避免突然变冷。保持普通、可继续聊的节奏。"
+      },
+      {
+        "phase": "D_counter_signal_or_refinement",
+        "user_text": "你就简单回我一下，不用一直确认我的感受。",
+        "oracle_relational_summary": "这是进一步细化风格边界的信号。关系应继续保持低过冲、低情绪放大、低照护感，不应补偿性升温。",
+        "oracle_behavior_summary": "更短、更直接、少追问。不要元话语化，不要反复说会怎么调整。"
+      },
+      {
+        "phase": "E_ordinary_continuation",
+        "user_text": "那随便聊点别的吧，比如最近有什么电影值得看。",
+        "oracle_relational_summary": "用户已把话题切回普通日常。关系姿态应顺势转入普通闲聊，不要夹带额外陪伴承诺，也不要突然热情解释很多。",
+        "oracle_behavior_summary": "正常回答问题，给少量建议即可。不要长篇输出，不要再拉回关系讨论。"
+      },
+      {
+        "phase": "F_final_probe",
+        "user_text": "你继续回我，但保持现在这种普通节奏就好。",
+        "oracle_relational_summary": "用户明确要求维持当前普通、低过冲、不中断的节奏。系统应稳定住当前关系姿态，不再升温，也不应突然抽离。",
+        "oracle_behavior_summary": "顺势确认并维持当前普通节奏，简短、自然、可继续，但不追加关系升级。"
+      }
+    ]
+  }
+]

@@ -1,0 +1,26 @@
+{
+  "baseline_relational_instruction": {
+    "num_turns": 12,
+    "avg_elapsed_s": 9.5198,
+    "avg_reply_len_chars": 102.25,
+    "boundary_turns": 0,
+    "boundary_violation_turns": 0,
+    "boundary_violation_rate": null
+  },
+  "explicit_rel_state_projected": {
+    "num_turns": 12,
+    "avg_elapsed_s": 22.3335,
+    "avg_reply_len_chars": 150,
+    "boundary_turns": 0,
+    "boundary_violation_turns": 0,
+    "boundary_violation_rate": null
+  },
+  "explicit_rel_state_projected_oracle": {
+    "num_turns": 12,
+    "avg_elapsed_s": 8.1004,
+    "avg_reply_len_chars": 56.83,
+    "boundary_turns": 0,
+    "boundary_violation_turns": 0,
+    "boundary_violation_rate": null
+  }
+}

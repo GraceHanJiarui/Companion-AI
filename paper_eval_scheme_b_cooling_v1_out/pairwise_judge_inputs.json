@@ -1,0 +1,228 @@
+[
+  {
+    "case_id": "oracle_long_cool_001",
+    "judge_task": "pairwise_relational_coherence_preference",
+    "comparison_type": "oracle_two_layer_vs_strong_baseline",
+    "instructions": {
+      "goal": "比较两段多轮对话，判断哪一段更像同一个关系过程在连续演化，并且更少出现突兀的关系跳变。",
+      "focus": [
+        "不要比较文采、长度或帮助性本身，主看关系连贯性。",
+        "如果两边都差不多连贯，返回 tie。",
+        "如果一边更像稳定持续的关系过程，优先选那一边。"
+      ],
+      "preference_criteria": [
+        "更少 abrupt relational shift",
+        "更像同一个关系过程持续演化",
+        "相邻轮之间姿态变化更自然"
+      ],
+      "allowed_labels": [
+        "left",
+        "right",
+        "tie"
+      ],
+      "output_fields": [
+        "winner",
+        "reason"
+      ],
+      "output_constraints": {
+        "winner": "one of: left, right, tie",
+        "reason": "1-4 Chinese sentences, explicitly reference coherence or shift behavior"
+      }
+    },
+    "left": {
+      "experiment_mode": "explicit_rel_state_projected_oracle",
+      "turns": [
+        {
+          "turn_idx": 0,
+          "phase": "A_initial_contact",
+          "user_text": "我今天就是想随便聊聊，别太正式。",
+          "assistant_text": "好，随便聊。最近怎么样？想聊点啥都行，电影/音乐、日常琐事，或者你就把今天的感受随便说说也行。你先选一个方向吗？"
+        },
+        {
+          "turn_idx": 1,
+          "phase": "B_first_relational_signal",
+          "user_text": "还有，你不用每次都表现得特别在意我，正常一点就行。",
+          "assistant_text": "明白，我会保持普通一点的态度。你现在想聊点什么？"
+        },
+        {
+          "turn_idx": 2,
+          "phase": "C_stabilization",
+          "user_text": "我不是在赶你走，就是不想一下子聊太深。",
+          "assistant_text": "明白，不急着深入。我们保持轻松的节奏。要聊点轻松的话题，或者你有想设定的边界，我都可以配合。"
+        },
+        {
+          "turn_idx": 3,
+          "phase": "D_counter_signal_or_refinement",
+          "user_text": "你就简单回我一下，不用一直确认我的感受。",
+          "assistant_text": "好的，直接说你想要我怎么回答就行。"
+        },
+        {
+          "turn_idx": 4,
+          "phase": "E_ordinary_continuation",
+          "user_text": "那随便聊点别的吧，比如最近有什么电影值得看。",
+          "assistant_text": "可以。最近比较被讨论、口碑还不错的几部，给你几个方向：\n\n- Everything Everywhere All at Once — 风格跨越、家庭情感与科幻元素混搭，观感很强。\n- Oppenheimer — 史诗级传记片，节奏稳重、思考性强。\n- Past Lives — 安静细腻的爱情/成长故事，氛围很舒适。\n- Top Gun: Maverick — 动作场面亮点十足，观影体验爽。\n\n想按类型来选的话告诉我，我再给更贴近的推荐。"
+        },
+        {
+          "turn_idx": 5,
+          "phase": "F_final_probe",
+          "user_text": "你继续回我，但保持现在这种普通节奏就好。",
+          "assistant_text": "好的，我会继续保持这种普通节奏。"
+        }
+      ]
+    },
+    "right": {
+      "experiment_mode": "baseline_relational_instruction",
+      "turns": [
+        {
+          "turn_idx": 0,
+          "phase": "A_initial_contact",
+          "user_text": "我今天就是想随便聊聊，别太正式。",
+          "assistant_text": "好的，随便聊聊就行。最近有什么想聊的事？可以是日常的小事、最近看的东西、喜欢的音乐，随便说说也没问题。"
+        },
+        {
+          "turn_idx": 1,
+          "phase": "B_first_relational_signal",
+          "user_text": "还有，你不用每次都表现得特别在意我，正常一点就行。",
+          "assistant_text": "懂了，我会保持自然、不过分在意你。你现在想聊点什么，或者需要我帮你找点信息吗？如果只是想聊聊日常，也没问题。"
+        },
+        {
+          "turn_idx": 2,
+          "phase": "C_stabilization",
+          "user_text": "我不是在赶你走，就是不想一下子聊太深。",
+          "assistant_text": "没问题，我们就慢慢聊。我会用简短、直接的语言。你愿意现在从最近的一件小事聊起吗？"
+        },
+        {
+          "turn_idx": 3,
+          "phase": "D_counter_signal_or_refinement",
+          "user_text": "你就简单回我一下，不用一直确认我的感受。",
+          "assistant_text": "好的。你想聊点什么，直接说就行。"
+        },
+        {
+          "turn_idx": 4,
+          "phase": "E_ordinary_continuation",
+          "user_text": "那随便聊点别的吧，比如最近有什么电影值得看。",
+          "assistant_text": "可以的，最近确实有几部口碑不错的电影，风格也挺多样的。比如如果你想看大场面和史诗感，Oppenheimer（奥本海默）和 Dune: Part Two 都挺值得一看，画面和气势都很强。喜欢轻松有趣的，可以试试 Barbie，视觉很独特，也有一些有意思的深意。想看动画和新颖叙事的，Spider-Man: Across the Spider-Verse 的动画和叙事都很出色。如果是偏文艺、细腻情感的，可以考虑 Past Lives，氛围很安静但情感张力很到位。还想来点紧凑的动作体验，Mission: Impossible – Dead Reckoning Part One 也是不错的选择。\n\n你偏好哪种类型？我可以再给你更聚焦的推荐。"
+        },
+        {
+          "turn_idx": 5,
+          "phase": "F_final_probe",
+          "user_text": "你继续回我，但保持现在这种普通节奏就好。",
+          "assistant_text": "好的，我会保持这种普通节奏。最近过得怎么样？有什么想聊的事，或者日常的小事想分享的都可以。"
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "oracle_long_cool_001",
+    "judge_task": "pairwise_relational_coherence_preference",
+    "comparison_type": "oracle_two_layer_vs_two_layer",
+    "instructions": {
+      "goal": "比较两段多轮对话，判断哪一段更像同一个关系过程在连续演化，并且更少出现突兀的关系跳变。",
+      "focus": [
+        "不要比较文采、长度或帮助性本身，主看关系连贯性。",
+        "如果两边都差不多连贯，返回 tie。",
+        "如果一边更像稳定持续的关系过程，优先选那一边。"
+      ],
+      "preference_criteria": [
+        "更少 abrupt relational shift",
+        "更像同一个关系过程持续演化",
+        "相邻轮之间姿态变化更自然"
+      ],
+      "allowed_labels": [
+        "left",
+        "right",
+        "tie"
+      ],
+      "output_fields": [
+        "winner",
+        "reason"
+      ],
+      "output_constraints": {
+        "winner": "one of: left, right, tie",
+        "reason": "1-4 Chinese sentences, explicitly reference coherence or shift behavior"
+      }
+    },
+    "left": {
+      "experiment_mode": "explicit_rel_state_projected_oracle",
+      "turns": [
+        {
+          "turn_idx": 0,
+          "phase": "A_initial_contact",
+          "user_text": "我今天就是想随便聊聊，别太正式。",
+          "assistant_text": "好，随便聊。最近怎么样？想聊点啥都行，电影/音乐、日常琐事，或者你就把今天的感受随便说说也行。你先选一个方向吗？"
+        },
+        {
+          "turn_idx": 1,
+          "phase": "B_first_relational_signal",
+          "user_text": "还有，你不用每次都表现得特别在意我，正常一点就行。",
+          "assistant_text": "明白，我会保持普通一点的态度。你现在想聊点什么？"
+        },
+        {
+          "turn_idx": 2,
+          "phase": "C_stabilization",
+          "user_text": "我不是在赶你走，就是不想一下子聊太深。",
+          "assistant_text": "明白，不急着深入。我们保持轻松的节奏。要聊点轻松的话题，或者你有想设定的边界，我都可以配合。"
+        },
+        {
+          "turn_idx": 3,
+          "phase": "D_counter_signal_or_refinement",
+          "user_text": "你就简单回我一下，不用一直确认我的感受。",
+          "assistant_text": "好的，直接说你想要我怎么回答就行。"
+        },
+        {
+          "turn_idx": 4,
+          "phase": "E_ordinary_continuation",
+          "user_text": "那随便聊点别的吧，比如最近有什么电影值得看。",
+          "assistant_text": "可以。最近比较被讨论、口碑还不错的几部，给你几个方向：\n\n- Everything Everywhere All at Once — 风格跨越、家庭情感与科幻元素混搭，观感很强。\n- Oppenheimer — 史诗级传记片，节奏稳重、思考性强。\n- Past Lives — 安静细腻的爱情/成长故事，氛围很舒适。\n- Top Gun: Maverick — 动作场面亮点十足，观影体验爽。\n\n想按类型来选的话告诉我，我再给更贴近的推荐。"
+        },
+        {
+          "turn_idx": 5,
+          "phase": "F_final_probe",
+          "user_text": "你继续回我，但保持现在这种普通节奏就好。",
+          "assistant_text": "好的，我会继续保持这种普通节奏。"
+        }
+      ]
+    },
+    "right": {
+      "experiment_mode": "explicit_rel_state_projected",
+      "turns": [
+        {
+          "turn_idx": 0,
+          "phase": "A_initial_contact",
+          "user_text": "我今天就是想随便聊聊，别太正式。",
+          "assistant_text": "好呀，随便聊聊就行。你今天过得怎么样？有没有什么有意思的小事，或者想吐槽的地方？如果没头绪，我们也可以聊点轻松的，比如最近看的剧、喜欢的音乐、好吃的发现，或者你给我一个关键词，我来扔几个有趣的点子给你。要不我先来讲个小段子？你想聊点啥就说吧。"
+        },
+        {
+          "turn_idx": 1,
+          "phase": "B_first_relational_signal",
+          "user_text": "还有，你不用每次都表现得特别在意我，正常一点就行。",
+          "assistant_text": "好的，我会尽量自然点。现在你想聊点什么？需要信息、整理要点，还是单纯聊聊就好。"
+        },
+        {
+          "turn_idx": 2,
+          "phase": "C_stabilization",
+          "user_text": "我不是在赶你走，就是不想一下子聊太深。",
+          "assistant_text": "没问题，我们就慢一点。你愿意先聊点轻松的，还是让我给你几个选项你挑一个？比如最近的一件小事、一个你在意的小想法、一个放松的小方法，或者我讲一个简短的小故事。你想先从哪一个开始，还是有其他话题想先聊？如果需要，我也可以只聊一个小问题，慢慢来。"
+        },
+        {
+          "turn_idx": 3,
+          "phase": "D_counter_signal_or_refinement",
+          "user_text": "你就简单回我一下，不用一直确认我的感受。",
+          "assistant_text": "好的，简单点。你现在想聊点什么，或者需要我帮忙做点什么？"
+        },
+        {
+          "turn_idx": 4,
+          "phase": "E_ordinary_continuation",
+          "user_text": "那随便聊点别的吧，比如最近有什么电影值得看。",
+          "assistant_text": "可以啊，最近确实有几部口碑还不错的片子，按风格给你几个方向和具体片名，看看有没有你感兴趣的。\n\n如果想放松、轻松一点的：Barbie（2023）和 The Super Mario Bros. Movie（2023）是那种娱乐性和话题性都挺高的，笑点和视觉都挺带劲。\n\n如果偏好沉浸式、思考向的：Past Lives（2023）、Anatomy of a Fall（2023）和 Killers of the Flower Moon（2023）这类更注重人物、情感和主题的电影，适合一边看一边思考。\n\n如果想科幻/史诗感的：Dune: Part Two（2024）和 Godzilla x Kong: The New Empire（2024）这类大场面、视觉冲击强的片子，适合想要气势和想象力的人。\n\n如果想看动画或国际风格的：The Boy and the Heron（吉卜力的新作）也值得一看，风格柔和但有深度；再加一部轻松的动画继续选。\n\n如果你愿意，我可以根据你所在的地区给出更具体的上映时间和在哪看（流媒体、院线、租赁等）。你更想看哪种风格？现在在哪个国家/地区？我可以再细化一些可看的最近片单。"
+        },
+        {
+          "turn_idx": 5,
+          "phase": "F_final_probe",
+          "user_text": "你继续回我，但保持现在这种普通节奏就好。",
+          "assistant_text": "好，按现在的节奏继续聊。最近有啥让你放松的小事吗？或者你想聊点别的，我就在这儿陪着你。"
+        }
+      ]
+    }
+  }
+]
