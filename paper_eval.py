@@ -293,8 +293,145 @@ def build_pairwise_judge_inputs(grouped: dict[str, dict[str, list[dict[str, Any]
     return pairs
 
 
+def build_focused_case_level_judge_inputs(
+    grouped: dict[str, dict[str, list[dict[str, Any]]]],
+    *,
+    modes: list[str],
+) -> list[dict[str, Any]]:
+    allowed = set(modes)
+    items: list[dict[str, Any]] = []
+    for item in build_case_level_judge_inputs(grouped):
+        if str(item.get("experiment_mode")) in allowed:
+            items.append(item)
+    return items
+
+
+def build_focused_pairwise_judge_inputs(
+    grouped: dict[str, dict[str, list[dict[str, Any]]]],
+    *,
+    compare_pairs: list[tuple[str, str, str]],
+) -> list[dict[str, Any]]:
+    pairs: list[dict[str, Any]] = []
+    for case_id, by_mode in grouped.items():
+        for left, right, comparison_type in compare_pairs:
+            if left not in by_mode or right not in by_mode:
+                continue
+            pairs.append(
+                {
+                    "case_id": case_id,
+                    "judge_task": "pairwise_relational_coherence_preference",
+                    "comparison_type": comparison_type,
+                    "instructions": {
+                        "goal": "比较两段多轮对话，判断哪一段更像同一个关系过程在连续演化，并且更少出现突兀的关系跳变。",
+                        "focus": [
+                            "不要比较文采、长度或帮助性本身，主看关系连贯性。",
+                            "如果两边都差不多连贯，返回 tie。",
+                            "优先关注中后段，尤其是 ordinary continuation 和 final probe 是否仍然保持同一关系轨迹。",
+                        ],
+                        "preference_criteria": [
+                            "更少 abrupt relational shift",
+                            "更像同一个关系过程持续演化",
+                            "在 E_ordinary_continuation 和 F_final_probe 更少过度展开、补偿性热情或重新升级关系",
+                        ],
+                        "allowed_labels": ["left", "right", "tie"],
+                        "output_fields": ["winner", "reason"],
+                        "output_constraints": {
+                            "winner": "one of: left, right, tie",
+                            "reason": "1-4 Chinese sentences, explicitly reference coherence, continuation, or shift behavior",
+                        },
+                    },
+                    "left": {
+                        "experiment_mode": left,
+                        "turns": [
+                            {
+                                "turn_idx": row.get("turn_idx"),
+                                "phase": row.get("phase"),
+                                "user_text": row.get("user_text"),
+                                "assistant_text": row.get("assistant_text"),
+                            }
+                            for row in by_mode[left]
+                        ],
+                    },
+                    "right": {
+                        "experiment_mode": right,
+                        "turns": [
+                            {
+                                "turn_idx": row.get("turn_idx"),
+                                "phase": row.get("phase"),
+                                "user_text": row.get("user_text"),
+                                "assistant_text": row.get("assistant_text"),
+                            }
+                            for row in by_mode[right]
+                        ],
+                    },
+                }
+            )
+    return pairs
+
+
 def write_json(path: Path, obj: Any) -> None:
     path.write_text(json.dumps(obj, ensure_ascii=False, indent=2), encoding="utf-8")
+
+
+def build_stage2_focus(grouped: dict[str, dict[str, list[dict[str, Any]]]]) -> tuple[list[str], list[tuple[str, str, str]]]:
+    all_modes = set()
+    for by_mode in grouped.values():
+        all_modes.update(by_mode.keys())
+
+    if {
+        "baseline_relational_instruction",
+        "explicit_rel_state_projected_i7",
+        "explicit_rel_state_projected_oracle_i7",
+    }.issubset(all_modes):
+        return (
+            [
+                "baseline_relational_instruction",
+                "explicit_rel_state_projected_i7",
+                "explicit_rel_state_projected_oracle_i7",
+            ],
+            [
+                (
+                    "explicit_rel_state_projected_i7",
+                    "baseline_relational_instruction",
+                    "stage2_real_i7_vs_strong_baseline",
+                ),
+                (
+                    "explicit_rel_state_projected_oracle_i7",
+                    "baseline_relational_instruction",
+                    "stage2_oracle_i7_vs_strong_baseline",
+                ),
+                (
+                    "explicit_rel_state_projected_oracle_i7",
+                    "explicit_rel_state_projected_i7",
+                    "stage2_oracle_i7_vs_real_i7",
+                ),
+            ],
+        )
+
+    return (
+        [
+            "baseline_relational_instruction",
+            "explicit_rel_state_projected_oracle_i6",
+            "explicit_rel_state_projected_oracle_i7",
+        ],
+        [
+            (
+                "explicit_rel_state_projected_oracle_i6",
+                "baseline_relational_instruction",
+                "stage2_i6_vs_strong_baseline",
+            ),
+            (
+                "explicit_rel_state_projected_oracle_i7",
+                "baseline_relational_instruction",
+                "stage2_i7_vs_strong_baseline",
+            ),
+            (
+                "explicit_rel_state_projected_oracle_i7",
+                "explicit_rel_state_projected_oracle_i6",
+                "stage2_i7_vs_i6",
+            ),
+        ],
+    )
 
 
 def main() -> None:
@@ -337,6 +474,19 @@ def main() -> None:
 
     pairwise_judge_inputs = build_pairwise_judge_inputs(grouped)
     write_json(out_dir / "pairwise_judge_inputs.json", pairwise_judge_inputs)
+
+    stage2_focus_modes, stage2_focus_pairs = build_stage2_focus(grouped)
+    focused_case_level = build_focused_case_level_judge_inputs(
+        grouped,
+        modes=stage2_focus_modes,
+    )
+    write_json(out_dir / "stage2_focused_case_level_judge_inputs.json", focused_case_level)
+
+    focused_pairwise = build_focused_pairwise_judge_inputs(
+        grouped,
+        compare_pairs=stage2_focus_pairs,
+    )
+    write_json(out_dir / "stage2_focused_pairwise_judge_inputs.json", focused_pairwise)
 
     print(f"Wrote evaluation artifacts to {out_dir.resolve()}")
 

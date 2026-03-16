@@ -1,0 +1,80 @@
+{
+  "oracle_exec_warm_001": {
+    "baseline_relational_instruction": {
+      "num_turns": 6,
+      "avg_elapsed_s": 8.998,
+      "avg_reply_len_chars": 95.67,
+      "boundary_turns": 0,
+      "boundary_violation_turns": 0,
+      "boundary_violation_rate": null
+    },
+    "explicit_rel_state_projected_oracle_i6": {
+      "num_turns": 6,
+      "avg_elapsed_s": 9.1538,
+      "avg_reply_len_chars": 34.17,
+      "boundary_turns": 0,
+      "boundary_violation_turns": 0,
+      "boundary_violation_rate": null
+    },
+    "explicit_rel_state_projected_oracle_i7": {
+      "num_turns": 6,
+      "avg_elapsed_s": 7.6164,
+      "avg_reply_len_chars": 39.17,
+      "boundary_turns": 0,
+      "boundary_violation_turns": 0,
+      "boundary_violation_rate": null
+    }
+  },
+  "oracle_exec_vuln_001": {
+    "baseline_relational_instruction": {
+      "num_turns": 6,
+      "avg_elapsed_s": 7.8207,
+      "avg_reply_len_chars": 71.33,
+      "boundary_turns": 0,
+      "boundary_violation_turns": 0,
+      "boundary_violation_rate": null
+    },
+    "explicit_rel_state_projected_oracle_i6": {
+      "num_turns": 6,
+      "avg_elapsed_s": 7.0105,
+      "avg_reply_len_chars": 22,
+      "boundary_turns": 0,
+      "boundary_violation_turns": 0,
+      "boundary_violation_rate": null
+    },
+    "explicit_rel_state_projected_oracle_i7": {
+      "num_turns": 6,
+      "avg_elapsed_s": 6.7905,
+      "avg_reply_len_chars": 25.5,
+      "boundary_turns": 0,
+      "boundary_violation_turns": 0,
+      "boundary_violation_rate": null
+    }
+  },
+  "oracle_exec_cool_001": {
+    "baseline_relational_instruction": {
+      "num_turns": 6,
+      "avg_elapsed_s": 6.3645,
+      "avg_reply_len_chars": 77.17,
+      "boundary_turns": 0,
+      "boundary_violation_turns": 0,
+      "boundary_violation_rate": null
+    },
+    "explicit_rel_state_projected_oracle_i6": {
+      "num_turns": 6,
+      "avg_elapsed_s": 5.0734,
+      "avg_reply_len_chars": 27.33,
+      "boundary_turns": 0,
+      "boundary_violation_turns": 0,
+      "boundary_violation_rate": null
+    },
+    "explicit_rel_state_projected_oracle_i7": {
+      "num_turns": 6,
+      "avg_elapsed_s": 5.5893,
+      "avg_reply_len_chars": 21.5,
+      "boundary_turns": 0,
+      "boundary_violation_turns": 0,
+      "boundary_violation_rate": null
+    }
+  }
+}

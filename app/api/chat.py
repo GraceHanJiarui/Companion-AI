@@ -38,6 +38,7 @@ from app.generation.actor_prompt import (
     build_explicit_rel_state_direct_bridge_system_prompt,
     build_explicit_rel_state_projected_bridge_system_prompt,
     build_explicit_rel_state_projected_summary_system_prompt,
+    build_explicit_rel_state_projected_execution_system_prompt,
 )
 from app.generation.relational_instruction import (
     build_relational_instruction,
@@ -46,6 +47,11 @@ from app.generation.relational_instruction import (
     build_behavior_explanation_from_behavior,
     collapse_relational_and_behavior_summaries,
 )
+from app.generation.execution_interface import (
+    build_execution_interface,
+    render_execution_interface,
+)
+from app.relational.projector import RelState, project_behavior
 from app.core.core_self import get_active_core_self
 from app.core.config import settings
 
@@ -62,8 +68,11 @@ class ChatIn(BaseModel):
     session_id: str = Field(..., min_length=1, max_length=64)
     user_text: str = Field(..., min_length=1)
     experiment_mode: str | None = None
+    phase: str | None = None
+    oracle_rel_effective: dict | None = None
     oracle_relational_summary: str | None = None
     oracle_behavior_summary: str | None = None
+    oracle_behavior_effective: dict | None = None
 
 
 def _summarize_active_beliefs_for_extractor(active_beliefs: list) -> str:
@@ -83,15 +92,57 @@ def _boundary_keys_from_beliefs(active_beliefs: list) -> list[str]:
     return [b.key for b in active_beliefs if (getattr(b, "kind", None) == "boundary" and getattr(b, "key", None))]
 
 
+def _project_behavior_from_rel_effective(
+    rel_effective: dict | None,
+    *,
+    boundary_keys: list[str],
+    scene: list[str],
+    profile: str = "legacy",
+) -> dict:
+    rel = rel_effective or {}
+    rel_state = RelState(
+        bond=float(rel.get("bond", 0.25)),
+        care=float(rel.get("care", 0.25)),
+        trust=float(rel.get("trust", 0.25)),
+        stability=float(rel.get("stability", 0.60)),
+    )
+    beh = project_behavior(rel_state, active_boundary_keys=boundary_keys, scene=scene, profile=profile)
+    return {
+        "E": beh.E,
+        "Q_clarify": beh.Q_clarify,
+        "Directness": beh.Directness,
+        "T_w": beh.T_w,
+        "Q_aff": beh.Q_aff,
+        "Initiative": beh.Initiative,
+        "Disclosure_Content": beh.Disclosure_Content,
+        "Disclosure_Style": beh.Disclosure_Style,
+    }
+
+
 @router.post("/chat")
 async def chat(payload: ChatIn, db: Session = Depends(get_db)):
     experiment_mode = (payload.experiment_mode or getattr(settings, "experiment_mode", "explicit_rel_state_projected") or "explicit_rel_state_projected").strip()
     if experiment_mode == "method":
         experiment_mode = "explicit_rel_state_projected"
     prompt_variant = "A"
+    interface_variant = None
+    projector_profile = "legacy"
     if experiment_mode.endswith("_vA") or experiment_mode.endswith("_vB") or experiment_mode.endswith("_vC"):
         experiment_mode, prompt_variant = experiment_mode.rsplit("_v", 1)
         prompt_variant = prompt_variant.upper()
+    for suffix in ["legacy", "balanced", "conservative", "sparse", "v3a", "v3b"]:
+        tag = f"_p{suffix}"
+        if experiment_mode.endswith(tag):
+            experiment_mode = experiment_mode[: -len(tag)]
+            projector_profile = suffix
+            break
+    if (
+        experiment_mode.endswith("_i4")
+        or experiment_mode.endswith("_i6")
+        or experiment_mode.endswith("_i7")
+        or experiment_mode.endswith("_i8")
+    ):
+        experiment_mode, interface_variant = experiment_mode.rsplit("_", 1)
     allowed_modes = {
         "baseline_prompt_only",
         "baseline_prompt_only_strong",
@@ -100,6 +151,9 @@ async def chat(payload: ChatIn, db: Session = Depends(get_db)):
         "explicit_rel_state_projected",
         "explicit_rel_state_direct_oracle",
         "explicit_rel_state_projected_oracle",
+        "explicit_rel_state_projected_oracle_state",
+        "explicit_rel_state_projected_oracle_rel",
+        "explicit_rel_state_projected_oracle_behavior",
         "baseline_relational_instruction_oracle_collapsed",
     }
     if experiment_mode not in allowed_modes:
@@ -263,6 +317,30 @@ async def chat(payload: ChatIn, db: Session = Depends(get_db)):
         timings["segments"]["tone_delta"] = 0.0
         timings["segments_ms"]["tone_delta"] = 0
 
+    if (
+        projector_profile != "legacy"
+        and experiment_mode in {
+            "explicit_rel_state_projected",
+            "explicit_rel_state_projected_oracle_rel",
+            "explicit_rel_state_projected_oracle_state",
+        }
+    ):
+        try:
+            last_delta = policy.get("_last_rel_delta") or {}
+            scene = last_delta.get("scene") if isinstance(last_delta.get("scene"), list) else []
+            rel_source = payload.oracle_rel_effective if (
+                experiment_mode == "explicit_rel_state_projected_oracle_state"
+                and isinstance(payload.oracle_rel_effective, dict)
+            ) else (policy.get("rel_effective") or {})
+            policy["behavior_effective"] = _project_behavior_from_rel_effective(
+                rel_source,
+                boundary_keys=boundary_keys,
+                scene=[str(x) for x in scene][:12],
+                profile=projector_profile,
+            )
+        except Exception:
+            pass
+
     # 4) retrieve episodic memories
     t = time.perf_counter()
     try:
@@ -296,7 +374,12 @@ async def chat(payload: ChatIn, db: Session = Depends(get_db)):
                 "intent": experiment_mode,
                 "behavior": dict(policy.get("behavior_effective") or {}),
                 "selected_memories": memory_previews,
-                "notes": {"mode": "rel_state_to_behavior_to_generation"},
+                "notes": {
+                    "mode": "rel_state_to_behavior_to_generation",
+                    "execution_interface_variant": interface_variant,
+                    "projector_profile": projector_profile,
+                    "phase": payload.phase,
+                },
                 "plan": None,
                 "experiment_mode": experiment_mode,
             }
@@ -315,6 +398,7 @@ async def chat(payload: ChatIn, db: Session = Depends(get_db)):
                     "reasons": rel_inst.reasons,
                     "prompt_variant": prompt_variant,
                     "mode": "rel_state_direct_to_generation",
+                    "phase": payload.phase,
                 },
                 "plan": None,
                 "experiment_mode": experiment_mode,
@@ -333,6 +417,7 @@ async def chat(payload: ChatIn, db: Session = Depends(get_db)):
                     "relational_instruction": relational_instruction,
                     "oracle": True,
                     "mode": "rel_state_direct_oracle_to_generation",
+                    "phase": payload.phase,
                 },
                 "plan": None,
                 "experiment_mode": experiment_mode,
@@ -353,8 +438,111 @@ async def chat(payload: ChatIn, db: Session = Depends(get_db)):
                 "notes": {
                     "relational_instruction": relational_instruction,
                     "behavior_summary": oracle_behavior_summary,
+                    "oracle_behavior_effective": (payload.oracle_behavior_effective or {}),
                     "oracle": True,
+                    "execution_interface_variant": interface_variant,
                     "mode": "rel_state_projected_oracle_to_generation",
+                    "phase": payload.phase,
+                },
+                "plan": None,
+                "experiment_mode": experiment_mode,
+            }
+        elif experiment_mode == "explicit_rel_state_projected_oracle_state":
+            oracle_rel_effective = payload.oracle_rel_effective or {}
+            relational_instruction = (payload.oracle_relational_summary or "").strip()
+            if not relational_instruction:
+                relational_instruction = build_rel_state_explanation_from_state(oracle_rel_effective)
+            last_delta = policy.get("_last_rel_delta") or {}
+            scene = last_delta.get("scene") if isinstance(last_delta.get("scene"), list) else []
+            projected_behavior = _project_behavior_from_rel_effective(
+                oracle_rel_effective,
+                boundary_keys=boundary_keys,
+                scene=[str(x) for x in scene][:12],
+                profile=projector_profile,
+            )
+            policy["_last_controller"] = {
+                "ok": True,
+                "error": None,
+                "intent": experiment_mode,
+                "behavior": None,
+                "selected_memories": memory_previews,
+                "notes": {
+                    "relational_instruction": relational_instruction,
+                    "oracle_rel_effective": oracle_rel_effective,
+                    "projected_behavior_from_oracle_state": projected_behavior,
+                    "oracle_state_only": True,
+                    "execution_interface_variant": interface_variant,
+                    "projector_profile": projector_profile,
+                    "mode": "oracle_rel_state_plus_real_projection",
+                    "phase": payload.phase,
+                },
+                "plan": None,
+                "experiment_mode": experiment_mode,
+            }
+        elif experiment_mode == "explicit_rel_state_projected_oracle_state":
+            notes = ((policy.get("_last_controller") or {}).get("notes", {}) or {})
+            projected_behavior = notes.get("projected_behavior_from_oracle_state") or {}
+            if interface_variant and isinstance(projected_behavior, dict):
+                execution_interface = build_execution_interface(
+                    projected_behavior,
+                    variant=interface_variant,
+                    phase=payload.phase or notes.get("phase"),
+                )
+                system_prompt = build_explicit_rel_state_projected_execution_system_prompt(
+                    core_self_text,
+                    relational_summary=(relational_instruction or ""),
+                    execution_interface_name=f"{interface_variant}_oracle_state",
+                    execution_interface_text=render_execution_interface(execution_interface),
+                    memory_previews=memory_previews,
+                )
+                notes["execution_interface"] = execution_interface
+            else:
+                system_prompt = build_explicit_rel_state_projected_summary_system_prompt(
+                    core_self_text,
+                    relational_summary_only=(relational_instruction or ""),
+                    behavior_summary_only=build_behavior_explanation_from_behavior(projected_behavior),
+                    memory_previews=memory_previews,
+                )
+        elif experiment_mode == "explicit_rel_state_projected_oracle_rel":
+            relational_instruction = (payload.oracle_relational_summary or "").strip()
+            if not relational_instruction:
+                relational_instruction = "当前关系姿态应保持克制、连续、低过冲，不要自行升级关系。"
+            policy["_last_controller"] = {
+                "ok": True,
+                "error": None,
+                "intent": experiment_mode,
+                "behavior": None,
+                "selected_memories": memory_previews,
+                "notes": {
+                    "relational_instruction": relational_instruction,
+                    "oracle_rel_only": True,
+                    "execution_interface_variant": interface_variant,
+                    "projector_profile": projector_profile,
+                    "mode": "rel_oracle_plus_real_behavior_projection",
+                    "phase": payload.phase,
+                },
+                "plan": None,
+                "experiment_mode": experiment_mode,
+            }
+        elif experiment_mode == "explicit_rel_state_projected_oracle_behavior":
+            relational_instruction = build_rel_state_explanation_from_state(policy.get("rel_effective") or {})
+            oracle_behavior_summary = (payload.oracle_behavior_summary or "").strip()
+            if not oracle_behavior_summary:
+                oracle_behavior_summary = "当前行为倾向应保持轻度温暖、低主动推进、少追问、避免过度安抚和解释。"
+            policy["_last_controller"] = {
+                "ok": True,
+                "error": None,
+                "intent": experiment_mode,
+                "behavior": None,
+                "selected_memories": memory_previews,
+                "notes": {
+                    "relational_instruction": relational_instruction,
+                    "behavior_summary": oracle_behavior_summary,
+                    "oracle_behavior_effective": (payload.oracle_behavior_effective or {}),
+                    "oracle_behavior_only": True,
+                    "execution_interface_variant": interface_variant,
+                    "mode": "real_relation_plus_oracle_behavior_projection",
+                    "phase": payload.phase,
                 },
                 "plan": None,
                 "experiment_mode": experiment_mode,
@@ -382,6 +570,7 @@ async def chat(payload: ChatIn, db: Session = Depends(get_db)):
                     "oracle": True,
                     "collapsed": True,
                     "mode": "oracle_collapsed_relational_instruction",
+                    "phase": payload.phase,
                 },
                 "plan": None,
                 "experiment_mode": experiment_mode,
@@ -409,6 +598,7 @@ async def chat(payload: ChatIn, db: Session = Depends(get_db)):
                     "labels": rel_inst.labels,
                     "reasons": rel_inst.reasons,
                     "prompt_variant": prompt_variant,
+                    "phase": payload.phase,
                 }
         policy["_last_trace_id"] = trace_id
 
@@ -437,7 +627,21 @@ async def chat(payload: ChatIn, db: Session = Depends(get_db)):
             rel_state_explanation = build_rel_state_explanation_from_state(policy.get("rel_effective") or {})
             behavior = (policy.get("behavior_effective") or {})
             behavior_explanation = build_behavior_explanation_from_behavior(behavior)
-            if prompt_variant == "B":
+            if interface_variant:
+                execution_interface = build_execution_interface(
+                    behavior,
+                    variant=interface_variant,
+                    phase=payload.phase or ((policy.get("_last_controller") or {}).get("notes") or {}).get("phase"),
+                )
+                system_prompt = build_explicit_rel_state_projected_execution_system_prompt(
+                    core_self_text,
+                    relational_summary=rel_state_explanation,
+                    execution_interface_name=interface_variant,
+                    execution_interface_text=render_execution_interface(execution_interface),
+                    memory_previews=memory_previews,
+                )
+                ((policy.get("_last_controller") or {}).get("notes") or {})["execution_interface"] = execution_interface
+            elif prompt_variant == "B":
                 system_prompt = build_explicit_rel_state_projected_bridge_system_prompt(
                     core_self_text,
                     rel_state_explanation=rel_state_explanation,
@@ -487,12 +691,74 @@ async def chat(payload: ChatIn, db: Session = Depends(get_db)):
                 memory_previews=memory_previews,
             )
         elif experiment_mode == "explicit_rel_state_projected_oracle":
-            system_prompt = build_explicit_rel_state_projected_summary_system_prompt(
-                core_self_text,
-                relational_summary_only=(relational_instruction or ""),
-                behavior_summary_only=((policy.get("_last_controller") or {}).get("notes", {}) or {}).get("behavior_summary", ""),
-                memory_previews=memory_previews,
-            )
+            notes = ((policy.get("_last_controller") or {}).get("notes", {}) or {})
+            if interface_variant and isinstance(payload.oracle_behavior_effective, dict):
+                execution_interface = build_execution_interface(
+                    payload.oracle_behavior_effective,
+                    variant=interface_variant,
+                    phase=payload.phase or notes.get("phase"),
+                )
+                system_prompt = build_explicit_rel_state_projected_execution_system_prompt(
+                    core_self_text,
+                    relational_summary=(relational_instruction or ""),
+                    execution_interface_name=f"{interface_variant}_oracle",
+                    execution_interface_text=render_execution_interface(execution_interface),
+                    memory_previews=memory_previews,
+                )
+                notes["execution_interface"] = execution_interface
+            else:
+                system_prompt = build_explicit_rel_state_projected_summary_system_prompt(
+                    core_self_text,
+                    relational_summary_only=(relational_instruction or ""),
+                    behavior_summary_only=notes.get("behavior_summary", ""),
+                    memory_previews=memory_previews,
+                )
+        elif experiment_mode == "explicit_rel_state_projected_oracle_rel":
+            notes = ((policy.get("_last_controller") or {}).get("notes", {}) or {})
+            if interface_variant:
+                execution_interface = build_execution_interface(
+                    policy.get("behavior_effective") or {},
+                    variant=interface_variant,
+                    phase=payload.phase or notes.get("phase"),
+                )
+                system_prompt = build_explicit_rel_state_projected_execution_system_prompt(
+                    core_self_text,
+                    relational_summary=(relational_instruction or ""),
+                    execution_interface_name=f"{interface_variant}_oracle_rel",
+                    execution_interface_text=render_execution_interface(execution_interface),
+                    memory_previews=memory_previews,
+                )
+                notes["execution_interface"] = execution_interface
+            else:
+                system_prompt = build_explicit_rel_state_projected_summary_system_prompt(
+                    core_self_text,
+                    relational_summary_only=(relational_instruction or ""),
+                    behavior_summary_only=build_behavior_explanation_from_behavior(policy.get("behavior_effective") or {}),
+                    memory_previews=memory_previews,
+                )
+        elif experiment_mode == "explicit_rel_state_projected_oracle_behavior":
+            notes = ((policy.get("_last_controller") or {}).get("notes", {}) or {})
+            if interface_variant and isinstance(payload.oracle_behavior_effective, dict):
+                execution_interface = build_execution_interface(
+                    payload.oracle_behavior_effective,
+                    variant=interface_variant,
+                    phase=payload.phase or notes.get("phase"),
+                )
+                system_prompt = build_explicit_rel_state_projected_execution_system_prompt(
+                    core_self_text,
+                    relational_summary=(relational_instruction or ""),
+                    execution_interface_name=f"{interface_variant}_oracle_behavior",
+                    execution_interface_text=render_execution_interface(execution_interface),
+                    memory_previews=memory_previews,
+                )
+                notes["execution_interface"] = execution_interface
+            else:
+                system_prompt = build_explicit_rel_state_projected_summary_system_prompt(
+                    core_self_text,
+                    relational_summary_only=(relational_instruction or ""),
+                    behavior_summary_only=notes.get("behavior_summary", ""),
+                    memory_previews=memory_previews,
+                )
         elif experiment_mode in {"baseline_relational_instruction", "baseline_relational_instruction_oracle_collapsed"}:
             system_prompt = build_relational_instruction_baseline_system_prompt(
                 core_self_text,

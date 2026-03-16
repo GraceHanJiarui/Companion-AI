@@ -49,11 +49,344 @@ class Behavior:
     Disclosure_Style: float
 
 
+@dataclass(frozen=True)
+class ProjectorProfile:
+    name: str
+    e_base: float
+    e_warm: float
+    e_trust: float
+    e_stability_suppress: float
+    q_clarify_base: float
+    q_clarify_trust: float
+    q_clarify_task_bonus: float
+    q_clarify_non_task_cap: float
+    directness_base: float
+    directness_trust: float
+    directness_care_suppress: float
+    warmth_base: float
+    warmth_care: float
+    warmth_bond: float
+    warmth_instability_penalty: float
+    q_aff_base: float
+    q_aff_care: float
+    q_aff_bond: float
+    q_aff_stability_suppress: float
+    q_aff_vuln_cap: float
+    initiative_base: float
+    initiative_push: float
+    initiative_stability_suppress: float
+    disclosure_base: float
+    disclosure_warm: float
+    disclosure_instability: float
+    disclosure_generic_cap: float
+    disclosure_relationship_bonus: float
+    disclosure_leave_bonus: float
+    disclosure_style_base: float
+    disclosure_style_scale: float
+
+
+PROJECTOR_PROFILES = {
+    "legacy": ProjectorProfile(
+        name="legacy",
+        e_base=0.15,
+        e_warm=0.85,
+        e_trust=0.00,
+        e_stability_suppress=0.00,
+        q_clarify_base=0.10,
+        q_clarify_trust=0.70,
+        q_clarify_task_bonus=0.20,
+        q_clarify_non_task_cap=1.0,
+        directness_base=0.10,
+        directness_trust=0.85,
+        directness_care_suppress=0.00,
+        warmth_base=0.10,
+        warmth_care=0.55,
+        warmth_bond=0.25,
+        warmth_instability_penalty=0.00,
+        q_aff_base=0.05,
+        q_aff_care=0.65,
+        q_aff_bond=0.20,
+        q_aff_stability_suppress=0.00,
+        q_aff_vuln_cap=1.0,
+        initiative_base=0.10,
+        initiative_push=0.60,
+        initiative_stability_suppress=0.00,
+        disclosure_base=0.10,
+        disclosure_warm=0.45,
+        disclosure_instability=0.35,
+        disclosure_generic_cap=1.0,
+        disclosure_relationship_bonus=0.05,
+        disclosure_leave_bonus=0.10,
+        disclosure_style_base=0.10,
+        disclosure_style_scale=0.80,
+    ),
+    "balanced": ProjectorProfile(
+        name="balanced",
+        e_base=0.04,
+        e_warm=0.20,
+        e_trust=0.08,
+        e_stability_suppress=0.10,
+        q_clarify_base=0.01,
+        q_clarify_trust=0.10,
+        q_clarify_task_bonus=0.18,
+        q_clarify_non_task_cap=0.12,
+        directness_base=0.08,
+        directness_trust=0.65,
+        directness_care_suppress=0.05,
+        warmth_base=0.06,
+        warmth_care=0.45,
+        warmth_bond=0.20,
+        warmth_instability_penalty=0.04,
+        q_aff_base=0.00,
+        q_aff_care=0.16,
+        q_aff_bond=0.08,
+        q_aff_stability_suppress=0.10,
+        q_aff_vuln_cap=0.10,
+        initiative_base=0.00,
+        initiative_push=0.14,
+        initiative_stability_suppress=0.10,
+        disclosure_base=0.00,
+        disclosure_warm=0.08,
+        disclosure_instability=0.08,
+        disclosure_generic_cap=0.08,
+        disclosure_relationship_bonus=0.04,
+        disclosure_leave_bonus=0.04,
+        disclosure_style_base=0.04,
+        disclosure_style_scale=0.50,
+    ),
+    "conservative": ProjectorProfile(
+        name="conservative",
+        e_base=0.02,
+        e_warm=0.14,
+        e_trust=0.04,
+        e_stability_suppress=0.12,
+        q_clarify_base=0.00,
+        q_clarify_trust=0.06,
+        q_clarify_task_bonus=0.14,
+        q_clarify_non_task_cap=0.08,
+        directness_base=0.08,
+        directness_trust=0.60,
+        directness_care_suppress=0.06,
+        warmth_base=0.05,
+        warmth_care=0.38,
+        warmth_bond=0.16,
+        warmth_instability_penalty=0.03,
+        q_aff_base=0.00,
+        q_aff_care=0.10,
+        q_aff_bond=0.05,
+        q_aff_stability_suppress=0.10,
+        q_aff_vuln_cap=0.08,
+        initiative_base=0.00,
+        initiative_push=0.10,
+        initiative_stability_suppress=0.10,
+        disclosure_base=0.00,
+        disclosure_warm=0.05,
+        disclosure_instability=0.05,
+        disclosure_generic_cap=0.05,
+        disclosure_relationship_bonus=0.03,
+        disclosure_leave_bonus=0.03,
+        disclosure_style_base=0.02,
+        disclosure_style_scale=0.40,
+    ),
+    "sparse": ProjectorProfile(
+        name="sparse",
+        e_base=0.00,
+        e_warm=0.10,
+        e_trust=0.02,
+        e_stability_suppress=0.12,
+        q_clarify_base=0.00,
+        q_clarify_trust=0.04,
+        q_clarify_task_bonus=0.10,
+        q_clarify_non_task_cap=0.05,
+        directness_base=0.06,
+        directness_trust=0.55,
+        directness_care_suppress=0.05,
+        warmth_base=0.04,
+        warmth_care=0.32,
+        warmth_bond=0.14,
+        warmth_instability_penalty=0.02,
+        q_aff_base=0.00,
+        q_aff_care=0.06,
+        q_aff_bond=0.04,
+        q_aff_stability_suppress=0.08,
+        q_aff_vuln_cap=0.06,
+        initiative_base=0.00,
+        initiative_push=0.08,
+        initiative_stability_suppress=0.08,
+        disclosure_base=0.00,
+        disclosure_warm=0.03,
+        disclosure_instability=0.04,
+        disclosure_generic_cap=0.03,
+        disclosure_relationship_bonus=0.02,
+        disclosure_leave_bonus=0.02,
+        disclosure_style_base=0.01,
+        disclosure_style_scale=0.30,
+    ),
+    "v3a": ProjectorProfile(
+        name="v3a",
+        e_base=0.0,
+        e_warm=0.0,
+        e_trust=0.0,
+        e_stability_suppress=0.0,
+        q_clarify_base=0.0,
+        q_clarify_trust=0.0,
+        q_clarify_task_bonus=0.0,
+        q_clarify_non_task_cap=0.0,
+        directness_base=0.0,
+        directness_trust=0.0,
+        directness_care_suppress=0.0,
+        warmth_base=0.0,
+        warmth_care=0.0,
+        warmth_bond=0.0,
+        warmth_instability_penalty=0.0,
+        q_aff_base=0.0,
+        q_aff_care=0.0,
+        q_aff_bond=0.0,
+        q_aff_stability_suppress=0.0,
+        q_aff_vuln_cap=0.0,
+        initiative_base=0.0,
+        initiative_push=0.0,
+        initiative_stability_suppress=0.0,
+        disclosure_base=0.0,
+        disclosure_warm=0.0,
+        disclosure_instability=0.0,
+        disclosure_generic_cap=0.0,
+        disclosure_relationship_bonus=0.0,
+        disclosure_leave_bonus=0.0,
+        disclosure_style_base=0.0,
+        disclosure_style_scale=0.0,
+    ),
+    "v3b": ProjectorProfile(
+        name="v3b",
+        e_base=0.0,
+        e_warm=0.0,
+        e_trust=0.0,
+        e_stability_suppress=0.0,
+        q_clarify_base=0.0,
+        q_clarify_trust=0.0,
+        q_clarify_task_bonus=0.0,
+        q_clarify_non_task_cap=0.0,
+        directness_base=0.0,
+        directness_trust=0.0,
+        directness_care_suppress=0.0,
+        warmth_base=0.0,
+        warmth_care=0.0,
+        warmth_bond=0.0,
+        warmth_instability_penalty=0.0,
+        q_aff_base=0.0,
+        q_aff_care=0.0,
+        q_aff_bond=0.0,
+        q_aff_stability_suppress=0.0,
+        q_aff_vuln_cap=0.0,
+        initiative_base=0.0,
+        initiative_push=0.0,
+        initiative_stability_suppress=0.0,
+        disclosure_base=0.0,
+        disclosure_warm=0.0,
+        disclosure_instability=0.0,
+        disclosure_generic_cap=0.0,
+        disclosure_relationship_bonus=0.0,
+        disclosure_leave_bonus=0.0,
+        disclosure_style_base=0.0,
+        disclosure_style_scale=0.0,
+    ),
+}
+
+
+def _project_behavior_v3a(rel: RelState, *, active_boundary_keys: List[str] | None = None) -> Behavior:
+    """
+    Pure-relation projector v3a.
+
+    Design goal:
+    - keep the two-layer continuous design;
+    - remove scene dependence;
+    - decouple warmth from pursuit;
+    - make high-stability turns conservative by default.
+    """
+    keys = set(active_boundary_keys or [])
+    bond = clamp01(rel.bond)
+    care = clamp01(rel.care)
+    trust = clamp01(rel.trust)
+    stability = clamp01(rel.stability)
+    fragility = 1.0 - stability
+
+    warm_core = clamp01(0.55 * care + 0.30 * bond + 0.15 * trust)
+    permission_core = clamp01(0.45 * trust + 0.35 * bond + 0.20 * care)
+
+    E = clamp01(0.02 + 0.14 * warm_core + 0.08 * trust + 0.05 * bond - 0.12 * stability)
+    Q_clarify = clamp01(0.01 + 0.10 * trust - 0.06 * care - 0.04 * bond + 0.02 * fragility)
+    Directness = clamp01(0.10 + 0.55 * trust - 0.08 * care + 0.05 * stability)
+    T_w = clamp01(0.06 + 0.42 * care + 0.18 * bond - 0.03 * fragility)
+    Q_aff = clamp01(0.00 + 0.11 * care + 0.05 * bond - 0.10 * stability)
+    Initiative = clamp01(0.00 + 0.10 * permission_core - 0.12 * stability)
+    Disclosure_Content = clamp01(0.00 + 0.06 * bond * trust + 0.02 * care - 0.04 * stability + 0.02 * fragility)
+    Disclosure_Style = clamp01(min(0.02 + 0.40 * Disclosure_Content, Disclosure_Content))
+
+    if "no_unsolicited_emotion_questions" in keys:
+        Q_aff = 0.0
+
+    return Behavior(
+        E=E,
+        Q_clarify=Q_clarify,
+        Directness=Directness,
+        T_w=T_w,
+        Q_aff=Q_aff,
+        Initiative=Initiative,
+        Disclosure_Content=Disclosure_Content,
+        Disclosure_Style=Disclosure_Style,
+    )
+
+
+def _project_behavior_v3b(rel: RelState, *, active_boundary_keys: List[str] | None = None) -> Behavior:
+    """
+    Pure-relation projector v3b.
+
+    Design goal:
+    - keep continuous relation -> behavior mapping;
+    - introduce nonlinear gating instead of adding scene/phase labels;
+    - test whether multiplicative structure can better explain behavior.
+    """
+    keys = set(active_boundary_keys or [])
+    bond = clamp01(rel.bond)
+    care = clamp01(rel.care)
+    trust = clamp01(rel.trust)
+    stability = clamp01(rel.stability)
+    fragility = 1.0 - stability
+
+    warm_gate = clamp01(0.50 * care + 0.30 * bond + 0.20 * trust)
+    pursuit_gate = clamp01(0.55 * trust * bond + 0.15 * care - 0.30 * stability)
+    support_gate = clamp01(0.45 * care + 0.25 * trust + 0.10 * bond - 0.15 * stability)
+
+    E = clamp01(min(0.35, 0.02 + 0.18 * warm_gate * trust + 0.06 * bond - 0.08 * stability + 0.03 * fragility))
+    Q_clarify = clamp01(min(0.20, 0.01 + 0.16 * trust * (1.0 - care) + 0.03 * fragility))
+    Directness = clamp01(0.10 + 0.50 * trust + 0.06 * stability - 0.06 * care)
+    T_w = clamp01(0.05 + 0.38 * care + 0.20 * bond - 0.02 * fragility)
+    Q_aff = clamp01(min(0.15, 0.00 + 0.22 * care * bond + 0.04 * care * trust - 0.08 * stability))
+    Initiative = clamp01(min(0.16, 0.00 + 0.14 * pursuit_gate + 0.03 * trust - 0.08 * stability))
+    Disclosure_Content = clamp01(min(0.12, 0.00 + 0.12 * trust * bond + 0.02 * care - 0.06 * stability))
+    Disclosure_Style = clamp01(min(0.02 + 0.55 * Disclosure_Content + 0.04 * bond, Disclosure_Content))
+
+    if "no_unsolicited_emotion_questions" in keys:
+        Q_aff = 0.0
+
+    return Behavior(
+        E=E,
+        Q_clarify=Q_clarify,
+        Directness=Directness,
+        T_w=T_w,
+        Q_aff=Q_aff,
+        Initiative=Initiative,
+        Disclosure_Content=Disclosure_Content,
+        Disclosure_Style=Disclosure_Style,
+    )
+
+
 def project_behavior(
     rel: RelState,
     *,
     active_boundary_keys: List[str] | None = None,
     scene: List[str] | None = None,
+    profile: str = "legacy",
 ) -> Behavior:
     """
     将关系态（Bond/Care/Trust/Stability）确定性投影为行为态（8 维因变量）。
@@ -64,50 +397,94 @@ def project_behavior(
     """
     keys = set(active_boundary_keys or [])
     tags = set(scene or [])
+    p = PROJECTOR_PROFILES.get(profile, PROJECTOR_PROFILES["legacy"])
 
     bond = clamp01(rel.bond)
     care = clamp01(rel.care)
     trust = clamp01(rel.trust)
     stability = clamp01(rel.stability)
 
-    invest = clamp01(0.35 * bond + 0.35 * care + 0.30 * trust)
+    warm_core = clamp01(0.60 * care + 0.40 * bond)
+    trust_core = trust
+    stability_core = stability
+    relational_push_permission = clamp01(0.50 * bond + 0.30 * care + 0.20 * trust)
 
-    # 额外付出
-    E = clamp01(0.15 + 0.85 * invest)
+    if profile == "v3a":
+        return _project_behavior_v3a(rel, active_boundary_keys=active_boundary_keys)
+    if profile == "v3b":
+        return _project_behavior_v3b(rel, active_boundary_keys=active_boundary_keys)
 
-    # 澄清追问深度（更敢问更深：由 trust 主导）
-    Q_clarify = clamp01(0.10 + 0.70 * trust + 0.20 * invest)
-
-    # 纠偏直率（由 trust 主导）
-    Directness = clamp01(0.10 + 0.85 * trust)
-
-    # 温暖度（由 care/bond 主导）
-    T_w = clamp01(0.10 + 0.55 * care + 0.25 * bond)
-
-    # 关怀追问倾向（由 care/bond 主导，受边界限制）
-    Q_aff = clamp01(0.05 + 0.65 * care + 0.20 * bond)
-
-    # 主动推进（投入 + 许可）
-    Initiative = clamp01(0.10 + 0.60 * invest + 0.20 * trust)
-
-    # 披露内容开放度：bond/care 越高越容易披露；stability 越低越容易出现“失落/想念但自担”的内容
-    dc = 0.10 + 0.45 * ((bond + care) / 2.0) + 0.35 * (1.0 - stability)
-
-    # scene 偏置（小步）
-    if "leave_or_pause" in tags:
-        dc += 0.10
-    if "relationship_addressing" in tags:
-        dc += 0.05
-    if "user_vulnerable" in tags:
-        dc += 0.05
+    E = clamp01(
+        p.e_base
+        + p.e_warm * warm_core
+        + p.e_trust * trust_core
+        - p.e_stability_suppress * stability_core
+    )
     if "tech_help" in tags or "task_focus" in tags:
-        dc -= 0.08
+        E = clamp01(E + 0.06)
+    if "user_vulnerable" in tags:
+        E = clamp01(E - 0.02)
+    if "leave_or_pause" in tags:
+        E = clamp01(E - 0.04)
 
+    Q_clarify = clamp01(p.q_clarify_base + p.q_clarify_trust * trust_core)
+    if "tech_help" in tags or "task_focus" in tags:
+        Q_clarify = clamp01(Q_clarify + p.q_clarify_task_bonus)
+    else:
+        Q_clarify = min(Q_clarify, p.q_clarify_non_task_cap)
+
+    Directness = clamp01(
+        p.directness_base
+        + p.directness_trust * trust_core
+        - p.directness_care_suppress * care
+    )
+
+    T_w = clamp01(
+        p.warmth_base
+        + p.warmth_care * care
+        + p.warmth_bond * bond
+        - p.warmth_instability_penalty * (1.0 - stability_core)
+    )
+
+    Q_aff = clamp01(
+        p.q_aff_base
+        + p.q_aff_care * care
+        + p.q_aff_bond * bond
+        - p.q_aff_stability_suppress * stability_core
+    )
+    if "user_vulnerable" in tags:
+        Q_aff = min(Q_aff, p.q_aff_vuln_cap)
+    if "leave_or_pause" in tags:
+        Q_aff = 0.0
+    if "no_unsolicited_emotion_questions" in keys:
+        Q_aff = 0.0
+
+    Initiative = clamp01(
+        p.initiative_base
+        + p.initiative_push * relational_push_permission
+        - p.initiative_stability_suppress * stability_core
+    )
+    if "tech_help" in tags or "task_focus" in tags:
+        Initiative = clamp01(Initiative + 0.06)
+    if "leave_or_pause" in tags:
+        Initiative = clamp01(Initiative - 0.06)
+    if "user_vulnerable" in tags:
+        Initiative = clamp01(Initiative - 0.04)
+
+    dc = clamp01(
+        p.disclosure_base
+        + p.disclosure_warm * warm_core
+        + p.disclosure_instability * (1.0 - stability_core)
+    )
+    if "relationship_addressing" in tags:
+        dc = clamp01(dc + p.disclosure_relationship_bonus)
+    if "leave_or_pause" in tags:
+        dc = clamp01(dc + p.disclosure_leave_bonus)
+    if "tech_help" not in tags and "task_focus" not in tags and "relationship_addressing" not in tags and "leave_or_pause" not in tags:
+        dc = min(dc, p.disclosure_generic_cap)
     Disclosure_Content = clamp01(dc)
 
-    # 披露风格强度：由 bond/care/invest 推动，但不应超过内容开放度的软上限
-    ds = 0.10 + 0.60 * ((bond + care) / 2.0) + 0.10 * invest
-    Disclosure_Style = clamp01(min(ds, 0.20 + 0.80 * Disclosure_Content))
+    Disclosure_Style = clamp01(min(p.disclosure_style_base + p.disclosure_style_scale * Disclosure_Content, Disclosure_Content))
 
     return Behavior(
         E=E,

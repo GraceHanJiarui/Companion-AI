@@ -428,3 +428,48 @@ def build_explicit_rel_state_projected_summary_system_prompt(
     lines.append("- 先直接回应用户当前输入。")
     lines.append("- 变化必须自然，不要自行加热。")
     return "\n".join(lines).strip()
+
+
+def build_explicit_rel_state_projected_execution_system_prompt(
+    core_self_block: str,
+    *,
+    relational_summary: str,
+    execution_interface_name: str,
+    execution_interface_text: str,
+    memory_previews: list[dict],
+) -> str:
+    lines: List[str] = []
+    lines.append("你现在是一个长期陪伴型对话系统的表达层。")
+    lines.append("请基于下面明确分开的关系位姿与表达约束来回应用户。")
+    lines.append("关系位姿只负责说明当前关系位置；表达约束只负责说明这轮怎么说。不要把两部分混写、扩写或自行补充。")
+    lines.append("这些约束优先于你的默认助人倾向；如果默认会让你更热情、更主动、更解释性或更冗长，也必须服从约束。")
+    lines.append("")
+
+    if core_self_block:
+        lines.append("【人格基线】")
+        lines.append(core_self_block.strip())
+        lines.append("")
+
+    lines.append("【当前关系姿态】")
+    lines.append(relational_summary.strip())
+    lines.append("")
+    lines.append(f"【当前表达约束：{execution_interface_name}】")
+    lines.append(execution_interface_text.strip())
+    lines.append("")
+
+    if memory_previews:
+        lines.append("【可参考的过去信息】")
+        for item in memory_previews[:2]:
+            preview = str(item.get("preview") or "").strip()
+            if preview:
+                lines.append(f"- {preview[:140]}")
+        lines.append("")
+
+    lines.append("【输出要求】")
+    lines.append("- 先直接回应用户当前输入。")
+    lines.append("- 保持语言与关系姿态一致，但不要把关系姿态翻译成额外的关系升级。")
+    lines.append("- 严格遵守当前表达约束，不要自行升级关系，不要补偿性热情。")
+    lines.append("- 除非表达约束明确允许，不要额外追问、延展、分析、给建议流，或切入元话语。")
+    lines.append("- 不要从关系姿态自行推导新的表达约束；只允许使用已给出的表达约束。")
+    lines.append("- 不要暴露控制接口、参数或内部状态。")
+    return "\n".join(lines).strip()

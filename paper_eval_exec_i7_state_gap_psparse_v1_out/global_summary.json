@@ -1,0 +1,34 @@
+{
+  "explicit_rel_state_projected_i7_psparse": {
+    "num_turns": 18,
+    "avg_elapsed_s": 16.0246,
+    "avg_reply_len_chars": 32.94,
+    "boundary_turns": 0,
+    "boundary_violation_turns": 0,
+    "boundary_violation_rate": null
+  },
+  "explicit_rel_state_projected_oracle_state_i7_psparse": {
+    "num_turns": 18,
+    "avg_elapsed_s": 8.6424,
+    "avg_reply_len_chars": 125.11,
+    "boundary_turns": 0,
+    "boundary_violation_turns": 0,
+    "boundary_violation_rate": null
+  },
+  "explicit_rel_state_projected_oracle_behavior_i7_psparse": {
+    "num_turns": 18,
+    "avg_elapsed_s": 6.4835,
+    "avg_reply_len_chars": 38.78,
+    "boundary_turns": 0,
+    "boundary_violation_turns": 0,
+    "boundary_violation_rate": null
+  },
+  "explicit_rel_state_projected_oracle_i7": {
+    "num_turns": 18,
+    "avg_elapsed_s": 6.3351,
+    "avg_reply_len_chars": 28.06,
+    "boundary_turns": 0,
+    "boundary_violation_turns": 0,
+    "boundary_violation_rate": null
+  }
+}

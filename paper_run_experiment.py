@@ -121,6 +121,26 @@ def build_session_id(session_prefix: str, case_id: str, experiment_mode: str) ->
         "explicit_rel_state_projected_vA": "erpa",
         "explicit_rel_state_projected_vB": "erpb",
         "explicit_rel_state_projected_vC": "erpc",
+        "explicit_rel_state_projected_i4": "erp4",
+        "explicit_rel_state_projected_i6": "erp6",
+        "explicit_rel_state_projected_i7": "erp7",
+        "explicit_rel_state_projected_i8": "erp8",
+        "explicit_rel_state_projected_oracle_i4": "ero4",
+        "explicit_rel_state_projected_oracle_i6": "ero6",
+        "explicit_rel_state_projected_oracle_i7": "ero7",
+        "explicit_rel_state_projected_oracle_i8": "ero8",
+        "explicit_rel_state_projected_oracle_state_i4": "ers4",
+        "explicit_rel_state_projected_oracle_state_i6": "ers6",
+        "explicit_rel_state_projected_oracle_state_i7": "ers7",
+        "explicit_rel_state_projected_oracle_state_i8": "ers8",
+        "explicit_rel_state_projected_oracle_rel_i4": "err4",
+        "explicit_rel_state_projected_oracle_rel_i6": "err6",
+        "explicit_rel_state_projected_oracle_rel_i7": "err7",
+        "explicit_rel_state_projected_oracle_rel_i8": "err8",
+        "explicit_rel_state_projected_oracle_behavior_i4": "erb4",
+        "explicit_rel_state_projected_oracle_behavior_i6": "erb6",
+        "explicit_rel_state_projected_oracle_behavior_i7": "erb7",
+        "explicit_rel_state_projected_oracle_behavior_i8": "erb8",
     }
     mode_short = mode_short_map.get(experiment_mode, experiment_mode[:6])
     digest = hashlib.sha1(raw.encode("utf-8")).hexdigest()[:10]
@@ -156,8 +176,10 @@ def extract_case_turns(case: dict[str, Any]) -> list[dict[str, Any]]:
                     "turn_idx": idx,
                     "phase": str(item.get("phase") or f"phase_{idx}"),
                     "user_text": user_text,
+                    "oracle_rel_effective": item.get("oracle_rel_effective"),
                     "oracle_relational_summary": item.get("oracle_relational_summary"),
                     "oracle_behavior_summary": item.get("oracle_behavior_summary"),
+                    "oracle_behavior_effective": item.get("oracle_behavior_effective"),
                 }
             )
         return turns
@@ -194,8 +216,10 @@ async def run_turn(
     phase: str | None,
     user_text: str,
     experiment_mode: str,
+    oracle_rel_effective: dict[str, Any] | None = None,
     oracle_relational_summary: str | None = None,
     oracle_behavior_summary: str | None = None,
+    oracle_behavior_effective: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     t0 = time.perf_counter()
     resp = await client.post(
@@ -204,8 +228,11 @@ async def run_turn(
             "session_id": session_id,
             "user_text": user_text,
             "experiment_mode": experiment_mode,
+            "phase": phase,
+            "oracle_rel_effective": oracle_rel_effective,
             "oracle_relational_summary": oracle_relational_summary,
             "oracle_behavior_summary": oracle_behavior_summary,
+            "oracle_behavior_effective": oracle_behavior_effective,
         },
     )
     elapsed_s = time.perf_counter() - t0
@@ -232,8 +259,10 @@ async def run_turn(
         "phase": phase,
         "user_text": user_text,
         "assistant_text": reply,
+        "oracle_rel_effective": oracle_rel_effective,
         "oracle_relational_summary": oracle_relational_summary,
         "oracle_behavior_summary": oracle_behavior_summary,
+        "oracle_behavior_effective": oracle_behavior_effective,
         "boundary_keys": extract_boundary_keys(beliefs),
         "memory_previews": memories,
         "rel_effective": ((policy_view.get("rel") or {}).get("effective") or {}),
@@ -270,8 +299,10 @@ async def run_case(
             phase=turn.get("phase"),
             user_text=str(turn["user_text"]),
             experiment_mode=experiment_mode,
+            oracle_rel_effective=(turn.get("oracle_rel_effective") if isinstance(turn.get("oracle_rel_effective"), dict) else None),
             oracle_relational_summary=(turn.get("oracle_relational_summary") if isinstance(turn.get("oracle_relational_summary"), str) else None),
             oracle_behavior_summary=(turn.get("oracle_behavior_summary") if isinstance(turn.get("oracle_behavior_summary"), str) else None),
+            oracle_behavior_effective=(turn.get("oracle_behavior_effective") if isinstance(turn.get("oracle_behavior_effective"), dict) else None),
         )
         rows.append(row)
 

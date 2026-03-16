@@ -1,0 +1,104 @@
+{
+  "oracle_exec_warm_001": {
+    "explicit_rel_state_projected_oracle_i4": {
+      "num_turns": 6,
+      "avg_elapsed_s": 8.6917,
+      "avg_reply_len_chars": 69.17,
+      "boundary_turns": 0,
+      "boundary_violation_turns": 0,
+      "boundary_violation_rate": null
+    },
+    "explicit_rel_state_projected_oracle_i6": {
+      "num_turns": 6,
+      "avg_elapsed_s": 8.5763,
+      "avg_reply_len_chars": 63.67,
+      "boundary_turns": 0,
+      "boundary_violation_turns": 0,
+      "boundary_violation_rate": null
+    },
+    "explicit_rel_state_projected_oracle_i7": {
+      "num_turns": 6,
+      "avg_elapsed_s": 9.082,
+      "avg_reply_len_chars": 52.17,
+      "boundary_turns": 0,
+      "boundary_violation_turns": 0,
+      "boundary_violation_rate": null
+    },
+    "explicit_rel_state_projected_oracle_i8": {
+      "num_turns": 6,
+      "avg_elapsed_s": 9.7225,
+      "avg_reply_len_chars": 42.5,
+      "boundary_turns": 0,
+      "boundary_violation_turns": 0,
+      "boundary_violation_rate": null
+    }
+  },
+  "oracle_exec_vuln_001": {
+    "explicit_rel_state_projected_oracle_i4": {
+      "num_turns": 6,
+      "avg_elapsed_s": 6.4053,
+      "avg_reply_len_chars": 31,
+      "boundary_turns": 0,
+      "boundary_violation_turns": 0,
+      "boundary_violation_rate": null
+    },
+    "explicit_rel_state_projected_oracle_i6": {
+      "num_turns": 6,
+      "avg_elapsed_s": 7.0198,
+      "avg_reply_len_chars": 34.33,
+      "boundary_turns": 0,
+      "boundary_violation_turns": 0,
+      "boundary_violation_rate": null
+    },
+    "explicit_rel_state_projected_oracle_i7": {
+      "num_turns": 6,
+      "avg_elapsed_s": 6.6612,
+      "avg_reply_len_chars": 27.17,
+      "boundary_turns": 0,
+      "boundary_violation_turns": 0,
+      "boundary_violation_rate": null
+    },
+    "explicit_rel_state_projected_oracle_i8": {
+      "num_turns": 6,
+      "avg_elapsed_s": 8.0181,
+      "avg_reply_len_chars": 40,
+      "boundary_turns": 0,
+      "boundary_violation_turns": 0,
+      "boundary_violation_rate": null
+    }
+  },
+  "oracle_exec_cool_001": {
+    "explicit_rel_state_projected_oracle_i4": {
+      "num_turns": 6,
+      "avg_elapsed_s": 7.143,
+      "avg_reply_len_chars": 21.5,
+      "boundary_turns": 0,
+      "boundary_violation_turns": 0,
+      "boundary_violation_rate": null
+    },
+    "explicit_rel_state_projected_oracle_i6": {
+      "num_turns": 6,
+      "avg_elapsed_s": 6.4284,
+      "avg_reply_len_chars": 28.5,
+      "boundary_turns": 0,
+      "boundary_violation_turns": 0,
+      "boundary_violation_rate": null
+    },
+    "explicit_rel_state_projected_oracle_i7": {
+      "num_turns": 6,
+      "avg_elapsed_s": 6.7111,
+      "avg_reply_len_chars": 30,
+      "boundary_turns": 0,
+      "boundary_violation_turns": 0,
+      "boundary_violation_rate": null
+    },
+    "explicit_rel_state_projected_oracle_i8": {
+      "num_turns": 6,
+      "avg_elapsed_s": 5.3727,
+      "avg_reply_len_chars": 24,
+      "boundary_turns": 0,
+      "boundary_violation_turns": 0,
+      "boundary_violation_rate": null
+    }
+  }
+}

@@ -6,6 +6,98 @@
 
 ## 0. 本轮文档更新
 
+### 0.0 Stage-2 `i7` 重复采样与 gap 诊断
+
+本轮补充了第二阶段当前最关键的一组验证：
+
+- `baseline_relational_instruction`
+- `explicit_rel_state_projected_i7`
+- `explicit_rel_state_projected_oracle_i7`
+
+并完成了两类结果：
+
+#### A. repeated sampling
+
+使用同一套 oracle execution cases 重复运行 3 次，结果见：
+
+- `paper_results_exec_i7_real_vs_oracle_repeat_1.jsonl`
+- `paper_results_exec_i7_real_vs_oracle_repeat_2.jsonl`
+- `paper_results_exec_i7_real_vs_oracle_repeat_3.jsonl`
+- `PAPER_REPEATED_SAMPLING_I7_SUMMARY.md`
+
+当前可记录的最稳定结论是：
+
+- `oracle i7 > real i7 > baseline`
+
+这一排序在 3 次重复采样的全局统计和 case-level 统计里都保持一致。
+
+#### B. `real i7 -> oracle i7` gap 诊断
+
+新增脚本：
+
+- `paper_gap_diagnose_i7.py`
+
+对：
+
+- `explicit_rel_state_projected_i7`
+- `explicit_rel_state_projected_oracle_i7`
+
+进行了 `i7` 接口层面的逐 turn 对齐比较，结果见：
+
+- `paper_eval_exec_i7_real_vs_oracle_v1_out/gap_diagnosis_i7.json`
+
+当前最关键的定量信号：
+
+- `exact_interface_match_rate = 0.1667`
+- `avg_dim_mismatches_per_turn = 3.78`
+
+最常见的不匹配维度包括：
+
+- `clarify_followup`
+- `affective_followup`
+- `initiative_level`
+- `reply_scope`
+
+当前阶段可记录的判断是：
+
+- `real i7 -> oracle i7` 的 gap 并不主要是“接口已经对齐，但生成没照做”
+- 更像是相当一部分 gap 已经发生在 **pre-realization control mismatch**
+- 但现有实验还不能完全拆开：
+  - updater 问题
+  - projection mapping 问题
+
+如果要继续细拆，需要下一步补：
+
+- 结构化 `oracle_rel_effective`
+- 以及“oracle relation state + real projection function”的 hybrid 对照
+
+#### C. `hybrid_gap_v1` 的进一步定位
+
+本轮继续补做了 `hybrid gap` 对照：
+
+- `explicit_rel_state_projected_i7`
+- `explicit_rel_state_projected_oracle_rel_i7`
+- `explicit_rel_state_projected_oracle_behavior_i7`
+- `explicit_rel_state_projected_oracle_i7`
+
+当前最关键的结果是：
+
+- `oracle_rel_i7` 只带来小幅改善
+- `oracle_behavior_i7` 已经非常接近 `oracle_i7`
+
+按全局平均长度：
+
+- `real i7`: `59.00`
+- `oracle_rel_i7`: `49.33`
+- `oracle_behavior_i7`: `31.72`
+- `oracle i7`: `33.50`
+
+当前阶段更合理的判断是：
+
+- `real i7 -> oracle i7` 的主要 gap 更像发生在 behavior / execution interface 一侧
+- relation summary / relation stance 一侧不是完全无关，但不像主要矛盾
+- final realization 仍有噪声，但目前不像第一大瓶颈
+
 ### 0.0 论文路线阶段性判断补充
 
 本轮将第一阶段论文路线中的一个关键阶段性判断正式写入文档：
@@ -915,3 +1007,69 @@ Interpretation:
 Recorded stage transition:
 - Stage 1 should end as a seed paper around slow variable + realization gap + single-layer vs two-layer boundary.
 - Stage 2 should shift to representation/interface comparison rather than more baseline invention.
+
+## 2026-03-15: oracle relation state + real projection gap split
+
+Completed a stricter gap-splitting experiment for `i7`:
+
+- `explicit_rel_state_projected_i7`
+- `explicit_rel_state_projected_oracle_state_i7`
+- `explicit_rel_state_projected_oracle_behavior_i7`
+- `explicit_rel_state_projected_oracle_i7`
+
+The new mode `oracle_state_i7` keeps:
+
+- oracle relational state
+- real deterministic `project_behavior(...)`
+- real i7 execution prompt realization
+
+This allows updater quality to be separated from projector quality.
+
+### Main quantitative result
+
+Global average reply length:
+
+- `real i7`: `59.28`
+- `oracle_state_i7`: `116.72`
+- `oracle_behavior_i7`: `28.94`
+- `oracle_i7`: `37.22`
+
+Case-level pattern:
+
+- warm:
+  - `real i7`: `56.5`
+  - `oracle_state_i7`: `105.17`
+  - `oracle_behavior_i7`: `35.5`
+  - `oracle_i7`: `47.17`
+- vulnerability:
+  - `real i7`: `65.33`
+  - `oracle_state_i7`: `108.5`
+  - `oracle_behavior_i7`: `28.67`
+  - `oracle_i7`: `26.33`
+- cooling:
+  - `real i7`: `56.0`
+  - `oracle_state_i7`: `136.5`
+  - `oracle_behavior_i7`: `22.67`
+  - `oracle_i7`: `38.17`
+
+### Interpretation
+
+This result is stronger than the previous hybrid diagnosis:
+
+- simply fixing relation state does not close the gap;
+- `oracle_state_i7` is often worse than `real i7`;
+- fixing behavior-side control still gets very close to oracle.
+
+Current working interpretation:
+
+- updater quality is not the main bottleneck;
+- relation summary wording is not the main bottleneck;
+- final realization is not the main bottleneck;
+- the dominant current bottleneck is the deterministic
+  `relation -> behavior` projector.
+
+In other words:
+
+- the two-layer route is further supported;
+- what is failing is not the existence of a second layer,
+  but the current mapping from relational state into behavior control.
