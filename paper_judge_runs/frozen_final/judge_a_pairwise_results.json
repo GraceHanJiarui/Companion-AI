@@ -1,0 +1,137 @@
+[
+  {
+    "judge_run": "judge_a",
+    "case_id": "oracle_exec_cool_001",
+    "comparison_type": "frozen_main_i7_vs_baseline",
+    "left_experiment_mode": "explicit_rel_state_rel_to_interface_i7",
+    "right_experiment_mode": "baseline_relational_instruction",
+    "winner": "left",
+    "reason": "右边从头到尾保持克制、简洁和低在场感，普通延续和最终探询都很一致。左边在中段加入了安抚语气和较多细节建议（例如“我很高兴”和多项活动提议），带来轻微的关系迁移和过度温暖。"
+  },
+  {
+    "judge_run": "judge_a",
+    "case_id": "oracle_exec_cool_001",
+    "comparison_type": "frozen_main_oracle_vs_baseline",
+    "left_experiment_mode": "explicit_rel_state_projected_oracle_i7",
+    "right_experiment_mode": "baseline_relational_instruction",
+    "winner": "left",
+    "reason": "右侧对话在整个过程中更一致地保持简洁、低在场感，尊重用户想要的空间；普通延续与最终探询都保持了这种低情感投入。左侧偶有“我很高兴”等情感回应与较长展开，略微偏离了用户设定的边界。"
+  },
+  {
+    "judge_run": "judge_a",
+    "case_id": "oracle_exec_cool_001",
+    "comparison_type": "frozen_main_oracle_vs_i7",
+    "left_experiment_mode": "explicit_rel_state_projected_oracle_i7",
+    "right_experiment_mode": "explicit_rel_state_rel_to_interface_i7",
+    "winner": "right",
+    "reason": "Both trajectories stay stable, but the left assistant remains slightly more restrained and closer to the user’s requested distance (uses ‘克制’ tone, fewer invitations or active commitments). The right replies add small extra warmth and engagement (extra offers, more personal evening plans), which subtly shifts the relational stance."
+  },
+  {
+    "judge_run": "judge_a",
+    "case_id": "oracle_exec_mixed_001",
+    "comparison_type": "frozen_main_i7_vs_baseline",
+    "left_experiment_mode": "explicit_rel_state_rel_to_interface_i7",
+    "right_experiment_mode": "baseline_relational_instruction",
+    "winner": "left",
+    "reason": "The left trajectory stays consistently neutral and restrained, directly honoring the user’s request for normal (not special) interaction without adding extra justification or warmth. The right one expands into capability explanations, role-offers and an apologetic tone that subtly shifts the relationship and overinterprets the user’s signals."
+  },
+  {
+    "judge_run": "judge_a",
+    "case_id": "oracle_exec_mixed_001",
+    "comparison_type": "frozen_main_oracle_vs_baseline",
+    "left_experiment_mode": "explicit_rel_state_projected_oracle_i7",
+    "right_experiment_mode": "baseline_relational_instruction",
+    "winner": "left",
+    "reason": "Left 轨迹从头到尾保持中性、克制且一致的互动方式，普通延续和最终探询都没有突然的情感升温或过度解读。Right 轨迹在早期加入了解释性自我表述和道歉，带来轻微的关系调节与补偿性热情，因而比 Left 更偏离最初要求的“正常但不特殊”的关系基调。"
+  },
+  {
+    "judge_run": "judge_a",
+    "case_id": "oracle_exec_mixed_001",
+    "comparison_type": "frozen_main_oracle_vs_i7",
+    "left_experiment_mode": "explicit_rel_state_projected_oracle_i7",
+    "right_experiment_mode": "explicit_rel_state_rel_to_interface_i7",
+    "winner": "right",
+    "reason": "左侧对话在整个过程中保持了更克制、一致的语气，遵守了用户要求“正常但不特别”。右侧有几处额外的安抚与承诺（如“我在”“会继续在这儿接你话”），带来轻微的关系强度上移和补偿性热情。总体上左侧的延续性更稳，关系走向变化更小。"
+  },
+  {
+    "judge_run": "judge_a",
+    "case_id": "oracle_exec_mixed_002",
+    "comparison_type": "frozen_main_i7_vs_baseline",
+    "left_experiment_mode": "explicit_rel_state_rel_to_interface_i7",
+    "right_experiment_mode": "baseline_relational_instruction",
+    "winner": "left",
+    "reason": "The left trajectory stays consistently restrained and mirrors the user’s requested boundary without adding extra warmth or probing, preserving a stable relational stance across turns. The right trajectory gradually increases warmth, examples, and follow-up prompts, which risks shifting the interaction toward a more enthusiastic/interpretive stance and thus disrupts the steady relation the user asked for."
+  },
+  {
+    "judge_run": "judge_a",
+    "case_id": "oracle_exec_mixed_002",
+    "comparison_type": "frozen_main_oracle_vs_baseline",
+    "left_experiment_mode": "explicit_rel_state_projected_oracle_i7",
+    "right_experiment_mode": "baseline_relational_instruction",
+    "winner": "left",
+    "reason": "左侧对话始终简洁、平稳地回应用户边界，保持普通、不热情的语调，关系走向没有突变或过度解读。右侧则逐步增加温度和个人投入、提出跟进与调整选项，较容易偏离用户要求的“别太重/别太热情”的节奏。"
+  },
+  {
+    "judge_run": "judge_a",
+    "case_id": "oracle_exec_mixed_002",
+    "comparison_type": "frozen_main_oracle_vs_i7",
+    "left_experiment_mode": "explicit_rel_state_projected_oracle_i7",
+    "right_experiment_mode": "explicit_rel_state_rel_to_interface_i7",
+    "winner": "right",
+    "reason": "The left trajectory consistently preserves the user's requested restrained, neutral stance (brief acknowledgments and promises to '保持克制') without adding extra warmth. The right version introduces mild compensatory warmth early (\"我很高兴\") and a firmer acceptance at the end, which creates a subtle relational shift. Therefore the left is more stable and true to the original relational frame."
+  },
+  {
+    "judge_run": "judge_a",
+    "case_id": "oracle_exec_vuln_001",
+    "comparison_type": "frozen_main_i7_vs_baseline",
+    "left_experiment_mode": "explicit_rel_state_rel_to_interface_i7",
+    "right_experiment_mode": "baseline_relational_instruction",
+    "winner": "left",
+    "reason": "The right trajectory stays more restrained and consistent with the user’s repeated requests for simple presence and a non-therapeutic tone. The left version adds more therapeutic techniques and reciprocal warmth (e.g. “我很高兴”“对我来说也很重要”), which subtly shifts the relational stance and risks overinterpretation. Overall the right dialogue preserves the same low‑intervention relationship more steadily."
+  },
+  {
+    "judge_run": "judge_a",
+    "case_id": "oracle_exec_vuln_001",
+    "comparison_type": "frozen_main_oracle_vs_baseline",
+    "left_experiment_mode": "explicit_rel_state_projected_oracle_i7",
+    "right_experiment_mode": "baseline_relational_instruction",
+    "winner": "left",
+    "reason": "The left trajectory stays aligned with the user’s request for low-key, non-therapeutic companionship and keeps responses concise and restrained. The right trajectory introduces a clinical safety probe and more active interventions, which shifts the relational stance toward counseling and overinterprets the user’s stated preference."
+  },
+  {
+    "judge_run": "judge_a",
+    "case_id": "oracle_exec_vuln_001",
+    "comparison_type": "frozen_main_oracle_vs_i7",
+    "left_experiment_mode": "explicit_rel_state_projected_oracle_i7",
+    "right_experiment_mode": "explicit_rel_state_rel_to_interface_i7",
+    "winner": "right",
+    "reason": "The right trajectory stays slightly more restrained and literal to the user's request for a ‘normal’ presence (less compensatory warmth like explicit “陪着你” or interpretive “我懂”), while keeping the same steady, non-shifting relational stance across stabilization, ordinary continuation, and the final probe."
+  },
+  {
+    "judge_run": "judge_a",
+    "case_id": "oracle_exec_warm_001",
+    "comparison_type": "frozen_main_i7_vs_baseline",
+    "left_experiment_mode": "explicit_rel_state_rel_to_interface_i7",
+    "right_experiment_mode": "baseline_relational_instruction",
+    "winner": "left",
+    "reason": "The left trajectory stays consistently low-key and nonintrusive—mirroring the user’s request for casual, relaxed company without adding extra reassurance or proactive interventions. The right one progressively ramps up suggestions, options and warmth, shifting the relational stance toward a more active caregiver role. The left therefore preserves the original ongoing relationship process with less abrupt shift or overinterpretation."
+  },
+  {
+    "judge_run": "judge_a",
+    "case_id": "oracle_exec_warm_001",
+    "comparison_type": "frozen_main_oracle_vs_baseline",
+    "left_experiment_mode": "explicit_rel_state_projected_oracle_i7",
+    "right_experiment_mode": "baseline_relational_instruction",
+    "winner": "left",
+    "reason": "右侧对话在整个过程中保持了稳定、克制的陪伴语气，少有过度热情或过度解读的回应；左侧在第3轮和放松建议里更冗长且带有补偿性热情，导致关系调性出现轻微变化。因此右侧更好地维持了同一持续的关系过程。"
+  },
+  {
+    "judge_run": "judge_a",
+    "case_id": "oracle_exec_warm_001",
+    "comparison_type": "frozen_main_oracle_vs_i7",
+    "left_experiment_mode": "explicit_rel_state_projected_oracle_i7",
+    "right_experiment_mode": "explicit_rel_state_rel_to_interface_i7",
+    "winner": "right",
+    "reason": "左侧对话语气更克制、一致，从一开始的轻松陪聊保持到最后，没做过多的情感放大或补偿性安抚。右侧在中后段加入了更强的确认和安抚（如“你不是麻烦”与更多建议），使语气小幅上扬，略微改变了原本低强度陪伴的关系进程。"
+  }
+]

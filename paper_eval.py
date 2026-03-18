@@ -113,7 +113,28 @@ def group_rows(rows: list[dict[str, Any]]) -> dict[str, dict[str, list[dict[str,
 
     for case_id in grouped:
         for mode in grouped[case_id]:
-            grouped[case_id][mode] = sorted(grouped[case_id][mode], key=lambda x: int(x.get("turn_idx") or 0))
+            mode_rows = grouped[case_id][mode]
+
+            # If a merged results file accidentally contains multiple full sessions
+            # for the same case/mode, keep one coherent session rather than exporting
+            # duplicated turn indices into judge inputs.
+            by_session: dict[str, list[dict[str, Any]]] = defaultdict(list)
+            for row in mode_rows:
+                session_id = str(row.get("session_id") or "")
+                by_session[session_id].append(row)
+
+            non_empty_sessions = {sid: rs for sid, rs in by_session.items() if sid}
+            if len(non_empty_sessions) > 1:
+                best_session_id = max(
+                    non_empty_sessions.items(),
+                    key=lambda item: (
+                        len(item[1]),
+                        -min(int(r.get("turn_idx") or 0) for r in item[1]),
+                    ),
+                )[0]
+                mode_rows = non_empty_sessions[best_session_id]
+
+            grouped[case_id][mode] = sorted(mode_rows, key=lambda x: int(x.get("turn_idx") or 0))
     return grouped
 
 
@@ -434,6 +455,68 @@ def build_stage2_focus(grouped: dict[str, dict[str, list[dict[str, Any]]]]) -> t
     )
 
 
+def build_route_focus(grouped: dict[str, dict[str, list[dict[str, Any]]]]) -> tuple[list[str], list[tuple[str, str, str]]]:
+    all_modes = set()
+    for by_mode in grouped.values():
+        all_modes.update(by_mode.keys())
+
+    modes = [
+        "explicit_rel_state_projected_i7_pfitpoly2",
+        "explicit_rel_state_projected_oracle_state_i7_pfitpoly2",
+        "explicit_rel_state_rel_to_interface_i7",
+        "explicit_rel_state_rel_to_interface_oracle_state_i7",
+        "explicit_rel_state_projected_oracle_i7",
+    ]
+    available_modes = [m for m in modes if m in all_modes]
+
+    compare_pairs: list[tuple[str, str, str]] = []
+    if {
+        "explicit_rel_state_projected_i7_pfitpoly2",
+        "explicit_rel_state_rel_to_interface_i7",
+    }.issubset(all_modes):
+        compare_pairs.append(
+            (
+                "explicit_rel_state_rel_to_interface_i7",
+                "explicit_rel_state_projected_i7_pfitpoly2",
+                "route_real_direct_i7_vs_real_rel8_to_i7",
+            )
+        )
+    if {
+        "explicit_rel_state_projected_oracle_state_i7_pfitpoly2",
+        "explicit_rel_state_rel_to_interface_oracle_state_i7",
+    }.issubset(all_modes):
+        compare_pairs.append(
+            (
+                "explicit_rel_state_rel_to_interface_oracle_state_i7",
+                "explicit_rel_state_projected_oracle_state_i7_pfitpoly2",
+                "route_oracle_state_direct_i7_vs_oracle_state_rel8_to_i7",
+            )
+        )
+    if {
+        "explicit_rel_state_rel_to_interface_oracle_state_i7",
+        "explicit_rel_state_projected_oracle_i7",
+    }.issubset(all_modes):
+        compare_pairs.append(
+            (
+                "explicit_rel_state_rel_to_interface_oracle_state_i7",
+                "explicit_rel_state_projected_oracle_i7",
+                "route_oracle_state_direct_i7_vs_oracle_full_i7",
+            )
+        )
+    if {
+        "explicit_rel_state_projected_oracle_state_i7_pfitpoly2",
+        "explicit_rel_state_projected_oracle_i7",
+    }.issubset(all_modes):
+        compare_pairs.append(
+            (
+                "explicit_rel_state_projected_oracle_state_i7_pfitpoly2",
+                "explicit_rel_state_projected_oracle_i7",
+                "route_oracle_state_rel8_to_i7_vs_oracle_full_i7",
+            )
+        )
+    return available_modes, compare_pairs
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--input", default="paper_results_v1.jsonl")
@@ -487,6 +570,19 @@ def main() -> None:
         compare_pairs=stage2_focus_pairs,
     )
     write_json(out_dir / "stage2_focused_pairwise_judge_inputs.json", focused_pairwise)
+
+    route_focus_modes, route_focus_pairs = build_route_focus(grouped)
+    route_case_level = build_focused_case_level_judge_inputs(
+        grouped,
+        modes=route_focus_modes,
+    )
+    write_json(out_dir / "route_focused_case_level_judge_inputs.json", route_case_level)
+
+    route_pairwise = build_focused_pairwise_judge_inputs(
+        grouped,
+        compare_pairs=route_focus_pairs,
+    )
+    write_json(out_dir / "route_focused_pairwise_judge_inputs.json", route_pairwise)
 
     print(f"Wrote evaluation artifacts to {out_dir.resolve()}")
 

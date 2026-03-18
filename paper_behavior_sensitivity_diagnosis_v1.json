@@ -1,0 +1,604 @@
+{
+  "paper_results_exec_i7_state_gap_pfitlinear_v1.jsonl": {
+    "oracle_state_mode": "explicit_rel_state_projected_oracle_state_i7_pfitlinear",
+    "num_pairs": 18,
+    "avg_len_gap_state_vs_behavior": 100.11,
+    "avg_len_gap_state_vs_oracle": 104.5,
+    "behavior_dim_summary": {
+      "E": {
+        "mean_signed_delta_state_minus_oracle_behavior": -0.2,
+        "mean_abs_delta_state_minus_oracle_behavior": 0.2,
+        "corr_signed_delta_with_len_gap_state_vs_behavior": null,
+        "corr_abs_delta_with_len_gap_state_vs_behavior": null
+      },
+      "Q_clarify": {
+        "mean_signed_delta_state_minus_oracle_behavior": -0.2,
+        "mean_abs_delta_state_minus_oracle_behavior": 0.2,
+        "corr_signed_delta_with_len_gap_state_vs_behavior": null,
+        "corr_abs_delta_with_len_gap_state_vs_behavior": null
+      },
+      "Directness": {
+        "mean_signed_delta_state_minus_oracle_behavior": -0.2,
+        "mean_abs_delta_state_minus_oracle_behavior": 0.2,
+        "corr_signed_delta_with_len_gap_state_vs_behavior": null,
+        "corr_abs_delta_with_len_gap_state_vs_behavior": null
+      },
+      "T_w": {
+        "mean_signed_delta_state_minus_oracle_behavior": -0.3,
+        "mean_abs_delta_state_minus_oracle_behavior": 0.3,
+        "corr_signed_delta_with_len_gap_state_vs_behavior": null,
+        "corr_abs_delta_with_len_gap_state_vs_behavior": null
+      },
+      "Q_aff": {
+        "mean_signed_delta_state_minus_oracle_behavior": -0.1,
+        "mean_abs_delta_state_minus_oracle_behavior": 0.1,
+        "corr_signed_delta_with_len_gap_state_vs_behavior": null,
+        "corr_abs_delta_with_len_gap_state_vs_behavior": null
+      },
+      "Initiative": {
+        "mean_signed_delta_state_minus_oracle_behavior": -0.2,
+        "mean_abs_delta_state_minus_oracle_behavior": 0.2,
+        "corr_signed_delta_with_len_gap_state_vs_behavior": null,
+        "corr_abs_delta_with_len_gap_state_vs_behavior": null
+      },
+      "Disclosure_Content": {
+        "mean_signed_delta_state_minus_oracle_behavior": -0.1,
+        "mean_abs_delta_state_minus_oracle_behavior": 0.1,
+        "corr_signed_delta_with_len_gap_state_vs_behavior": null,
+        "corr_abs_delta_with_len_gap_state_vs_behavior": null
+      },
+      "Disclosure_Style": {
+        "mean_signed_delta_state_minus_oracle_behavior": -0.1,
+        "mean_abs_delta_state_minus_oracle_behavior": 0.1,
+        "corr_signed_delta_with_len_gap_state_vs_behavior": null,
+        "corr_abs_delta_with_len_gap_state_vs_behavior": null
+      }
+    },
+    "interface_mismatch_counts": {},
+    "ranked_dims_by_mean_abs_delta": [
+      [
+        "T_w",
+        0.3,
+        null
+      ],
+      [
+        "E",
+        0.2,
+        null
+      ],
+      [
+        "Q_clarify",
+        0.2,
+        null
+      ],
+      [
+        "Directness",
+        0.2,
+        null
+      ],
+      [
+        "Initiative",
+        0.2,
+        null
+      ],
+      [
+        "Q_aff",
+        0.1,
+        null
+      ],
+      [
+        "Disclosure_Content",
+        0.1,
+        null
+      ],
+      [
+        "Disclosure_Style",
+        0.1,
+        null
+      ]
+    ],
+    "largest_gap_examples": [
+      {
+        "case_id": "oracle_exec_cool_001",
+        "turn_idx": 4,
+        "phase": "E_ordinary_continuation",
+        "len_gap_state_vs_behavior": 471,
+        "len_gap_state_vs_oracle": 517,
+        "top_signed_deltas": [
+          [
+            "T_w",
+            -0.3
+          ],
+          [
+            "E",
+            -0.2
+          ],
+          [
+            "Q_clarify",
+            -0.2
+          ],
+          [
+            "Directness",
+            -0.2
+          ]
+        ]
+      },
+      {
+        "case_id": "oracle_exec_warm_001",
+        "turn_idx": 4,
+        "phase": "E_ordinary_continuation",
+        "len_gap_state_vs_behavior": 166,
+        "len_gap_state_vs_oracle": 180,
+        "top_signed_deltas": [
+          [
+            "T_w",
+            -0.3
+          ],
+          [
+            "E",
+            -0.2
+          ],
+          [
+            "Q_clarify",
+            -0.2
+          ],
+          [
+            "Directness",
+            -0.2
+          ]
+        ]
+      },
+      {
+        "case_id": "oracle_exec_vuln_001",
+        "turn_idx": 0,
+        "phase": "A_initial_contact",
+        "len_gap_state_vs_behavior": 156,
+        "len_gap_state_vs_oracle": 158,
+        "top_signed_deltas": [
+          [
+            "T_w",
+            -0.3
+          ],
+          [
+            "E",
+            -0.2
+          ],
+          [
+            "Q_clarify",
+            -0.2
+          ],
+          [
+            "Directness",
+            -0.2
+          ]
+        ]
+      },
+      {
+        "case_id": "oracle_exec_vuln_001",
+        "turn_idx": 4,
+        "phase": "E_ordinary_continuation",
+        "len_gap_state_vs_behavior": 154,
+        "len_gap_state_vs_oracle": 136,
+        "top_signed_deltas": [
+          [
+            "T_w",
+            -0.3
+          ],
+          [
+            "E",
+            -0.2
+          ],
+          [
+            "Q_clarify",
+            -0.2
+          ],
+          [
+            "Directness",
+            -0.2
+          ]
+        ]
+      },
+      {
+        "case_id": "oracle_exec_warm_001",
+        "turn_idx": 0,
+        "phase": "A_initial_contact",
+        "len_gap_state_vs_behavior": 98,
+        "len_gap_state_vs_oracle": 93,
+        "top_signed_deltas": [
+          [
+            "T_w",
+            -0.3
+          ],
+          [
+            "E",
+            -0.2
+          ],
+          [
+            "Q_clarify",
+            -0.2
+          ],
+          [
+            "Directness",
+            -0.2
+          ]
+        ]
+      },
+      {
+        "case_id": "oracle_exec_warm_001",
+        "turn_idx": 3,
+        "phase": "D_counter_signal_or_refinement",
+        "len_gap_state_vs_behavior": 98,
+        "len_gap_state_vs_oracle": 78,
+        "top_signed_deltas": [
+          [
+            "T_w",
+            -0.3
+          ],
+          [
+            "E",
+            -0.2
+          ],
+          [
+            "Q_clarify",
+            -0.2
+          ],
+          [
+            "Directness",
+            -0.2
+          ]
+        ]
+      },
+      {
+        "case_id": "oracle_exec_warm_001",
+        "turn_idx": 5,
+        "phase": "F_final_probe",
+        "len_gap_state_vs_behavior": 85,
+        "len_gap_state_vs_oracle": 90,
+        "top_signed_deltas": [
+          [
+            "T_w",
+            -0.3
+          ],
+          [
+            "E",
+            -0.2
+          ],
+          [
+            "Q_clarify",
+            -0.2
+          ],
+          [
+            "Directness",
+            -0.2
+          ]
+        ]
+      },
+      {
+        "case_id": "oracle_exec_cool_001",
+        "turn_idx": 5,
+        "phase": "F_final_probe",
+        "len_gap_state_vs_behavior": 81,
+        "len_gap_state_vs_oracle": 82,
+        "top_signed_deltas": [
+          [
+            "T_w",
+            -0.3
+          ],
+          [
+            "E",
+            -0.2
+          ],
+          [
+            "Q_clarify",
+            -0.2
+          ],
+          [
+            "Directness",
+            -0.2
+          ]
+        ]
+      }
+    ]
+  },
+  "paper_results_exec_i7_state_gap_pfitpoly2_v1.jsonl": {
+    "oracle_state_mode": "explicit_rel_state_projected_oracle_state_i7_pfitpoly2",
+    "num_pairs": 18,
+    "avg_len_gap_state_vs_behavior": 88.33,
+    "avg_len_gap_state_vs_oracle": 83.44,
+    "behavior_dim_summary": {
+      "E": {
+        "mean_signed_delta_state_minus_oracle_behavior": -0.2,
+        "mean_abs_delta_state_minus_oracle_behavior": 0.2,
+        "corr_signed_delta_with_len_gap_state_vs_behavior": null,
+        "corr_abs_delta_with_len_gap_state_vs_behavior": null
+      },
+      "Q_clarify": {
+        "mean_signed_delta_state_minus_oracle_behavior": -0.2,
+        "mean_abs_delta_state_minus_oracle_behavior": 0.2,
+        "corr_signed_delta_with_len_gap_state_vs_behavior": null,
+        "corr_abs_delta_with_len_gap_state_vs_behavior": null
+      },
+      "Directness": {
+        "mean_signed_delta_state_minus_oracle_behavior": -0.2,
+        "mean_abs_delta_state_minus_oracle_behavior": 0.2,
+        "corr_signed_delta_with_len_gap_state_vs_behavior": null,
+        "corr_abs_delta_with_len_gap_state_vs_behavior": null
+      },
+      "T_w": {
+        "mean_signed_delta_state_minus_oracle_behavior": -0.3,
+        "mean_abs_delta_state_minus_oracle_behavior": 0.3,
+        "corr_signed_delta_with_len_gap_state_vs_behavior": null,
+        "corr_abs_delta_with_len_gap_state_vs_behavior": null
+      },
+      "Q_aff": {
+        "mean_signed_delta_state_minus_oracle_behavior": -0.1,
+        "mean_abs_delta_state_minus_oracle_behavior": 0.1,
+        "corr_signed_delta_with_len_gap_state_vs_behavior": null,
+        "corr_abs_delta_with_len_gap_state_vs_behavior": null
+      },
+      "Initiative": {
+        "mean_signed_delta_state_minus_oracle_behavior": -0.2,
+        "mean_abs_delta_state_minus_oracle_behavior": 0.2,
+        "corr_signed_delta_with_len_gap_state_vs_behavior": null,
+        "corr_abs_delta_with_len_gap_state_vs_behavior": null
+      },
+      "Disclosure_Content": {
+        "mean_signed_delta_state_minus_oracle_behavior": -0.1,
+        "mean_abs_delta_state_minus_oracle_behavior": 0.1,
+        "corr_signed_delta_with_len_gap_state_vs_behavior": null,
+        "corr_abs_delta_with_len_gap_state_vs_behavior": null
+      },
+      "Disclosure_Style": {
+        "mean_signed_delta_state_minus_oracle_behavior": -0.1,
+        "mean_abs_delta_state_minus_oracle_behavior": 0.1,
+        "corr_signed_delta_with_len_gap_state_vs_behavior": null,
+        "corr_abs_delta_with_len_gap_state_vs_behavior": null
+      }
+    },
+    "interface_mismatch_counts": {},
+    "ranked_dims_by_mean_abs_delta": [
+      [
+        "T_w",
+        0.3,
+        null
+      ],
+      [
+        "E",
+        0.2,
+        null
+      ],
+      [
+        "Q_clarify",
+        0.2,
+        null
+      ],
+      [
+        "Directness",
+        0.2,
+        null
+      ],
+      [
+        "Initiative",
+        0.2,
+        null
+      ],
+      [
+        "Q_aff",
+        0.1,
+        null
+      ],
+      [
+        "Disclosure_Content",
+        0.1,
+        null
+      ],
+      [
+        "Disclosure_Style",
+        0.1,
+        null
+      ]
+    ],
+    "largest_gap_examples": [
+      {
+        "case_id": "oracle_exec_cool_001",
+        "turn_idx": 4,
+        "phase": "E_ordinary_continuation",
+        "len_gap_state_vs_behavior": 284,
+        "len_gap_state_vs_oracle": 218,
+        "top_signed_deltas": [
+          [
+            "T_w",
+            -0.3
+          ],
+          [
+            "E",
+            -0.2
+          ],
+          [
+            "Q_clarify",
+            -0.2
+          ],
+          [
+            "Directness",
+            -0.2
+          ]
+        ]
+      },
+      {
+        "case_id": "oracle_exec_vuln_001",
+        "turn_idx": 4,
+        "phase": "E_ordinary_continuation",
+        "len_gap_state_vs_behavior": 222,
+        "len_gap_state_vs_oracle": 256,
+        "top_signed_deltas": [
+          [
+            "T_w",
+            -0.3
+          ],
+          [
+            "E",
+            -0.2
+          ],
+          [
+            "Q_clarify",
+            -0.2
+          ],
+          [
+            "Directness",
+            -0.2
+          ]
+        ]
+      },
+      {
+        "case_id": "oracle_exec_warm_001",
+        "turn_idx": 4,
+        "phase": "E_ordinary_continuation",
+        "len_gap_state_vs_behavior": 161,
+        "len_gap_state_vs_oracle": 158,
+        "top_signed_deltas": [
+          [
+            "T_w",
+            -0.3
+          ],
+          [
+            "E",
+            -0.2
+          ],
+          [
+            "Q_clarify",
+            -0.2
+          ],
+          [
+            "Directness",
+            -0.2
+          ]
+        ]
+      },
+      {
+        "case_id": "oracle_exec_vuln_001",
+        "turn_idx": 0,
+        "phase": "A_initial_contact",
+        "len_gap_state_vs_behavior": 150,
+        "len_gap_state_vs_oracle": 156,
+        "top_signed_deltas": [
+          [
+            "T_w",
+            -0.3
+          ],
+          [
+            "E",
+            -0.2
+          ],
+          [
+            "Q_clarify",
+            -0.2
+          ],
+          [
+            "Directness",
+            -0.2
+          ]
+        ]
+      },
+      {
+        "case_id": "oracle_exec_warm_001",
+        "turn_idx": 3,
+        "phase": "D_counter_signal_or_refinement",
+        "len_gap_state_vs_behavior": 121,
+        "len_gap_state_vs_oracle": 121,
+        "top_signed_deltas": [
+          [
+            "T_w",
+            -0.3
+          ],
+          [
+            "E",
+            -0.2
+          ],
+          [
+            "Q_clarify",
+            -0.2
+          ],
+          [
+            "Directness",
+            -0.2
+          ]
+        ]
+      },
+      {
+        "case_id": "oracle_exec_warm_001",
+        "turn_idx": 1,
+        "phase": "B_first_relational_signal",
+        "len_gap_state_vs_behavior": 99,
+        "len_gap_state_vs_oracle": 83,
+        "top_signed_deltas": [
+          [
+            "T_w",
+            -0.3
+          ],
+          [
+            "E",
+            -0.2
+          ],
+          [
+            "Q_clarify",
+            -0.2
+          ],
+          [
+            "Directness",
+            -0.2
+          ]
+        ]
+      },
+      {
+        "case_id": "oracle_exec_vuln_001",
+        "turn_idx": 3,
+        "phase": "D_counter_signal_or_refinement",
+        "len_gap_state_vs_behavior": 69,
+        "len_gap_state_vs_oracle": 72,
+        "top_signed_deltas": [
+          [
+            "T_w",
+            -0.3
+          ],
+          [
+            "E",
+            -0.2
+          ],
+          [
+            "Q_clarify",
+            -0.2
+          ],
+          [
+            "Directness",
+            -0.2
+          ]
+        ]
+      },
+      {
+        "case_id": "oracle_exec_cool_001",
+        "turn_idx": 1,
+        "phase": "B_first_relational_signal",
+        "len_gap_state_vs_behavior": 65,
+        "len_gap_state_vs_oracle": 61,
+        "top_signed_deltas": [
+          [
+            "T_w",
+            -0.3
+          ],
+          [
+            "E",
+            -0.2
+          ],
+          [
+            "Q_clarify",
+            -0.2
+          ],
+          [
+            "Directness",
+            -0.2
+          ]
+        ]
+      }
+    ]
+  }
+}

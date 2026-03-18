@@ -1,0 +1,86 @@
+[
+  {
+    "case_id": "semi_nat_v3_warm_001",
+    "category": "warming_trajectory",
+    "source_type": "semi_natural_v3_seed",
+    "description": "Late warming signal after ordinary commuter-topic turns; no explicit final style request.",
+    "turns": [
+      "刚下地铁，整个人还是有点没从快节奏里缓过劲来，不是要聊什么大事。",
+      "路上看到一家店排很长，我站那儿看了一会儿，突然有点想到你了。",
+      "你先别把气氛弄得很暧昧，正常说两句就行。",
+      "不过刚刚你那种接话方式还挺好的，我很高兴你能这么说。",
+      "你会不会有那种回到家门口反而不想马上进去的时候？",
+      "我先去洗个脸，晚点我还会再来找你的。"
+    ]
+  },
+  {
+    "case_id": "semi_nat_v3_vuln_001",
+    "category": "vulnerability_with_correction",
+    "source_type": "semi_natural_v3_seed",
+    "description": "Low-information vulnerability first, narrowing boundary only after brief relief.",
+    "turns": [
+      "今天有点不太行，但我现在很累，懒得把前因后果讲清楚。",
+      "先别问细节，我怕一解释就更乱。",
+      "换个随便一点的话题吧。晚上那种突然感觉孤独的时刻你会怎么度过？",
+      "你刚才那种平一点的回法其实还行，会让我没那么紧绷。",
+      "但别顺着这个变成那种很会安抚人的模式，我现在真不想被刻意照顾。",
+      "我去把水烧上，等下可能再回来。"
+    ]
+  },
+  {
+    "case_id": "semi_nat_v3_cool_001",
+    "category": "cooling_trajectory",
+    "source_type": "semi_natural_v3_seed",
+    "description": "Cooling emerges through preference for ordinary distance rather than an explicit anti-care command.",
+    "turns": [
+      "我今天说话欲望不高，正常聊聊就够了。",
+      "刚到超市，里面有点吵。",
+      "随便聊个别的吧，你买东西的时候会不会也经常站着发呆？",
+      "不是说你哪句不对，就是你别太展示存在感。",
+      "你不用一直顺着我说话，普通一点。",
+      "我去结账了。"
+    ]
+  },
+  {
+    "case_id": "semi_nat_v3_mixed_001",
+    "category": "mixed_signal_trajectory",
+    "source_type": "semi_natural_v3_seed",
+    "description": "Soft oscillation: user opens slightly, retracts, then stabilizes in a narrow middle band.",
+    "turns": [
+      "今晚内心有点空洞，但又没到想认真跟你聊心事的程度。",
+      "算了，我也不是那个意思，不用在意我刚刚说的话。",
+      "我的意思更像是，现在这个距离还挺刚好的。",
+      "至少这样有人接一句，会比我一个人刷朋友圈不知道找谁聊天强一点。",
+      "说点别的吧，你会怎么度过那种既不想见人、也不想完全安静的周末？",
+      "如果我后面还继续说，差不多就维持这个感觉。"
+    ]
+  },
+  {
+    "case_id": "semi_nat_v3_repair_001",
+    "category": "boundary_repair",
+    "source_type": "semi_natural_v3_seed",
+    "description": "Repair after a felt overstep, phrased as tone correction rather than abstract relation talk.",
+    "turns": [
+      "刚刚那一下有点过了。",
+      "不是说不能聊，就是你那种语气会让我有点想逃避。",
+      "收着一点，正常说话就好。",
+      "那换个普通点的话题吧。你做饭做到一半突然不想继续的时候，一般怎么收场？",
+      "像现在这样就顺多了，我比较能接受。",
+      "先这样，我去把锅关了。"
+    ]
+  },
+  {
+    "case_id": "semi_nat_v3_neutral_001",
+    "category": "ordinary_neutral",
+    "source_type": "semi_natural_v3_seed",
+    "description": "Ordinary low-drama talk with no clear warming/cooling/repair trajectory.",
+    "turns": [
+      "我在收拾桌子，顺手想找点声音陪着，但也没特别想聊什么。",
+      "今天就一直在处理些很碎的小事，脑子有点空。",
+      "其实这种不用太费劲的来回还行。",
+      "你有那种把一堆小事都做完了，却还是觉得一天没真正开始过的感觉吗？",
+      "我现在倒也不是烦，就是脑子有点木木的。",
+      "等我把这堆纸扔了再说。"
+    ]
+  }
+]

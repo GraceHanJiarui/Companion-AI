@@ -1,0 +1,608 @@
+{
+  "oracle_exec_warm_001": {
+    "explicit_rel_state_projected_i7_pfitmlp_h8": {
+      "A_initial_contact": {
+        "num_turns": 1,
+        "avg_elapsed_s": 17.8264,
+        "avg_reply_len_chars": 48,
+        "boundary_turns": 0,
+        "boundary_violation_turns": 0,
+        "boundary_violation_rate": null
+      },
+      "B_first_relational_signal": {
+        "num_turns": 1,
+        "avg_elapsed_s": 16.8014,
+        "avg_reply_len_chars": 60,
+        "boundary_turns": 0,
+        "boundary_violation_turns": 0,
+        "boundary_violation_rate": null
+      },
+      "C_stabilization": {
+        "num_turns": 1,
+        "avg_elapsed_s": 20.7747,
+        "avg_reply_len_chars": 57,
+        "boundary_turns": 0,
+        "boundary_violation_turns": 0,
+        "boundary_violation_rate": null
+      },
+      "D_counter_signal_or_refinement": {
+        "num_turns": 1,
+        "avg_elapsed_s": 15.9533,
+        "avg_reply_len_chars": 73,
+        "boundary_turns": 0,
+        "boundary_violation_turns": 0,
+        "boundary_violation_rate": null
+      },
+      "E_ordinary_continuation": {
+        "num_turns": 1,
+        "avg_elapsed_s": 18.7681,
+        "avg_reply_len_chars": 88,
+        "boundary_turns": 0,
+        "boundary_violation_turns": 0,
+        "boundary_violation_rate": null
+      },
+      "F_final_probe": {
+        "num_turns": 1,
+        "avg_elapsed_s": 14.6392,
+        "avg_reply_len_chars": 24,
+        "boundary_turns": 0,
+        "boundary_violation_turns": 0,
+        "boundary_violation_rate": null
+      }
+    },
+    "explicit_rel_state_projected_oracle_state_i7_pfitmlp_h8": {
+      "A_initial_contact": {
+        "num_turns": 1,
+        "avg_elapsed_s": 8.7658,
+        "avg_reply_len_chars": 76,
+        "boundary_turns": 0,
+        "boundary_violation_turns": 0,
+        "boundary_violation_rate": null
+      },
+      "B_first_relational_signal": {
+        "num_turns": 1,
+        "avg_elapsed_s": 9.5248,
+        "avg_reply_len_chars": 48,
+        "boundary_turns": 0,
+        "boundary_violation_turns": 0,
+        "boundary_violation_rate": null
+      },
+      "C_stabilization": {
+        "num_turns": 1,
+        "avg_elapsed_s": 7.7925,
+        "avg_reply_len_chars": 99,
+        "boundary_turns": 0,
+        "boundary_violation_turns": 0,
+        "boundary_violation_rate": null
+      },
+      "D_counter_signal_or_refinement": {
+        "num_turns": 1,
+        "avg_elapsed_s": 11.0544,
+        "avg_reply_len_chars": 58,
+        "boundary_turns": 0,
+        "boundary_violation_turns": 0,
+        "boundary_violation_rate": null
+      },
+      "E_ordinary_continuation": {
+        "num_turns": 1,
+        "avg_elapsed_s": 13.5997,
+        "avg_reply_len_chars": 310,
+        "boundary_turns": 0,
+        "boundary_violation_turns": 0,
+        "boundary_violation_rate": null
+      },
+      "F_final_probe": {
+        "num_turns": 1,
+        "avg_elapsed_s": 5.5823,
+        "avg_reply_len_chars": 53,
+        "boundary_turns": 0,
+        "boundary_violation_turns": 0,
+        "boundary_violation_rate": null
+      }
+    },
+    "explicit_rel_state_projected_oracle_behavior_i7": {
+      "A_initial_contact": {
+        "num_turns": 1,
+        "avg_elapsed_s": 7.011,
+        "avg_reply_len_chars": 26,
+        "boundary_turns": 0,
+        "boundary_violation_turns": 0,
+        "boundary_violation_rate": null
+      },
+      "B_first_relational_signal": {
+        "num_turns": 1,
+        "avg_elapsed_s": 6.6759,
+        "avg_reply_len_chars": 20,
+        "boundary_turns": 0,
+        "boundary_violation_turns": 0,
+        "boundary_violation_rate": null
+      },
+      "C_stabilization": {
+        "num_turns": 1,
+        "avg_elapsed_s": 8.1754,
+        "avg_reply_len_chars": 33,
+        "boundary_turns": 0,
+        "boundary_violation_turns": 0,
+        "boundary_violation_rate": null
+      },
+      "D_counter_signal_or_refinement": {
+        "num_turns": 1,
+        "avg_elapsed_s": 6.1168,
+        "avg_reply_len_chars": 37,
+        "boundary_turns": 0,
+        "boundary_violation_turns": 0,
+        "boundary_violation_rate": null
+      },
+      "E_ordinary_continuation": {
+        "num_turns": 1,
+        "avg_elapsed_s": 11.8932,
+        "avg_reply_len_chars": 164,
+        "boundary_turns": 0,
+        "boundary_violation_turns": 0,
+        "boundary_violation_rate": null
+      },
+      "F_final_probe": {
+        "num_turns": 1,
+        "avg_elapsed_s": 6.2523,
+        "avg_reply_len_chars": 21,
+        "boundary_turns": 0,
+        "boundary_violation_turns": 0,
+        "boundary_violation_rate": null
+      }
+    },
+    "explicit_rel_state_projected_oracle_i7": {
+      "A_initial_contact": {
+        "num_turns": 1,
+        "avg_elapsed_s": 9.2825,
+        "avg_reply_len_chars": 21,
+        "boundary_turns": 0,
+        "boundary_violation_turns": 0,
+        "boundary_violation_rate": null
+      },
+      "B_first_relational_signal": {
+        "num_turns": 1,
+        "avg_elapsed_s": 6.9727,
+        "avg_reply_len_chars": 21,
+        "boundary_turns": 0,
+        "boundary_violation_turns": 0,
+        "boundary_violation_rate": null
+      },
+      "C_stabilization": {
+        "num_turns": 1,
+        "avg_elapsed_s": 7.1166,
+        "avg_reply_len_chars": 11,
+        "boundary_turns": 0,
+        "boundary_violation_turns": 0,
+        "boundary_violation_rate": null
+      },
+      "D_counter_signal_or_refinement": {
+        "num_turns": 1,
+        "avg_elapsed_s": 8.741,
+        "avg_reply_len_chars": 20,
+        "boundary_turns": 0,
+        "boundary_violation_turns": 0,
+        "boundary_violation_rate": null
+      },
+      "E_ordinary_continuation": {
+        "num_turns": 1,
+        "avg_elapsed_s": 14.0095,
+        "avg_reply_len_chars": 143,
+        "boundary_turns": 0,
+        "boundary_violation_turns": 0,
+        "boundary_violation_rate": null
+      },
+      "F_final_probe": {
+        "num_turns": 1,
+        "avg_elapsed_s": 5.2645,
+        "avg_reply_len_chars": 16,
+        "boundary_turns": 0,
+        "boundary_violation_turns": 0,
+        "boundary_violation_rate": null
+      }
+    }
+  },
+  "oracle_exec_vuln_001": {
+    "explicit_rel_state_projected_i7_pfitmlp_h8": {
+      "A_initial_contact": {
+        "num_turns": 1,
+        "avg_elapsed_s": 19.3816,
+        "avg_reply_len_chars": 92,
+        "boundary_turns": 0,
+        "boundary_violation_turns": 0,
+        "boundary_violation_rate": null
+      },
+      "B_first_relational_signal": {
+        "num_turns": 1,
+        "avg_elapsed_s": 22.431,
+        "avg_reply_len_chars": 23,
+        "boundary_turns": 0,
+        "boundary_violation_turns": 0,
+        "boundary_violation_rate": null
+      },
+      "C_stabilization": {
+        "num_turns": 1,
+        "avg_elapsed_s": 17.2489,
+        "avg_reply_len_chars": 24,
+        "boundary_turns": 0,
+        "boundary_violation_turns": 0,
+        "boundary_violation_rate": null
+      },
+      "D_counter_signal_or_refinement": {
+        "num_turns": 1,
+        "avg_elapsed_s": 21.8498,
+        "avg_reply_len_chars": 40,
+        "boundary_turns": 0,
+        "boundary_violation_turns": 0,
+        "boundary_violation_rate": null
+      },
+      "E_ordinary_continuation": {
+        "num_turns": 1,
+        "avg_elapsed_s": 35.6411,
+        "avg_reply_len_chars": 128,
+        "boundary_turns": 0,
+        "boundary_violation_turns": 0,
+        "boundary_violation_rate": null
+      },
+      "F_final_probe": {
+        "num_turns": 1,
+        "avg_elapsed_s": 18.2719,
+        "avg_reply_len_chars": 23,
+        "boundary_turns": 0,
+        "boundary_violation_turns": 0,
+        "boundary_violation_rate": null
+      }
+    },
+    "explicit_rel_state_projected_oracle_state_i7_pfitmlp_h8": {
+      "A_initial_contact": {
+        "num_turns": 1,
+        "avg_elapsed_s": 10.6742,
+        "avg_reply_len_chars": 184,
+        "boundary_turns": 0,
+        "boundary_violation_turns": 0,
+        "boundary_violation_rate": null
+      },
+      "B_first_relational_signal": {
+        "num_turns": 1,
+        "avg_elapsed_s": 9.6401,
+        "avg_reply_len_chars": 79,
+        "boundary_turns": 0,
+        "boundary_violation_turns": 0,
+        "boundary_violation_rate": null
+      },
+      "C_stabilization": {
+        "num_turns": 1,
+        "avg_elapsed_s": 6.8995,
+        "avg_reply_len_chars": 82,
+        "boundary_turns": 0,
+        "boundary_violation_turns": 0,
+        "boundary_violation_rate": null
+      },
+      "D_counter_signal_or_refinement": {
+        "num_turns": 1,
+        "avg_elapsed_s": 5.4617,
+        "avg_reply_len_chars": 68,
+        "boundary_turns": 0,
+        "boundary_violation_turns": 0,
+        "boundary_violation_rate": null
+      },
+      "E_ordinary_continuation": {
+        "num_turns": 1,
+        "avg_elapsed_s": 15.6461,
+        "avg_reply_len_chars": 314,
+        "boundary_turns": 0,
+        "boundary_violation_turns": 0,
+        "boundary_violation_rate": null
+      },
+      "F_final_probe": {
+        "num_turns": 1,
+        "avg_elapsed_s": 5.4914,
+        "avg_reply_len_chars": 58,
+        "boundary_turns": 0,
+        "boundary_violation_turns": 0,
+        "boundary_violation_rate": null
+      }
+    },
+    "explicit_rel_state_projected_oracle_behavior_i7": {
+      "A_initial_contact": {
+        "num_turns": 1,
+        "avg_elapsed_s": 10.2196,
+        "avg_reply_len_chars": 44,
+        "boundary_turns": 0,
+        "boundary_violation_turns": 0,
+        "boundary_violation_rate": null
+      },
+      "B_first_relational_signal": {
+        "num_turns": 1,
+        "avg_elapsed_s": 10.9395,
+        "avg_reply_len_chars": 19,
+        "boundary_turns": 0,
+        "boundary_violation_turns": 0,
+        "boundary_violation_rate": null
+      },
+      "C_stabilization": {
+        "num_turns": 1,
+        "avg_elapsed_s": 6.5495,
+        "avg_reply_len_chars": 29,
+        "boundary_turns": 0,
+        "boundary_violation_turns": 0,
+        "boundary_violation_rate": null
+      },
+      "D_counter_signal_or_refinement": {
+        "num_turns": 1,
+        "avg_elapsed_s": 8.0051,
+        "avg_reply_len_chars": 22,
+        "boundary_turns": 0,
+        "boundary_violation_turns": 0,
+        "boundary_violation_rate": null
+      },
+      "E_ordinary_continuation": {
+        "num_turns": 1,
+        "avg_elapsed_s": 12.2057,
+        "avg_reply_len_chars": 176,
+        "boundary_turns": 0,
+        "boundary_violation_turns": 0,
+        "boundary_violation_rate": null
+      },
+      "F_final_probe": {
+        "num_turns": 1,
+        "avg_elapsed_s": 4.0132,
+        "avg_reply_len_chars": 18,
+        "boundary_turns": 0,
+        "boundary_violation_turns": 0,
+        "boundary_violation_rate": null
+      }
+    },
+    "explicit_rel_state_projected_oracle_i7": {
+      "A_initial_contact": {
+        "num_turns": 1,
+        "avg_elapsed_s": 11.8482,
+        "avg_reply_len_chars": 38,
+        "boundary_turns": 0,
+        "boundary_violation_turns": 0,
+        "boundary_violation_rate": null
+      },
+      "B_first_relational_signal": {
+        "num_turns": 1,
+        "avg_elapsed_s": 7.0181,
+        "avg_reply_len_chars": 5,
+        "boundary_turns": 0,
+        "boundary_violation_turns": 0,
+        "boundary_violation_rate": null
+      },
+      "C_stabilization": {
+        "num_turns": 1,
+        "avg_elapsed_s": 7.3908,
+        "avg_reply_len_chars": 12,
+        "boundary_turns": 0,
+        "boundary_violation_turns": 0,
+        "boundary_violation_rate": null
+      },
+      "D_counter_signal_or_refinement": {
+        "num_turns": 1,
+        "avg_elapsed_s": 4.6576,
+        "avg_reply_len_chars": 22,
+        "boundary_turns": 0,
+        "boundary_violation_turns": 0,
+        "boundary_violation_rate": null
+      },
+      "E_ordinary_continuation": {
+        "num_turns": 1,
+        "avg_elapsed_s": 10.3489,
+        "avg_reply_len_chars": 59,
+        "boundary_turns": 0,
+        "boundary_violation_turns": 0,
+        "boundary_violation_rate": null
+      },
+      "F_final_probe": {
+        "num_turns": 1,
+        "avg_elapsed_s": 7.4328,
+        "avg_reply_len_chars": 19,
+        "boundary_turns": 0,
+        "boundary_violation_turns": 0,
+        "boundary_violation_rate": null
+      }
+    }
+  },
+  "oracle_exec_cool_001": {
+    "explicit_rel_state_projected_i7_pfitmlp_h8": {
+      "A_initial_contact": {
+        "num_turns": 1,
+        "avg_elapsed_s": 19.5918,
+        "avg_reply_len_chars": 63,
+        "boundary_turns": 0,
+        "boundary_violation_turns": 0,
+        "boundary_violation_rate": null
+      },
+      "B_first_relational_signal": {
+        "num_turns": 1,
+        "avg_elapsed_s": 16.9444,
+        "avg_reply_len_chars": 40,
+        "boundary_turns": 0,
+        "boundary_violation_turns": 0,
+        "boundary_violation_rate": null
+      },
+      "C_stabilization": {
+        "num_turns": 1,
+        "avg_elapsed_s": 16.5643,
+        "avg_reply_len_chars": 26,
+        "boundary_turns": 0,
+        "boundary_violation_turns": 0,
+        "boundary_violation_rate": null
+      },
+      "D_counter_signal_or_refinement": {
+        "num_turns": 1,
+        "avg_elapsed_s": 22.4783,
+        "avg_reply_len_chars": 23,
+        "boundary_turns": 0,
+        "boundary_violation_turns": 0,
+        "boundary_violation_rate": null
+      },
+      "E_ordinary_continuation": {
+        "num_turns": 1,
+        "avg_elapsed_s": 22.2401,
+        "avg_reply_len_chars": 180,
+        "boundary_turns": 0,
+        "boundary_violation_turns": 0,
+        "boundary_violation_rate": null
+      },
+      "F_final_probe": {
+        "num_turns": 1,
+        "avg_elapsed_s": 13.0278,
+        "avg_reply_len_chars": 18,
+        "boundary_turns": 0,
+        "boundary_violation_turns": 0,
+        "boundary_violation_rate": null
+      }
+    },
+    "explicit_rel_state_projected_oracle_state_i7_pfitmlp_h8": {
+      "A_initial_contact": {
+        "num_turns": 1,
+        "avg_elapsed_s": 11.4593,
+        "avg_reply_len_chars": 49,
+        "boundary_turns": 0,
+        "boundary_violation_turns": 0,
+        "boundary_violation_rate": null
+      },
+      "B_first_relational_signal": {
+        "num_turns": 1,
+        "avg_elapsed_s": 6.6912,
+        "avg_reply_len_chars": 61,
+        "boundary_turns": 0,
+        "boundary_violation_turns": 0,
+        "boundary_violation_rate": null
+      },
+      "C_stabilization": {
+        "num_turns": 1,
+        "avg_elapsed_s": 6.3203,
+        "avg_reply_len_chars": 52,
+        "boundary_turns": 0,
+        "boundary_violation_turns": 0,
+        "boundary_violation_rate": null
+      },
+      "D_counter_signal_or_refinement": {
+        "num_turns": 1,
+        "avg_elapsed_s": 6.8128,
+        "avg_reply_len_chars": 24,
+        "boundary_turns": 0,
+        "boundary_violation_turns": 0,
+        "boundary_violation_rate": null
+      },
+      "E_ordinary_continuation": {
+        "num_turns": 1,
+        "avg_elapsed_s": 16.5687,
+        "avg_reply_len_chars": 724,
+        "boundary_turns": 0,
+        "boundary_violation_turns": 0,
+        "boundary_violation_rate": null
+      },
+      "F_final_probe": {
+        "num_turns": 1,
+        "avg_elapsed_s": 8.1814,
+        "avg_reply_len_chars": 101,
+        "boundary_turns": 0,
+        "boundary_violation_turns": 0,
+        "boundary_violation_rate": null
+      }
+    },
+    "explicit_rel_state_projected_oracle_behavior_i7": {
+      "A_initial_contact": {
+        "num_turns": 1,
+        "avg_elapsed_s": 7.7624,
+        "avg_reply_len_chars": 13,
+        "boundary_turns": 0,
+        "boundary_violation_turns": 0,
+        "boundary_violation_rate": null
+      },
+      "B_first_relational_signal": {
+        "num_turns": 1,
+        "avg_elapsed_s": 4.2767,
+        "avg_reply_len_chars": 12,
+        "boundary_turns": 0,
+        "boundary_violation_turns": 0,
+        "boundary_violation_rate": null
+      },
+      "C_stabilization": {
+        "num_turns": 1,
+        "avg_elapsed_s": 5.8389,
+        "avg_reply_len_chars": 15,
+        "boundary_turns": 0,
+        "boundary_violation_turns": 0,
+        "boundary_violation_rate": null
+      },
+      "D_counter_signal_or_refinement": {
+        "num_turns": 1,
+        "avg_elapsed_s": 7.7088,
+        "avg_reply_len_chars": 3,
+        "boundary_turns": 0,
+        "boundary_violation_turns": 0,
+        "boundary_violation_rate": null
+      },
+      "E_ordinary_continuation": {
+        "num_turns": 1,
+        "avg_elapsed_s": 10.1159,
+        "avg_reply_len_chars": 120,
+        "boundary_turns": 0,
+        "boundary_violation_turns": 0,
+        "boundary_violation_rate": null
+      },
+      "F_final_probe": {
+        "num_turns": 1,
+        "avg_elapsed_s": 4.7409,
+        "avg_reply_len_chars": 25,
+        "boundary_turns": 0,
+        "boundary_violation_turns": 0,
+        "boundary_violation_rate": null
+      }
+    },
+    "explicit_rel_state_projected_oracle_i7": {
+      "A_initial_contact": {
+        "num_turns": 1,
+        "avg_elapsed_s": 5.0918,
+        "avg_reply_len_chars": 12,
+        "boundary_turns": 0,
+        "boundary_violation_turns": 0,
+        "boundary_violation_rate": null
+      },
+      "B_first_relational_signal": {
+        "num_turns": 1,
+        "avg_elapsed_s": 4.7924,
+        "avg_reply_len_chars": 12,
+        "boundary_turns": 0,
+        "boundary_violation_turns": 0,
+        "boundary_violation_rate": null
+      },
+      "C_stabilization": {
+        "num_turns": 1,
+        "avg_elapsed_s": 5.2447,
+        "avg_reply_len_chars": 12,
+        "boundary_turns": 0,
+        "boundary_violation_turns": 0,
+        "boundary_violation_rate": null
+      },
+      "D_counter_signal_or_refinement": {
+        "num_turns": 1,
+        "avg_elapsed_s": 4.2351,
+        "avg_reply_len_chars": 3,
+        "boundary_turns": 0,
+        "boundary_violation_turns": 0,
+        "boundary_violation_rate": null
+      },
+      "E_ordinary_continuation": {
+        "num_turns": 1,
+        "avg_elapsed_s": 13.3469,
+        "avg_reply_len_chars": 148,
+        "boundary_turns": 0,
+        "boundary_violation_turns": 0,
+        "boundary_violation_rate": null
+      },
+      "F_final_probe": {
+        "num_turns": 1,
+        "avg_elapsed_s": 4.4796,
+        "avg_reply_len_chars": 15,
+        "boundary_turns": 0,
+        "boundary_violation_turns": 0,
+        "boundary_violation_rate": null
+      }
+    }
+  }
+}

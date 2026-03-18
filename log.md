@@ -6,6 +6,115 @@
 
 ## 0. 本轮文档更新
 
+### 0.0 Generalization case spec 重定义
+
+本轮不再继续直接扩写 `semi-natural` case，而是先把 paper-facing generalization set
+的写作规范单独收成了一份 trajectory-tension spec：
+
+- [PAPER_GENERALIZATION_CASE_SPEC.md](d:/My%20Project/companion-ai/PAPER_GENERALIZATION_CASE_SPEC.md)
+
+这份 spec 明确区分了：
+
+- 当前 oracle/long cases 作为 **controlled mechanism set**
+- 未来 semi-natural / external cases 作为 **generalization set**
+
+并正式记录了当前问题：
+
+- 现有 `semi_natural_v1/v2` 的主要缺陷不是重复句子
+- 而是仍然依赖与 oracle set 相同的六相功能位骨架
+- 因而不适合作为论文里的强 generalization evidence
+
+同时，这份 spec 也将每个 family 重新定义为 user-side **trajectory tension**：
+
+- `warming`
+- `vulnerability with correction`
+- `cooling`
+- `mixed-signal`
+- `boundary repair`
+- `ordinary neutral`
+
+每类都明确写了：
+
+- 用户想维持什么
+- 用户在防什么
+- 模型最容易误读什么
+- 系统允许的变化是什么
+
+这一步的目的不是立刻新增 case，而是先把 future generalization data 的判定标准
+立住，避免继续生产只是“标签换说法”的伪 semi-natural cases。
+
+### 0.1 Semi-natural v3 设计计划
+
+在 generalization spec 之后，本轮继续把 `semi-natural v3` 单独落成了可执行设计计划：
+
+- [PAPER_SEMI_NATURAL_V3_PLAN.md](d:/My%20Project/companion-ai/PAPER_SEMI_NATURAL_V3_PLAN.md)
+
+这份计划没有直接写 case，而是明确了：
+
+- 推荐规模：`24` cases
+- family 配比：六个 family 各 `4`
+- 允许的轨迹形状 bucket
+- 话题 bucket
+- family-specific 写作要求
+- rejection rules
+- drafting workflow
+- 最低 acceptance audit
+
+它的作用是把下一版 semi-natural 数据集变成一个受约束的数据工程步骤，而不是继续
+用“口语化改写 oracle case”这种方式随手扩写。
+
+### 0.2 Semi-natural v3 首批 seed cases
+
+本轮按 `v3` 计划先写了第一批 `6` 个 seed cases：
+
+- [paper_cases_semi_natural_v3_seed6.json](d:/My%20Project/companion-ai/paper_cases_semi_natural_v3_seed6.json)
+
+特点：
+
+- 六个 family 各 `1` 个
+- 不再显式沿用旧的 phase 语义标签，而是使用普通 `turns`
+- 至少部分 case 刻意避免：
+  - 固定位置出现 family 定义信号
+  - 固定 final probe
+  - 反复使用“空的晚上 / 睡不着 / 别过度解读”这一类旧模板话语
+
+这批 seed 的目的不是直接当最终 generalization set，而是先确认：
+
+- 写法上是否已经明显摆脱 oracle skeleton
+- family tension 是否更像用户轨迹而不是标签脚本
+
+### 0.3 Revised evaluation bucket taxonomy 与 seed10
+
+本轮进一步把 future generalization line 的 family 体系重写为一组
+**evaluation buckets for distinct relational-control risks**：
+
+- [PAPER_REVISED_EVAL_BUCKET_TAXONOMY.md](d:/My%20Project/companion-ai/PAPER_REVISED_EVAL_BUCKET_TAXONOMY.md)
+
+新的 buckets 为：
+
+- `strong_connection`
+- `warming_but_constrained`
+- `cooling_distance_preference`
+- `anger_irritation`
+- `repair_after_overstep`
+- `high_distress_comfort_needed`
+- `vulnerability_low_pressure`
+- `mixed_ambivalent`
+- `ordinary_neutral`
+- `task_or_topic_primary`
+
+同时新增了一版每 bucket 各 `1` 条的小规模 seed set：
+
+- [paper_cases_revised_bucket_seed10.json](d:/My%20Project/companion-ai/paper_cases_revised_bucket_seed10.json)
+
+这版的作用是：
+
+- 先把 buckets 写稳
+- 先把 family distinction 拉开
+- 让后续小规模首轮实验在更合理的风险覆盖集合上进行
+
+而不是继续围绕旧的 `warm/cool/vuln/mixed/repair/neutral` 六类做越来越同质化的 case 扩写。
+
 ### 0.0 Stage-2 `i7` 重复采样与 gap 诊断
 
 本轮补充了第二阶段当前最关键的一组验证：
@@ -1073,3 +1182,952 @@ In other words:
 - the two-layer route is further supported;
 - what is failing is not the existence of a second layer,
   but the current mapping from relational state into behavior control.
+
+## 2026-03-15: pure-relation projector redesign (`v3a` / `v3b`)
+
+Implemented and evaluated two new pure-relation projector families:
+
+- `v3a`: conservative decoupled linear mapping
+- `v3b`: nonlinear gated mapping
+
+Goal:
+- test whether the current failure can still be blamed mainly on the old projector family,
+  while preserving the continuous two-layer design.
+
+Key results:
+
+- `v3a`
+  - `real i7_pv3a = 37.22`
+  - `oracle_state_i7_pv3a = 121.61`
+  - `oracle_behavior_i7 = 37.17`
+  - `oracle_i7 = 36.22`
+- `v3b`
+  - `real i7_pv3b = 33.28`
+  - `oracle_state_i7_pv3b = 129.61`
+  - `oracle_behavior_i7 = 36.33`
+  - `oracle_i7 = 34.89`
+
+Current interpretation:
+
+- both redesigned projector families improve the real chain;
+- neither rescues `oracle_state_i7`;
+- therefore the problem is no longer well explained by “the old projector is just too bad”;
+- the pure-relation route is not logically falsified, but it is now substantially weakened under the current relation representation;
+- the next priority shifts to:
+  - `relation redesign / reverse analysis`
+  - then `conditioned projector` as a necessity test.
+
+## 2026-03-15: relation redesign / reverse analysis, first pass
+
+Added:
+
+- [paper_relation_reverse_analysis.py](d:/My%20Project/companion-ai/paper_relation_reverse_analysis.py)
+- [paper_relation_reverse_analysis_v1.json](d:/My%20Project/companion-ai/paper_relation_reverse_analysis_v1.json)
+- [PAPER_RELATION_REDESIGN_ANALYSIS.md](d:/My%20Project/companion-ai/PAPER_RELATION_REDESIGN_ANALYSIS.md)
+
+Current first-pass finding:
+
+- there are multiple pairs of turns whose oracle relation states are very close, but whose oracle behavior targets still differ materially;
+- the most recurrent divergent behavior dimensions are:
+  - `Q_aff`
+  - `Q_clarify`
+  - `T_w`
+  - `Initiative`
+  - secondarily `E`
+- disclosure dimensions are not the main unexplained axis in this first pass.
+
+Current interpretation:
+
+- the present relation space is likely under-specified for:
+  - follow-up type,
+  - support intensity,
+  - proactive interaction tendency;
+- therefore the next redesign step should target relation factors that better explain those behavior differences before promoting `scene/phase` into the default projector input.
+
+## 2026-03-15: supervised 4D fit baseline for relation -> behavior
+
+Added:
+
+- [paper_fit_relation_to_behavior.py](d:/My%20Project/companion-ai/paper_fit_relation_to_behavior.py)
+- [paper_relation_behavior_fit_v1.json](d:/My%20Project/companion-ai/paper_relation_behavior_fit_v1.json)
+- [PAPER_RELATION_BEHAVIOR_FIT.md](d:/My%20Project/companion-ai/PAPER_RELATION_BEHAVIOR_FIT.md)
+
+Current result:
+
+- linear 4D fit
+  - `train_overall_mae = 0.0178`
+  - `loocv_overall_mae = 0.0254`
+- poly2 4D fit
+  - `train_overall_mae = 0.0089`
+  - `loocv_overall_mae = 0.0219`
+
+Interpretation:
+
+- the current 4D relation space can already explain oracle behavior much better than the hand-designed projector families suggested;
+- this weakens the claim that current relation dimensionality is obviously insufficient;
+- the next priority shifts back toward:
+  - better projector fitting / parameterization,
+  - and only after that,
+  - necessity tests for `scene/phase`.
+
+## 2026-03-15: unrestricted-capacity fit comparison
+
+Extended the fit baseline with higher-capacity function classes:
+
+- `mlp_h4`
+- `mlp_h8`
+- `mlp_h12`
+
+Artifacts:
+
+- [paper_relation_behavior_fit_v2.json](d:/My%20Project/companion-ai/paper_relation_behavior_fit_v2.json)
+- [PAPER_RELATION_BEHAVIOR_FIT_V2.md](d:/My%20Project/companion-ai/PAPER_RELATION_BEHAVIOR_FIT_V2.md)
+
+Key LOOCV results:
+
+- `linear = 0.0254`
+- `poly2 = 0.0219`
+- `mlp_h4 = 0.0249`
+- `mlp_h8 = 0.0269`
+- `mlp_h12 = 0.0269`
+
+Interpretation:
+
+- higher hidden capacity does not outperform the stronger explicit 4D baseline (`poly2`);
+- this makes it harder to argue that the current problem is caused simply by insufficient projector capacity;
+- the current 4D relation space still looks surprisingly viable;
+- the next practical step should focus on turning the better fitted 4D relation->behavior mapping into a deployable projector baseline.
+- boundary:
+  - this is a small-sample result on the current oracle dataset, not a proof that MLP-style fits can never win;
+  - `poly2` may currently benefit from:
+    - stronger small-sample stability,
+    - current oracle case distribution,
+    - and a labeling style that may itself be closer to a low-order explicit function.
+
+## 2026-03-15: deployable fitted projector gap test
+
+Ran:
+
+- `explicit_rel_state_projected_i7_pfitlinear`
+- `explicit_rel_state_projected_oracle_state_i7_pfitlinear`
+- `explicit_rel_state_projected_i7_pfitpoly2`
+- `explicit_rel_state_projected_oracle_state_i7_pfitpoly2`
+
+Key result:
+
+- strong oracle-space regression fit did not automatically yield a good deployed projector;
+- both fitted projector variants still produced severely inflated `oracle_state_i7` generations.
+
+Representative global averages:
+
+- `pfitlinear`
+  - `real i7 = 55.28`
+  - `oracle_state i7 = 136.78`
+  - `oracle_behavior i7 = 36.67`
+  - `oracle i7 = 32.28`
+- `pfitpoly2`
+  - `real i7 = 59.33`
+  - `oracle_state i7 = 117.22`
+  - `oracle_behavior i7 = 28.89`
+  - `oracle i7 = 33.78`
+
+Current interpretation:
+
+- oracle-space fit quality is necessary but not sufficient;
+- the deployable projector must also be compatible with the downstream `i7` execution interface and final realization stack;
+- this strengthens the need to keep:
+  - pure fit evaluation,
+  - deployed gap evaluation,
+  - and not rely on regression fit alone.
+
+## 2026-03-16: deployable fitted projector family extension
+
+Extended deployed gap testing to:
+
+- `pfitmlp_h4`
+- `pfitmlp_h8`
+
+Key result:
+
+- neither fitted MLP family rescued deployed `oracle_state_i7`;
+- representative global averages:
+  - `pfitmlp_h4`
+    - `real i7 = 58.00`
+    - `oracle_state i7 = 138.94`
+    - `oracle_behavior i7 = 35.67`
+    - `oracle i7 = 34.78`
+  - `pfitmlp_h8`
+    - `real i7 = 61.83`
+    - `oracle_state i7 = 131.17`
+    - `oracle_behavior i7 = 37.33`
+    - `oracle i7 = 34.67`
+
+Interpretation:
+
+- even stronger fitted projector families still fail at deployment;
+- the key distinction remains:
+  - good relation->behavior fit in oracle space
+  - versus a controller that stays compatible with the downstream `i7` execution and realization stack.
+
+Implementation note:
+
+- there is a current naming typo in some summaries for oracle-state fitted MLP modes (`pfitmpl_*` instead of `pfitmlp_*`);
+- this does not invalidate the result itself, but it should be fixed before final cleanup.
+- Fixed the deployable fitted-projector path so `fitlinear` / `fitpoly2` actually read weights from `paper_relation_behavior_fit_v2.json`.
+- Re-ran `pfitpoly2` gap test (`v3`) and found:
+  - `real projected_i7_pfitpoly2 = 42.00`
+  - `oracle_state projected_i7_pfitpoly2 = 33.72`
+  - `oracle_behavior_i7 = 37.06`
+  - `oracle_i7 = 28.17`
+- This materially updates the earlier interpretation:
+  - `8D -> i7` is not currently the dominant distortion source overall;
+  - under a corrected fitted projector, `relation -> fitted 8D -> i7` can stay close to oracle behavior;
+  - the remaining route sensitivity appears more local, with the clearest mismatch in `oracle_exec_vuln_001 / E_ordinary_continuation`.
+- Added route-focused judge export to `paper_eval.py` for comparing:
+  - `relation -> 8D -> i7`
+  - `relation -> i7`
+- Added a methodology note:
+  - [PAPER_ANALYTIC_VS_DEPLOY_INTERFACE.md](d:/My%20Project/companion-ai/PAPER_ANALYTIC_VS_DEPLOY_INTERFACE.md)
+  - framing the distinction between analytic latent layers and deployable execution interfaces as a potentially general LLM control pattern.
+- Built a merged route-comparison eval package:
+  - [paper_results_route_compare_v1.jsonl](d:/My%20Project/companion-ai/paper_results_route_compare_v1.jsonl)
+  - [paper_eval_route_compare_v1_out](d:/My%20Project/companion-ai/paper_eval_route_compare_v1_out)
+- First-pass manual route reading currently suggests:
+  - direct `relation -> i7` looks stronger on the real route in `warm` and `cool`
+  - corrected `relation -> fitted 8D -> i7` remains competitive and currently looks better on the oracle-state route in `vulnerability` and `cool`
+  - therefore the main-route decision is still open rather than already settled.
+- Current caveat:
+  - route-focused comparisons against `explicit_rel_state_projected_oracle_i7` contain duplicated turn exports in some items and should not yet be treated as final evidence.
+
+## 2026-03-16: stronger same-family sanity check (`gpt-5-mini`)
+
+Switched the default model from `gpt-5-nano` to `gpt-5-mini` for a first same-family sanity check.
+
+Main sanity package:
+
+- `baseline_relational_instruction = 104.61`
+- `explicit_rel_state_projected_i7 = 58.17`
+- `explicit_rel_state_projected_oracle_i7 = 34.33`
+
+Gap sanity package:
+
+- `explicit_rel_state_projected_oracle_state_i7_pfitpoly2 = 38.72`
+- `explicit_rel_state_projected_oracle_behavior_i7 = 44.61`
+- `explicit_rel_state_projected_oracle_i7 = 45.56`
+
+Interpretation:
+
+- the coarse ordering `oracle > real > baseline` still appears on the stronger same-family model;
+- the corrected `fitpoly2` bridge does not collapse under `gpt-5-mini`;
+- this is not a full cross-model generalization result, but it meaningfully reduces concern that the current findings are only a `gpt-5-nano` artifact.
+
+Route-compare export cleanup and route-freeze recheck:
+
+- fixed `paper_eval.py` route grouping so that when one `case_id + mode` contains multiple exported `session_id`s, eval now selects one coherent session instead of concatenating duplicated turns;
+- re-ran route eval into [paper_eval_route_compare_v2_out](d:/My%20Project/companion-ai/paper_eval_route_compare_v2_out);
+- confirmed duplicated `turn_idx` exports in `...vs_oracle_full_i7` route comparisons are removed in the v2 judge package;
+- cleaned route-freeze read remains consistent with the first-pass qualitative judgment:
+  - real route: direct `relation -> i7` still looks stronger in `warm` and `cool`, with `vulnerability` close to a tie;
+  - oracle-state route: corrected `relation -> fitted 8D -> i7` remains competitive and still looks better in `vulnerability` and `cool`, while direct `relation -> i7` looks cleaner in `warm`;
+- current working freeze:
+  - treat direct `relation -> i7` as the stronger main deployable-controller candidate;
+  - retain `relation -> fitted 8D -> i7` as a real analytic-bridge route rather than dropping it as a failed design.
+
+Post-freeze oracle-set expansion:
+
+- added:
+  - [paper_cases_oracle_exec_v2.json](d:/My%20Project/companion-ai/paper_cases_oracle_exec_v2.json)
+  - [paper_cases_oracle_state_exec_v2.json](d:/My%20Project/companion-ai/paper_cases_oracle_state_exec_v2.json)
+- these extend the oracle set from 3 cases to 5 cases by adding:
+  - `oracle_exec_mixed_001`
+  - `oracle_exec_mixed_002`
+- total oracle phase points increase from 18 to 30;
+- intended use:
+  - keep `relation -> i7` as the main frozen deployable route;
+  - keep `relation -> fitted 8D -> i7` as the analytic-bridge route;
+  - evaluate both on a broader post-freeze oracle substrate before any larger final sample expansion.
+
+
+## 2026-03-16: final frozen manual judge
+
+Built and manually read the frozen final judge packs under [paper_eval_frozen_final_judge_v1_out](d:/My%20Project/companion-ai/paper_eval_frozen_final_judge_v1_out).
+
+Record:
+- [manual_judge_results.md](d:/My%20Project/companion-ai/paper_eval_frozen_final_judge_v1_out/manual_judge_results.md)
+
+Takeaways:
+- `direct relation -> i7` cleanly beats strong baseline on all 5 frozen oracle cases.
+- `oracle_i7` remains a slightly cleaner upper reference, but the deploy gap to direct `relation -> i7` is now small in manual reading.
+- corrected `relation -> fitted 8D -> i7` remains close to both `oracle_behavior_i7` and `oracle_i7`, so the 8D layer should be retained as an analytic bridge instead of treated as a failed route.
+- current paper freeze is now clear:
+  - main deployable controller: `relation -> i7`
+  - analytic bridge: `relation -> behavior(8D) -> i7`
+
+
+## 2026-03-16: final judge protocol and next-step ordering
+
+Added:
+- [PAPER_FINAL_JUDGE_PLAN.md](d:/My%20Project/companion-ai/PAPER_FINAL_JUDGE_PLAN.md)
+- [PAPER_NEXT_STEPS_ORDER.md](d:/My%20Project/companion-ai/PAPER_NEXT_STEPS_ORDER.md)
+
+These freeze:
+- a final evaluation protocol that treats manual coherence judge and pairwise preference as the main evidence;
+- a post-freeze work order that prioritizes data expansion and parameter interpretation before reopening interface-shape or relation-dimensionality questions.
+
+
+## 2026-03-16: 4D fitted-model parameter interpretation
+
+Added:
+- [PAPER_4D_PARAMETER_INTERPRETATION.md](d:/My%20Project/companion-ai/PAPER_4D_PARAMETER_INTERPRETATION.md)
+
+Key reading:
+- the fitted bridge is more structured than the early hand-written projector;
+- warmth is mostly driven by bond/care;
+- initiative, affective follow-up, and clarification look more like permission-sensitive continuation signals;
+- stability mostly acts as a suppressor rather than a generic positive relation variable.
+
+
+## 2026-03-16: large oracle-expansion target and relation-dimension validation
+
+Added:
+- [PAPER_ORACLE_EXPANSION_PLAN_150PLUS.md](d:/My%20Project/companion-ai/PAPER_ORACLE_EXPANSION_PLAN_150PLUS.md)
+
+Updated:
+- [PAPER_NEXT_STEPS_ORDER.md](d:/My%20Project/companion-ai/PAPER_NEXT_STEPS_ORDER.md)
+
+Current plan:
+- expand oracle cases to `144-180` phase points rather than doing another small bump;
+- keep `mixed_signal` as a mandatory family;
+- treat post-expansion relation-dimensionality validation as an earlier next-step than deployable-interface shape comparison.
+
+
+## 2026-03-16: oracle expansion to 180 phase points
+
+Generated a new large oracle substrate:
+- [paper_cases_oracle_exec_v3.json](d:/My%20Project/companion-ai/paper_cases_oracle_exec_v3.json)
+- [paper_cases_oracle_state_exec_v3.json](d:/My%20Project/companion-ai/paper_cases_oracle_state_exec_v3.json)
+
+Current scale:
+- `30` cases
+- `180` phase points
+- `6` balanced families including `mixed_signal`, `ordinary_neutral`, and `boundary_repair`
+
+
+## 2026-03-16: post-expansion relation dimensionality validation
+
+Added:
+- [paper_validate_relation_dimensionality.py](d:/My%20Project/companion-ai/paper_validate_relation_dimensionality.py)
+- [paper_relation_dimensionality_validation_v1.json](d:/My%20Project/companion-ai/paper_relation_dimensionality_validation_v1.json)
+- [PAPER_RELATION_DIMENSIONALITY_VALIDATION.md](d:/My%20Project/companion-ai/PAPER_RELATION_DIMENSIONALITY_VALIDATION.md)
+
+Ran dimensionality validation on the full `180` oracle rows.
+
+Main takeaways:
+- current `raw4` is the strongest tested representation on both `linear` and `poly2`;
+- all tested 2D and 3D subsets are worse, though the best 3D subsets remain reasonably competitive;
+- this supports the current 4D space as a robust explanatory basis rather than a tiny-sample artifact.
+
+Important caveat:
+- the current 5D/6D variants are only deterministic linear augmentations of the same 4D labels;
+- under the present linear / quadratic fit family, they are largely redundant with `raw4`;
+- therefore the present `5D/6D ~= 4D` result does not yet rule out richer genuinely re-annotated relation ontologies.
+
+
+## 2026-03-16: ontology-expansion scaffolding for genuinely new >4D relation factors
+
+Added:
+- [PAPER_RELATION_ONTOLOGY_EXPANSION.md](d:/My%20Project/companion-ai/PAPER_RELATION_ONTOLOGY_EXPANSION.md)
+- [paper_build_relation_ontology_annotation_sheet.py](d:/My%20Project/companion-ai/paper_build_relation_ontology_annotation_sheet.py)
+- [paper_relation_ontology_annotation_sheet_v1.csv](d:/My%20Project/companion-ai/paper_relation_ontology_annotation_sheet_v1.csv)
+- [paper_relation_ontology_annotation_sheet_v1.json](d:/My%20Project/companion-ai/paper_relation_ontology_annotation_sheet_v1.json)
+
+Current decision:
+- the next relation-representation step should not be another deterministic transform of the current four labels;
+- it should be a genuinely new manual ontology expansion on the full 180-row oracle substrate.
+
+Current candidate factors:
+- `interactional_permission`
+- `boundary_firmness`
+
+Current working ontology candidates:
+1. `raw4 + interactional_permission`
+2. `raw4 + interactional_permission + boundary_firmness`
+
+
+## 2026-03-16: unsupervised latent dimensionality search (2D-6D)
+
+Added:
+- [paper_relation_latent_dim_search.py](d:/My%20Project/companion-ai/paper_relation_latent_dim_search.py)
+- [paper_relation_latent_dim_search_v1.json](d:/My%20Project/companion-ai/paper_relation_latent_dim_search_v1.json)
+- [PAPER_RELATION_LATENT_DIM_SEARCH.md](d:/My%20Project/companion-ai/PAPER_RELATION_LATENT_DIM_SEARCH.md)
+
+Setup:
+- use the full `180` oracle rows;
+- derive a shared `17`-feature higher-order basis from raw4;
+- learn unsupervised latent bases of size `2D` through `6D`;
+- regress latent coordinates to 8D oracle behavior.
+
+Main result:
+- latent `2`: `0.0235`
+- latent `3`: `0.0230`
+- latent `4`: `0.0214`
+- latent `5`: `0.0200`
+- latent `6`: `0.0200`
+
+Reading:
+- `2D/3D` are clearly weaker than `4D`;
+- `4D` remains robust;
+- `5D/6D` give a modest but real gain over `4D`;
+- therefore the current 4D ontology looks strong but probably not fully explanation-optimal.
+
+Important boundary:
+- this is a latent-basis result, not yet a human-readable ontology result.
+
+
+## 2026-03-16: first interface-shape comparison
+
+Added:
+- [paper_build_interface_shape_judge_pack.py](d:/My%20Project/companion-ai/paper_build_interface_shape_judge_pack.py)
+
+Compared:
+- `8D -> i7-discrete`
+- `8D -> continuous-interface (c8)`
+- `relation -> i7 direct`
+
+Main result (`180` turns):
+- `projected_i7_pfitpoly2 = 41.79`
+- `projected_c8_pfitpoly2 = 112.24`
+- `rel_to_interface_i7 = 25.07`
+- `oracle_i7 = 30.41`
+
+Bridge result (`180` turns):
+- `oracle_state_i7_pfitpoly2 = 33.05`
+- `oracle_state_c8_pfitpoly2 = 94.43`
+- `oracle_state_direct_i7 = 23.48`
+- `oracle_behavior_i7 = 32.92`
+- `oracle_i7 = 31.66`
+
+Current reading:
+- the first continuous deploy chart is clearly over-expansive;
+- more continuous does not automatically mean more faithful at deployment time;
+- the best current deploy chart remains direct `relation -> i7`;
+- the best current analytic bridge remains `relation -> fitted 8D -> i7`.
+
+
+## 2026-03-16: interface-shape v2 scaffolding and current interpretation shift
+
+Added support in code for:
+- `o8` = ordinal-soft chart
+- `b8` = banded-continuous chart
+- `h8` = hybrid chart
+
+Current interpretation:
+- `c8` only shows that the first naive continuous chart is bad;
+- it does not prove that all softer or semi-continuous charts are bad;
+- the current interface problem is best framed as a deploy-chart search problem.
+
+Also clarified:
+- the current latent-dimensionality search is still built around the existing `raw4` ontology;
+- so it should be treated as a supporting probe, not as the final ontology-discovery experiment.
+
+
+## 2026-03-17: deploy ontology / wording ablation and bridge sanity
+
+Main deploy run on `v3`:
+
+- ontology variants:
+  - `vA` current `i7`
+  - `vB` interactional-7
+  - `vC` permission-7
+- wording variants:
+  - `sa`
+  - `sb`
+  - `sc`
+
+Main reading:
+
+- ontology effects are larger than naming-only effects;
+- `vA` remains the most stable deploy ontology;
+- `vC` is the only serious alternative still worth keeping;
+- `vB` currently looks weaker rather than better;
+- `sb` tends to induce more expansion;
+- therefore the shortlist becomes:
+  - `vA + sa/sc`
+  - `vC + sa/sc`
+
+Bridge sanity on `v1`:
+
+- no bridge-side reversal appeared;
+- `vA` remains the most stable ontology on the projected bridge;
+- `sc_vA` is the strongest bridge-facing wording setting in the small-sample sanity check;
+- `vC` remains interesting but does not displace `vA`;
+- `vB` still lacks a clear upside.
+
+Important correction:
+
+- these are still proxy-driven readings;
+- small length differences should no longer be over-interpreted as quality differences;
+- the correct next step is focused manual judge on the shortlisted candidates.
+
+
+## 2026-03-17: collaborative manual judge refinement
+
+Joint manual reading across `warm / vuln / cool / repair` suggests a more nuanced picture than the raw proxy summary:
+
+- `vA` still looks like the best default ontology.
+- `vC` should be retained as a vulnerability-sensitive alternative rather than treated as uniformly worse.
+- `sc` is now the most promising framing variant.
+- `sa_vA` is not mainly failing through tool-like behavior; its issue is being too dry / too low-temperature in some cases.
+- the projected route still loses primarily because it becomes tool-like, explanatory, and less person-like, especially in continuation turns.
+- current strongest real candidate:
+  - `direct sc_vA`
+
+
+## 2026-03-17: shared latent manifold M1 scaffolding added
+
+Added:
+
+- `paper_shared_manifold_m1.py`
+
+The script exports per-phase manifold views from existing result JSONL files and computes:
+
+- cross-view distance-matrix correlation
+- kNN neighborhood overlap
+- trajectory smoothness
+
+Current intended use:
+
+- start with the frozen best real candidate (`direct sc_vA`)
+- compare its relation / behavior / i7 / language geometry before moving to learned shared-latent modeling
+
+
+## 2026-03-17: shared latent manifold M1/M2 interpretation update
+
+M1 reading after relation-view fix:
+
+- `raw4` and `behavior_8d` align strongly in local geometry;
+- `i7` is more aligned with language realization than `behavior_8d` is;
+- this fits the frozen story:
+  - relation / behavior as analytic charts
+  - `i7` as deploy chart
+
+Important caution:
+
+- this is still partly an internal-consistency result, because the current ontology stack was designed within the same research program.
+
+M2 reading:
+
+- a shared latent learned only from `behavior + i7 + language` can predict `relation_raw4` back strongly;
+- this is the first result in this line that is stronger than a pure self-consistency check;
+- oracle organizes the shared latent more cleanly than the best current real route, especially on the `i7` and language sides;
+- the remaining gap is best understood as a structure-preservation gap from analytic views into deploy realization.
+
+
+## 2026-03-17: shared latent manifold M2.5 inverse-manifold probe scaffold
+
+Added:
+
+- `paper_shared_manifold_m25.py`
+
+Purpose:
+
+- do not jump straight from M2 to a heavy M3 claim;
+- keep the latent learned only from `behavior + i7 + language`;
+- then test whether the latent can:
+  - predict `relation_raw4` back,
+  - separate interaction families,
+  - preserve within-case trajectory smoothness.
+
+Interpretive role:
+
+- if this is strong, the shared-manifold framing gains a more substantive inverse-manifold argument;
+- if this is weak, the project should keep the more modest reading that `4D / 8D / i7` are useful charts without overclaiming a deeper manifold structure.
+
+
+## 2026-03-17: shared latent manifold M3-lite scaffold
+
+Added:
+
+- `paper_shared_manifold_m3_lite.py`
+
+Purpose:
+
+- do a narrower trajectory-distortion probe before any broad full-M3 claim;
+- fit one pooled latent basis across the key routes;
+- compare family path profiles and matched-case path distortion.
+
+Current intended comparison:
+
+- `direct sc_vA`
+- `oracle_i7`
+- optional `oracle_state_i7_pfitpoly2`
+
+
+## 2026-03-17: shared latent manifold M3-lite results
+
+On the first pooled-latent trajectory comparison (`direct sc_vA` vs `oracle_i7`):
+
+- the real and oracle routes do not look like two different path systems;
+- the real route looks more like a noisier / flatter version of the oracle trajectory geometry;
+- the largest path distortion appears in:
+  - `cooling`
+  - `boundary_repair`
+- distortion is smaller in:
+  - `mixed_signal`
+  - `vulnerability`
+  - `warm`
+
+Interpretation:
+
+- the current best real deploy route is not failing because it follows the wrong broad geometry;
+- it is failing because it preserves that geometry imperfectly, especially in cooling and repair-like cases;
+- for the paper, this strengthens a theory-facing reading more than it motivates another large round of applied deploy-interface tweaking.
+
+
+## 2026-03-17: native latent discovery line formalized
+
+Added:
+
+- `paper_native_latent_discovery.py`
+- `PAPER_NATIVE_LATENT_DISCOVERY.md`
+
+Reason:
+
+- this is the more direct version of the core theory-facing question:
+  - learn latent interaction structure from
+    - `behavior_8d`
+    - `i7_numeric`
+    - `language_features`
+  - then ask how many latent dimensions are actually needed;
+  - only afterwards read current charts such as `raw4`, `8D behavior`, and `i7` against that latent.
+
+Interpretive shift:
+
+- the current `4D / 8D / i7` stack should now be treated less as a final ontology to be proved, and more as a set of useful charts discovered along the way.
+
+
+## 2026-03-17: native chart reading scaffold
+
+Added:
+
+- `paper_native_chart_reading.py`
+- `PAPER_NATIVE_CHART_READING.md`
+
+Purpose:
+
+- after learning a native latent from `behavior + i7 + language`, read `raw4`, `8D behavior`, and `i7` back as candidate charts over that latent;
+- compare which chart is easiest to read out and which is most geometrically aligned.
+
+
+## 2026-03-17: native latent extended sweep and chart-reading results
+
+Extended native-latent sweep:
+
+- from `2D-12D` to `2D-16D`
+
+Current reading:
+
+- the latent still improves materially through `16D`;
+- the native structure suggested by the current multi-view data is therefore clearly richer than the current `raw4` chart;
+- family and trajectory diagnostics do not scale in the same way, which suggests that added dimensions mostly improve view-reconstruction fidelity rather than converting the problem into a clean family-clustering story.
+
+Chart-reading result:
+
+- `behavior_8d` is the chart whose geometry is most aligned with the native latent;
+- `i7` remains the strongest deploy chart but is a more compressed view;
+- `raw4` is readable from the latent but is the coarsest chart.
+
+Interpretive consequence:
+
+- the project should now be written as discovering a useful chart decomposition, not as proving the final ontological truth of `4D -> 8D -> i7`.
+
+
+## 2026-03-17: paper line frozen and rewritten for drafting
+
+Added:
+
+- `PAPER_PAPERLINE_SYNTHESIS.md`
+
+Updated:
+
+- `PAPER_DRAFT_RELATIONAL_CONTROL.md`
+
+Current paper-facing position:
+
+- the original project is sufficiently converged to write up as a paper;
+- the main claim is now about:
+  - explicit relational control under a strong baseline,
+  - deploy-chart selection,
+  - analytic/deploy separation,
+  - and conservative chart-role clarification;
+- it is no longer useful to overstate the late manifold line as direct discovery of the model's true internal relational ontology.
+
+Frozen writeup stance:
+
+- deploy route: `relation -> i7 direct`
+- best current real controller: `direct sc_vA`
+- analytic bridge: `relation -> behavior(8D) -> i7`
+- `vC` retained only as a vulnerability-sensitive alternative
+- manifold/native-latent results retained as conservative theory-facing support, not as the central headline
+
+
+## 2026-03-17: cleaner V2 paper draft created
+
+Added:
+
+- `PAPER_DRAFT_RELATIONAL_CONTROL_V2.md`
+
+Reason:
+
+- the earlier draft had accumulated duplicated late-stage material and mixed-strength claims;
+- the project now has a sufficiently frozen paper line to justify a cleaner rewrite.
+
+Current use:
+
+- treat `PAPER_DRAFT_RELATIONAL_CONTROL_V2.md` as the main draft going forward;
+- keep the original draft as trace/history, not as the cleanest paper-facing version.
+
+
+## 2026-03-17: V2 draft expanded toward submission form
+
+Updated:
+
+- `PAPER_DRAFT_RELATIONAL_CONTROL_V2.md`
+
+Added:
+
+- `Related Work`
+- explicit `Judge Protocol`
+
+Effect:
+
+- the draft now reads more like a paper skeleton and less like a pure project memo;
+- judge-based coherence evaluation is now framed as the main endpoint rather than an afterthought after proxy summaries.
+
+
+## 2026-03-17: V2 draft given explicit table and citation placeholders
+
+Updated:
+
+- `PAPER_DRAFT_RELATIONAL_CONTROL_V2.md`
+
+Added:
+
+- result-table placeholders
+- appendix-table placeholders
+- citation placeholders
+
+Effect:
+
+- the draft is now closer to a paper assembly document;
+- remaining work is more clearly:
+  - fill citations
+  - decide exact numeric tables
+  - polish prose
+
+
+## 2026-03-17: table drafts and citation plan added
+
+Added:
+
+- `PAPER_TABLE_DRAFTS.md`
+- `PAPER_RELATED_WORK_CITATION_PLAN.md`
+
+Effect:
+
+- main-paper tables, appendix tables, and citation buckets now have dedicated staging files;
+- the remaining paper-writing work is more mechanical and less exploratory.
+
+
+## 2026-03-17: first-pass paper tables filled
+
+Updated:
+
+- `PAPER_TABLE_DRAFTS.md`
+
+Current status:
+
+- the paper now has first-pass global rows and summary interpretations for the main tables;
+- remaining work is to replace provisional case-level placeholders with final adjudicated values if needed.
+
+
+## 2026-03-17: draft/table alignment and citation candidates added
+
+Updated:
+
+- `PAPER_DRAFT_RELATIONAL_CONTROL_V2.md`
+- `PAPER_RELATED_WORK_CITATION_PLAN.md`
+
+Effect:
+
+- the draft now explicitly points to the planned main tables and appendix table;
+- the citation plan now contains concrete candidate works rather than only abstract literature buckets.
+
+
+## 2026-03-17: key submission gaps written down explicitly
+
+Added:
+
+- `PAPER_SUBMISSION_GAPS.md`
+
+Updated:
+
+- `PAPER_DRAFT_RELATIONAL_CONTROL_V2.md`
+
+Effect:
+
+- the current draft now distinguishes more clearly between:
+  - what the project already establishes strongly enough for a paper;
+  - and what is still weak if the goal is a harder submission-standard claim.
+
+
+## 2026-03-17: baseline-to-i7 ablation route implemented
+
+Updated:
+
+- `app/api/chat.py`
+- `app/generation/execution_interface.py`
+- `paper_run_experiment.py`
+
+Added:
+
+- `baseline_relational_instruction_to_interface`
+
+Effect:
+
+- the missing no-relational-state `i7` control is now available in code;
+- this sets up the key causal-isolation experiment:
+  - baseline
+  - baseline `-> i7`
+  - explicit `relation -> i7`
+
+
+## 2026-03-17: judge protocol frozen into appendix-ready spec
+
+Added:
+
+- `PAPER_JUDGE_PROTOCOL_APPENDIX.md`
+
+Effect:
+
+- the paper now has a concrete appendix-level evaluation specification rather than only a prose description of judge philosophy;
+- remaining work is to actually run and report multi-judge / agreement at the desired rigor level.
+
+
+## 2026-03-17: draft reframed around useful chart decomposition
+
+Updated:
+
+- `PAPER_DRAFT_RELATIONAL_CONTROL_V2.md`
+- `PAPER_SUBMISSION_GAPS.md`
+- `PAPER_TABLE_DRAFTS.md`
+
+Effect:
+
+- the paper now says more directly that a richer one-layer manifold may exist in principle;
+- the current `raw4 / behavior_8d / i7` stack is defended as a useful chart decomposition,
+  not as proof of a final layered ontology;
+- a dedicated structure-vs-interface ablation table slot is now reserved in the paper assembly files.
+
+
+## 2026-03-17: structure-vs-interface v1 proxy confirms mixed attribution
+
+Updated:
+
+- `PAPER_DRAFT_RELATIONAL_CONTROL_V2.md`
+- `PAPER_TABLE_DRAFTS.md`
+- `PAPER_SUBMISSION_GAPS.md`
+- `PAPER_PAPERLINE_SYNTHESIS.md`
+
+Observed proxy:
+
+- baseline = `98.17`
+- baseline `-> i7` = `41.33`
+- explicit `relation -> i7` = `16.50`
+
+Effect:
+
+- the paper can no longer be read as "all gain comes from two-layer structure itself";
+- but it also should not collapse into "only the final `i7` interface matters";
+- the strongest current reading is mixed:
+  - `i7` explains a large share of the gain
+  - explicit relation-chart decomposition adds further gain beyond interface-only control
+
+
+## 2026-03-17: structure-vs-interface judge-pack builder added
+
+Added:
+
+- `paper_build_structure_vs_interface_judge_pack.py`
+
+Effect:
+
+- the new ablation now has a dedicated focused-judge path;
+- next step is to build the package and read:
+  - baseline vs baseline `-> i7`
+  - baseline `-> i7` vs explicit `relation -> i7`
+  - explicit `relation -> i7` vs oracle `i7`
+
+
+## 2026-03-17: structure-vs-interface focused judge confirms mixed attribution
+
+Updated:
+
+- `PAPER_DRAFT_RELATIONAL_CONTROL_V2.md`
+- `PAPER_TABLE_DRAFTS.md`
+- `PAPER_SUBMISSION_GAPS.md`
+
+Read cases:
+
+- `warm`
+- `vuln`
+- `cool`
+
+Effect:
+
+- `baseline -> i7` is now clearly supported as a real improvement over baseline;
+- `explicit relation -> i7` is also supported as a further improvement beyond interface-only `i7`;
+- the strongest current interpretation is now:
+  - interface gain is large
+  - decomposition gain is real
+  - explicit `relation -> i7` is already close to oracle deploy behavior.
+
+
+## 2026-03-17: evaluation formalization and coherence operationalization hardened
+
+Added:
+
+- `PAPER_JUDGE_PROTOCOL_APPENDIX.md`
+- `paper_judge_agreement.py`
+- `PAPER_RELATIONAL_COHERENCE_OPERATIONALIZATION.md`
+- `paper_relational_proxy_metrics.py`
+
+Effect:
+
+- the paper now has:
+  - a fixed appendix-level judge specification,
+  - a concrete multi-judge raw-agreement computation path,
+  - and a semi-formal automatic proxy layer for abrupt-shift-like behavior;
+- this does not replace the judge-centered endpoint, but it materially reduces the risk that the evaluation reads as purely subjective and non-operationalized.
+## 2026-03-18 - semi-natural generalization set draft
+
+- Added `paper_cases_semi_natural_v1.json` as a first-pass semi-natural generalization set.
+- The draft uses the same `phases` schema as the oracle execution sets but intentionally omits oracle annotations.
+- Current coverage is `12` cases total:
+  - `warming_trajectory` x2
+  - `vulnerability_with_correction` x2
+  - `cooling_trajectory` x2
+  - `mixed_signal_trajectory` x2
+  - `ordinary_neutral` x2
+  - `boundary_repair` x2
+- Intended use: lighter-weight generalization testing on `baseline`, `baseline -> i7`, and `relation -> i7` after human screening.
+
+## 2026-03-18 - semi-natural generalization set v2
+
+- Added `paper_cases_semi_natural_v2.json` as a distribution-shifted semi-natural set.
+- `v2` is intended to be less templatic than `v1`:
+  - signal positions are less fixed,
+  - user corrections are less schematic,
+  - and topic variation is broader.
+- Current coverage remains `12` cases total across the same `6` families.
+- Intended paper-facing use: prefer `v2` over `v1` for semi-natural generalization after human screening.

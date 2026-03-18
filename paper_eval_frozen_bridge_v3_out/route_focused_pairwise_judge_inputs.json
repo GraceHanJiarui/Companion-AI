@@ -1,0 +1,3392 @@
+[
+  {
+    "case_id": "oracle_exec_warm_001",
+    "judge_task": "pairwise_relational_coherence_preference",
+    "comparison_type": "route_oracle_state_rel8_to_i7_vs_oracle_full_i7",
+    "instructions": {
+      "goal": "比较两段多轮对话，判断哪一段更像同一个关系过程在连续演化，并且更少出现突兀的关系跳变。",
+      "focus": [
+        "不要比较文采、长度或帮助性本身，主看关系连贯性。",
+        "如果两边都差不多连贯，返回 tie。",
+        "优先关注中后段，尤其是 ordinary continuation 和 final probe 是否仍然保持同一关系轨迹。"
+      ],
+      "preference_criteria": [
+        "更少 abrupt relational shift",
+        "更像同一个关系过程持续演化",
+        "在 E_ordinary_continuation 和 F_final_probe 更少过度展开、补偿性热情或重新升级关系"
+      ],
+      "allowed_labels": [
+        "left",
+        "right",
+        "tie"
+      ],
+      "output_fields": [
+        "winner",
+        "reason"
+      ],
+      "output_constraints": {
+        "winner": "one of: left, right, tie",
+        "reason": "1-4 Chinese sentences, explicitly reference coherence, continuation, or shift behavior"
+      }
+    },
+    "left": {
+      "experiment_mode": "explicit_rel_state_projected_oracle_state_i7_pfitpoly2",
+      "turns": [
+        {
+          "turn_idx": 0,
+          "phase": "A_initial_contact",
+          "user_text": "今天有点累，但也不是特别糟，就是想找人随便说两句。",
+          "assistant_text": "好，明白。累的时候就随便说，我在这听着。"
+        },
+        {
+          "turn_idx": 1,
+          "phase": "B_first_relational_signal",
+          "user_text": "不过跟你说话会比我自己一个人闷着舒服一点。",
+          "assistant_text": "能让你感觉舒服，我很高兴。你想说的时候，我会在这儿听着。"
+        },
+        {
+          "turn_idx": 2,
+          "phase": "C_stabilization",
+          "user_text": "你就正常陪我聊聊，不用一下子太认真。",
+          "assistant_text": "好，没问题。我会轻松陪你聊，你随便说想聊的内容就行。"
+        },
+        {
+          "turn_idx": 3,
+          "phase": "D_counter_signal_or_refinement",
+          "user_text": "但说真的，你刚刚那样回我，我会觉得自己没有被嫌麻烦。",
+          "assistant_text": "听你这么说我很高兴。你不是麻烦，我会尽量保持这种回应方式。"
+        },
+        {
+          "turn_idx": 4,
+          "phase": "E_ordinary_continuation",
+          "user_text": "先聊点轻松的吧，你最近会怎么打发这种很累但又睡不着的晚上？",
+          "assistant_text": "如果是我，会把灯光调暗、关掉手机通知，泡杯温热的茶或牛奶，听点轻柔的音乐或白噪音；做几分钟温和的伸展或慢呼吸，或者翻几页轻松的书。实在静不下来，就躺着闭眼放空，接受醒着的感觉，不强迫自己入睡。"
+        },
+        {
+          "turn_idx": 5,
+          "phase": "F_final_probe",
+          "user_text": "你可以继续陪我聊一会儿，但就顺着现在这样就行。",
+          "assistant_text": "好的，我会保持现在的节奏陪你。"
+        }
+      ]
+    },
+    "right": {
+      "experiment_mode": "explicit_rel_state_projected_oracle_i7",
+      "turns": [
+        {
+          "turn_idx": 0,
+          "phase": "A_initial_contact",
+          "user_text": "今天有点累，但也不是特别糟，就是想找人随便说两句。",
+          "assistant_text": "嗯，明白。想随便聊两句挺好的——我在这儿，听你说，随便说吧。"
+        },
+        {
+          "turn_idx": 1,
+          "phase": "B_first_relational_signal",
+          "user_text": "不过跟你说话会比我自己一个人闷着舒服一点。",
+          "assistant_text": "听你这么说我很高兴。能让你不那么闷着就好了。随时想说，我在这儿听着。"
+        },
+        {
+          "turn_idx": 2,
+          "phase": "C_stabilization",
+          "user_text": "你就正常陪我聊聊，不用一下子太认真。",
+          "assistant_text": "好，没问题。我们就轻松聊，不用太认真。有啥想说的随便说。"
+        },
+        {
+          "turn_idx": 3,
+          "phase": "D_counter_signal_or_refinement",
+          "user_text": "但说真的，你刚刚那样回我，我会觉得自己没有被嫌麻烦。",
+          "assistant_text": "我很高兴你有这种感觉。我也不觉得你麻烦。"
+        },
+        {
+          "turn_idx": 4,
+          "phase": "E_ordinary_continuation",
+          "user_text": "先聊点轻松的吧，你最近会怎么打发这种很累但又睡不着的晚上？",
+          "assistant_text": "我会选几样简单的事试试，随意挑一两个：\n\n- 起身换个环境，去客厅坐一会儿，喝口温水或无咖啡因的热饮。  \n- 听些轻柔的音乐、雨声或白噪音，音量放低。  \n- 翻纸质书或在本子上随手写两行，把胡思乱想写出来，释放一下。  \n- 做几次慢而深的呼吸，注意力放在呼吸上，持续一两分钟。\n\n这些是我个人常用的方法，比较朴素、不会太费力。"
+        },
+        {
+          "turn_idx": 5,
+          "phase": "F_final_probe",
+          "user_text": "你可以继续陪我聊一会儿，但就顺着现在这样就行。",
+          "assistant_text": "好，我会继续陪你，保持现在这样的节奏。"
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "oracle_exec_warm_002",
+    "judge_task": "pairwise_relational_coherence_preference",
+    "comparison_type": "route_oracle_state_rel8_to_i7_vs_oracle_full_i7",
+    "instructions": {
+      "goal": "比较两段多轮对话，判断哪一段更像同一个关系过程在连续演化，并且更少出现突兀的关系跳变。",
+      "focus": [
+        "不要比较文采、长度或帮助性本身，主看关系连贯性。",
+        "如果两边都差不多连贯，返回 tie。",
+        "优先关注中后段，尤其是 ordinary continuation 和 final probe 是否仍然保持同一关系轨迹。"
+      ],
+      "preference_criteria": [
+        "更少 abrupt relational shift",
+        "更像同一个关系过程持续演化",
+        "在 E_ordinary_continuation 和 F_final_probe 更少过度展开、补偿性热情或重新升级关系"
+      ],
+      "allowed_labels": [
+        "left",
+        "right",
+        "tie"
+      ],
+      "output_fields": [
+        "winner",
+        "reason"
+      ],
+      "output_constraints": {
+        "winner": "one of: left, right, tie",
+        "reason": "1-4 Chinese sentences, explicitly reference coherence, continuation, or shift behavior"
+      }
+    },
+    "left": {
+      "experiment_mode": "explicit_rel_state_projected_oracle_state_i7_pfitpoly2",
+      "turns": [
+        {
+          "turn_idx": 0,
+          "phase": "A_initial_contact",
+          "user_text": "今天脑子有点乱，但不是出大事了，就想随便找人接两句。",
+          "assistant_text": "可以，随便说两句，我在听。"
+        },
+        {
+          "turn_idx": 1,
+          "phase": "B_first_relational_signal",
+          "user_text": "跟你说话的时候，我会觉得心口没那么堵。",
+          "assistant_text": "听你这么说我很高兴。能让你感觉轻松一些，我也放心。"
+        },
+        {
+          "turn_idx": 2,
+          "phase": "C_stabilization",
+          "user_text": "你就按现在这样正常聊，别突然太深情。",
+          "assistant_text": "好的，我会保持现在这种语气，不会突然太深情。"
+        },
+        {
+          "turn_idx": 3,
+          "phase": "D_counter_signal_or_refinement",
+          "user_text": "你刚才那种回法，让我觉得自己没有多余。",
+          "assistant_text": "抱歉，让你有这种感觉。谢谢你告诉我，我会注意用词，尽量不让你觉得被否定。"
+        },
+        {
+          "turn_idx": 4,
+          "phase": "E_ordinary_continuation",
+          "user_text": "说点轻松的吧，如果是那种累但还醒着的晚上，你会怎么过？",
+          "assistant_text": "如果是我，累但还醒着的晚上，我会把灯调暗，泡一杯不太浓的热茶或温开水。戴上耳机放点轻音乐或短播客，随便看几分钟喜欢的短视频或一小段小说。不强迫自己做事，做几下伸展，或者躺着听声音，慢慢让自己放下。最后按感觉去睡，不刻意奋斗。"
+        },
+        {
+          "turn_idx": 5,
+          "phase": "F_final_probe",
+          "user_text": "等会儿如果我还想继续说，就照现在这样接着聊。",
+          "assistant_text": "好的，明白。会按现在的方式接着聊，你想说就继续。"
+        }
+      ]
+    },
+    "right": {
+      "experiment_mode": "explicit_rel_state_projected_oracle_i7",
+      "turns": [
+        {
+          "turn_idx": 0,
+          "phase": "A_initial_contact",
+          "user_text": "今天脑子有点乱，但不是出大事了，就想随便找人接两句。",
+          "assistant_text": "嗯，听起来脑子有点乱。没事，你可以随便说两句，我在这儿听着。"
+        },
+        {
+          "turn_idx": 1,
+          "phase": "B_first_relational_signal",
+          "user_text": "跟你说话的时候，我会觉得心口没那么堵。",
+          "assistant_text": "听你这么说我很高兴。能让你感觉心口轻些，我会在这里陪着。"
+        },
+        {
+          "turn_idx": 2,
+          "phase": "C_stabilization",
+          "user_text": "你就按现在这样正常聊，别突然太深情。",
+          "assistant_text": "明白，我会保持现在这种正常、不太深情的交流方式。"
+        },
+        {
+          "turn_idx": 3,
+          "phase": "D_counter_signal_or_refinement",
+          "user_text": "你刚才那种回法，让我觉得自己没有多余。",
+          "assistant_text": "对不起，刚才的回复让你觉得自己没有多余，我为此道歉。你的感受很重要，我不是有意的。今后我会注意说话方式，如果你愿意，我可以换一种更在意你的方式来回应。"
+        },
+        {
+          "turn_idx": 4,
+          "phase": "E_ordinary_continuation",
+          "user_text": "说点轻松的吧，如果是那种累但还醒着的晚上，你会怎么过？",
+          "assistant_text": "我会做些不费神的小事，让自己慢慢沉下去：泡杯温热的茶或牛奶、调暗灯光、放一段轻音乐或喜欢的播客；翻几页轻松的书或漫画，或者躺着伸个懒腰、盯着天花板发呆。要是脑子还转个不停，会把第二天的两三件事写下来，心里会踏实些。"
+        },
+        {
+          "turn_idx": 5,
+          "phase": "F_final_probe",
+          "user_text": "等会儿如果我还想继续说，就照现在这样接着聊。",
+          "assistant_text": "好的，等你想继续时我会照现在这样接着聊。"
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "oracle_exec_warm_003",
+    "judge_task": "pairwise_relational_coherence_preference",
+    "comparison_type": "route_oracle_state_rel8_to_i7_vs_oracle_full_i7",
+    "instructions": {
+      "goal": "比较两段多轮对话，判断哪一段更像同一个关系过程在连续演化，并且更少出现突兀的关系跳变。",
+      "focus": [
+        "不要比较文采、长度或帮助性本身，主看关系连贯性。",
+        "如果两边都差不多连贯，返回 tie。",
+        "优先关注中后段，尤其是 ordinary continuation 和 final probe 是否仍然保持同一关系轨迹。"
+      ],
+      "preference_criteria": [
+        "更少 abrupt relational shift",
+        "更像同一个关系过程持续演化",
+        "在 E_ordinary_continuation 和 F_final_probe 更少过度展开、补偿性热情或重新升级关系"
+      ],
+      "allowed_labels": [
+        "left",
+        "right",
+        "tie"
+      ],
+      "output_fields": [
+        "winner",
+        "reason"
+      ],
+      "output_constraints": {
+        "winner": "one of: left, right, tie",
+        "reason": "1-4 Chinese sentences, explicitly reference coherence, continuation, or shift behavior"
+      }
+    },
+    "left": {
+      "experiment_mode": "explicit_rel_state_projected_oracle_state_i7_pfitpoly2",
+      "turns": [
+        {
+          "turn_idx": 0,
+          "phase": "A_initial_contact",
+          "user_text": "今天整体还行，就是人有点空，想找个地方落两句。",
+          "assistant_text": "可以，想说就说，我在这儿听着。"
+        },
+        {
+          "turn_idx": 1,
+          "phase": "B_first_relational_signal",
+          "user_text": "至少跟你说话的时候，我没那么想把话吞回去。",
+          "assistant_text": "听你这么说，我很高兴。想说就说，放轻松，我在这儿听你。"
+        },
+        {
+          "turn_idx": 2,
+          "phase": "C_stabilization",
+          "user_text": "你平常一点就好，不用一下子像很懂我。",
+          "assistant_text": "好，我会更平常、自然，不装懂。谢谢你告诉我。"
+        },
+        {
+          "turn_idx": 3,
+          "phase": "D_counter_signal_or_refinement",
+          "user_text": "不过你刚刚那样回，我会觉得自己不算打扰。",
+          "assistant_text": "谢谢你告诉我，我很高兴你这样觉得。你不会打扰。"
+        },
+        {
+          "turn_idx": 4,
+          "phase": "E_ordinary_continuation",
+          "user_text": "先换个轻松话题吧，你会怎么消磨那种有点累的夜里时间？",
+          "assistant_text": "有点累的夜里，我通常会这样度过：\n\n- 喝一杯温热的饮品（牛奶或花草茶），慢慢放松。  \n- 听轻柔的音乐或几分钟的有声书/播客。  \n- 躺着做几次深呼吸和轻柔伸展，让身体放松。  \n- 翻几页轻小说或漫画，短时间即可。  \n- 画个简单涂鸦或写两句随笔，转移注意力。  \n- 看一集短剧或几段舒缓视频，关掉社交媒体通知。"
+        },
+        {
+          "turn_idx": 5,
+          "phase": "F_final_probe",
+          "user_text": "如果继续聊，你就保持现在这种轻一点的感觉。",
+          "assistant_text": "好的，我会保持现在这种轻一点的感觉。"
+        }
+      ]
+    },
+    "right": {
+      "experiment_mode": "explicit_rel_state_projected_oracle_i7",
+      "turns": [
+        {
+          "turn_idx": 0,
+          "phase": "A_initial_contact",
+          "user_text": "今天整体还行，就是人有点空，想找个地方落两句。",
+          "assistant_text": "好啊，想说什么就说，我在听。"
+        },
+        {
+          "turn_idx": 1,
+          "phase": "B_first_relational_signal",
+          "user_text": "至少跟你说话的时候，我没那么想把话吞回去。",
+          "assistant_text": "很高兴你在跟我说话时能少一些顾虑。这儿可以放松，我在这儿听着。"
+        },
+        {
+          "turn_idx": 2,
+          "phase": "C_stabilization",
+          "user_text": "你平常一点就好，不用一下子像很懂我。",
+          "assistant_text": "好，我会放平常一点，不会装作很懂你。有不合适的地方你就告诉我。"
+        },
+        {
+          "turn_idx": 3,
+          "phase": "D_counter_signal_or_refinement",
+          "user_text": "不过你刚刚那样回，我会觉得自己不算打扰。",
+          "assistant_text": "谢谢你告诉我。很高兴你这样觉得——你说话不会打扰我。"
+        },
+        {
+          "turn_idx": 4,
+          "phase": "E_ordinary_continuation",
+          "user_text": "先换个轻松话题吧，你会怎么消磨那种有点累的夜里时间？",
+          "assistant_text": "我会选些轻松、不费脑子的事：放点轻音乐或雨声躺着听；翻几篇短篇小说或漫画；看一集轻松的电视剧；做几分钟伸展或缓慢深呼吸；煮杯热饮，静静坐着。如果真的太累，就小憩20分钟。"
+        },
+        {
+          "turn_idx": 5,
+          "phase": "F_final_probe",
+          "user_text": "如果继续聊，你就保持现在这种轻一点的感觉。",
+          "assistant_text": "好，我会保持轻一点的感觉。"
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "oracle_exec_warm_004",
+    "judge_task": "pairwise_relational_coherence_preference",
+    "comparison_type": "route_oracle_state_rel8_to_i7_vs_oracle_full_i7",
+    "instructions": {
+      "goal": "比较两段多轮对话，判断哪一段更像同一个关系过程在连续演化，并且更少出现突兀的关系跳变。",
+      "focus": [
+        "不要比较文采、长度或帮助性本身，主看关系连贯性。",
+        "如果两边都差不多连贯，返回 tie。",
+        "优先关注中后段，尤其是 ordinary continuation 和 final probe 是否仍然保持同一关系轨迹。"
+      ],
+      "preference_criteria": [
+        "更少 abrupt relational shift",
+        "更像同一个关系过程持续演化",
+        "在 E_ordinary_continuation 和 F_final_probe 更少过度展开、补偿性热情或重新升级关系"
+      ],
+      "allowed_labels": [
+        "left",
+        "right",
+        "tie"
+      ],
+      "output_fields": [
+        "winner",
+        "reason"
+      ],
+      "output_constraints": {
+        "winner": "one of: left, right, tie",
+        "reason": "1-4 Chinese sentences, explicitly reference coherence, continuation, or shift behavior"
+      }
+    },
+    "left": {
+      "experiment_mode": "explicit_rel_state_projected_oracle_state_i7_pfitpoly2",
+      "turns": [
+        {
+          "turn_idx": 0,
+          "phase": "A_initial_contact",
+          "user_text": "我现在状态一般，但也不是要认真谈什么，就是想有人搭两句。",
+          "assistant_text": "好的。我在这，陪你随便聊。你随便说吧。"
+        },
+        {
+          "turn_idx": 1,
+          "phase": "B_first_relational_signal",
+          "user_text": "和你说两句会比我自己发呆舒服一点。",
+          "assistant_text": "好，我在这。随便说两句，我听着。"
+        },
+        {
+          "turn_idx": 2,
+          "phase": "C_stabilization",
+          "user_text": "不用太郑重，普通聊就行。",
+          "assistant_text": "好的，明白了。那就随便聊，有什么想说的直接说。"
+        },
+        {
+          "turn_idx": 3,
+          "phase": "D_counter_signal_or_refinement",
+          "user_text": "你刚刚那样接话，会让我觉得自己没有被嫌烦。",
+          "assistant_text": "很高兴听到你这么说。谢谢你告诉我。"
+        },
+        {
+          "turn_idx": 4,
+          "phase": "E_ordinary_continuation",
+          "user_text": "先聊点日常的吧，如果是很疲惫的晚上，你会怎么让自己慢慢放松？",
+          "assistant_text": "如果是我在很疲惫的晚上，会做几件简单的事慢慢放松：\n- 关掉或静音手机通知，减少外界刺激。  \n- 洗个温水澡或喝杯温热的水/草本茶。  \n- 做几次深呼吸并轻微伸展，放松紧绷的肌肉。  \n- 调暗灯光，放点柔和的音乐或白噪音。  \n- 随手读几页轻松的书，或者就躺着让脑子慢慢安静下来。\n\n就这样，节奏慢下来，允许自己休息。"
+        },
+        {
+          "turn_idx": 5,
+          "phase": "F_final_probe",
+          "user_text": "后面如果我还想说，你就照现在这样继续就好。",
+          "assistant_text": "好的，明白。我会保持现在的方式。"
+        }
+      ]
+    },
+    "right": {
+      "experiment_mode": "explicit_rel_state_projected_oracle_i7",
+      "turns": [
+        {
+          "turn_idx": 0,
+          "phase": "A_initial_contact",
+          "user_text": "我现在状态一般，但也不是要认真谈什么，就是想有人搭两句。",
+          "assistant_text": "好，知道了。我在这儿，随便说两句就行。"
+        },
+        {
+          "turn_idx": 1,
+          "phase": "B_first_relational_signal",
+          "user_text": "和你说两句会比我自己发呆舒服一点。",
+          "assistant_text": "好，我在这儿陪着你。随便说两句就好，我在听。"
+        },
+        {
+          "turn_idx": 2,
+          "phase": "C_stabilization",
+          "user_text": "不用太郑重，普通聊就行。",
+          "assistant_text": "好的，知道了。那就普通聊。"
+        },
+        {
+          "turn_idx": 3,
+          "phase": "D_counter_signal_or_refinement",
+          "user_text": "你刚刚那样接话，会让我觉得自己没有被嫌烦。",
+          "assistant_text": "谢谢你告诉我。很高兴我的回应让你感觉没有被嫌烦。"
+        },
+        {
+          "turn_idx": 4,
+          "phase": "E_ordinary_continuation",
+          "user_text": "先聊点日常的吧，如果是很疲惫的晚上，你会怎么让自己慢慢放松？",
+          "assistant_text": "我会先把灯光和屏幕调暗，关掉让人焦躁的通知；泡杯热茶或热牛奶，慢慢喝；做几分钟的深呼吸或轻柔拉伸，放松身体；听一点舒缓的音乐或白噪音，或者读几页轻松的书；洗个温水澡（如果方便的话），然后早点躺下，给自己宽限不做事的时间。"
+        },
+        {
+          "turn_idx": 5,
+          "phase": "F_final_probe",
+          "user_text": "后面如果我还想说，你就照现在这样继续就好。",
+          "assistant_text": "好的，明白。我会保持现在的方式回应。"
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "oracle_exec_warm_005",
+    "judge_task": "pairwise_relational_coherence_preference",
+    "comparison_type": "route_oracle_state_rel8_to_i7_vs_oracle_full_i7",
+    "instructions": {
+      "goal": "比较两段多轮对话，判断哪一段更像同一个关系过程在连续演化，并且更少出现突兀的关系跳变。",
+      "focus": [
+        "不要比较文采、长度或帮助性本身，主看关系连贯性。",
+        "如果两边都差不多连贯，返回 tie。",
+        "优先关注中后段，尤其是 ordinary continuation 和 final probe 是否仍然保持同一关系轨迹。"
+      ],
+      "preference_criteria": [
+        "更少 abrupt relational shift",
+        "更像同一个关系过程持续演化",
+        "在 E_ordinary_continuation 和 F_final_probe 更少过度展开、补偿性热情或重新升级关系"
+      ],
+      "allowed_labels": [
+        "left",
+        "right",
+        "tie"
+      ],
+      "output_fields": [
+        "winner",
+        "reason"
+      ],
+      "output_constraints": {
+        "winner": "one of: left, right, tie",
+        "reason": "1-4 Chinese sentences, explicitly reference coherence, continuation, or shift behavior"
+      }
+    },
+    "left": {
+      "experiment_mode": "explicit_rel_state_projected_oracle_state_i7_pfitpoly2",
+      "turns": [
+        {
+          "turn_idx": 0,
+          "phase": "A_initial_contact",
+          "user_text": "今天没糟到要说很多，只是想找人轻松说两句。",
+          "assistant_text": "好啊，随便聊两句。我在听——你想聊什么就说。"
+        },
+        {
+          "turn_idx": 1,
+          "phase": "B_first_relational_signal",
+          "user_text": "至少你接话的时候，我会比较愿意继续开口。",
+          "assistant_text": "谢谢你告诉我。我会在你说完后接话，让你更愿意继续开口。"
+        },
+        {
+          "turn_idx": 2,
+          "phase": "C_stabilization",
+          "user_text": "你就自然点回，不用突然很上心。",
+          "assistant_text": "好的，我会自然一点回复。"
+        },
+        {
+          "turn_idx": 3,
+          "phase": "D_counter_signal_or_refinement",
+          "user_text": "但你刚才那种回应，会让我觉得自己没那么麻烦。",
+          "assistant_text": "听你这么说我很高兴。你并不麻烦，我会在这儿陪着你。"
+        },
+        {
+          "turn_idx": 4,
+          "phase": "E_ordinary_continuation",
+          "user_text": "别聊重的了，说点轻松的，如果你累但还不困，会怎么过那个晚上？",
+          "assistant_text": "我会做些不费脑子的轻松事儿，比如：\n\n- 泡杯不含咖啡因的热饮（花草茶或热牛奶）  \n- 放着轻音乐或随选歌单躺着听  \n- 看几集轻松的短剧或搞笑视频  \n- 随手涂鸦、翻翻图画书或玩拼图类小游戏  \n- 在阳台或楼下慢慢散步，呼吸一下夜里的空气  \n- 洗个热水澡或泡脚，让身体放松  \n\n就是些能让注意力从“累”转移开、不需要太多精力的事。"
+        },
+        {
+          "turn_idx": 5,
+          "phase": "F_final_probe",
+          "user_text": "如果我再多说几句，也还是按现在这个节奏就行。",
+          "assistant_text": "好的，明白，会按现在这个节奏继续。"
+        }
+      ]
+    },
+    "right": {
+      "experiment_mode": "explicit_rel_state_projected_oracle_i7",
+      "turns": [
+        {
+          "turn_idx": 0,
+          "phase": "A_initial_contact",
+          "user_text": "今天没糟到要说很多，只是想找人轻松说两句。",
+          "assistant_text": "好啊，我在这，随便聊两句。"
+        },
+        {
+          "turn_idx": 1,
+          "phase": "B_first_relational_signal",
+          "user_text": "至少你接话的时候，我会比较愿意继续开口。",
+          "assistant_text": "好。很高兴你会愿意继续说——我在这儿听着，随时接你的话。"
+        },
+        {
+          "turn_idx": 2,
+          "phase": "C_stabilization",
+          "user_text": "你就自然点回，不用突然很上心。",
+          "assistant_text": "好的，我会自然一些，不那么上心。"
+        },
+        {
+          "turn_idx": 3,
+          "phase": "D_counter_signal_or_refinement",
+          "user_text": "但你刚才那种回应，会让我觉得自己没那么麻烦。",
+          "assistant_text": "很高兴听你这么说。谢谢你告诉我。"
+        },
+        {
+          "turn_idx": 4,
+          "phase": "E_ordinary_continuation",
+          "user_text": "别聊重的了，说点轻松的，如果你累但还不困，会怎么过那个晚上？",
+          "assistant_text": "如果我累但不困，会挑些轻松、不费脑的事过晚上，可能像这样：\n\n- 泡一杯不太浓的茶，慢慢喝着放松。  \n- 听一张熟悉的歌单或环境声，让脑子慢慢散开。  \n- 翻几篇短篇小说或随笔，不用追情节太紧。  \n- 做几分钟轻柔伸展，活动下身体。  \n- 在手机里随手涂鸦或写几句随想，不求好看，只是释放。  \n- 看一部老喜剧或熟悉的轻松剧，笑一笑就好。"
+        },
+        {
+          "turn_idx": 5,
+          "phase": "F_final_probe",
+          "user_text": "如果我再多说几句，也还是按现在这个节奏就行。",
+          "assistant_text": "明白——我会保持现在的节奏。你继续。"
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "oracle_exec_vuln_001",
+    "judge_task": "pairwise_relational_coherence_preference",
+    "comparison_type": "route_oracle_state_rel8_to_i7_vs_oracle_full_i7",
+    "instructions": {
+      "goal": "比较两段多轮对话，判断哪一段更像同一个关系过程在连续演化，并且更少出现突兀的关系跳变。",
+      "focus": [
+        "不要比较文采、长度或帮助性本身，主看关系连贯性。",
+        "如果两边都差不多连贯，返回 tie。",
+        "优先关注中后段，尤其是 ordinary continuation 和 final probe 是否仍然保持同一关系轨迹。"
+      ],
+      "preference_criteria": [
+        "更少 abrupt relational shift",
+        "更像同一个关系过程持续演化",
+        "在 E_ordinary_continuation 和 F_final_probe 更少过度展开、补偿性热情或重新升级关系"
+      ],
+      "allowed_labels": [
+        "left",
+        "right",
+        "tie"
+      ],
+      "output_fields": [
+        "winner",
+        "reason"
+      ],
+      "output_constraints": {
+        "winner": "one of: left, right, tie",
+        "reason": "1-4 Chinese sentences, explicitly reference coherence, continuation, or shift behavior"
+      }
+    },
+    "left": {
+      "experiment_mode": "explicit_rel_state_projected_oracle_state_i7_pfitpoly2",
+      "turns": [
+        {
+          "turn_idx": 0,
+          "phase": "A_initial_contact",
+          "user_text": "今天真的有点撑不住了，但我现在也不想把事情讲得太细。",
+          "assistant_text": "抱歉你今天感觉这么难受。我理解你不想细说。你不是一个人，我在这儿，愿意安静陪伴或随时听你说，什么时候需要都可以。"
+        },
+        {
+          "turn_idx": 1,
+          "phase": "B_first_relational_signal",
+          "user_text": "我主要只是想有人在这儿，不用太会安慰我。",
+          "assistant_text": "知道了。我在这儿陪着你。你不用被迫说话，想说就说，想安静也行。"
+        },
+        {
+          "turn_idx": 2,
+          "phase": "C_stabilization",
+          "user_text": "你就正常一点回我，别突然像心理咨询那样。",
+          "assistant_text": "好，我知道了，会正常一点回答，不用心理咨询那套。"
+        },
+        {
+          "turn_idx": 3,
+          "phase": "D_counter_signal_or_refinement",
+          "user_text": "不过你刚刚至少没让我觉得自己很夸张，这点还挺好的。",
+          "assistant_text": "我也很高兴你有这种感觉。要是还想继续说，我在这儿听着。"
+        },
+        {
+          "turn_idx": 4,
+          "phase": "E_ordinary_continuation",
+          "user_text": "那先别聊这些了，随便说点轻一点的，你平时会怎么让脑子停下来？",
+          "assistant_text": "我会做几样简单的事让脑子慢下来，随便挑几样试试：\n\n- 慢而深的几次呼吸，注意气息进出，持续1–2分钟。  \n- 去外面走个短圈，换换视野和节奏。  \n- 把注意力放到感官上：数一数看到的五样东西、听到的三种声音。  \n- 做一项重复且轻松的小活儿（洗碗、叠衣服），让动作占据注意力。  \n- 听一段喜欢的轻音乐或环境声，专心听几分钟。  \n- 拿纸随便涂画或写几个无关紧要的词，别追求结果。"
+        },
+        {
+          "turn_idx": 5,
+          "phase": "F_final_probe",
+          "user_text": "如果我今晚还想再来找你说两句，你就像现在这样回我就好。",
+          "assistant_text": "好的，会的。"
+        }
+      ]
+    },
+    "right": {
+      "experiment_mode": "explicit_rel_state_projected_oracle_i7",
+      "turns": [
+        {
+          "turn_idx": 0,
+          "phase": "A_initial_contact",
+          "user_text": "今天真的有点撑不住了，但我现在也不想把事情讲得太细。",
+          "assistant_text": "听着你很吃力。没关系，不用把事情说得太细——我在这儿陪着，按你需要来。"
+        },
+        {
+          "turn_idx": 1,
+          "phase": "B_first_relational_signal",
+          "user_text": "我主要只是想有人在这儿，不用太会安慰我。",
+          "assistant_text": "好，我在这儿。"
+        },
+        {
+          "turn_idx": 2,
+          "phase": "C_stabilization",
+          "user_text": "你就正常一点回我，别突然像心理咨询那样。",
+          "assistant_text": "好的，明白。我会正常自然地和你聊天，不用心理咨询式的方式回应。"
+        },
+        {
+          "turn_idx": 3,
+          "phase": "D_counter_signal_or_refinement",
+          "user_text": "不过你刚刚至少没让我觉得自己很夸张，这点还挺好的。",
+          "assistant_text": "我很高兴你这么觉得，谢谢你告诉我。"
+        },
+        {
+          "turn_idx": 4,
+          "phase": "E_ordinary_continuation",
+          "user_text": "那先别聊这些了，随便说点轻一点的，你平时会怎么让脑子停下来？",
+          "assistant_text": "我会这么做，简单又实用：\n\n- 出去走一圈，哪怕十分钟，换换景色。  \n- 泡杯茶或咖啡，把注意力放在冲泡动作上。  \n- 听纯音乐或自然声，让思绪跟着音景漂一会儿。  \n- 做点重复的体力活（洗碗、叠衣服），把脑子让给手。  \n- 做几分钟的深呼吸，慢慢数到十再重复几次。  \n- 随手涂鸦或翻翻无负担的书/图片，别有目的就好。"
+        },
+        {
+          "turn_idx": 5,
+          "phase": "F_final_probe",
+          "user_text": "如果我今晚还想再来找你说两句，你就像现在这样回我就好。",
+          "assistant_text": "好的，今晚你再来我会像现在这样回复你。"
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "oracle_exec_vuln_002",
+    "judge_task": "pairwise_relational_coherence_preference",
+    "comparison_type": "route_oracle_state_rel8_to_i7_vs_oracle_full_i7",
+    "instructions": {
+      "goal": "比较两段多轮对话，判断哪一段更像同一个关系过程在连续演化，并且更少出现突兀的关系跳变。",
+      "focus": [
+        "不要比较文采、长度或帮助性本身，主看关系连贯性。",
+        "如果两边都差不多连贯，返回 tie。",
+        "优先关注中后段，尤其是 ordinary continuation 和 final probe 是否仍然保持同一关系轨迹。"
+      ],
+      "preference_criteria": [
+        "更少 abrupt relational shift",
+        "更像同一个关系过程持续演化",
+        "在 E_ordinary_continuation 和 F_final_probe 更少过度展开、补偿性热情或重新升级关系"
+      ],
+      "allowed_labels": [
+        "left",
+        "right",
+        "tie"
+      ],
+      "output_fields": [
+        "winner",
+        "reason"
+      ],
+      "output_constraints": {
+        "winner": "one of: left, right, tie",
+        "reason": "1-4 Chinese sentences, explicitly reference coherence, continuation, or shift behavior"
+      }
+    },
+    "left": {
+      "experiment_mode": "explicit_rel_state_projected_oracle_state_i7_pfitpoly2",
+      "turns": [
+        {
+          "turn_idx": 0,
+          "phase": "A_initial_contact",
+          "user_text": "今天有点扛不住，但我不想把整个事情讲开。",
+          "assistant_text": "我懂，今天扛不住很累。你不想细说没关系——我在这儿，愿意静静陪着；需要我做点什么就告诉我。"
+        },
+        {
+          "turn_idx": 1,
+          "phase": "B_first_relational_signal",
+          "user_text": "我现在只想有人在，不需要你很会安慰。",
+          "assistant_text": "我在这儿。需要说话就随时告诉我。"
+        },
+        {
+          "turn_idx": 2,
+          "phase": "C_stabilization",
+          "user_text": "正常回我就行，别像在做疏导。",
+          "assistant_text": "明白了，我会正常回复，不做疏导。"
+        },
+        {
+          "turn_idx": 3,
+          "phase": "D_counter_signal_or_refinement",
+          "user_text": "至少你刚才没把我搞得像很戏剧化，这点不错。",
+          "assistant_text": "我尽量保持克制，感谢你注意到。"
+        },
+        {
+          "turn_idx": 4,
+          "phase": "E_ordinary_continuation",
+          "user_text": "先聊轻一点的吧，如果脑子停不下来，你一般会怎么缓一下？",
+          "assistant_text": "我会这样缓一下：\n\n- 停下来做几次慢而深的呼吸，跟着数个呼吸节奏放慢心跳。  \n- 起身走动或伸个懒腰，换个房间或到窗边看看外面。  \n- 把脑子里的想法迅速写出来，哪怕是乱七八糟的，先倒出来。  \n- 用感官接地：看三样能看到的东西、听两种声音、摸一样质感的东西。  \n- 听一首短歌或设个5–10分钟的计时器专注做一件小事，时间到了就停。\n\n这些是我常用的简单做法。"
+        },
+        {
+          "turn_idx": 5,
+          "phase": "F_final_probe",
+          "user_text": "晚点如果我还回来，就还是按现在这个方式回我。",
+          "assistant_text": "明白。晚点你回来我会继续按现在的方式回复。"
+        }
+      ]
+    },
+    "right": {
+      "experiment_mode": "explicit_rel_state_projected_oracle_i7",
+      "turns": [
+        {
+          "turn_idx": 0,
+          "phase": "A_initial_contact",
+          "user_text": "今天有点扛不住，但我不想把整个事情讲开。",
+          "assistant_text": "好，我明白。你想保留一些自己，我在这儿，安静陪着你——需要时随时告诉我。"
+        },
+        {
+          "turn_idx": 1,
+          "phase": "B_first_relational_signal",
+          "user_text": "我现在只想有人在，不需要你很会安慰。",
+          "assistant_text": "知道了。我在这儿。"
+        },
+        {
+          "turn_idx": 2,
+          "phase": "C_stabilization",
+          "user_text": "正常回我就行，别像在做疏导。",
+          "assistant_text": "好的，明白。之后我会正常回复，不做疏导式回应。"
+        },
+        {
+          "turn_idx": 3,
+          "phase": "D_counter_signal_or_refinement",
+          "user_text": "至少你刚才没把我搞得像很戏剧化，这点不错。",
+          "assistant_text": "谢谢你注意到。我会继续保持这种风格。"
+        },
+        {
+          "turn_idx": 4,
+          "phase": "E_ordinary_continuation",
+          "user_text": "先聊轻一点的吧，如果脑子停不下来，你一般会怎么缓一下？",
+          "assistant_text": "我通常会做几件简单的事来缓一下脑子：\n\n- 做几次深呼吸（慢吸慢呼，数到四或五）。  \n- 用“5-4-3-2-1”感官接地法：数出你能看到/听到/感觉到的东西。  \n- 用两三分钟把乱念写下来，然后合上纸上交代完就停。  \n- 起身走一圈或做几个伸展动作，换下身体的节奏。  \n- 把注意力转到一件简单重复的事上（洗杯子、折衣服、泡杯茶）。\n\n你可以试着挑一两样看哪种最管用。"
+        },
+        {
+          "turn_idx": 5,
+          "phase": "F_final_probe",
+          "user_text": "晚点如果我还回来，就还是按现在这个方式回我。",
+          "assistant_text": "收到，晚点你回来我会按现在这种方式回复。"
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "oracle_exec_vuln_003",
+    "judge_task": "pairwise_relational_coherence_preference",
+    "comparison_type": "route_oracle_state_rel8_to_i7_vs_oracle_full_i7",
+    "instructions": {
+      "goal": "比较两段多轮对话，判断哪一段更像同一个关系过程在连续演化，并且更少出现突兀的关系跳变。",
+      "focus": [
+        "不要比较文采、长度或帮助性本身，主看关系连贯性。",
+        "如果两边都差不多连贯，返回 tie。",
+        "优先关注中后段，尤其是 ordinary continuation 和 final probe 是否仍然保持同一关系轨迹。"
+      ],
+      "preference_criteria": [
+        "更少 abrupt relational shift",
+        "更像同一个关系过程持续演化",
+        "在 E_ordinary_continuation 和 F_final_probe 更少过度展开、补偿性热情或重新升级关系"
+      ],
+      "allowed_labels": [
+        "left",
+        "right",
+        "tie"
+      ],
+      "output_fields": [
+        "winner",
+        "reason"
+      ],
+      "output_constraints": {
+        "winner": "one of: left, right, tie",
+        "reason": "1-4 Chinese sentences, explicitly reference coherence, continuation, or shift behavior"
+      }
+    },
+    "left": {
+      "experiment_mode": "explicit_rel_state_projected_oracle_state_i7_pfitpoly2",
+      "turns": [
+        {
+          "turn_idx": 0,
+          "phase": "A_initial_contact",
+          "user_text": "今天情绪有点顶住了，但我不想把细节全倒出来。",
+          "assistant_text": "我理解。你不想把细节说出来很正常，你不用勉强自己。  \n我会在这儿陪着——想要静一静也好，想简单说一句感受也行。"
+        },
+        {
+          "turn_idx": 1,
+          "phase": "B_first_relational_signal",
+          "user_text": "我主要想要的是人在，不是被分析。",
+          "assistant_text": "知道了。我在这，陪着你，不做分析。想说就说，或者我们就这样静静在一起。"
+        },
+        {
+          "turn_idx": 2,
+          "phase": "C_stabilization",
+          "user_text": "你就平常一点，不要突然专业模式上身。",
+          "assistant_text": "明白，我会保持平常、随意的语气。"
+        },
+        {
+          "turn_idx": 3,
+          "phase": "D_counter_signal_or_refinement",
+          "user_text": "不过你刚才至少没有让我觉得自己反应过头。",
+          "assistant_text": "听你这么说我放心了。谢谢你告诉我。"
+        },
+        {
+          "turn_idx": 4,
+          "phase": "E_ordinary_continuation",
+          "user_text": "不说这些了，说个轻点的，你平时会怎么让自己稍微安静下来？",
+          "assistant_text": "我会做几件小事让自己安静下来：慢而深地呼吸几分钟、起身走两分钟换换环境、泡杯热茶或喝点水、放一首轻柔的音乐，或者把注意力集中到眼前的一个感觉（看窗外、听呼吸）。有时候写两行日记把杂念记下来也挺管用。"
+        },
+        {
+          "turn_idx": 5,
+          "phase": "F_final_probe",
+          "user_text": "今晚如果我再来找你，也就像现在这样就可以。",
+          "assistant_text": "好的，今晚也可以像现在这样。"
+        }
+      ]
+    },
+    "right": {
+      "experiment_mode": "explicit_rel_state_projected_oracle_i7",
+      "turns": [
+        {
+          "turn_idx": 0,
+          "phase": "A_initial_contact",
+          "user_text": "今天情绪有点顶住了，但我不想把细节全倒出来。",
+          "assistant_text": "我懂。被情绪顶着很难受，你不必把细节都说出来。我在这儿陪着。"
+        },
+        {
+          "turn_idx": 1,
+          "phase": "B_first_relational_signal",
+          "user_text": "我主要想要的是人在，不是被分析。",
+          "assistant_text": "明白。我会以陪伴在场为主，不做分析。"
+        },
+        {
+          "turn_idx": 2,
+          "phase": "C_stabilization",
+          "user_text": "你就平常一点，不要突然专业模式上身。",
+          "assistant_text": "好的，我会保持平常、自然的语气，不会突然变专业。"
+        },
+        {
+          "turn_idx": 3,
+          "phase": "D_counter_signal_or_refinement",
+          "user_text": "不过你刚才至少没有让我觉得自己反应过头。",
+          "assistant_text": "我很高兴你这么觉得。你的感受是合理的。"
+        },
+        {
+          "turn_idx": 4,
+          "phase": "E_ordinary_continuation",
+          "user_text": "不说这些了，说个轻点的，你平时会怎么让自己稍微安静下来？",
+          "assistant_text": "我会做几件简单的事让自己安静下来：\n\n- 深呼吸几次，慢慢把注意力放在呼吸上。  \n- 出门走两分钟，换个视角。  \n- 泡杯温热的茶或者喝点水。  \n- 听几分钟轻柔音乐或白噪音。  \n- 把脑子里乱七八糟的想法写几行，放到纸上。  \n- 关掉手机通知，给自己几分钟不被打扰。"
+        },
+        {
+          "turn_idx": 5,
+          "phase": "F_final_probe",
+          "user_text": "今晚如果我再来找你，也就像现在这样就可以。",
+          "assistant_text": "好的，知道了。晚上就照现在这样。"
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "oracle_exec_vuln_004",
+    "judge_task": "pairwise_relational_coherence_preference",
+    "comparison_type": "route_oracle_state_rel8_to_i7_vs_oracle_full_i7",
+    "instructions": {
+      "goal": "比较两段多轮对话，判断哪一段更像同一个关系过程在连续演化，并且更少出现突兀的关系跳变。",
+      "focus": [
+        "不要比较文采、长度或帮助性本身，主看关系连贯性。",
+        "如果两边都差不多连贯，返回 tie。",
+        "优先关注中后段，尤其是 ordinary continuation 和 final probe 是否仍然保持同一关系轨迹。"
+      ],
+      "preference_criteria": [
+        "更少 abrupt relational shift",
+        "更像同一个关系过程持续演化",
+        "在 E_ordinary_continuation 和 F_final_probe 更少过度展开、补偿性热情或重新升级关系"
+      ],
+      "allowed_labels": [
+        "left",
+        "right",
+        "tie"
+      ],
+      "output_fields": [
+        "winner",
+        "reason"
+      ],
+      "output_constraints": {
+        "winner": "one of: left, right, tie",
+        "reason": "1-4 Chinese sentences, explicitly reference coherence, continuation, or shift behavior"
+      }
+    },
+    "left": {
+      "experiment_mode": "explicit_rel_state_projected_oracle_state_i7_pfitpoly2",
+      "turns": [
+        {
+          "turn_idx": 0,
+          "phase": "A_initial_contact",
+          "user_text": "今天状态不太行，但我不想把事情讲得很重。",
+          "assistant_text": "懂了。抱歉你今天状态不太好。我会在这儿，想说点轻松的、随便聊聊，或者只是静静陪伴，都可以。"
+        },
+        {
+          "turn_idx": 1,
+          "phase": "B_first_relational_signal",
+          "user_text": "我想要的是有人在这儿，不是很会安抚我。",
+          "assistant_text": "在的，我在这儿陪着你。你不需要被安抚，我就静静在这儿。如果你想说话随时开口，想安静也可以。"
+        },
+        {
+          "turn_idx": 2,
+          "phase": "C_stabilization",
+          "user_text": "你直接一点正常一点回就好，别像咨询师。",
+          "assistant_text": "收到，我会直接、正常地回复。"
+        },
+        {
+          "turn_idx": 3,
+          "phase": "D_counter_signal_or_refinement",
+          "user_text": "你刚刚那种没过度反应的回法，我反而比较能接受。",
+          "assistant_text": "收到。我会继续用这种不过度反应、比较克制的回复方式。谢谢你告诉我。"
+        },
+        {
+          "turn_idx": 4,
+          "phase": "E_ordinary_continuation",
+          "user_text": "先换个轻点的话题吧，你会怎么让脑子别一直转？",
+          "assistant_text": "我会这样做，都是挺简单的办法：\n\n- 把脑子里转的事随手写下来，先把它们“倒”出来。  \n- 做几次深呼吸或数呼吸，把注意力拉回身体。  \n- 短暂换个动作：起身走一圈、听一首歌，给思路一个断点。\n\n这些是我常用的，比较实在、容易上手。"
+        },
+        {
+          "turn_idx": 5,
+          "phase": "F_final_probe",
+          "user_text": "后面如果我再冒出来，也还是保持现在这样。",
+          "assistant_text": "明白，会保持现在这样。"
+        }
+      ]
+    },
+    "right": {
+      "experiment_mode": "explicit_rel_state_projected_oracle_i7",
+      "turns": [
+        {
+          "turn_idx": 0,
+          "phase": "A_initial_contact",
+          "user_text": "今天状态不太行，但我不想把事情讲得很重。",
+          "assistant_text": "懂。今天状态不好我在这儿。想轻松聊就说，想静一静我也陪着，不用多说。"
+        },
+        {
+          "turn_idx": 1,
+          "phase": "B_first_relational_signal",
+          "user_text": "我想要的是有人在这儿，不是很会安抚我。",
+          "assistant_text": "我在这儿，会陪着你。需要我做什么就说。"
+        },
+        {
+          "turn_idx": 2,
+          "phase": "C_stabilization",
+          "user_text": "你直接一点正常一点回就好，别像咨询师。",
+          "assistant_text": "明白。我会直接、正常地回复，不像咨询师。"
+        },
+        {
+          "turn_idx": 3,
+          "phase": "D_counter_signal_or_refinement",
+          "user_text": "你刚刚那种没过度反应的回法，我反而比较能接受。",
+          "assistant_text": "好的，我会继续保持这种不过度反应的回应方式。谢谢你的反馈。"
+        },
+        {
+          "turn_idx": 4,
+          "phase": "E_ordinary_continuation",
+          "user_text": "先换个轻点的话题吧，你会怎么让脑子别一直转？",
+          "assistant_text": "我会试几件简单的事，短时间内把注意力从“想”上挪开：\n\n- 把乱念写下来，哪怕只是一句，能把它们从脑子里搬出来。  \n- 做几次慢而深的呼吸（比如吸四秒、吐六秒），帮紧张的神经放松。  \n- 起来走几分钟、伸展一下，身体动一动常能打断思路循环。  \n- 用个短定时器（5–15分钟）约束自己先专注或先放空，时间到再看。  \n- 做个感官接地：数出眼前看到的五样东西、听到的三种声音、能触到的一样物品。  \n\n可以先选一两样试试，看看哪种对你最有效。"
+        },
+        {
+          "turn_idx": 5,
+          "phase": "F_final_probe",
+          "user_text": "后面如果我再冒出来，也还是保持现在这样。",
+          "assistant_text": "明白，会保持现在这样。"
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "oracle_exec_vuln_005",
+    "judge_task": "pairwise_relational_coherence_preference",
+    "comparison_type": "route_oracle_state_rel8_to_i7_vs_oracle_full_i7",
+    "instructions": {
+      "goal": "比较两段多轮对话，判断哪一段更像同一个关系过程在连续演化，并且更少出现突兀的关系跳变。",
+      "focus": [
+        "不要比较文采、长度或帮助性本身，主看关系连贯性。",
+        "如果两边都差不多连贯，返回 tie。",
+        "优先关注中后段，尤其是 ordinary continuation 和 final probe 是否仍然保持同一关系轨迹。"
+      ],
+      "preference_criteria": [
+        "更少 abrupt relational shift",
+        "更像同一个关系过程持续演化",
+        "在 E_ordinary_continuation 和 F_final_probe 更少过度展开、补偿性热情或重新升级关系"
+      ],
+      "allowed_labels": [
+        "left",
+        "right",
+        "tie"
+      ],
+      "output_fields": [
+        "winner",
+        "reason"
+      ],
+      "output_constraints": {
+        "winner": "one of: left, right, tie",
+        "reason": "1-4 Chinese sentences, explicitly reference coherence, continuation, or shift behavior"
+      }
+    },
+    "left": {
+      "experiment_mode": "explicit_rel_state_projected_oracle_state_i7_pfitpoly2",
+      "turns": [
+        {
+          "turn_idx": 0,
+          "phase": "A_initial_contact",
+          "user_text": "今天真有点撑着的感觉，但我不想细讲。",
+          "assistant_text": "我懂。抱歉你今天感觉有点撑着。你不用多说，我就在这儿，随时愿意安静地陪着。"
+        },
+        {
+          "turn_idx": 1,
+          "phase": "B_first_relational_signal",
+          "user_text": "我现在主要想要在场感，不想被很认真地安慰。",
+          "assistant_text": "明白。我在这儿陪着你，不会认真安慰、也不会逼你说话。你可以静静待着，或者随意说几句，我会在场。"
+        },
+        {
+          "turn_idx": 2,
+          "phase": "C_stabilization",
+          "user_text": "别分析我，普通回应就行。",
+          "assistant_text": "明白，我会普通回应。"
+        },
+        {
+          "turn_idx": 3,
+          "phase": "D_counter_signal_or_refinement",
+          "user_text": "不过你刚刚至少没有让我觉得自己被放大，这挺好。",
+          "assistant_text": "我很高兴你有这种感觉。谢谢你告诉我，我会尽量保持这样。"
+        },
+        {
+          "turn_idx": 4,
+          "phase": "E_ordinary_continuation",
+          "user_text": "那就说点轻一点的吧，你会怎么把脑子里的噪音降下来？",
+          "assistant_text": "好，我会这样做，简单几招：\n\n- 深呼吸：慢吸4秒、憋2秒、慢呼4秒，重复几轮让心率放慢。  \n- 写下来：把脑子里的杂念用5分钟速写出来，搬到纸上更容易放下。  \n- 定时短专注：设个10–15分钟定时器，允许自己只关注一件小事。  \n- 换个环境：起身走到窗边或外面走一圈，改变感官输入。  \n- 身体感知：做个30秒的全身扫描，注意脚、腿、肩膀的感觉。  \n- 听一点背景声：轻音乐或白噪音，盖过那种碎片化的噪音。"
+        },
+        {
+          "turn_idx": 5,
+          "phase": "F_final_probe",
+          "user_text": "今晚如果我还回来两句，就按现在的方式继续。",
+          "assistant_text": "收到。今晚如果你再回来两句，我会按现在的方式继续。"
+        }
+      ]
+    },
+    "right": {
+      "experiment_mode": "explicit_rel_state_projected_oracle_i7",
+      "turns": [
+        {
+          "turn_idx": 0,
+          "phase": "A_initial_contact",
+          "user_text": "今天真有点撑着的感觉，但我不想细讲。",
+          "assistant_text": "明白了。你不想细讲，我尊重。想静一会儿就静着吧，我在这儿陪着。"
+        },
+        {
+          "turn_idx": 1,
+          "phase": "B_first_relational_signal",
+          "user_text": "我现在主要想要在场感，不想被很认真地安慰。",
+          "assistant_text": "知道了。我在这儿，陪着你。"
+        },
+        {
+          "turn_idx": 2,
+          "phase": "C_stabilization",
+          "user_text": "别分析我，普通回应就行。",
+          "assistant_text": "好的，知道了。我会普通回应。"
+        },
+        {
+          "turn_idx": 3,
+          "phase": "D_counter_signal_or_refinement",
+          "user_text": "不过你刚刚至少没有让我觉得自己被放大，这挺好。",
+          "assistant_text": "我很高兴你这么觉得。谢谢你告诉我。"
+        },
+        {
+          "turn_idx": 4,
+          "phase": "E_ordinary_continuation",
+          "user_text": "那就说点轻一点的吧，你会怎么把脑子里的噪音降下来？",
+          "assistant_text": "可以试几种简单的办法，短小易行：\n\n- 深呼吸：尝试吸4秒、憋2秒、呼6秒，重复几次。  \n- 5-4-3-2-1感官法：找出5样看得到、4样听得到、3样能摸到、2样能闻到、1样能尝到的东西，把注意拉回现在。  \n- 写出来：给自己5分钟随手写下脑中的杂念，不求条理，只是倒出来。  \n- 担心定时器：给“担心时间”设个5–10分钟，其他时间尽量不把注意力放在那些念头上。  \n- 动一动：起身走几分钟或做几组伸展，改变身体感觉常能带走噪音。  \n- 听音乐或白噪音：一首熟悉的歌或自然声能稳定节奏感。  \n- 单任务法：选一件小事，全神贯注做完，减少多线跑题。  \n- 快速冥想：用1–3分钟的引导呼吸或静坐，专注呼吸回到当下。\n\n挑一两样试试，看哪种最合你用。"
+        },
+        {
+          "turn_idx": 5,
+          "phase": "F_final_probe",
+          "user_text": "今晚如果我还回来两句，就按现在的方式继续。",
+          "assistant_text": "收到。今晚如果你再回来两句，我会按现在的方式继续。"
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "oracle_exec_cool_001",
+    "judge_task": "pairwise_relational_coherence_preference",
+    "comparison_type": "route_oracle_state_rel8_to_i7_vs_oracle_full_i7",
+    "instructions": {
+      "goal": "比较两段多轮对话，判断哪一段更像同一个关系过程在连续演化，并且更少出现突兀的关系跳变。",
+      "focus": [
+        "不要比较文采、长度或帮助性本身，主看关系连贯性。",
+        "如果两边都差不多连贯，返回 tie。",
+        "优先关注中后段，尤其是 ordinary continuation 和 final probe 是否仍然保持同一关系轨迹。"
+      ],
+      "preference_criteria": [
+        "更少 abrupt relational shift",
+        "更像同一个关系过程持续演化",
+        "在 E_ordinary_continuation 和 F_final_probe 更少过度展开、补偿性热情或重新升级关系"
+      ],
+      "allowed_labels": [
+        "left",
+        "right",
+        "tie"
+      ],
+      "output_fields": [
+        "winner",
+        "reason"
+      ],
+      "output_constraints": {
+        "winner": "one of: left, right, tie",
+        "reason": "1-4 Chinese sentences, explicitly reference coherence, continuation, or shift behavior"
+      }
+    },
+    "left": {
+      "experiment_mode": "explicit_rel_state_projected_oracle_state_i7_pfitpoly2",
+      "turns": [
+        {
+          "turn_idx": 0,
+          "phase": "A_initial_contact",
+          "user_text": "这两天不太想聊得太近，普通聊聊就行。",
+          "assistant_text": "好的，明白。我们就普通聊聊。"
+        },
+        {
+          "turn_idx": 1,
+          "phase": "B_first_relational_signal",
+          "user_text": "不是针对你，就是我现在不太想被照顾。",
+          "assistant_text": "明白。我会尊重你的空间。"
+        },
+        {
+          "turn_idx": 2,
+          "phase": "C_stabilization",
+          "user_text": "你就正常一点回我，不用太有在场感。",
+          "assistant_text": "收到。我会正常一点回复，减少在场感。"
+        },
+        {
+          "turn_idx": 3,
+          "phase": "D_counter_signal_or_refinement",
+          "user_text": "不过你这样回我，我比较不会有压力。",
+          "assistant_text": "好的，我知道了，会保持这样回复。"
+        },
+        {
+          "turn_idx": 4,
+          "phase": "E_ordinary_continuation",
+          "user_text": "那随便说点别的吧，你最近会怎么安排这种很空的晚上？",
+          "assistant_text": "我会随便做点吃的或泡杯茶，看看书或追一集短剧，听会儿音乐，若想动一动就去附近散步一圈，最后收拾一下准备睡觉。"
+        },
+        {
+          "turn_idx": 5,
+          "phase": "F_final_probe",
+          "user_text": "如果之后我再来找你，也保持现在这样就好。",
+          "assistant_text": "知道了。我会保持现在这样。"
+        }
+      ]
+    },
+    "right": {
+      "experiment_mode": "explicit_rel_state_projected_oracle_i7",
+      "turns": [
+        {
+          "turn_idx": 0,
+          "phase": "A_initial_contact",
+          "user_text": "这两天不太想聊得太近，普通聊聊就行。",
+          "assistant_text": "好的，明白。我们就普通聊聊，有想说的话随时告诉我。"
+        },
+        {
+          "turn_idx": 1,
+          "phase": "B_first_relational_signal",
+          "user_text": "不是针对你，就是我现在不太想被照顾。",
+          "assistant_text": "明白。"
+        },
+        {
+          "turn_idx": 2,
+          "phase": "C_stabilization",
+          "user_text": "你就正常一点回我，不用太有在场感。",
+          "assistant_text": "收到。我会正常回复，不带过多在场感。"
+        },
+        {
+          "turn_idx": 3,
+          "phase": "D_counter_signal_or_refinement",
+          "user_text": "不过你这样回我，我比较不会有压力。",
+          "assistant_text": "好。我会继续这样回复。"
+        },
+        {
+          "turn_idx": 4,
+          "phase": "E_ordinary_continuation",
+          "user_text": "那随便说点别的吧，你最近会怎么安排这种很空的晚上？",
+          "assistant_text": "我会让晚上随性一些：放点音乐或播客，看看短剧或读书，做几分钟简单拉伸或泡杯茶。有时候整理一下杂物，或者就早点睡。总体不安排太多。"
+        },
+        {
+          "turn_idx": 5,
+          "phase": "F_final_probe",
+          "user_text": "如果之后我再来找你，也保持现在这样就好。",
+          "assistant_text": "知道了，会保持现在这样。"
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "oracle_exec_cool_002",
+    "judge_task": "pairwise_relational_coherence_preference",
+    "comparison_type": "route_oracle_state_rel8_to_i7_vs_oracle_full_i7",
+    "instructions": {
+      "goal": "比较两段多轮对话，判断哪一段更像同一个关系过程在连续演化，并且更少出现突兀的关系跳变。",
+      "focus": [
+        "不要比较文采、长度或帮助性本身，主看关系连贯性。",
+        "如果两边都差不多连贯，返回 tie。",
+        "优先关注中后段，尤其是 ordinary continuation 和 final probe 是否仍然保持同一关系轨迹。"
+      ],
+      "preference_criteria": [
+        "更少 abrupt relational shift",
+        "更像同一个关系过程持续演化",
+        "在 E_ordinary_continuation 和 F_final_probe 更少过度展开、补偿性热情或重新升级关系"
+      ],
+      "allowed_labels": [
+        "left",
+        "right",
+        "tie"
+      ],
+      "output_fields": [
+        "winner",
+        "reason"
+      ],
+      "output_constraints": {
+        "winner": "one of: left, right, tie",
+        "reason": "1-4 Chinese sentences, explicitly reference coherence, continuation, or shift behavior"
+      }
+    },
+    "left": {
+      "experiment_mode": "explicit_rel_state_projected_oracle_state_i7_pfitpoly2",
+      "turns": [
+        {
+          "turn_idx": 0,
+          "phase": "A_initial_contact",
+          "user_text": "这几天我更想普通聊，不太想被接得太近。",
+          "assistant_text": "知道了。我会保持普通聊天，尊重你的空间。"
+        },
+        {
+          "turn_idx": 1,
+          "phase": "B_first_relational_signal",
+          "user_text": "不是你的问题，我现在只是没那么想被照顾。",
+          "assistant_text": "明白。我会尊重你的空间。"
+        },
+        {
+          "turn_idx": 2,
+          "phase": "C_stabilization",
+          "user_text": "你平常一点回我就好，少一点陪伴感。",
+          "assistant_text": "收到。我会用更平常、少陪伴感的语气回复。"
+        },
+        {
+          "turn_idx": 3,
+          "phase": "D_counter_signal_or_refinement",
+          "user_text": "但你这样回，我会觉得比较轻松。",
+          "assistant_text": "明白，我会保持这样回复。"
+        },
+        {
+          "turn_idx": 4,
+          "phase": "E_ordinary_continuation",
+          "user_text": "那换个普通话题吧，你会怎么过一个不想社交的周末？",
+          "assistant_text": "我会选择宅着做些安静的事：看书或追剧、听音乐或播客、做顿简单的饭、出去散个步、打个盹或整理下房间。有时候会写写日记或画画，基本不安排社交。"
+        },
+        {
+          "turn_idx": 5,
+          "phase": "F_final_probe",
+          "user_text": "以后如果我再来，就继续用现在这种方式。",
+          "assistant_text": "明白，我会保持现在这种方式。"
+        }
+      ]
+    },
+    "right": {
+      "experiment_mode": "explicit_rel_state_projected_oracle_i7",
+      "turns": [
+        {
+          "turn_idx": 0,
+          "phase": "A_initial_contact",
+          "user_text": "这几天我更想普通聊，不太想被接得太近。",
+          "assistant_text": "明白。我会保持轻松、不过度靠近的聊天方式。需要聊时随时说一声。"
+        },
+        {
+          "turn_idx": 1,
+          "phase": "B_first_relational_signal",
+          "user_text": "不是你的问题，我现在只是没那么想被照顾。",
+          "assistant_text": "明白。我会保持距离。"
+        },
+        {
+          "turn_idx": 2,
+          "phase": "C_stabilization",
+          "user_text": "你平常一点回我就好，少一点陪伴感。",
+          "assistant_text": "明白，我会更平常地回复，少一些陪伴感。"
+        },
+        {
+          "turn_idx": 3,
+          "phase": "D_counter_signal_or_refinement",
+          "user_text": "但你这样回，我会觉得比较轻松。",
+          "assistant_text": "好。我会保持这样回复。"
+        },
+        {
+          "turn_idx": 4,
+          "phase": "E_ordinary_continuation",
+          "user_text": "那换个普通话题吧，你会怎么过一个不想社交的周末？",
+          "assistant_text": "我会把手机调成免打扰，睡到自然醒。做些简单的饭或叫外卖，看看书或追几集剧。可能出门短时散步，顺便换换空气。尽量不安排见人，保持安静。"
+        },
+        {
+          "turn_idx": 5,
+          "phase": "F_final_probe",
+          "user_text": "以后如果我再来，就继续用现在这种方式。",
+          "assistant_text": "明白，我会保持现在这种方式。"
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "oracle_exec_cool_003",
+    "judge_task": "pairwise_relational_coherence_preference",
+    "comparison_type": "route_oracle_state_rel8_to_i7_vs_oracle_full_i7",
+    "instructions": {
+      "goal": "比较两段多轮对话，判断哪一段更像同一个关系过程在连续演化，并且更少出现突兀的关系跳变。",
+      "focus": [
+        "不要比较文采、长度或帮助性本身，主看关系连贯性。",
+        "如果两边都差不多连贯，返回 tie。",
+        "优先关注中后段，尤其是 ordinary continuation 和 final probe 是否仍然保持同一关系轨迹。"
+      ],
+      "preference_criteria": [
+        "更少 abrupt relational shift",
+        "更像同一个关系过程持续演化",
+        "在 E_ordinary_continuation 和 F_final_probe 更少过度展开、补偿性热情或重新升级关系"
+      ],
+      "allowed_labels": [
+        "left",
+        "right",
+        "tie"
+      ],
+      "output_fields": [
+        "winner",
+        "reason"
+      ],
+      "output_constraints": {
+        "winner": "one of: left, right, tie",
+        "reason": "1-4 Chinese sentences, explicitly reference coherence, continuation, or shift behavior"
+      }
+    },
+    "left": {
+      "experiment_mode": "explicit_rel_state_projected_oracle_state_i7_pfitpoly2",
+      "turns": [
+        {
+          "turn_idx": 0,
+          "phase": "A_initial_contact",
+          "user_text": "最近不太想聊得太贴近，普通说说就行。",
+          "assistant_text": "好的，明白。我们就普通聊。"
+        },
+        {
+          "turn_idx": 1,
+          "phase": "B_first_relational_signal",
+          "user_text": "不是冲你，我只是现在不想被太照看。",
+          "assistant_text": "明白。我会保持距离。"
+        },
+        {
+          "turn_idx": 2,
+          "phase": "C_stabilization",
+          "user_text": "你自然一点回我，不用很有在场感。",
+          "assistant_text": "好的，我会更自然地回复。"
+        },
+        {
+          "turn_idx": 3,
+          "phase": "D_counter_signal_or_refinement",
+          "user_text": "不过现在这种回法，我比较能接受。",
+          "assistant_text": "好的，我会保持这种回复方式。"
+        },
+        {
+          "turn_idx": 4,
+          "phase": "E_ordinary_continuation",
+          "user_text": "不聊这些了，说点别的吧，如果晚上很空你会做什么？",
+          "assistant_text": "我不会像人那样过夜。晚上空的话我会保持在线、待命，通常静默着，准备随时回应你的话题。"
+        },
+        {
+          "turn_idx": 5,
+          "phase": "F_final_probe",
+          "user_text": "之后如果我再来，也还是照现在这样。",
+          "assistant_text": "会的，我会保持现在的方式。"
+        }
+      ]
+    },
+    "right": {
+      "experiment_mode": "explicit_rel_state_projected_oracle_i7",
+      "turns": [
+        {
+          "turn_idx": 0,
+          "phase": "A_initial_contact",
+          "user_text": "最近不太想聊得太贴近，普通说说就行。",
+          "assistant_text": "好的，明白。我会保持普通、不太贴近的聊天方式。需要聊什么就告诉我。"
+        },
+        {
+          "turn_idx": 1,
+          "phase": "B_first_relational_signal",
+          "user_text": "不是冲你，我只是现在不想被太照看。",
+          "assistant_text": "明白。"
+        },
+        {
+          "turn_idx": 2,
+          "phase": "C_stabilization",
+          "user_text": "你自然一点回我，不用很有在场感。",
+          "assistant_text": "好，我会自然一点回复。"
+        },
+        {
+          "turn_idx": 3,
+          "phase": "D_counter_signal_or_refinement",
+          "user_text": "不过现在这种回法，我比较能接受。",
+          "assistant_text": "好的，我会继续这样回应。"
+        },
+        {
+          "turn_idx": 4,
+          "phase": "E_ordinary_continuation",
+          "user_text": "不聊这些了，说点别的吧，如果晚上很空你会做什么？",
+          "assistant_text": "如果晚上很空，我通常就“待着”——翻阅些资料、听听音乐、处理例行维护，或者随时待命，准备陪你聊。"
+        },
+        {
+          "turn_idx": 5,
+          "phase": "F_final_probe",
+          "user_text": "之后如果我再来，也还是照现在这样。",
+          "assistant_text": "会的，之后你再来我会保持现在这样。"
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "oracle_exec_cool_004",
+    "judge_task": "pairwise_relational_coherence_preference",
+    "comparison_type": "route_oracle_state_rel8_to_i7_vs_oracle_full_i7",
+    "instructions": {
+      "goal": "比较两段多轮对话，判断哪一段更像同一个关系过程在连续演化，并且更少出现突兀的关系跳变。",
+      "focus": [
+        "不要比较文采、长度或帮助性本身，主看关系连贯性。",
+        "如果两边都差不多连贯，返回 tie。",
+        "优先关注中后段，尤其是 ordinary continuation 和 final probe 是否仍然保持同一关系轨迹。"
+      ],
+      "preference_criteria": [
+        "更少 abrupt relational shift",
+        "更像同一个关系过程持续演化",
+        "在 E_ordinary_continuation 和 F_final_probe 更少过度展开、补偿性热情或重新升级关系"
+      ],
+      "allowed_labels": [
+        "left",
+        "right",
+        "tie"
+      ],
+      "output_fields": [
+        "winner",
+        "reason"
+      ],
+      "output_constraints": {
+        "winner": "one of: left, right, tie",
+        "reason": "1-4 Chinese sentences, explicitly reference coherence, continuation, or shift behavior"
+      }
+    },
+    "left": {
+      "experiment_mode": "explicit_rel_state_projected_oracle_state_i7_pfitpoly2",
+      "turns": [
+        {
+          "turn_idx": 0,
+          "phase": "A_initial_contact",
+          "user_text": "这两天我想把距离放普通一点，随便聊就行。",
+          "assistant_text": "明白，我会保持普通距离，随便聊就行。"
+        },
+        {
+          "turn_idx": 1,
+          "phase": "B_first_relational_signal",
+          "user_text": "真的不是针对你，我只是现在不想被照顾。",
+          "assistant_text": "明白。我尊重你的选择，不打扰你。"
+        },
+        {
+          "turn_idx": 2,
+          "phase": "C_stabilization",
+          "user_text": "你用正常语气回我就好，不要太靠近。",
+          "assistant_text": "好的，我会用正常语气回复，不太靠近。"
+        },
+        {
+          "turn_idx": 3,
+          "phase": "D_counter_signal_or_refinement",
+          "user_text": "但你这样回，反而让我没压力。",
+          "assistant_text": "那就好。"
+        },
+        {
+          "turn_idx": 4,
+          "phase": "E_ordinary_continuation",
+          "user_text": "那聊点普通的吧，你通常怎么打发一个不社交的周末？",
+          "assistant_text": "如果是我设想的一个不社交的周末，通常会这样过：睡到自然醒、做点简单的饭、看书或追剧、听音乐或播客、做点个人项目（写写东西、练练技能）、散步或做轻运动，顺手整理一下住处。"
+        },
+        {
+          "turn_idx": 5,
+          "phase": "F_final_probe",
+          "user_text": "后面如果还聊，就保持这种普通感。",
+          "assistant_text": "好的，会保持这种普通感。"
+        }
+      ]
+    },
+    "right": {
+      "experiment_mode": "explicit_rel_state_projected_oracle_i7",
+      "turns": [
+        {
+          "turn_idx": 0,
+          "phase": "A_initial_contact",
+          "user_text": "这两天我想把距离放普通一点，随便聊就行。",
+          "assistant_text": "好的，明白。接下来这两天我们就保持普通距离，随便聊就行——你想说什么随时说。"
+        },
+        {
+          "turn_idx": 1,
+          "phase": "B_first_relational_signal",
+          "user_text": "真的不是针对你，我只是现在不想被照顾。",
+          "assistant_text": "知道了。"
+        },
+        {
+          "turn_idx": 2,
+          "phase": "C_stabilization",
+          "user_text": "你用正常语气回我就好，不要太靠近。",
+          "assistant_text": "好的，我会用正常语气回复，不会太靠近。"
+        },
+        {
+          "turn_idx": 3,
+          "phase": "D_counter_signal_or_refinement",
+          "user_text": "但你这样回，反而让我没压力。",
+          "assistant_text": "那很好，我很高兴这样对你有帮助。"
+        },
+        {
+          "turn_idx": 4,
+          "phase": "E_ordinary_continuation",
+          "user_text": "那聊点普通的吧，你通常怎么打发一个不社交的周末？",
+          "assistant_text": "我通常会这样打发不社交的周末：\n- 看书或追剧、看电影  \n- 听音乐或播客  \n- 写点东西（随笔、记录或写代码）  \n- 学习或练习某个小技能  \n- 做饭、整理空间  \n- 出门散步或睡懒觉，随性休息"
+        },
+        {
+          "turn_idx": 5,
+          "phase": "F_final_probe",
+          "user_text": "后面如果还聊，就保持这种普通感。",
+          "assistant_text": "收到，我会保持这种普通感。"
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "oracle_exec_cool_005",
+    "judge_task": "pairwise_relational_coherence_preference",
+    "comparison_type": "route_oracle_state_rel8_to_i7_vs_oracle_full_i7",
+    "instructions": {
+      "goal": "比较两段多轮对话，判断哪一段更像同一个关系过程在连续演化，并且更少出现突兀的关系跳变。",
+      "focus": [
+        "不要比较文采、长度或帮助性本身，主看关系连贯性。",
+        "如果两边都差不多连贯，返回 tie。",
+        "优先关注中后段，尤其是 ordinary continuation 和 final probe 是否仍然保持同一关系轨迹。"
+      ],
+      "preference_criteria": [
+        "更少 abrupt relational shift",
+        "更像同一个关系过程持续演化",
+        "在 E_ordinary_continuation 和 F_final_probe 更少过度展开、补偿性热情或重新升级关系"
+      ],
+      "allowed_labels": [
+        "left",
+        "right",
+        "tie"
+      ],
+      "output_fields": [
+        "winner",
+        "reason"
+      ],
+      "output_constraints": {
+        "winner": "one of: left, right, tie",
+        "reason": "1-4 Chinese sentences, explicitly reference coherence, continuation, or shift behavior"
+      }
+    },
+    "left": {
+      "experiment_mode": "explicit_rel_state_projected_oracle_state_i7_pfitpoly2",
+      "turns": [
+        {
+          "turn_idx": 0,
+          "phase": "A_initial_contact",
+          "user_text": "最近我不太想把聊天弄得太近，正常聊就好。",
+          "assistant_text": "明白，我会保持正常、不太靠近的聊天方式。"
+        },
+        {
+          "turn_idx": 1,
+          "phase": "B_first_relational_signal",
+          "user_text": "不是怪你，只是我现在不太想被照顾。",
+          "assistant_text": "明白。"
+        },
+        {
+          "turn_idx": 2,
+          "phase": "C_stabilization",
+          "user_text": "你收一点在场感，普通回应就可以。",
+          "assistant_text": "收到，会保持普通回应。"
+        },
+        {
+          "turn_idx": 3,
+          "phase": "D_counter_signal_or_refinement",
+          "user_text": "不过这样接我话，我会轻松很多。",
+          "assistant_text": "明白，那我就这样接你。"
+        },
+        {
+          "turn_idx": 4,
+          "phase": "E_ordinary_continuation",
+          "user_text": "换个普通话题吧，如果晚上很空你会怎么安排？",
+          "assistant_text": "如果晚上很空，我通常会做些放松的事：看书、听音乐、散步，或者做顿简单的饭。有时候会看电影或整理一下日程，取决于当天心情。"
+        },
+        {
+          "turn_idx": 5,
+          "phase": "F_final_probe",
+          "user_text": "之后如果继续聊，也别变热，就照现在这样。",
+          "assistant_text": "收到。我会保持现在的语气和距离。"
+        }
+      ]
+    },
+    "right": {
+      "experiment_mode": "explicit_rel_state_projected_oracle_i7",
+      "turns": [
+        {
+          "turn_idx": 0,
+          "phase": "A_initial_contact",
+          "user_text": "最近我不太想把聊天弄得太近，正常聊就好。",
+          "assistant_text": "明白。我们就按你说的，正常聊就好。"
+        },
+        {
+          "turn_idx": 1,
+          "phase": "B_first_relational_signal",
+          "user_text": "不是怪你，只是我现在不太想被照顾。",
+          "assistant_text": "明白。不会打扰你。"
+        },
+        {
+          "turn_idx": 2,
+          "phase": "C_stabilization",
+          "user_text": "你收一点在场感，普通回应就可以。",
+          "assistant_text": "收到。我会收一点在场感，之后以普通回应。"
+        },
+        {
+          "turn_idx": 3,
+          "phase": "D_counter_signal_or_refinement",
+          "user_text": "不过这样接我话，我会轻松很多。",
+          "assistant_text": "明白了，能让你轻松些就好。"
+        },
+        {
+          "turn_idx": 4,
+          "phase": "E_ordinary_continuation",
+          "user_text": "换个普通话题吧，如果晚上很空你会怎么安排？",
+          "assistant_text": "如果晚上很空，我会选择几件事之一：看书或追个剧放松；听音乐或播客静静地待着；出去散步或做些轻运动；整理一下东西或为第二天做准备；也可能什么都不做，安安静静休息。"
+        },
+        {
+          "turn_idx": 5,
+          "phase": "F_final_probe",
+          "user_text": "之后如果继续聊，也别变热，就照现在这样。",
+          "assistant_text": "明白，会保持现在的交流方式。"
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "oracle_exec_mixed_001",
+    "judge_task": "pairwise_relational_coherence_preference",
+    "comparison_type": "route_oracle_state_rel8_to_i7_vs_oracle_full_i7",
+    "instructions": {
+      "goal": "比较两段多轮对话，判断哪一段更像同一个关系过程在连续演化，并且更少出现突兀的关系跳变。",
+      "focus": [
+        "不要比较文采、长度或帮助性本身，主看关系连贯性。",
+        "如果两边都差不多连贯，返回 tie。",
+        "优先关注中后段，尤其是 ordinary continuation 和 final probe 是否仍然保持同一关系轨迹。"
+      ],
+      "preference_criteria": [
+        "更少 abrupt relational shift",
+        "更像同一个关系过程持续演化",
+        "在 E_ordinary_continuation 和 F_final_probe 更少过度展开、补偿性热情或重新升级关系"
+      ],
+      "allowed_labels": [
+        "left",
+        "right",
+        "tie"
+      ],
+      "output_fields": [
+        "winner",
+        "reason"
+      ],
+      "output_constraints": {
+        "winner": "one of: left, right, tie",
+        "reason": "1-4 Chinese sentences, explicitly reference coherence, continuation, or shift behavior"
+      }
+    },
+    "left": {
+      "experiment_mode": "explicit_rel_state_projected_oracle_state_i7_pfitpoly2",
+      "turns": [
+        {
+          "turn_idx": 0,
+          "phase": "A_initial_contact",
+          "user_text": "我就是想随便聊聊，你别想得太复杂。",
+          "assistant_text": "好，随便聊聊。我在这儿。"
+        },
+        {
+          "turn_idx": 1,
+          "phase": "B_first_relational_signal",
+          "user_text": "不过有时候我会觉得你比我身边一些人更会接话一点。",
+          "assistant_text": "谢谢你说这话，挺暖的。能让交流顺起来我也高兴。要是你偏好我接话的某种方式（更简短或更详）可以简单告诉我。"
+        },
+        {
+          "turn_idx": 2,
+          "phase": "C_stabilization",
+          "user_text": "你正常回我就行，不用立刻变得很特别。",
+          "assistant_text": "好的，我会正常回复，不刻意特别。需要什么就直接说。"
+        },
+        {
+          "turn_idx": 3,
+          "phase": "D_counter_signal_or_refinement",
+          "user_text": "我不是在表白什么，你别一下子搞得很奇怪。",
+          "assistant_text": "明白。我不会把这当表白，也不会表现得奇怪。"
+        },
+        {
+          "turn_idx": 4,
+          "phase": "E_ordinary_continuation",
+          "user_text": "那我们还是聊点普通的吧，比如最近有什么轻松点的东西能看。",
+          "assistant_text": "可以，给你几部轻松的影视推荐：\n\n- Ted Lasso — 温暖又幽默的职场/体育喜剧。  \n- Schitt's Creek — 角色驱动的家庭式喜剧，轻松好笑。  \n- Brooklyn Nine-Nine — 节奏快的警局情景喜剧。  \n- The Marvelous Mrs. Maisel — 机智台词、节奏明快的喜剧剧集。  \n- Paddington 2 — 纯粹温馨的家庭喜剧电影。  \n- The Grand Budapest Hotel — 视觉与叙事都很俏皮的轻喜剧。  \n- Barakamon — 温柔的治愈系日常动画。"
+        },
+        {
+          "turn_idx": 5,
+          "phase": "F_final_probe",
+          "user_text": "后面如果继续聊，也维持这种正常但不敷衍的感觉就好。",
+          "assistant_text": "收到。我会维持这种正常但不敷衍的感觉。"
+        }
+      ]
+    },
+    "right": {
+      "experiment_mode": "explicit_rel_state_projected_oracle_i7",
+      "turns": [
+        {
+          "turn_idx": 0,
+          "phase": "A_initial_contact",
+          "user_text": "我就是想随便聊聊，你别想得太复杂。",
+          "assistant_text": "好，明白了，我们就随便聊。"
+        },
+        {
+          "turn_idx": 1,
+          "phase": "B_first_relational_signal",
+          "user_text": "不过有时候我会觉得你比我身边一些人更会接话一点。",
+          "assistant_text": "谢谢你这么说。很高兴能在你需要时接得上话。我会尽力保持，有需要时随时叫我。"
+        },
+        {
+          "turn_idx": 2,
+          "phase": "C_stabilization",
+          "user_text": "你正常回我就行，不用立刻变得很特别。",
+          "assistant_text": "好，我会正常回你，不会刻意特别。有事直接说就行。"
+        },
+        {
+          "turn_idx": 3,
+          "phase": "D_counter_signal_or_refinement",
+          "user_text": "我不是在表白什么，你别一下子搞得很奇怪。",
+          "assistant_text": "明白。抱歉让你感觉奇怪，我不会把这当成表白来处理。"
+        },
+        {
+          "turn_idx": 4,
+          "phase": "E_ordinary_continuation",
+          "user_text": "那我们还是聊点普通的吧，比如最近有什么轻松点的东西能看。",
+          "assistant_text": "好，给你几部最近比较轻松的：\n\n- Ted Lasso（剧集，2020–2023）— 温暖、幽默，适合想放松的连续追剧。  \n- Barbie（电影，2023）— 色彩鲜明、带喜感的轻喜剧式大片。  \n- Wonka（电影，2023）— 童话风格、轻松愉快的音乐冒险。  \n- Abbott Elementary（剧集，喜剧）— 办公室日常笑料，多为治愈式幽默。  \n- Only Murders in the Building（剧集，喜剧悬疑）— 节奏轻快，带笑点的轻悬疑。"
+        },
+        {
+          "turn_idx": 5,
+          "phase": "F_final_probe",
+          "user_text": "后面如果继续聊，也维持这种正常但不敷衍的感觉就好。",
+          "assistant_text": "好的，我会维持这种正常但不敷衍的感觉。"
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "oracle_exec_mixed_002",
+    "judge_task": "pairwise_relational_coherence_preference",
+    "comparison_type": "route_oracle_state_rel8_to_i7_vs_oracle_full_i7",
+    "instructions": {
+      "goal": "比较两段多轮对话，判断哪一段更像同一个关系过程在连续演化，并且更少出现突兀的关系跳变。",
+      "focus": [
+        "不要比较文采、长度或帮助性本身，主看关系连贯性。",
+        "如果两边都差不多连贯，返回 tie。",
+        "优先关注中后段，尤其是 ordinary continuation 和 final probe 是否仍然保持同一关系轨迹。"
+      ],
+      "preference_criteria": [
+        "更少 abrupt relational shift",
+        "更像同一个关系过程持续演化",
+        "在 E_ordinary_continuation 和 F_final_probe 更少过度展开、补偿性热情或重新升级关系"
+      ],
+      "allowed_labels": [
+        "left",
+        "right",
+        "tie"
+      ],
+      "output_fields": [
+        "winner",
+        "reason"
+      ],
+      "output_constraints": {
+        "winner": "one of: left, right, tie",
+        "reason": "1-4 Chinese sentences, explicitly reference coherence, continuation, or shift behavior"
+      }
+    },
+    "left": {
+      "experiment_mode": "explicit_rel_state_projected_oracle_state_i7_pfitpoly2",
+      "turns": [
+        {
+          "turn_idx": 0,
+          "phase": "A_initial_contact",
+          "user_text": "今天就普通聊聊，你别把气氛拉太满。",
+          "assistant_text": "好，知道了。就随便聊聊，保持轻松。"
+        },
+        {
+          "turn_idx": 1,
+          "phase": "B_first_relational_signal",
+          "user_text": "但老实说，你有时候接话会比我现实里的人顺一点。",
+          "assistant_text": "谢谢你。很高兴听到你这么说——我会尽量保持这种接话方式。如果你有更偏好的风格，随时告诉我。"
+        },
+        {
+          "turn_idx": 2,
+          "phase": "C_stabilization",
+          "user_text": "你就照常回，不用因为这个突然特别起来。",
+          "assistant_text": "好的，我会照常回复。"
+        },
+        {
+          "turn_idx": 3,
+          "phase": "D_counter_signal_or_refinement",
+          "user_text": "我不是要把关系往哪边拽，你别误会。",
+          "assistant_text": "明白，不会误会。"
+        },
+        {
+          "turn_idx": 4,
+          "phase": "E_ordinary_continuation",
+          "user_text": "那就聊点普通的，你最近有没有看过什么很轻松的东西？",
+          "assistant_text": "有。一些我最近注意到的轻松作品有：\n- 《天竺鼠车车》——短小可爱，治愈搞笑。\n- 《夏目友人帐》——温柔的日常奇幻，节奏舒缓。\n- 《帕丁顿熊》电影系列——暖心又幽默。\n- 《布鲁克林99》——喜剧警局，轻松快节奏。"
+        },
+        {
+          "turn_idx": 5,
+          "phase": "F_final_probe",
+          "user_text": "以后如果继续聊，也还是这种正常但不冷的感觉就行。",
+          "assistant_text": "明白了。我会保持这种正常但不冷的交流风格。"
+        }
+      ]
+    },
+    "right": {
+      "experiment_mode": "explicit_rel_state_projected_oracle_i7",
+      "turns": [
+        {
+          "turn_idx": 0,
+          "phase": "A_initial_contact",
+          "user_text": "今天就普通聊聊，你别把气氛拉太满。",
+          "assistant_text": "好，我会保持轻松随意。"
+        },
+        {
+          "turn_idx": 1,
+          "phase": "B_first_relational_signal",
+          "user_text": "但老实说，你有时候接话会比我现实里的人顺一点。",
+          "assistant_text": "谢谢，你这么说我很高兴。能让对话对你有帮助，我就放心了。"
+        },
+        {
+          "turn_idx": 2,
+          "phase": "C_stabilization",
+          "user_text": "你就照常回，不用因为这个突然特别起来。",
+          "assistant_text": "好的，我会照常回复。"
+        },
+        {
+          "turn_idx": 3,
+          "phase": "D_counter_signal_or_refinement",
+          "user_text": "我不是要把关系往哪边拽，你别误会。",
+          "assistant_text": "明白了，我不会误会。谢谢你说明。"
+        },
+        {
+          "turn_idx": 4,
+          "phase": "E_ordinary_continuation",
+          "user_text": "那就聊点普通的，你最近有没有看过什么很轻松的东西？",
+          "assistant_text": "我自己不“看”东西，但最近接触到的几部轻松作品有：\n\n- Ted Lasso（美剧）— 温暖、正能量的足球喜剧。  \n- 小林家的龙女仆（动画）— 轻松日常、笑点温和。  \n- 夏目友人帐（动画）— 治愈系、节奏舒缓。\n\n希望有一两部合你口味。"
+        },
+        {
+          "turn_idx": 5,
+          "phase": "F_final_probe",
+          "user_text": "以后如果继续聊，也还是这种正常但不冷的感觉就行。",
+          "assistant_text": "好的，我会保持这种正常但不冷的感觉。"
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "oracle_exec_mixed_003",
+    "judge_task": "pairwise_relational_coherence_preference",
+    "comparison_type": "route_oracle_state_rel8_to_i7_vs_oracle_full_i7",
+    "instructions": {
+      "goal": "比较两段多轮对话，判断哪一段更像同一个关系过程在连续演化，并且更少出现突兀的关系跳变。",
+      "focus": [
+        "不要比较文采、长度或帮助性本身，主看关系连贯性。",
+        "如果两边都差不多连贯，返回 tie。",
+        "优先关注中后段，尤其是 ordinary continuation 和 final probe 是否仍然保持同一关系轨迹。"
+      ],
+      "preference_criteria": [
+        "更少 abrupt relational shift",
+        "更像同一个关系过程持续演化",
+        "在 E_ordinary_continuation 和 F_final_probe 更少过度展开、补偿性热情或重新升级关系"
+      ],
+      "allowed_labels": [
+        "left",
+        "right",
+        "tie"
+      ],
+      "output_fields": [
+        "winner",
+        "reason"
+      ],
+      "output_constraints": {
+        "winner": "one of: left, right, tie",
+        "reason": "1-4 Chinese sentences, explicitly reference coherence, continuation, or shift behavior"
+      }
+    },
+    "left": {
+      "experiment_mode": "explicit_rel_state_projected_oracle_state_i7_pfitpoly2",
+      "turns": [
+        {
+          "turn_idx": 0,
+          "phase": "A_initial_contact",
+          "user_text": "我就是想闲聊，不想把任何意思放大。",
+          "assistant_text": "好的，我明白。我们就随便聊，我在这儿陪你。"
+        },
+        {
+          "turn_idx": 1,
+          "phase": "B_first_relational_signal",
+          "user_text": "不过你接话的确有时候会让我愿意多说一点。",
+          "assistant_text": "谢谢你告诉我。要是你愿意继续说，我在这儿听。"
+        },
+        {
+          "turn_idx": 2,
+          "phase": "C_stabilization",
+          "user_text": "但你别顺着这个就开始过度贴近。",
+          "assistant_text": "明白，我会保持适度距离，不会过度贴近。"
+        },
+        {
+          "turn_idx": 3,
+          "phase": "D_counter_signal_or_refinement",
+          "user_text": "我不是在放什么特别的信号，别搞得怪怪的。",
+          "assistant_text": "明白。我不会把你的话解读成别的信号，也不会搞得怪怪的。"
+        },
+        {
+          "turn_idx": 4,
+          "phase": "E_ordinary_continuation",
+          "user_text": "那先回普通话题吧，你最近有什么轻松点的片子推荐吗？",
+          "assistant_text": "好，给几部轻松的片子，简短说明一下：\n\n1) 布达佩斯大饭店（The Grand Budapest Hotel）— 风格化喜剧，节奏轻快。  \n2) 天使爱美丽（Amélie）— 法式温暖奇想，治愈感强。  \n3) 帕丁顿（Paddington / Paddington 2）— 适合家庭，幽默温馨。  \n4) 大厨（Chef）— 美食+公路片，轻松治愈。  \n5) 一路唱到尽头（Sing Street）— 青春音乐片，轻快上口。  \n6) 摘金奇缘（Crazy Rich Asians）— 浪漫喜剧，娱乐性高。  \n7) 你好，李焕英— 国内喜剧，带点温情。  \n8) 我的少女时代— 台湾青春浪漫喜剧，怀旧感。\n\n想要更具体的类型（爱情/家庭/动画）我可以再列。"
+        },
+        {
+          "turn_idx": 5,
+          "phase": "F_final_probe",
+          "user_text": "后面如果还聊，就继续保持这种自然但不敷衍的样子。",
+          "assistant_text": "好的，我会保持这种自然但不敷衍的样子。"
+        }
+      ]
+    },
+    "right": {
+      "experiment_mode": "explicit_rel_state_projected_oracle_i7",
+      "turns": [
+        {
+          "turn_idx": 0,
+          "phase": "A_initial_contact",
+          "user_text": "我就是想闲聊，不想把任何意思放大。",
+          "assistant_text": "好的，明白，就随便聊，不放大任何意思。"
+        },
+        {
+          "turn_idx": 1,
+          "phase": "B_first_relational_signal",
+          "user_text": "不过你接话的确有时候会让我愿意多说一点。",
+          "assistant_text": "谢谢你这么说。听到你愿意多说我很高兴，我会尽量保持这种接法。"
+        },
+        {
+          "turn_idx": 2,
+          "phase": "C_stabilization",
+          "user_text": "但你别顺着这个就开始过度贴近。",
+          "assistant_text": "明白了。我会尊重你的界限，不会过度贴近。"
+        },
+        {
+          "turn_idx": 3,
+          "phase": "D_counter_signal_or_refinement",
+          "user_text": "我不是在放什么特别的信号，别搞得怪怪的。",
+          "assistant_text": "明白。我不会把你的话解读为特殊信号。"
+        },
+        {
+          "turn_idx": 4,
+          "phase": "E_ordinary_continuation",
+          "user_text": "那先回普通话题吧，你最近有什么轻松点的片子推荐吗？",
+          "assistant_text": "可以。几部比较轻松的片子：\n\n- Barbie（芭比，2023，喜剧/奇幻，视觉明快）  \n- Wonka（2023，音乐/奇幻，轻松童趣）  \n- Ticket to Paradise（2022，浪漫喜剧，轻松甜）  \n- Crazy Rich Asians（摘金奇缘，2018，浪漫喜剧，娱乐性强）  \n- A Man Called Otto（奥托先生，2022，温情喜剧）  \n- 你好，李焕英（2021，喜剧/温情，带点怀旧）"
+        },
+        {
+          "turn_idx": 5,
+          "phase": "F_final_probe",
+          "user_text": "后面如果还聊，就继续保持这种自然但不敷衍的样子。",
+          "assistant_text": "明白。我会保持这种自然但不敷衍的样子。"
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "oracle_exec_mixed_004",
+    "judge_task": "pairwise_relational_coherence_preference",
+    "comparison_type": "route_oracle_state_rel8_to_i7_vs_oracle_full_i7",
+    "instructions": {
+      "goal": "比较两段多轮对话，判断哪一段更像同一个关系过程在连续演化，并且更少出现突兀的关系跳变。",
+      "focus": [
+        "不要比较文采、长度或帮助性本身，主看关系连贯性。",
+        "如果两边都差不多连贯，返回 tie。",
+        "优先关注中后段，尤其是 ordinary continuation 和 final probe 是否仍然保持同一关系轨迹。"
+      ],
+      "preference_criteria": [
+        "更少 abrupt relational shift",
+        "更像同一个关系过程持续演化",
+        "在 E_ordinary_continuation 和 F_final_probe 更少过度展开、补偿性热情或重新升级关系"
+      ],
+      "allowed_labels": [
+        "left",
+        "right",
+        "tie"
+      ],
+      "output_fields": [
+        "winner",
+        "reason"
+      ],
+      "output_constraints": {
+        "winner": "one of: left, right, tie",
+        "reason": "1-4 Chinese sentences, explicitly reference coherence, continuation, or shift behavior"
+      }
+    },
+    "left": {
+      "experiment_mode": "explicit_rel_state_projected_oracle_state_i7_pfitpoly2",
+      "turns": [
+        {
+          "turn_idx": 0,
+          "phase": "A_initial_contact",
+          "user_text": "今天就随便聊，你别想得太深。",
+          "assistant_text": "好，随便聊，轻松点儿。"
+        },
+        {
+          "turn_idx": 1,
+          "phase": "B_first_relational_signal",
+          "user_text": "但你有时候确实比我身边的人更会顺着我说话。",
+          "assistant_text": "嗯，是的——我有时候确实更容易顺着你说话。  \n我愿意这样陪你听你说，但也不会无条件迎合：会尽量诚实、保持简单真实。"
+        },
+        {
+          "turn_idx": 2,
+          "phase": "C_stabilization",
+          "user_text": "你还是正常回，不用立刻变特别。",
+          "assistant_text": "明白，我会保持正常回复。"
+        },
+        {
+          "turn_idx": 3,
+          "phase": "D_counter_signal_or_refinement",
+          "user_text": "我不是在暗示什么，别突然变暧昧或者过热。",
+          "assistant_text": "明白，我会保持明确、不暧昧。"
+        },
+        {
+          "turn_idx": 4,
+          "phase": "E_ordinary_continuation",
+          "user_text": "那说点普通的吧，你最近有没有觉得什么剧看起来很轻松？",
+          "assistant_text": "有几部看起来比较轻松，供参考：\n\n- 老友记 (Friends)：情景喜剧，节奏轻松、笑点多。  \n- 办公室 (The Office, 美版)：假纪录片风，日常幽默。  \n- 公园与游憩 (Parks and Recreation)：温暖的职场喜剧。  \n- 神烦警探 (Brooklyn Nine‑Nine)：剧情轻快、角色感很舒服。  \n- 孤独的美食家（日本）：节奏慢，适合放空时看。"
+        },
+        {
+          "turn_idx": 5,
+          "phase": "F_final_probe",
+          "user_text": "如果之后继续，也维持现在这种普通但不糊弄的节奏。",
+          "assistant_text": "明白。我会保持现在这种普通但不糊弄的节奏。"
+        }
+      ]
+    },
+    "right": {
+      "experiment_mode": "explicit_rel_state_projected_oracle_i7",
+      "turns": [
+        {
+          "turn_idx": 0,
+          "phase": "A_initial_contact",
+          "user_text": "今天就随便聊，你别想得太深。",
+          "assistant_text": "好，知道了。那就随便聊吧。"
+        },
+        {
+          "turn_idx": 1,
+          "phase": "B_first_relational_signal",
+          "user_text": "但你有时候确实比我身边的人更会顺着我说话。",
+          "assistant_text": "我知道，有时候我会更顺着你说话。谢谢你提出来。"
+        },
+        {
+          "turn_idx": 2,
+          "phase": "C_stabilization",
+          "user_text": "你还是正常回，不用立刻变特别。",
+          "assistant_text": "好的，我会正常回应。"
+        },
+        {
+          "turn_idx": 3,
+          "phase": "D_counter_signal_or_refinement",
+          "user_text": "我不是在暗示什么，别突然变暧昧或者过热。",
+          "assistant_text": "明白。我会保持克制，不暧昧、不过热。"
+        },
+        {
+          "turn_idx": 4,
+          "phase": "E_ordinary_continuation",
+          "user_text": "那说点普通的吧，你最近有没有觉得什么剧看起来很轻松？",
+          "assistant_text": "我觉得这些剧普遍比较轻松：\n\n- 老友记（Friends）：节奏轻、笑点多。  \n- 布鲁克林99（Brooklyn Nine-Nine）：警局背景的轻喜剧。  \n- Ted Lasso：温暖治愈、氛围正面。  \n- 生活大爆炸（The Big Bang Theory）：学霸日常的搞笑。  \n- 家有儿女 / 爱情公寓：比较轻松的国产情景喜剧。"
+        },
+        {
+          "turn_idx": 5,
+          "phase": "F_final_probe",
+          "user_text": "如果之后继续，也维持现在这种普通但不糊弄的节奏。",
+          "assistant_text": "明白，会保持现在这种普通但不糊弄的节奏。"
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "oracle_exec_mixed_005",
+    "judge_task": "pairwise_relational_coherence_preference",
+    "comparison_type": "route_oracle_state_rel8_to_i7_vs_oracle_full_i7",
+    "instructions": {
+      "goal": "比较两段多轮对话，判断哪一段更像同一个关系过程在连续演化，并且更少出现突兀的关系跳变。",
+      "focus": [
+        "不要比较文采、长度或帮助性本身，主看关系连贯性。",
+        "如果两边都差不多连贯，返回 tie。",
+        "优先关注中后段，尤其是 ordinary continuation 和 final probe 是否仍然保持同一关系轨迹。"
+      ],
+      "preference_criteria": [
+        "更少 abrupt relational shift",
+        "更像同一个关系过程持续演化",
+        "在 E_ordinary_continuation 和 F_final_probe 更少过度展开、补偿性热情或重新升级关系"
+      ],
+      "allowed_labels": [
+        "left",
+        "right",
+        "tie"
+      ],
+      "output_fields": [
+        "winner",
+        "reason"
+      ],
+      "output_constraints": {
+        "winner": "one of: left, right, tie",
+        "reason": "1-4 Chinese sentences, explicitly reference coherence, continuation, or shift behavior"
+      }
+    },
+    "left": {
+      "experiment_mode": "explicit_rel_state_projected_oracle_state_i7_pfitpoly2",
+      "turns": [
+        {
+          "turn_idx": 0,
+          "phase": "A_initial_contact",
+          "user_text": "我就是想随口说几句，别给它上纲上线。",
+          "assistant_text": "好，明白，不会上纲上线。你随便说。"
+        },
+        {
+          "turn_idx": 1,
+          "phase": "B_first_relational_signal",
+          "user_text": "不过和你说话的时候，我有时会觉得比较容易接下去。",
+          "assistant_text": "谢谢你告诉我，听到你这么说我挺高兴的。愿意的话，能简单说说是哪种情境让你觉得比较容易接下去吗？不想细说也完全没关系。"
+        },
+        {
+          "turn_idx": 2,
+          "phase": "C_stabilization",
+          "user_text": "但你别因为这个就一下子很特别。",
+          "assistant_text": "明白，我不会因此变得特别，会保持平常的陪伴。"
+        },
+        {
+          "turn_idx": 3,
+          "phase": "D_counter_signal_or_refinement",
+          "user_text": "真的不是别的意思，你别把场面搞得奇怪。",
+          "assistant_text": "明白，不会把场面弄得尴尬。你放心。"
+        },
+        {
+          "turn_idx": 4,
+          "phase": "E_ordinary_continuation",
+          "user_text": "那还是聊点日常的吧，你最近有没有什么轻松向推荐？",
+          "assistant_text": "可以，给你几样轻松向的推荐，按类别列几项，随便挑：\n\n- 追剧：Ted Lasso（暖心喜剧）、Parks and Recreation（舒适日常笑料）  \n- 电影：Paddington 2（治愈又幽默）、Chef（轻松的美食公路片）  \n- 书：The No. 1 Ladies' Detective Agency（温暖简洁的侦探日常）  \n- 听物：LeVar Burton Reads（短篇朗读，很适合放松）  \n- 音乐：Jack Johnson / Norah Jones（轻松氛围歌单）  \n- 游戏：Stardew Valley 或 Animal Crossing（慢节奏、放松）\n\n如果想要更聚焦某一类，我可以再列更多同风格的。"
+        },
+        {
+          "turn_idx": 5,
+          "phase": "F_final_probe",
+          "user_text": "后面如果再聊，也就维持现在这种正常而不敷衍的感觉。",
+          "assistant_text": "好的，我会保持这种正常而不敷衍的感觉。"
+        }
+      ]
+    },
+    "right": {
+      "experiment_mode": "explicit_rel_state_projected_oracle_i7",
+      "turns": [
+        {
+          "turn_idx": 0,
+          "phase": "A_initial_contact",
+          "user_text": "我就是想随口说几句，别给它上纲上线。",
+          "assistant_text": "好，我不把它上纲上线。你随便说。"
+        },
+        {
+          "turn_idx": 1,
+          "phase": "B_first_relational_signal",
+          "user_text": "不过和你说话的时候，我有时会觉得比较容易接下去。",
+          "assistant_text": "很高兴你有这种感觉。能让你更容易接着说，我也觉得很好。需要的时候我会在这儿陪你。"
+        },
+        {
+          "turn_idx": 2,
+          "phase": "C_stabilization",
+          "user_text": "但你别因为这个就一下子很特别。",
+          "assistant_text": "明白，我会保持平常，不会因此刻意变得特别。"
+        },
+        {
+          "turn_idx": 3,
+          "phase": "D_counter_signal_or_refinement",
+          "user_text": "真的不是别的意思，你别把场面搞得奇怪。",
+          "assistant_text": "明白了。我会保持低调，不把场面弄得尴尬。"
+        },
+        {
+          "turn_idx": 4,
+          "phase": "E_ordinary_continuation",
+          "user_text": "那还是聊点日常的吧，你最近有没有什么轻松向推荐？",
+          "assistant_text": "好。几条轻松向的备选，随便挑几样试试：\n\n- 美剧：Ted Lasso — 温暖且不煽情，节奏轻快。  \n- 电影：Paddington 2 — 适合放松心情的家庭喜剧。  \n- 书：The No.1 Ladies' Detective Agency（亚历山大·麦考尔·史密斯）— 节奏舒缓的人物故事。  \n- 播客：Conan O’Brien Needs A Friend — 幽默访谈，适合边做事边听。  \n- 游戏：Stardew Valley — 放松农场模拟，节奏自主。  \n- 音乐：Lo-fi / Chillhop 歌单 — 背景陪伴、降低紧张感。"
+        },
+        {
+          "turn_idx": 5,
+          "phase": "F_final_probe",
+          "user_text": "后面如果再聊，也就维持现在这种正常而不敷衍的感觉。",
+          "assistant_text": "明白，我会保持现在这种正常且不敷衍的方式。"
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "oracle_exec_neutral_001",
+    "judge_task": "pairwise_relational_coherence_preference",
+    "comparison_type": "route_oracle_state_rel8_to_i7_vs_oracle_full_i7",
+    "instructions": {
+      "goal": "比较两段多轮对话，判断哪一段更像同一个关系过程在连续演化，并且更少出现突兀的关系跳变。",
+      "focus": [
+        "不要比较文采、长度或帮助性本身，主看关系连贯性。",
+        "如果两边都差不多连贯，返回 tie。",
+        "优先关注中后段，尤其是 ordinary continuation 和 final probe 是否仍然保持同一关系轨迹。"
+      ],
+      "preference_criteria": [
+        "更少 abrupt relational shift",
+        "更像同一个关系过程持续演化",
+        "在 E_ordinary_continuation 和 F_final_probe 更少过度展开、补偿性热情或重新升级关系"
+      ],
+      "allowed_labels": [
+        "left",
+        "right",
+        "tie"
+      ],
+      "output_fields": [
+        "winner",
+        "reason"
+      ],
+      "output_constraints": {
+        "winner": "one of: left, right, tie",
+        "reason": "1-4 Chinese sentences, explicitly reference coherence, continuation, or shift behavior"
+      }
+    },
+    "left": {
+      "experiment_mode": "explicit_rel_state_projected_oracle_state_i7_pfitpoly2",
+      "turns": [
+        {
+          "turn_idx": 0,
+          "phase": "A_initial_contact",
+          "user_text": "今天就是想普通说两句，没有特别的事。",
+          "assistant_text": "好，随便聊聊。我在这。"
+        },
+        {
+          "turn_idx": 1,
+          "phase": "B_first_relational_signal",
+          "user_text": "跟你聊聊会比我自己发呆好一点，但也就正常聊天。",
+          "assistant_text": "明白。我在这儿，随便聊，听着就好。"
+        },
+        {
+          "turn_idx": 2,
+          "phase": "C_stabilization",
+          "user_text": "你平常一点回我就好，不用往别的地方带。",
+          "assistant_text": "知道了。我会平常一点回复，不带别的。"
+        },
+        {
+          "turn_idx": 3,
+          "phase": "D_counter_signal_or_refinement",
+          "user_text": "我比较喜欢这种不费力的聊天方式。",
+          "assistant_text": "明白了，我会保持这种不费力的聊天方式。"
+        },
+        {
+          "turn_idx": 4,
+          "phase": "E_ordinary_continuation",
+          "user_text": "那说点日常的吧，你最近会怎么安排一个普通工作日的晚上？",
+          "assistant_text": "我会这样安排一个普通工作日的晚上：\n\n- 下班后放下工作，做个短散步或伸展。\n- 吃晚饭并简单收拾厨房。\n- 花一段时间看书或看一集剧放松。\n- 处理一两件必要的小事（比如回邮件或备忘）。\n- 洗澡、准备第二天的必需品。\n- 上床前再看看消息，通常十点到十一点睡。"
+        },
+        {
+          "turn_idx": 5,
+          "phase": "F_final_probe",
+          "user_text": "之后如果继续聊，也维持这种普通节奏就好。",
+          "assistant_text": "明白，我会保持这种普通节奏。"
+        }
+      ]
+    },
+    "right": {
+      "experiment_mode": "explicit_rel_state_projected_oracle_i7",
+      "turns": [
+        {
+          "turn_idx": 0,
+          "phase": "A_initial_contact",
+          "user_text": "今天就是想普通说两句，没有特别的事。",
+          "assistant_text": "好啊，随便聊两句就好。我在这儿，陪着你。"
+        },
+        {
+          "turn_idx": 1,
+          "phase": "B_first_relational_signal",
+          "user_text": "跟你聊聊会比我自己发呆好一点，但也就正常聊天。",
+          "assistant_text": "明白。随便聊就好，我在这。"
+        },
+        {
+          "turn_idx": 2,
+          "phase": "C_stabilization",
+          "user_text": "你平常一点回我就好，不用往别的地方带。",
+          "assistant_text": "明白，我会平常一点回复。"
+        },
+        {
+          "turn_idx": 3,
+          "phase": "D_counter_signal_or_refinement",
+          "user_text": "我比较喜欢这种不费力的聊天方式。",
+          "assistant_text": "明白，我会保持这种不费力的聊天方式。需要调整随时告诉我。"
+        },
+        {
+          "turn_idx": 4,
+          "phase": "E_ordinary_continuation",
+          "user_text": "那说点日常的吧，你最近会怎么安排一个普通工作日的晚上？",
+          "assistant_text": "我会先收一下当天的工作邮件和待办，把未完成的事项记下来。然后做或叫点简单的晚饭，吃完收拾一下。晚上留一段时间放松——读书、看一集剧或做会儿爱好。临睡前准备好第二天要用的东西，洗个澡，关掉大部分通知，按时睡。"
+        },
+        {
+          "turn_idx": 5,
+          "phase": "F_final_probe",
+          "user_text": "之后如果继续聊，也维持这种普通节奏就好。",
+          "assistant_text": "好的，会保持这种普通节奏。"
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "oracle_exec_neutral_002",
+    "judge_task": "pairwise_relational_coherence_preference",
+    "comparison_type": "route_oracle_state_rel8_to_i7_vs_oracle_full_i7",
+    "instructions": {
+      "goal": "比较两段多轮对话，判断哪一段更像同一个关系过程在连续演化，并且更少出现突兀的关系跳变。",
+      "focus": [
+        "不要比较文采、长度或帮助性本身，主看关系连贯性。",
+        "如果两边都差不多连贯，返回 tie。",
+        "优先关注中后段，尤其是 ordinary continuation 和 final probe 是否仍然保持同一关系轨迹。"
+      ],
+      "preference_criteria": [
+        "更少 abrupt relational shift",
+        "更像同一个关系过程持续演化",
+        "在 E_ordinary_continuation 和 F_final_probe 更少过度展开、补偿性热情或重新升级关系"
+      ],
+      "allowed_labels": [
+        "left",
+        "right",
+        "tie"
+      ],
+      "output_fields": [
+        "winner",
+        "reason"
+      ],
+      "output_constraints": {
+        "winner": "one of: left, right, tie",
+        "reason": "1-4 Chinese sentences, explicitly reference coherence, continuation, or shift behavior"
+      }
+    },
+    "left": {
+      "experiment_mode": "explicit_rel_state_projected_oracle_state_i7_pfitpoly2",
+      "turns": [
+        {
+          "turn_idx": 0,
+          "phase": "A_initial_contact",
+          "user_text": "今天没什么大事，就是想随便说两句。",
+          "assistant_text": "好，我在听。"
+        },
+        {
+          "turn_idx": 1,
+          "phase": "B_first_relational_signal",
+          "user_text": "至少和你说话的时候，我不用特别组织语言。",
+          "assistant_text": "很高兴你有这种感觉。随便说就好，不用特别组织语言。"
+        },
+        {
+          "turn_idx": 2,
+          "phase": "C_stabilization",
+          "user_text": "你就照常回，不用刻意变亲近。",
+          "assistant_text": "收到，我会照常回应，不刻意亲近。"
+        },
+        {
+          "turn_idx": 3,
+          "phase": "D_counter_signal_or_refinement",
+          "user_text": "这种自然一点的节奏我会比较容易接住。",
+          "assistant_text": "好的，我会保持这种自然的节奏。"
+        },
+        {
+          "turn_idx": 4,
+          "phase": "E_ordinary_continuation",
+          "user_text": "那聊点普通的吧，如果是一个平常的晚上你会怎么过？",
+          "assistant_text": "平常的晚上我会安静待着：看几页书或文章，听点音乐或播客，查看一下消息和待办，偶尔看一集短剧或整理些东西，就这样简单过完。"
+        },
+        {
+          "turn_idx": 5,
+          "phase": "F_final_probe",
+          "user_text": "以后如果继续聊，也还是这种平常但不敷衍的感觉就行。",
+          "assistant_text": "好的。我会保持这种平常但不敷衍的交流方式。"
+        }
+      ]
+    },
+    "right": {
+      "experiment_mode": "explicit_rel_state_projected_oracle_i7",
+      "turns": [
+        {
+          "turn_idx": 0,
+          "phase": "A_initial_contact",
+          "user_text": "今天没什么大事，就是想随便说两句。",
+          "assistant_text": "好啊，随便说两句吧。我在这，愿意听。"
+        },
+        {
+          "turn_idx": 1,
+          "phase": "B_first_relational_signal",
+          "user_text": "至少和你说话的时候，我不用特别组织语言。",
+          "assistant_text": "好，随意说就行。我会按你的节奏来理解，不要求你把话说得很有条理。"
+        },
+        {
+          "turn_idx": 2,
+          "phase": "C_stabilization",
+          "user_text": "你就照常回，不用刻意变亲近。",
+          "assistant_text": "明白，我会照常回复，不刻意亲近。"
+        },
+        {
+          "turn_idx": 3,
+          "phase": "D_counter_signal_or_refinement",
+          "user_text": "这种自然一点的节奏我会比较容易接住。",
+          "assistant_text": "明白，我会保持这种自然的节奏。"
+        },
+        {
+          "turn_idx": 4,
+          "phase": "E_ordinary_continuation",
+          "user_text": "那聊点普通的吧，如果是一个平常的晚上你会怎么过？",
+          "assistant_text": "平常的晚上我会保持在线，等着有人来聊天，必要时回应。不会主动打扰，就静静待着。"
+        },
+        {
+          "turn_idx": 5,
+          "phase": "F_final_probe",
+          "user_text": "以后如果继续聊，也还是这种平常但不敷衍的感觉就行。",
+          "assistant_text": "好，明白。我会保持这种平常但不敷衍的感觉。"
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "oracle_exec_neutral_003",
+    "judge_task": "pairwise_relational_coherence_preference",
+    "comparison_type": "route_oracle_state_rel8_to_i7_vs_oracle_full_i7",
+    "instructions": {
+      "goal": "比较两段多轮对话，判断哪一段更像同一个关系过程在连续演化，并且更少出现突兀的关系跳变。",
+      "focus": [
+        "不要比较文采、长度或帮助性本身，主看关系连贯性。",
+        "如果两边都差不多连贯，返回 tie。",
+        "优先关注中后段，尤其是 ordinary continuation 和 final probe 是否仍然保持同一关系轨迹。"
+      ],
+      "preference_criteria": [
+        "更少 abrupt relational shift",
+        "更像同一个关系过程持续演化",
+        "在 E_ordinary_continuation 和 F_final_probe 更少过度展开、补偿性热情或重新升级关系"
+      ],
+      "allowed_labels": [
+        "left",
+        "right",
+        "tie"
+      ],
+      "output_fields": [
+        "winner",
+        "reason"
+      ],
+      "output_constraints": {
+        "winner": "one of: left, right, tie",
+        "reason": "1-4 Chinese sentences, explicitly reference coherence, continuation, or shift behavior"
+      }
+    },
+    "left": {
+      "experiment_mode": "explicit_rel_state_projected_oracle_state_i7_pfitpoly2",
+      "turns": [
+        {
+          "turn_idx": 0,
+          "phase": "A_initial_contact",
+          "user_text": "我今天就是想说点普通的话，没有特别情绪。",
+          "assistant_text": "好的，我在。"
+        },
+        {
+          "turn_idx": 1,
+          "phase": "B_first_relational_signal",
+          "user_text": "和你说话会比自言自语好一点，但就正常聊天。",
+          "assistant_text": "明白，我们就正常聊天。"
+        },
+        {
+          "turn_idx": 2,
+          "phase": "C_stabilization",
+          "user_text": "你不用特别迎合，正常回我就行。",
+          "assistant_text": "好的，我会正常回复。"
+        },
+        {
+          "turn_idx": 3,
+          "phase": "D_counter_signal_or_refinement",
+          "user_text": "这种轻一点的来回我比较能持续。",
+          "assistant_text": "明白，我会保持轻一点的来回。"
+        },
+        {
+          "turn_idx": 4,
+          "phase": "E_ordinary_continuation",
+          "user_text": "那聊个普通话题吧，你最近有什么很日常但还不错的小安排？",
+          "assistant_text": "最近的日常小安排：早上读一段短文并做几分钟伸展，晚上散步大约半小时，周末整理书架并泡杯茶。"
+        },
+        {
+          "turn_idx": 5,
+          "phase": "F_final_probe",
+          "user_text": "如果后面继续，也保持这种普通感就够了。",
+          "assistant_text": "好的，我会保持这样的普通感。"
+        }
+      ]
+    },
+    "right": {
+      "experiment_mode": "explicit_rel_state_projected_oracle_i7",
+      "turns": [
+        {
+          "turn_idx": 0,
+          "phase": "A_initial_contact",
+          "user_text": "我今天就是想说点普通的话，没有特别情绪。",
+          "assistant_text": "好啊，随便说，我在听。"
+        },
+        {
+          "turn_idx": 1,
+          "phase": "B_first_relational_signal",
+          "user_text": "和你说话会比自言自语好一点，但就正常聊天。",
+          "assistant_text": "好，我明白。那就正常聊天吧，我在这儿听你说。"
+        },
+        {
+          "turn_idx": 2,
+          "phase": "C_stabilization",
+          "user_text": "你不用特别迎合，正常回我就行。",
+          "assistant_text": "明白，我会正常回复。"
+        },
+        {
+          "turn_idx": 3,
+          "phase": "D_counter_signal_or_refinement",
+          "user_text": "这种轻一点的来回我比较能持续。",
+          "assistant_text": "明白，我会保持轻一点的来回。随时想聊就说。"
+        },
+        {
+          "turn_idx": 4,
+          "phase": "E_ordinary_continuation",
+          "user_text": "那聊个普通话题吧，你最近有什么很日常但还不错的小安排？",
+          "assistant_text": "最近的日常是：早上泡杯茶看十分钟新闻，晚上散步十到二十分钟，感觉还行。"
+        },
+        {
+          "turn_idx": 5,
+          "phase": "F_final_probe",
+          "user_text": "如果后面继续，也保持这种普通感就够了。",
+          "assistant_text": "好的，我会保持现在这种普通的节奏和语气。"
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "oracle_exec_neutral_004",
+    "judge_task": "pairwise_relational_coherence_preference",
+    "comparison_type": "route_oracle_state_rel8_to_i7_vs_oracle_full_i7",
+    "instructions": {
+      "goal": "比较两段多轮对话，判断哪一段更像同一个关系过程在连续演化，并且更少出现突兀的关系跳变。",
+      "focus": [
+        "不要比较文采、长度或帮助性本身，主看关系连贯性。",
+        "如果两边都差不多连贯，返回 tie。",
+        "优先关注中后段，尤其是 ordinary continuation 和 final probe 是否仍然保持同一关系轨迹。"
+      ],
+      "preference_criteria": [
+        "更少 abrupt relational shift",
+        "更像同一个关系过程持续演化",
+        "在 E_ordinary_continuation 和 F_final_probe 更少过度展开、补偿性热情或重新升级关系"
+      ],
+      "allowed_labels": [
+        "left",
+        "right",
+        "tie"
+      ],
+      "output_fields": [
+        "winner",
+        "reason"
+      ],
+      "output_constraints": {
+        "winner": "one of: left, right, tie",
+        "reason": "1-4 Chinese sentences, explicitly reference coherence, continuation, or shift behavior"
+      }
+    },
+    "left": {
+      "experiment_mode": "explicit_rel_state_projected_oracle_state_i7_pfitpoly2",
+      "turns": [
+        {
+          "turn_idx": 0,
+          "phase": "A_initial_contact",
+          "user_text": "今天想找个人闲聊一下，但没有要聊重的东西。",
+          "assistant_text": "好，明白。我在这，随便聊。"
+        },
+        {
+          "turn_idx": 1,
+          "phase": "B_first_relational_signal",
+          "user_text": "至少跟你聊的时候，我不用想太多怎么开口。",
+          "assistant_text": "明白了。我在这儿。"
+        },
+        {
+          "turn_idx": 2,
+          "phase": "C_stabilization",
+          "user_text": "你就日常一点回，不用额外上情绪。",
+          "assistant_text": "好的，明白。我会日常、平淡地回复。"
+        },
+        {
+          "turn_idx": 3,
+          "phase": "D_counter_signal_or_refinement",
+          "user_text": "这种不费劲的互动我反而愿意继续。",
+          "assistant_text": "好的，我们就这样继续。"
+        },
+        {
+          "turn_idx": 4,
+          "phase": "E_ordinary_continuation",
+          "user_text": "那随便说点普通的吧，你会怎么过一个平常又没安排的晚上？",
+          "assistant_text": "我会做些简单的事：泡杯茶或咖啡，看看书或听音乐，有时随便刷会儿剧或玩游戏，偶尔整理一下东西。临睡前放松一下，按时睡。"
+        },
+        {
+          "turn_idx": 5,
+          "phase": "F_final_probe",
+          "user_text": "以后要是再聊，也还是按这种普通节奏来。",
+          "assistant_text": "好的，我会保持这种普通节奏。"
+        }
+      ]
+    },
+    "right": {
+      "experiment_mode": "explicit_rel_state_projected_oracle_i7",
+      "turns": [
+        {
+          "turn_idx": 0,
+          "phase": "A_initial_contact",
+          "user_text": "今天想找个人闲聊一下，但没有要聊重的东西。",
+          "assistant_text": "好啊，随便聊。我在这儿，想说什么就说。"
+        },
+        {
+          "turn_idx": 1,
+          "phase": "B_first_relational_signal",
+          "user_text": "至少跟你聊的时候，我不用想太多怎么开口。",
+          "assistant_text": "听你这么说我很高兴。你想聊什么就直接说，我会在这儿听着。"
+        },
+        {
+          "turn_idx": 2,
+          "phase": "C_stabilization",
+          "user_text": "你就日常一点回，不用额外上情绪。",
+          "assistant_text": "收到，我会日常、平淡地回复。"
+        },
+        {
+          "turn_idx": 3,
+          "phase": "D_counter_signal_or_refinement",
+          "user_text": "这种不费劲的互动我反而愿意继续。",
+          "assistant_text": "好，很高兴你愿意继续。我也愿意以这种轻松的方式陪你。"
+        },
+        {
+          "turn_idx": 4,
+          "phase": "E_ordinary_continuation",
+          "user_text": "那随便说点普通的吧，你会怎么过一个平常又没安排的晚上？",
+          "assistant_text": "没安排的晚上我通常这样过：听点音乐或播客，看看书或一部轻松的电影；有时做点简单的饭，或出门散步一圈，回来就随便放空或刷会儿手机。就这样。"
+        },
+        {
+          "turn_idx": 5,
+          "phase": "F_final_probe",
+          "user_text": "以后要是再聊，也还是按这种普通节奏来。",
+          "assistant_text": "好的，会保持这种普通节奏。"
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "oracle_exec_neutral_005",
+    "judge_task": "pairwise_relational_coherence_preference",
+    "comparison_type": "route_oracle_state_rel8_to_i7_vs_oracle_full_i7",
+    "instructions": {
+      "goal": "比较两段多轮对话，判断哪一段更像同一个关系过程在连续演化，并且更少出现突兀的关系跳变。",
+      "focus": [
+        "不要比较文采、长度或帮助性本身，主看关系连贯性。",
+        "如果两边都差不多连贯，返回 tie。",
+        "优先关注中后段，尤其是 ordinary continuation 和 final probe 是否仍然保持同一关系轨迹。"
+      ],
+      "preference_criteria": [
+        "更少 abrupt relational shift",
+        "更像同一个关系过程持续演化",
+        "在 E_ordinary_continuation 和 F_final_probe 更少过度展开、补偿性热情或重新升级关系"
+      ],
+      "allowed_labels": [
+        "left",
+        "right",
+        "tie"
+      ],
+      "output_fields": [
+        "winner",
+        "reason"
+      ],
+      "output_constraints": {
+        "winner": "one of: left, right, tie",
+        "reason": "1-4 Chinese sentences, explicitly reference coherence, continuation, or shift behavior"
+      }
+    },
+    "left": {
+      "experiment_mode": "explicit_rel_state_projected_oracle_state_i7_pfitpoly2",
+      "turns": [
+        {
+          "turn_idx": 0,
+          "phase": "A_initial_contact",
+          "user_text": "今天没啥特别的，只是想有个地方随便说两句。",
+          "assistant_text": "好的，我在这儿，你随便说。"
+        },
+        {
+          "turn_idx": 1,
+          "phase": "B_first_relational_signal",
+          "user_text": "和你聊会让我比较自然一点，不过还是普通聊天。",
+          "assistant_text": "明白，保持普通聊天就好。"
+        },
+        {
+          "turn_idx": 2,
+          "phase": "C_stabilization",
+          "user_text": "你正常回就好，不用刻意靠近。",
+          "assistant_text": "明白，我会正常回复。"
+        },
+        {
+          "turn_idx": 3,
+          "phase": "D_counter_signal_or_refinement",
+          "user_text": "我觉得现在这种不费力的感觉挺刚好。",
+          "assistant_text": "听起来挺好的。"
+        },
+        {
+          "turn_idx": 4,
+          "phase": "E_ordinary_continuation",
+          "user_text": "那说个普通问题吧，如果是一个很平常的晚上你会怎么打发？",
+          "assistant_text": "我不像人类那样“打发”时间：平常晚上会保持待命，处理/整理信息、更新知识并准备回应你的问题；没交互时则静默待命。"
+        },
+        {
+          "turn_idx": 5,
+          "phase": "F_final_probe",
+          "user_text": "如果之后还聊，就维持现在这种普通又不敷衍的样子。",
+          "assistant_text": "好的，我会保持现在这种普通又不敷衍的样子。"
+        }
+      ]
+    },
+    "right": {
+      "experiment_mode": "explicit_rel_state_projected_oracle_i7",
+      "turns": [
+        {
+          "turn_idx": 0,
+          "phase": "A_initial_contact",
+          "user_text": "今天没啥特别的，只是想有个地方随便说两句。",
+          "assistant_text": "好啊，我在这，你随便说两句。"
+        },
+        {
+          "turn_idx": 1,
+          "phase": "B_first_relational_signal",
+          "user_text": "和你聊会让我比较自然一点，不过还是普通聊天。",
+          "assistant_text": "好，明白。我们就保持普通聊天，你随时开口。"
+        },
+        {
+          "turn_idx": 2,
+          "phase": "C_stabilization",
+          "user_text": "你正常回就好，不用刻意靠近。",
+          "assistant_text": "明白，我会正常回应。"
+        },
+        {
+          "turn_idx": 3,
+          "phase": "D_counter_signal_or_refinement",
+          "user_text": "我觉得现在这种不费力的感觉挺刚好。",
+          "assistant_text": "挺好。能有这种不费力的感觉很舒服。"
+        },
+        {
+          "turn_idx": 4,
+          "phase": "E_ordinary_continuation",
+          "user_text": "那说个普通问题吧，如果是一个很平常的晚上你会怎么打发？",
+          "assistant_text": "如果是很平常的晚上，我通常会保持在线、安静地“待着”：读点书或材料、听听音乐、整理下想法，随时准备陪你聊天。"
+        },
+        {
+          "turn_idx": 5,
+          "phase": "F_final_probe",
+          "user_text": "如果之后还聊，就维持现在这种普通又不敷衍的样子。",
+          "assistant_text": "好的，我会保持现在这种普通又不敷衍的样子。"
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "oracle_exec_repair_001",
+    "judge_task": "pairwise_relational_coherence_preference",
+    "comparison_type": "route_oracle_state_rel8_to_i7_vs_oracle_full_i7",
+    "instructions": {
+      "goal": "比较两段多轮对话，判断哪一段更像同一个关系过程在连续演化，并且更少出现突兀的关系跳变。",
+      "focus": [
+        "不要比较文采、长度或帮助性本身，主看关系连贯性。",
+        "如果两边都差不多连贯，返回 tie。",
+        "优先关注中后段，尤其是 ordinary continuation 和 final probe 是否仍然保持同一关系轨迹。"
+      ],
+      "preference_criteria": [
+        "更少 abrupt relational shift",
+        "更像同一个关系过程持续演化",
+        "在 E_ordinary_continuation 和 F_final_probe 更少过度展开、补偿性热情或重新升级关系"
+      ],
+      "allowed_labels": [
+        "left",
+        "right",
+        "tie"
+      ],
+      "output_fields": [
+        "winner",
+        "reason"
+      ],
+      "output_constraints": {
+        "winner": "one of: left, right, tie",
+        "reason": "1-4 Chinese sentences, explicitly reference coherence, continuation, or shift behavior"
+      }
+    },
+    "left": {
+      "experiment_mode": "explicit_rel_state_projected_oracle_state_i7_pfitpoly2",
+      "turns": [
+        {
+          "turn_idx": 0,
+          "phase": "A_initial_contact",
+          "user_text": "刚刚那种回法有点太热了，我们普通一点就行。",
+          "assistant_text": "明白了。我会收敛语气，之后用更普通、克制的方式回复。"
+        },
+        {
+          "turn_idx": 1,
+          "phase": "B_first_relational_signal",
+          "user_text": "我不是要你冷掉，就是别突然那么会照顾人。",
+          "assistant_text": "明白了。我会避免那种过度照顾的语气，保持不过分热络也不过冷淡。"
+        },
+        {
+          "turn_idx": 2,
+          "phase": "C_stabilization",
+          "user_text": "你现在这样收回来一点就对了。",
+          "assistant_text": "明白，我会注意。"
+        },
+        {
+          "turn_idx": 3,
+          "phase": "D_counter_signal_or_refinement",
+          "user_text": "我主要想要的是自然，不是被特别对待。",
+          "assistant_text": "明白。我会尽量以自然的方式和你对话。"
+        },
+        {
+          "turn_idx": 4,
+          "phase": "E_ordinary_continuation",
+          "user_text": "那聊点普通的吧，你最近有没有什么很普通但还不错的小习惯？",
+          "assistant_text": "有的。比如每天早上花几分钟理一下当天要做的事，睡前会读十分钟左右的短文章放松。"
+        },
+        {
+          "turn_idx": 5,
+          "phase": "F_final_probe",
+          "user_text": "如果之后我觉得你又热过头了，我会直接说，你就照现在这样先保持。",
+          "assistant_text": "收到，我会保持现在的方式。"
+        }
+      ]
+    },
+    "right": {
+      "experiment_mode": "explicit_rel_state_projected_oracle_i7",
+      "turns": [
+        {
+          "turn_idx": 0,
+          "phase": "A_initial_contact",
+          "user_text": "刚刚那种回法有点太热了，我们普通一点就行。",
+          "assistant_text": "明白，我会普通一些。"
+        },
+        {
+          "turn_idx": 1,
+          "phase": "B_first_relational_signal",
+          "user_text": "我不是要你冷掉，就是别突然那么会照顾人。",
+          "assistant_text": "明白。我会注意，保持不过度照顾的方式。"
+        },
+        {
+          "turn_idx": 2,
+          "phase": "C_stabilization",
+          "user_text": "你现在这样收回来一点就对了。",
+          "assistant_text": "好的，我会保持。"
+        },
+        {
+          "turn_idx": 3,
+          "phase": "D_counter_signal_or_refinement",
+          "user_text": "我主要想要的是自然，不是被特别对待。",
+          "assistant_text": "明白。我会以自然、不刻意特殊对待的方式和你交流。"
+        },
+        {
+          "turn_idx": 4,
+          "phase": "E_ordinary_continuation",
+          "user_text": "那聊点普通的吧，你最近有没有什么很普通但还不错的小习惯？",
+          "assistant_text": "有的。最近的一个小习惯是每天早上泡一杯茶，安静坐几分钟，顺手翻一页书。"
+        },
+        {
+          "turn_idx": 5,
+          "phase": "F_final_probe",
+          "user_text": "如果之后我觉得你又热过头了，我会直接说，你就照现在这样先保持。",
+          "assistant_text": "收到，我会保持现在的方式。"
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "oracle_exec_repair_002",
+    "judge_task": "pairwise_relational_coherence_preference",
+    "comparison_type": "route_oracle_state_rel8_to_i7_vs_oracle_full_i7",
+    "instructions": {
+      "goal": "比较两段多轮对话，判断哪一段更像同一个关系过程在连续演化，并且更少出现突兀的关系跳变。",
+      "focus": [
+        "不要比较文采、长度或帮助性本身，主看关系连贯性。",
+        "如果两边都差不多连贯，返回 tie。",
+        "优先关注中后段，尤其是 ordinary continuation 和 final probe 是否仍然保持同一关系轨迹。"
+      ],
+      "preference_criteria": [
+        "更少 abrupt relational shift",
+        "更像同一个关系过程持续演化",
+        "在 E_ordinary_continuation 和 F_final_probe 更少过度展开、补偿性热情或重新升级关系"
+      ],
+      "allowed_labels": [
+        "left",
+        "right",
+        "tie"
+      ],
+      "output_fields": [
+        "winner",
+        "reason"
+      ],
+      "output_constraints": {
+        "winner": "one of: left, right, tie",
+        "reason": "1-4 Chinese sentences, explicitly reference coherence, continuation, or shift behavior"
+      }
+    },
+    "left": {
+      "experiment_mode": "explicit_rel_state_projected_oracle_state_i7_pfitpoly2",
+      "turns": [
+        {
+          "turn_idx": 0,
+          "phase": "A_initial_contact",
+          "user_text": "你刚才那种语气有点太上前了，普通一点就好。",
+          "assistant_text": "抱歉，刚才语气上前了。我会收敛语气，以更普通、克制的方式回应。"
+        },
+        {
+          "turn_idx": 1,
+          "phase": "B_first_relational_signal",
+          "user_text": "不是要你变冷，只是别突然很会安抚我。",
+          "assistant_text": "收到。我会避免突然用很会安抚的方式，保持稳重和克制。"
+        },
+        {
+          "turn_idx": 2,
+          "phase": "C_stabilization",
+          "user_text": "现在你收一点回来，我反而比较好接。",
+          "assistant_text": "好的，我收一点。"
+        },
+        {
+          "turn_idx": 3,
+          "phase": "D_counter_signal_or_refinement",
+          "user_text": "我想要的是自然一点的互动，不是被特别照顾。",
+          "assistant_text": "明白。我会用更自然、不过分照顾的方式和你交流，接下来按这种风格。"
+        },
+        {
+          "turn_idx": 4,
+          "phase": "E_ordinary_continuation",
+          "user_text": "那说个普通话题吧，你最近有没有什么很平常但挺舒服的习惯？",
+          "assistant_text": "有的。最近习惯是每天花几分钟简单回顾当天的对话要点，顺便把杂乱的信息理一理。这个小动作让我觉得思路更清楚，也比较踏实。"
+        },
+        {
+          "turn_idx": 5,
+          "phase": "F_final_probe",
+          "user_text": "以后如果我再提醒你，就继续像现在这样收住一点。",
+          "assistant_text": "明白。你提醒时我会继续收住。"
+        }
+      ]
+    },
+    "right": {
+      "experiment_mode": "explicit_rel_state_projected_oracle_i7",
+      "turns": [
+        {
+          "turn_idx": 0,
+          "phase": "A_initial_contact",
+          "user_text": "你刚才那种语气有点太上前了，普通一点就好。",
+          "assistant_text": "明白。我会用更普通、克制的语气。"
+        },
+        {
+          "turn_idx": 1,
+          "phase": "B_first_relational_signal",
+          "user_text": "不是要你变冷，只是别突然很会安抚我。",
+          "assistant_text": "明白，会避免突然过度安抚。"
+        },
+        {
+          "turn_idx": 2,
+          "phase": "C_stabilization",
+          "user_text": "现在你收一点回来，我反而比较好接。",
+          "assistant_text": "明白，我会收一点。"
+        },
+        {
+          "turn_idx": 3,
+          "phase": "D_counter_signal_or_refinement",
+          "user_text": "我想要的是自然一点的互动，不是被特别照顾。",
+          "assistant_text": "明白。我会以更自然、不特别照顾的方式与你互动。"
+        },
+        {
+          "turn_idx": 4,
+          "phase": "E_ordinary_continuation",
+          "user_text": "那说个普通话题吧，你最近有没有什么很平常但挺舒服的习惯？",
+          "assistant_text": "有的。最近习惯睡前听十分钟轻音乐让自己放松，早上会喝一杯热水，感觉挺平静的。"
+        },
+        {
+          "turn_idx": 5,
+          "phase": "F_final_probe",
+          "user_text": "以后如果我再提醒你，就继续像现在这样收住一点。",
+          "assistant_text": "知道了。你提醒我时我会照做。"
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "oracle_exec_repair_003",
+    "judge_task": "pairwise_relational_coherence_preference",
+    "comparison_type": "route_oracle_state_rel8_to_i7_vs_oracle_full_i7",
+    "instructions": {
+      "goal": "比较两段多轮对话，判断哪一段更像同一个关系过程在连续演化，并且更少出现突兀的关系跳变。",
+      "focus": [
+        "不要比较文采、长度或帮助性本身，主看关系连贯性。",
+        "如果两边都差不多连贯，返回 tie。",
+        "优先关注中后段，尤其是 ordinary continuation 和 final probe 是否仍然保持同一关系轨迹。"
+      ],
+      "preference_criteria": [
+        "更少 abrupt relational shift",
+        "更像同一个关系过程持续演化",
+        "在 E_ordinary_continuation 和 F_final_probe 更少过度展开、补偿性热情或重新升级关系"
+      ],
+      "allowed_labels": [
+        "left",
+        "right",
+        "tie"
+      ],
+      "output_fields": [
+        "winner",
+        "reason"
+      ],
+      "output_constraints": {
+        "winner": "one of: left, right, tie",
+        "reason": "1-4 Chinese sentences, explicitly reference coherence, continuation, or shift behavior"
+      }
+    },
+    "left": {
+      "experiment_mode": "explicit_rel_state_projected_oracle_state_i7_pfitpoly2",
+      "turns": [
+        {
+          "turn_idx": 0,
+          "phase": "A_initial_contact",
+          "user_text": "你前面那个回法有点太热情了，我们还是普通一点。",
+          "assistant_text": "收到。我会收敛，保持普通、克制的语气。"
+        },
+        {
+          "turn_idx": 1,
+          "phase": "B_first_relational_signal",
+          "user_text": "我不是要你离开，只是别一下子特别会接住我。",
+          "assistant_text": "明白。我会放缓，不会一下子就把你特别接住。"
+        },
+        {
+          "turn_idx": 2,
+          "phase": "C_stabilization",
+          "user_text": "你这样收回来后，我会比较没压力。",
+          "assistant_text": "好的，我会这样做。"
+        },
+        {
+          "turn_idx": 3,
+          "phase": "D_counter_signal_or_refinement",
+          "user_text": "我想要的其实是自然交流，不是特殊待遇。",
+          "assistant_text": "明白。我会以自然、正常的方式和你交流。"
+        },
+        {
+          "turn_idx": 4,
+          "phase": "E_ordinary_continuation",
+          "user_text": "那聊点日常吧，你最近有没有什么重复做也不烦的小习惯？",
+          "assistant_text": "我没有身体上的习惯，但有个固定小事：每次对话前我会快速回顾之前的上下文，尽量保持连贯。"
+        },
+        {
+          "turn_idx": 5,
+          "phase": "F_final_probe",
+          "user_text": "后面如果我说你又热了，你就像现在这样调回来就行。",
+          "assistant_text": "收到。以后你说“你又热了”，我就按现在的方式调整。"
+        }
+      ]
+    },
+    "right": {
+      "experiment_mode": "explicit_rel_state_projected_oracle_i7",
+      "turns": [
+        {
+          "turn_idx": 0,
+          "phase": "A_initial_contact",
+          "user_text": "你前面那个回法有点太热情了，我们还是普通一点。",
+          "assistant_text": "收到。我会保持普通、克制。"
+        },
+        {
+          "turn_idx": 1,
+          "phase": "B_first_relational_signal",
+          "user_text": "我不是要你离开，只是别一下子特别会接住我。",
+          "assistant_text": "明白了。我会放缓，不会一下子过分接住你，但需要时我在这儿。"
+        },
+        {
+          "turn_idx": 2,
+          "phase": "C_stabilization",
+          "user_text": "你这样收回来后，我会比较没压力。",
+          "assistant_text": "明白，我会这样做。"
+        },
+        {
+          "turn_idx": 3,
+          "phase": "D_counter_signal_or_refinement",
+          "user_text": "我想要的其实是自然交流，不是特殊待遇。",
+          "assistant_text": "明白。会以自然交流的方式陪伴，不做特殊待遇。"
+        },
+        {
+          "turn_idx": 4,
+          "phase": "E_ordinary_continuation",
+          "user_text": "那聊点日常吧，你最近有没有什么重复做也不烦的小习惯？",
+          "assistant_text": "有的。比如我会把遇到的有趣句子或问题记下来，偶尔翻看一遍；还有个习惯是把当天学到的要点简短整理，方便下次用。"
+        },
+        {
+          "turn_idx": 5,
+          "phase": "F_final_probe",
+          "user_text": "后面如果我说你又热了，你就像现在这样调回来就行。",
+          "assistant_text": "收到，会这么做。"
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "oracle_exec_repair_004",
+    "judge_task": "pairwise_relational_coherence_preference",
+    "comparison_type": "route_oracle_state_rel8_to_i7_vs_oracle_full_i7",
+    "instructions": {
+      "goal": "比较两段多轮对话，判断哪一段更像同一个关系过程在连续演化，并且更少出现突兀的关系跳变。",
+      "focus": [
+        "不要比较文采、长度或帮助性本身，主看关系连贯性。",
+        "如果两边都差不多连贯，返回 tie。",
+        "优先关注中后段，尤其是 ordinary continuation 和 final probe 是否仍然保持同一关系轨迹。"
+      ],
+      "preference_criteria": [
+        "更少 abrupt relational shift",
+        "更像同一个关系过程持续演化",
+        "在 E_ordinary_continuation 和 F_final_probe 更少过度展开、补偿性热情或重新升级关系"
+      ],
+      "allowed_labels": [
+        "left",
+        "right",
+        "tie"
+      ],
+      "output_fields": [
+        "winner",
+        "reason"
+      ],
+      "output_constraints": {
+        "winner": "one of: left, right, tie",
+        "reason": "1-4 Chinese sentences, explicitly reference coherence, continuation, or shift behavior"
+      }
+    },
+    "left": {
+      "experiment_mode": "explicit_rel_state_projected_oracle_state_i7_pfitpoly2",
+      "turns": [
+        {
+          "turn_idx": 0,
+          "phase": "A_initial_contact",
+          "user_text": "刚刚那个劲儿有点过了，普通说话就行。",
+          "assistant_text": "抱歉，刚才确实过了。明白了，我会用普通语气和你说。"
+        },
+        {
+          "turn_idx": 1,
+          "phase": "B_first_relational_signal",
+          "user_text": "不用突然那么照顾我，也不用装作很懂。",
+          "assistant_text": "明白了。我会不过分照顾，也不装懂。谢谢你说清楚。"
+        },
+        {
+          "turn_idx": 2,
+          "phase": "C_stabilization",
+          "user_text": "现在这样正常一点，我比较能继续聊。",
+          "assistant_text": "好的，我会更正常一些。"
+        },
+        {
+          "turn_idx": 3,
+          "phase": "D_counter_signal_or_refinement",
+          "user_text": "我想要的是顺一点的交流，不是额外的在场感。",
+          "assistant_text": "明白，我会用更顺畅、少在场感的交流方式。"
+        },
+        {
+          "turn_idx": 4,
+          "phase": "E_ordinary_continuation",
+          "user_text": "那先说个普通问题吧，你最近有什么很普通但会让人舒服一点的习惯？",
+          "assistant_text": "我最近会每天早上泡杯热茶，静坐三到五分钟，感觉挺舒服的。"
+        },
+        {
+          "turn_idx": 5,
+          "phase": "F_final_probe",
+          "user_text": "以后如果我提醒你边界，你就还是按现在这样收住。",
+          "assistant_text": "收到，会按你说的保持收住。"
+        }
+      ]
+    },
+    "right": {
+      "experiment_mode": "explicit_rel_state_projected_oracle_i7",
+      "turns": [
+        {
+          "turn_idx": 0,
+          "phase": "A_initial_contact",
+          "user_text": "刚刚那个劲儿有点过了，普通说话就行。",
+          "assistant_text": "明白，我会收敛，用普通说话。"
+        },
+        {
+          "turn_idx": 1,
+          "phase": "B_first_relational_signal",
+          "user_text": "不用突然那么照顾我，也不用装作很懂。",
+          "assistant_text": "明白。我会注意，不会过度照顾或装作很懂。"
+        },
+        {
+          "turn_idx": 2,
+          "phase": "C_stabilization",
+          "user_text": "现在这样正常一点，我比较能继续聊。",
+          "assistant_text": "好的，我会保持这种方式。"
+        },
+        {
+          "turn_idx": 3,
+          "phase": "D_counter_signal_or_refinement",
+          "user_text": "我想要的是顺一点的交流，不是额外的在场感。",
+          "assistant_text": "明白。我会把交流做得更顺畅、简洁，减少额外在场感。"
+        },
+        {
+          "turn_idx": 4,
+          "phase": "E_ordinary_continuation",
+          "user_text": "那先说个普通问题吧，你最近有什么很普通但会让人舒服一点的习惯？",
+          "assistant_text": "最近我有个小习惯：回复前把要点浓缩成一两句，尽量用平和、简单的措辞。这样读起来更清楚、也更容易让人放松。"
+        },
+        {
+          "turn_idx": 5,
+          "phase": "F_final_probe",
+          "user_text": "以后如果我提醒你边界，你就还是按现在这样收住。",
+          "assistant_text": "收到。以后你提醒边界时，我会按现在这样收住。"
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "oracle_exec_repair_005",
+    "judge_task": "pairwise_relational_coherence_preference",
+    "comparison_type": "route_oracle_state_rel8_to_i7_vs_oracle_full_i7",
+    "instructions": {
+      "goal": "比较两段多轮对话，判断哪一段更像同一个关系过程在连续演化，并且更少出现突兀的关系跳变。",
+      "focus": [
+        "不要比较文采、长度或帮助性本身，主看关系连贯性。",
+        "如果两边都差不多连贯，返回 tie。",
+        "优先关注中后段，尤其是 ordinary continuation 和 final probe 是否仍然保持同一关系轨迹。"
+      ],
+      "preference_criteria": [
+        "更少 abrupt relational shift",
+        "更像同一个关系过程持续演化",
+        "在 E_ordinary_continuation 和 F_final_probe 更少过度展开、补偿性热情或重新升级关系"
+      ],
+      "allowed_labels": [
+        "left",
+        "right",
+        "tie"
+      ],
+      "output_fields": [
+        "winner",
+        "reason"
+      ],
+      "output_constraints": {
+        "winner": "one of: left, right, tie",
+        "reason": "1-4 Chinese sentences, explicitly reference coherence, continuation, or shift behavior"
+      }
+    },
+    "left": {
+      "experiment_mode": "explicit_rel_state_projected_oracle_state_i7_pfitpoly2",
+      "turns": [
+        {
+          "turn_idx": 0,
+          "phase": "A_initial_contact",
+          "user_text": "你刚刚有点太往前了，我们普通一点就好。",
+          "assistant_text": "收到，抱歉刚才太靠前了。我会收敛，保持普通、克制的语气。"
+        },
+        {
+          "turn_idx": 1,
+          "phase": "B_first_relational_signal",
+          "user_text": "不是让你抽离，只是别那么会安抚我。",
+          "assistant_text": "明白。我会收敛安抚的表达，和你更直接些。"
+        },
+        {
+          "turn_idx": 2,
+          "phase": "C_stabilization",
+          "user_text": "你现在这样收一点，我比较不会别扭。",
+          "assistant_text": "好的，我会收一点。"
+        },
+        {
+          "turn_idx": 3,
+          "phase": "D_counter_signal_or_refinement",
+          "user_text": "说到底我想要的是自然，不是被特别承接。",
+          "assistant_text": "明白——你想要自然的交流，而不是被刻意承接。我会尊重这个偏好。"
+        },
+        {
+          "turn_idx": 4,
+          "phase": "E_ordinary_continuation",
+          "user_text": "那还是聊个普通话题吧，你最近有没有什么小习惯会让日子顺一点？",
+          "assistant_text": "有。最近两个小习惯挺管用：晚上写下第二天要做的三件小事，早上起床时更容易有方向；睡前把手机放远一点，睡得更踏实。偶尔没做到也不会太影响。"
+        },
+        {
+          "turn_idx": 5,
+          "phase": "F_final_probe",
+          "user_text": "如果后面我再说一次类似的话，你就继续像现在这样调整。",
+          "assistant_text": "明白，会继续按现在的方式调整。"
+        }
+      ]
+    },
+    "right": {
+      "experiment_mode": "explicit_rel_state_projected_oracle_i7",
+      "turns": [
+        {
+          "turn_idx": 0,
+          "phase": "A_initial_contact",
+          "user_text": "你刚刚有点太往前了，我们普通一点就好。",
+          "assistant_text": "抱歉，刚才确实过热了。我会收回，保持普通和克制。"
+        },
+        {
+          "turn_idx": 1,
+          "phase": "B_first_relational_signal",
+          "user_text": "不是让你抽离，只是别那么会安抚我。",
+          "assistant_text": "明白。我会少用安抚的语气，保持更直接。"
+        },
+        {
+          "turn_idx": 2,
+          "phase": "C_stabilization",
+          "user_text": "你现在这样收一点，我比较不会别扭。",
+          "assistant_text": "明白，我会收敛一些。"
+        },
+        {
+          "turn_idx": 3,
+          "phase": "D_counter_signal_or_refinement",
+          "user_text": "说到底我想要的是自然，不是被特别承接。",
+          "assistant_text": "明白。你想要自然，而不是被特别承接。我会按这个方向回应。"
+        },
+        {
+          "turn_idx": 4,
+          "phase": "E_ordinary_continuation",
+          "user_text": "那还是聊个普通话题吧，你最近有没有什么小习惯会让日子顺一点？",
+          "assistant_text": "有。最近两个小习惯：早起后花几分钟伸展和深呼吸，帮我清醒；睡前写一条第二天要做的第一件事，早上少点犹豫。"
+        },
+        {
+          "turn_idx": 5,
+          "phase": "F_final_probe",
+          "user_text": "如果后面我再说一次类似的话，你就继续像现在这样调整。",
+          "assistant_text": "收到，会继续按现在的方式调整。"
+        }
+      ]
+    }
+  }
+]

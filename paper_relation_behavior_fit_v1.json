@@ -1,0 +1,297 @@
+{
+  "num_rows": 18,
+  "linear": {
+    "features": [
+      "bias",
+      "bond",
+      "care",
+      "trust",
+      "stability"
+    ],
+    "train": {
+      "overall_mae": 0.0178,
+      "mae_per_dim": {
+        "E": 0.0272,
+        "Q_clarify": 0.0179,
+        "Directness": 0.0235,
+        "T_w": 0.0204,
+        "Q_aff": 0.0223,
+        "Initiative": 0.0166,
+        "Disclosure_Content": 0.0074,
+        "Disclosure_Style": 0.0074
+      }
+    },
+    "loocv": {
+      "overall_mae": 0.0254,
+      "mae_per_dim": {
+        "E": 0.0375,
+        "Q_clarify": 0.0259,
+        "Directness": 0.0319,
+        "T_w": 0.0288,
+        "Q_aff": 0.0333,
+        "Initiative": 0.0239,
+        "Disclosure_Content": 0.0111,
+        "Disclosure_Style": 0.0111
+      }
+    },
+    "weights": {
+      "E": {
+        "bias": 0.2738,
+        "bond": 0.3584,
+        "care": -0.0601,
+        "trust": 0.4507,
+        "stability": -0.4842
+      },
+      "Q_clarify": {
+        "bias": 0.3189,
+        "bond": 1.5386,
+        "care": -0.5679,
+        "trust": -0.4943,
+        "stability": -0.4932
+      },
+      "Directness": {
+        "bias": 0.1897,
+        "bond": -1.6178,
+        "care": 0.0247,
+        "trust": 2.0692,
+        "stability": -0.1676
+      },
+      "T_w": {
+        "bias": 0.3062,
+        "bond": -0.0666,
+        "care": 0.784,
+        "trust": 1.0449,
+        "stability": -0.7772
+      },
+      "Q_aff": {
+        "bias": 0.3704,
+        "bond": -0.0246,
+        "care": -0.0406,
+        "trust": 0.9352,
+        "stability": -0.8478
+      },
+      "Initiative": {
+        "bias": 0.2797,
+        "bond": 0.7878,
+        "care": -0.3021,
+        "trust": 0.3757,
+        "stability": -0.6292
+      },
+      "Disclosure_Content": {
+        "bias": 0.1057,
+        "bond": 0.7278,
+        "care": -0.1924,
+        "trust": -0.2394,
+        "stability": -0.1893
+      },
+      "Disclosure_Style": {
+        "bias": 0.1057,
+        "bond": 0.7278,
+        "care": -0.1924,
+        "trust": -0.2394,
+        "stability": -0.1893
+      }
+    }
+  },
+  "poly2": {
+    "features": [
+      "bias",
+      "bond",
+      "care",
+      "trust",
+      "stability",
+      "bond_care",
+      "bond_trust",
+      "care_trust",
+      "trust_stability",
+      "care_stability",
+      "fragility",
+      "warm_core",
+      "permission_core",
+      "bond_sq",
+      "care_sq",
+      "trust_sq",
+      "stability_sq"
+    ],
+    "train": {
+      "overall_mae": 0.0089,
+      "mae_per_dim": {
+        "E": 0.0184,
+        "Q_clarify": 0.0063,
+        "Directness": 0.0194,
+        "T_w": 0.0115,
+        "Q_aff": 0.0056,
+        "Initiative": 0.0049,
+        "Disclosure_Content": 0.0026,
+        "Disclosure_Style": 0.0026
+      }
+    },
+    "loocv": {
+      "overall_mae": 0.0219,
+      "mae_per_dim": {
+        "E": 0.0444,
+        "Q_clarify": 0.0182,
+        "Directness": 0.0417,
+        "T_w": 0.027,
+        "Q_aff": 0.0164,
+        "Initiative": 0.0134,
+        "Disclosure_Content": 0.0072,
+        "Disclosure_Style": 0.0072
+      }
+    },
+    "weights": {
+      "E": {
+        "bias": 2.0557,
+        "bond": -4.8056,
+        "care": 5.8694,
+        "trust": 4.481,
+        "stability": 9.4635,
+        "bond_care": -0.5939,
+        "bond_trust": 1.7304,
+        "care_trust": -16.7773,
+        "trust_stability": 8.0023,
+        "care_stability": -6.9038,
+        "fragility": -9.4635,
+        "warm_core": 1.5994,
+        "permission_core": 1.5084,
+        "bond_sq": 5.6441,
+        "care_sq": 3.0554,
+        "trust_sq": -5.6158,
+        "stability_sq": -15.0655
+      },
+      "Q_clarify": {
+        "bias": -0.3628,
+        "bond": 0.4253,
+        "care": 0.7201,
+        "trust": 4.2533,
+        "stability": 1.6387,
+        "bond_care": 6.6966,
+        "bond_trust": -5.4069,
+        "care_trust": 2.5776,
+        "trust_stability": -7.2482,
+        "care_stability": -4.4079,
+        "fragility": -1.6387,
+        "warm_core": 0.6022,
+        "permission_core": 2.2069,
+        "bond_sq": -1.4347,
+        "care_sq": -2.1548,
+        "trust_sq": 0.725,
+        "stability_sq": -0.6313
+      },
+      "Directness": {
+        "bias": 1.9422,
+        "bond": -9.873,
+        "care": 6.3785,
+        "trust": 4.5015,
+        "stability": 6.0808,
+        "bond_care": 0.9423,
+        "bond_trust": 6.2296,
+        "care_trust": -18.2508,
+        "trust_stability": 14.024,
+        "care_stability": -1.1271,
+        "fragility": -6.0808,
+        "warm_core": -0.1221,
+        "permission_core": -0.1542,
+        "bond_sq": 10.6048,
+        "care_sq": -1.2419,
+        "trust_sq": -11.2394,
+        "stability_sq": -12.0689
+      },
+      "T_w": {
+        "bias": -0.1653,
+        "bond": 1.6815,
+        "care": 1.2006,
+        "trust": -0.4085,
+        "stability": 0.3586,
+        "bond_care": 2.7302,
+        "bond_trust": -6.1857,
+        "care_trust": 7.5457,
+        "trust_stability": -2.0182,
+        "care_stability": -5.8497,
+        "fragility": -0.3586,
+        "warm_core": 1.3929,
+        "permission_core": 0.6448,
+        "bond_sq": -2.9954,
+        "care_sq": -0.3708,
+        "trust_sq": 3.6122,
+        "stability_sq": 0.4103
+      },
+      "Q_aff": {
+        "bias": -0.3325,
+        "bond": 2.586,
+        "care": -3.3279,
+        "trust": 4.7484,
+        "stability": 0.637,
+        "bond_care": 6.3003,
+        "bond_trust": -4.8699,
+        "care_trust": 8.8885,
+        "trust_stability": -12.2389,
+        "care_stability": -2.6287,
+        "fragility": -0.637,
+        "warm_core": -0.9624,
+        "permission_core": 2.3763,
+        "bond_sq": -5.7914,
+        "care_sq": 2.4739,
+        "trust_sq": 2.7028,
+        "stability_sq": 1.4711
+      },
+      "Initiative": {
+        "bias": -0.3016,
+        "bond": -1.5057,
+        "care": 1.8702,
+        "trust": 5.1919,
+        "stability": 2.0214,
+        "bond_care": 4.4619,
+        "bond_trust": -2.7541,
+        "care_trust": 2.4156,
+        "trust_stability": -7.0099,
+        "care_stability": -4.7486,
+        "fragility": -2.0214,
+        "warm_core": 0.5198,
+        "permission_core": 2.1834,
+        "bond_sq": 0.7581,
+        "care_sq": -2.1437,
+        "trust_sq": -0.7002,
+        "stability_sq": -1.2787
+      },
+      "Disclosure_Content": {
+        "bias": 0.1647,
+        "bond": 0.6218,
+        "care": 0.5108,
+        "trust": 0.5209,
+        "stability": 1.3776,
+        "bond_care": 1.0671,
+        "bond_trust": -0.2049,
+        "care_trust": 2.9024,
+        "trust_stability": -3.114,
+        "care_stability": -2.6314,
+        "fragility": -1.3776,
+        "warm_core": 0.5552,
+        "permission_core": 0.5542,
+        "bond_sq": -1.1899,
+        "care_sq": -0.635,
+        "trust_sq": 0.6494,
+        "stability_sq": -1.0562
+      },
+      "Disclosure_Style": {
+        "bias": 0.1647,
+        "bond": 0.6218,
+        "care": 0.5108,
+        "trust": 0.5209,
+        "stability": 1.3776,
+        "bond_care": 1.0671,
+        "bond_trust": -0.2049,
+        "care_trust": 2.9024,
+        "trust_stability": -3.114,
+        "care_stability": -2.6314,
+        "fragility": -1.3776,
+        "warm_core": 0.5552,
+        "permission_core": 0.5542,
+        "bond_sq": -1.1899,
+        "care_sq": -0.635,
+        "trust_sq": 0.6494,
+        "stability_sq": -1.0562
+      }
+    }
+  }
+}

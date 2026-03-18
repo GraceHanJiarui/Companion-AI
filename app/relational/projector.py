@@ -1,6 +1,9 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+from functools import lru_cache
+import json
+from pathlib import Path
 from typing import List
 
 
@@ -293,6 +296,98 @@ PROJECTOR_PROFILES = {
 }
 
 
+FIT_MODEL_NAMES = {
+    "fitlinear": "linear",
+    "fitpoly2": "poly2",
+    "fitmlp_h4": "mlp_h4",
+    "fitmlp_h8": "mlp_h8",
+    "fitmlp_h12": "mlp_h12",
+}
+
+
+def _build_fit_feature_vector(rel: RelState, feature_names: list[str]) -> list[float]:
+    bond = clamp01(rel.bond)
+    care = clamp01(rel.care)
+    trust = clamp01(rel.trust)
+    stability = clamp01(rel.stability)
+
+    values = {
+        "bias": 1.0,
+        "bond": bond,
+        "care": care,
+        "trust": trust,
+        "stability": stability,
+        "bond_care": bond * care,
+        "bond_trust": bond * trust,
+        "care_trust": care * trust,
+        "trust_stability": trust * stability,
+        "care_stability": care * stability,
+        "fragility": 1.0 - stability,
+        "warm_core": 0.6 * care + 0.4 * bond,
+        "permission_core": 0.45 * trust + 0.35 * bond + 0.20 * care,
+        "bond_sq": bond * bond,
+        "care_sq": care * care,
+        "trust_sq": trust * trust,
+        "stability_sq": stability * stability,
+    }
+    return [float(values.get(name, 0.0)) for name in feature_names]
+
+
+@lru_cache(maxsize=1)
+def _load_fit_models() -> dict:
+    root = Path(__file__).resolve().parents[2]
+    path = root / "paper_relation_behavior_fit_v2.json"
+    with path.open("r", encoding="utf-8") as f:
+        return json.load(f)
+
+
+def _project_behavior_fitted(rel: RelState, *, model_name: str) -> Behavior:
+    data = _load_fit_models().get(model_name) or {}
+    if not data:
+        raise ValueError(f"Missing fitted model: {model_name}")
+
+    feature_names = [str(x) for x in (data.get("features") or [])]
+    weights_by_dim = data.get("weights") or {}
+
+    # Current exported fit artifacts only include deployable parameters for
+    # explicit linear-feature models. MLP rows in the JSON are evaluation-only.
+    if feature_names and isinstance(weights_by_dim, dict):
+        x = _build_fit_feature_vector(rel, feature_names)
+        pred = []
+        dim_order = [
+            "E",
+            "Q_clarify",
+            "Directness",
+            "T_w",
+            "Q_aff",
+            "Initiative",
+            "Disclosure_Content",
+            "Disclosure_Style",
+        ]
+        for dim_name in dim_order:
+            coeffs = weights_by_dim.get(dim_name) or {}
+            s = 0.0
+            for row_idx, feat_name in enumerate(feature_names):
+                s += float(x[row_idx]) * float(coeffs.get(feat_name, 0.0))
+            pred.append(clamp01(s))
+    else:
+        raise ValueError(
+            f"Fitted model {model_name} is evaluation-only in current artifacts; "
+            "deployable parameters were not exported."
+        )
+
+    return Behavior(
+        E=pred[0],
+        Q_clarify=pred[1],
+        Directness=pred[2],
+        T_w=pred[3],
+        Q_aff=pred[4],
+        Initiative=pred[5],
+        Disclosure_Content=pred[6],
+        Disclosure_Style=pred[7],
+    )
+
+
 def _project_behavior_v3a(rel: RelState, *, active_boundary_keys: List[str] | None = None) -> Behavior:
     """
     Pure-relation projector v3a.
@@ -413,6 +508,8 @@ def project_behavior(
         return _project_behavior_v3a(rel, active_boundary_keys=active_boundary_keys)
     if profile == "v3b":
         return _project_behavior_v3b(rel, active_boundary_keys=active_boundary_keys)
+    if profile in FIT_MODEL_NAMES:
+        return _project_behavior_fitted(rel, model_name=FIT_MODEL_NAMES[profile])
 
     E = clamp01(
         p.e_base

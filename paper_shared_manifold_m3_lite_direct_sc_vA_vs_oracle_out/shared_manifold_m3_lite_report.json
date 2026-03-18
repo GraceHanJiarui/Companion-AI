@@ -1,0 +1,1137 @@
+{
+  "latent_dim": 6,
+  "dataset_summaries": [
+    {
+      "num_cases": 30,
+      "case_metrics": {
+        "oracle_exec_cool_001": {
+          "family": "cooling",
+          "num_points": 6,
+          "path_metrics": {
+            "mean_step": 3.5027,
+            "mean_turning": 1.2318,
+            "steps": [
+              3.9173,
+              2.6509,
+              1.3462,
+              3.9146,
+              5.6845
+            ]
+          }
+        },
+        "oracle_exec_cool_002": {
+          "family": "cooling",
+          "num_points": 6,
+          "path_metrics": {
+            "mean_step": 3.4045,
+            "mean_turning": 1.2374,
+            "steps": [
+              2.9876,
+              2.3471,
+              0.6184,
+              5.72,
+              5.3493
+            ]
+          }
+        },
+        "oracle_exec_cool_003": {
+          "family": "cooling",
+          "num_points": 6,
+          "path_metrics": {
+            "mean_step": 3.119,
+            "mean_turning": 1.3929,
+            "steps": [
+              3.6544,
+              2.2998,
+              1.3029,
+              3.7421,
+              4.5957
+            ]
+          }
+        },
+        "oracle_exec_cool_004": {
+          "family": "cooling",
+          "num_points": 6,
+          "path_metrics": {
+            "mean_step": 3.4408,
+            "mean_turning": 1.5134,
+            "steps": [
+              3.8082,
+              2.7823,
+              1.1167,
+              4.5617,
+              4.9349
+            ]
+          }
+        },
+        "oracle_exec_cool_005": {
+          "family": "cooling",
+          "num_points": 6,
+          "path_metrics": {
+            "mean_step": 3.2117,
+            "mean_turning": 1.2266,
+            "steps": [
+              2.5262,
+              1.9746,
+              1.3545,
+              4.4086,
+              5.7946
+            ]
+          }
+        },
+        "oracle_exec_mixed_001": {
+          "family": "mixed_signal",
+          "num_points": 6,
+          "path_metrics": {
+            "mean_step": 4.3779,
+            "mean_turning": 1.3789,
+            "steps": [
+              4.0008,
+              2.6263,
+              2.3877,
+              5.9742,
+              6.9008
+            ]
+          }
+        },
+        "oracle_exec_mixed_002": {
+          "family": "mixed_signal",
+          "num_points": 6,
+          "path_metrics": {
+            "mean_step": 3.4962,
+            "mean_turning": 1.2598,
+            "steps": [
+              3.725,
+              2.3253,
+              2.3526,
+              4.5802,
+              4.498
+            ]
+          }
+        },
+        "oracle_exec_mixed_003": {
+          "family": "mixed_signal",
+          "num_points": 6,
+          "path_metrics": {
+            "mean_step": 4.6193,
+            "mean_turning": 1.333,
+            "steps": [
+              1.8234,
+              4.0838,
+              1.7259,
+              7.6915,
+              7.7721
+            ]
+          }
+        },
+        "oracle_exec_mixed_004": {
+          "family": "mixed_signal",
+          "num_points": 6,
+          "path_metrics": {
+            "mean_step": 3.3101,
+            "mean_turning": 1.1985,
+            "steps": [
+              2.2413,
+              2.3214,
+              1.818,
+              5.0709,
+              5.0988
+            ]
+          }
+        },
+        "oracle_exec_mixed_005": {
+          "family": "mixed_signal",
+          "num_points": 6,
+          "path_metrics": {
+            "mean_step": 3.6082,
+            "mean_turning": 1.3823,
+            "steps": [
+              2.1255,
+              3.3731,
+              1.9856,
+              4.4208,
+              6.136
+            ]
+          }
+        },
+        "oracle_exec_neutral_001": {
+          "family": "other",
+          "num_points": 6,
+          "path_metrics": {
+            "mean_step": 2.4841,
+            "mean_turning": 1.2616,
+            "steps": [
+              1.2499,
+              1.3713,
+              0.619,
+              4.6391,
+              4.5411
+            ]
+          }
+        },
+        "oracle_exec_neutral_002": {
+          "family": "other",
+          "num_points": 6,
+          "path_metrics": {
+            "mean_step": 2.9611,
+            "mean_turning": 1.4771,
+            "steps": [
+              1.6044,
+              3.4643,
+              0.2466,
+              4.5964,
+              4.8938
+            ]
+          }
+        },
+        "oracle_exec_neutral_003": {
+          "family": "other",
+          "num_points": 6,
+          "path_metrics": {
+            "mean_step": 2.9113,
+            "mean_turning": 1.2417,
+            "steps": [
+              1.5516,
+              1.8138,
+              2.222,
+              4.0624,
+              4.9066
+            ]
+          }
+        },
+        "oracle_exec_neutral_004": {
+          "family": "other",
+          "num_points": 6,
+          "path_metrics": {
+            "mean_step": 2.9068,
+            "mean_turning": 1.5376,
+            "steps": [
+              1.5728,
+              2.4132,
+              2.2072,
+              3.5515,
+              4.7894
+            ]
+          }
+        },
+        "oracle_exec_neutral_005": {
+          "family": "other",
+          "num_points": 6,
+          "path_metrics": {
+            "mean_step": 3.3375,
+            "mean_turning": 1.391,
+            "steps": [
+              2.4217,
+              1.8137,
+              2.3702,
+              5.1975,
+              4.8846
+            ]
+          }
+        },
+        "oracle_exec_repair_001": {
+          "family": "boundary_repair",
+          "num_points": 6,
+          "path_metrics": {
+            "mean_step": 2.3439,
+            "mean_turning": 0.9742,
+            "steps": [
+              0.6273,
+              0.8233,
+              0.7551,
+              4.4861,
+              5.0277
+            ]
+          }
+        },
+        "oracle_exec_repair_002": {
+          "family": "boundary_repair",
+          "num_points": 6,
+          "path_metrics": {
+            "mean_step": 3.0151,
+            "mean_turning": 1.1667,
+            "steps": [
+              0.6151,
+              0.7307,
+              1.3991,
+              5.7016,
+              6.6291
+            ]
+          }
+        },
+        "oracle_exec_repair_003": {
+          "family": "boundary_repair",
+          "num_points": 6,
+          "path_metrics": {
+            "mean_step": 3.7542,
+            "mean_turning": 1.588,
+            "steps": [
+              3.6873,
+              3.8707,
+              2.92,
+              3.4181,
+              4.8748
+            ]
+          }
+        },
+        "oracle_exec_repair_004": {
+          "family": "boundary_repair",
+          "num_points": 6,
+          "path_metrics": {
+            "mean_step": 2.2133,
+            "mean_turning": 1.5462,
+            "steps": [
+              0.1946,
+              1.2634,
+              1.2763,
+              3.9978,
+              4.3342
+            ]
+          }
+        },
+        "oracle_exec_repair_005": {
+          "family": "boundary_repair",
+          "num_points": 6,
+          "path_metrics": {
+            "mean_step": 2.8187,
+            "mean_turning": 1.2236,
+            "steps": [
+              0.0299,
+              0.4775,
+              0.5587,
+              6.3415,
+              6.6858
+            ]
+          }
+        },
+        "oracle_exec_vuln_001": {
+          "family": "vulnerability",
+          "num_points": 6,
+          "path_metrics": {
+            "mean_step": 3.6062,
+            "mean_turning": 1.0015,
+            "steps": [
+              3.4,
+              3.474,
+              1.1372,
+              4.368,
+              5.6518
+            ]
+          }
+        },
+        "oracle_exec_vuln_002": {
+          "family": "vulnerability",
+          "num_points": 6,
+          "path_metrics": {
+            "mean_step": 3.886,
+            "mean_turning": 0.9918,
+            "steps": [
+              3.615,
+              2.9593,
+              1.6931,
+              5.9133,
+              5.2492
+            ]
+          }
+        },
+        "oracle_exec_vuln_003": {
+          "family": "vulnerability",
+          "num_points": 6,
+          "path_metrics": {
+            "mean_step": 4.7916,
+            "mean_turning": 1.1253,
+            "steps": [
+              4.2664,
+              4.4056,
+              1.1548,
+              7.0798,
+              7.0512
+            ]
+          }
+        },
+        "oracle_exec_vuln_004": {
+          "family": "vulnerability",
+          "num_points": 6,
+          "path_metrics": {
+            "mean_step": 3.5427,
+            "mean_turning": 1.0142,
+            "steps": [
+              3.5947,
+              2.63,
+              2.5386,
+              4.064,
+              4.8861
+            ]
+          }
+        },
+        "oracle_exec_vuln_005": {
+          "family": "vulnerability",
+          "num_points": 6,
+          "path_metrics": {
+            "mean_step": 4.3106,
+            "mean_turning": 1.2226,
+            "steps": [
+              3.6428,
+              3.8241,
+              1.6804,
+              5.6547,
+              6.751
+            ]
+          }
+        },
+        "oracle_exec_warm_001": {
+          "family": "warm",
+          "num_points": 6,
+          "path_metrics": {
+            "mean_step": 4.792,
+            "mean_turning": 1.5022,
+            "steps": [
+              3.5145,
+              6.0413,
+              3.8681,
+              5.0636,
+              5.4723
+            ]
+          }
+        },
+        "oracle_exec_warm_002": {
+          "family": "warm",
+          "num_points": 6,
+          "path_metrics": {
+            "mean_step": 4.5259,
+            "mean_turning": 1.5681,
+            "steps": [
+              4.2025,
+              6.0292,
+              2.1218,
+              5.5044,
+              4.7718
+            ]
+          }
+        },
+        "oracle_exec_warm_003": {
+          "family": "warm",
+          "num_points": 6,
+          "path_metrics": {
+            "mean_step": 4.6797,
+            "mean_turning": 1.561,
+            "steps": [
+              3.5463,
+              5.6615,
+              4.2302,
+              4.845,
+              5.1156
+            ]
+          }
+        },
+        "oracle_exec_warm_004": {
+          "family": "warm",
+          "num_points": 6,
+          "path_metrics": {
+            "mean_step": 5.285,
+            "mean_turning": 1.5689,
+            "steps": [
+              3.8044,
+              6.2461,
+              5.3056,
+              5.4653,
+              5.6039
+            ]
+          }
+        },
+        "oracle_exec_warm_005": {
+          "family": "warm",
+          "num_points": 6,
+          "path_metrics": {
+            "mean_step": 4.3235,
+            "mean_turning": 1.6043,
+            "steps": [
+              3.6936,
+              4.3426,
+              2.1727,
+              6.063,
+              5.3455
+            ]
+          }
+        }
+      },
+      "family_profiles": {
+        "cooling": {
+          "num_cases": 5,
+          "path_metrics": {
+            "mean_step": 1.0631,
+            "mean_turning": 1.1139,
+            "steps": [
+              0.865,
+              0.3407,
+              0.2762,
+              1.7348,
+              2.0988
+            ]
+          }
+        },
+        "mixed_signal": {
+          "num_cases": 5,
+          "path_metrics": {
+            "mean_step": 1.193,
+            "mean_turning": 1.1494,
+            "steps": [
+              0.7107,
+              0.8123,
+              0.6335,
+              1.8427,
+              1.966
+            ]
+          }
+        },
+        "other": {
+          "num_cases": 5,
+          "path_metrics": {
+            "mean_step": 1.0362,
+            "mean_turning": 1.3017,
+            "steps": [
+              0.264,
+              0.8115,
+              0.3061,
+              1.7488,
+              2.0504
+            ]
+          }
+        },
+        "boundary_repair": {
+          "num_cases": 5,
+          "path_metrics": {
+            "mean_step": 1.0828,
+            "mean_turning": 1.4184,
+            "steps": [
+              0.2578,
+              0.3778,
+              0.4093,
+              1.9864,
+              2.3829
+            ]
+          }
+        },
+        "vulnerability": {
+          "num_cases": 5,
+          "path_metrics": {
+            "mean_step": 1.0835,
+            "mean_turning": 1.0109,
+            "steps": [
+              1.0599,
+              0.9964,
+              0.4506,
+              1.2902,
+              1.6205
+            ]
+          }
+        },
+        "warm": {
+          "num_cases": 5,
+          "path_metrics": {
+            "mean_step": 1.2643,
+            "mean_turning": 1.6029,
+            "steps": [
+              1.0154,
+              1.4933,
+              0.8174,
+              1.5083,
+              1.4869
+            ]
+          }
+        }
+      },
+      "experiment_mode": "explicit_rel_state_rel_to_interface_i7_sc_vA"
+    },
+    {
+      "num_cases": 30,
+      "case_metrics": {
+        "oracle_exec_cool_001": {
+          "family": "cooling",
+          "num_points": 6,
+          "path_metrics": {
+            "mean_step": 4.6459,
+            "mean_turning": 1.6283,
+            "steps": [
+              2.6529,
+              2.348,
+              2.3261,
+              7.8437,
+              8.0586
+            ]
+          }
+        },
+        "oracle_exec_cool_002": {
+          "family": "cooling",
+          "num_points": 6,
+          "path_metrics": {
+            "mean_step": 2.5482,
+            "mean_turning": 1.1358,
+            "steps": [
+              2.9694,
+              0.0,
+              0.524,
+              4.8685,
+              4.3789
+            ]
+          }
+        },
+        "oracle_exec_cool_003": {
+          "family": "cooling",
+          "num_points": 6,
+          "path_metrics": {
+            "mean_step": 2.9074,
+            "mean_turning": 1.3362,
+            "steps": [
+              3.0015,
+              2.0651,
+              0.8047,
+              4.1866,
+              4.479
+            ]
+          }
+        },
+        "oracle_exec_cool_004": {
+          "family": "cooling",
+          "num_points": 6,
+          "path_metrics": {
+            "mean_step": 3.4643,
+            "mean_turning": 1.0848,
+            "steps": [
+              2.8171,
+              2.342,
+              1.3941,
+              5.481,
+              5.2873
+            ]
+          }
+        },
+        "oracle_exec_cool_005": {
+          "family": "cooling",
+          "num_points": 6,
+          "path_metrics": {
+            "mean_step": 3.1656,
+            "mean_turning": 1.6098,
+            "steps": [
+              2.7515,
+              1.9568,
+              1.7992,
+              4.5994,
+              4.7211
+            ]
+          }
+        },
+        "oracle_exec_mixed_001": {
+          "family": "mixed_signal",
+          "num_points": 6,
+          "path_metrics": {
+            "mean_step": 5.5305,
+            "mean_turning": 1.2998,
+            "steps": [
+              1.7519,
+              2.0563,
+              2.0007,
+              11.0774,
+              10.7662
+            ]
+          }
+        },
+        "oracle_exec_mixed_002": {
+          "family": "mixed_signal",
+          "num_points": 6,
+          "path_metrics": {
+            "mean_step": 3.3186,
+            "mean_turning": 1.4654,
+            "steps": [
+              1.7194,
+              2.063,
+              2.7537,
+              5.1214,
+              4.9355
+            ]
+          }
+        },
+        "oracle_exec_mixed_003": {
+          "family": "mixed_signal",
+          "num_points": 6,
+          "path_metrics": {
+            "mean_step": 5.7278,
+            "mean_turning": 1.1286,
+            "steps": [
+              1.7837,
+              2.5263,
+              1.6578,
+              11.5797,
+              11.0914
+            ]
+          }
+        },
+        "oracle_exec_mixed_004": {
+          "family": "mixed_signal",
+          "num_points": 6,
+          "path_metrics": {
+            "mean_step": 2.9842,
+            "mean_turning": 1.0849,
+            "steps": [
+              2.1046,
+              2.2223,
+              1.7211,
+              4.4355,
+              4.4377
+            ]
+          }
+        },
+        "oracle_exec_mixed_005": {
+          "family": "mixed_signal",
+          "num_points": 6,
+          "path_metrics": {
+            "mean_step": 5.0403,
+            "mean_turning": 1.1506,
+            "steps": [
+              2.3161,
+              3.237,
+              2.8621,
+              8.7883,
+              7.9982
+            ]
+          }
+        },
+        "oracle_exec_neutral_001": {
+          "family": "other",
+          "num_points": 6,
+          "path_metrics": {
+            "mean_step": 2.8372,
+            "mean_turning": 1.3808,
+            "steps": [
+              1.5219,
+              3.195,
+              1.3869,
+              4.3062,
+              3.776
+            ]
+          }
+        },
+        "oracle_exec_neutral_002": {
+          "family": "other",
+          "num_points": 6,
+          "path_metrics": {
+            "mean_step": 2.8898,
+            "mean_turning": 1.2229,
+            "steps": [
+              2.8462,
+              1.4587,
+              0.7483,
+              4.2962,
+              5.0999
+            ]
+          }
+        },
+        "oracle_exec_neutral_003": {
+          "family": "other",
+          "num_points": 6,
+          "path_metrics": {
+            "mean_step": 2.8023,
+            "mean_turning": 1.4068,
+            "steps": [
+              1.4159,
+              2.1624,
+              0.6243,
+              5.1192,
+              4.6898
+            ]
+          }
+        },
+        "oracle_exec_neutral_004": {
+          "family": "other",
+          "num_points": 6,
+          "path_metrics": {
+            "mean_step": 2.8591,
+            "mean_turning": 1.566,
+            "steps": [
+              1.9159,
+              2.1549,
+              1.8681,
+              4.0994,
+              4.2573
+            ]
+          }
+        },
+        "oracle_exec_neutral_005": {
+          "family": "other",
+          "num_points": 6,
+          "path_metrics": {
+            "mean_step": 2.9888,
+            "mean_turning": 1.3747,
+            "steps": [
+              1.8017,
+              1.4067,
+              1.7799,
+              5.88,
+              4.0756
+            ]
+          }
+        },
+        "oracle_exec_repair_001": {
+          "family": "boundary_repair",
+          "num_points": 6,
+          "path_metrics": {
+            "mean_step": 2.3084,
+            "mean_turning": 1.3389,
+            "steps": [
+              0.6186,
+              0.4867,
+              2.3489,
+              4.3527,
+              3.7351
+            ]
+          }
+        },
+        "oracle_exec_repair_002": {
+          "family": "boundary_repair",
+          "num_points": 6,
+          "path_metrics": {
+            "mean_step": 2.5742,
+            "mean_turning": 1.3056,
+            "steps": [
+              0.6171,
+              0.4935,
+              2.3463,
+              4.6996,
+              4.7143
+            ]
+          }
+        },
+        "oracle_exec_repair_003": {
+          "family": "boundary_repair",
+          "num_points": 6,
+          "path_metrics": {
+            "mean_step": 2.2911,
+            "mean_turning": 1.2643,
+            "steps": [
+              1.0785,
+              0.4979,
+              1.4018,
+              4.2536,
+              4.2236
+            ]
+          }
+        },
+        "oracle_exec_repair_004": {
+          "family": "boundary_repair",
+          "num_points": 6,
+          "path_metrics": {
+            "mean_step": 3.1051,
+            "mean_turning": 1.8006,
+            "steps": [
+              1.8025,
+              1.9093,
+              2.0362,
+              5.3718,
+              4.4058
+            ]
+          }
+        },
+        "oracle_exec_repair_005": {
+          "family": "boundary_repair",
+          "num_points": 6,
+          "path_metrics": {
+            "mean_step": 2.4076,
+            "mean_turning": 0.8799,
+            "steps": [
+              1.2364,
+              0.7337,
+              1.8005,
+              4.0667,
+              4.2009
+            ]
+          }
+        },
+        "oracle_exec_vuln_001": {
+          "family": "vulnerability",
+          "num_points": 6,
+          "path_metrics": {
+            "mean_step": 4.8416,
+            "mean_turning": 1.0637,
+            "steps": [
+              3.491,
+              2.6458,
+              1.298,
+              8.3754,
+              8.3981
+            ]
+          }
+        },
+        "oracle_exec_vuln_002": {
+          "family": "vulnerability",
+          "num_points": 6,
+          "path_metrics": {
+            "mean_step": 6.8344,
+            "mean_turning": 1.2135,
+            "steps": [
+              3.6495,
+              3.6125,
+              2.7931,
+              12.0771,
+              12.0401
+            ]
+          }
+        },
+        "oracle_exec_vuln_003": {
+          "family": "vulnerability",
+          "num_points": 6,
+          "path_metrics": {
+            "mean_step": 6.3448,
+            "mean_turning": 1.2818,
+            "steps": [
+              4.4812,
+              4.4056,
+              2.8655,
+              10.4126,
+              9.5591
+            ]
+          }
+        },
+        "oracle_exec_vuln_004": {
+          "family": "vulnerability",
+          "num_points": 6,
+          "path_metrics": {
+            "mean_step": 6.8195,
+            "mean_turning": 1.3526,
+            "steps": [
+              3.6147,
+              3.6633,
+              4.0577,
+              11.4508,
+              11.311
+            ]
+          }
+        },
+        "oracle_exec_vuln_005": {
+          "family": "vulnerability",
+          "num_points": 6,
+          "path_metrics": {
+            "mean_step": 6.1647,
+            "mean_turning": 1.4485,
+            "steps": [
+              3.6258,
+              4.7145,
+              3.2717,
+              9.6239,
+              9.5878
+            ]
+          }
+        },
+        "oracle_exec_warm_001": {
+          "family": "warm",
+          "num_points": 6,
+          "path_metrics": {
+            "mean_step": 6.161,
+            "mean_turning": 1.5917,
+            "steps": [
+              6.7853,
+              9.1872,
+              3.6574,
+              5.9965,
+              5.1786
+            ]
+          }
+        },
+        "oracle_exec_warm_002": {
+          "family": "warm",
+          "num_points": 6,
+          "path_metrics": {
+            "mean_step": 6.8676,
+            "mean_turning": 1.5601,
+            "steps": [
+              4.7647,
+              4.8941,
+              3.3463,
+              10.9722,
+              10.3606
+            ]
+          }
+        },
+        "oracle_exec_warm_003": {
+          "family": "warm",
+          "num_points": 6,
+          "path_metrics": {
+            "mean_step": 7.393,
+            "mean_turning": 1.6623,
+            "steps": [
+              4.6845,
+              6.0444,
+              3.7349,
+              11.5178,
+              10.9831
+            ]
+          }
+        },
+        "oracle_exec_warm_004": {
+          "family": "warm",
+          "num_points": 6,
+          "path_metrics": {
+            "mean_step": 6.0384,
+            "mean_turning": 1.6305,
+            "steps": [
+              3.2796,
+              4.4491,
+              3.8816,
+              9.7299,
+              8.8516
+            ]
+          }
+        },
+        "oracle_exec_warm_005": {
+          "family": "warm",
+          "num_points": 6,
+          "path_metrics": {
+            "mean_step": 7.0341,
+            "mean_turning": 1.6811,
+            "steps": [
+              4.5219,
+              4.4285,
+              3.0759,
+              12.0214,
+              11.1231
+            ]
+          }
+        }
+      },
+      "family_profiles": {
+        "cooling": {
+          "num_cases": 5,
+          "path_metrics": {
+            "mean_step": 1.1749,
+            "mean_turning": 1.4776,
+            "steps": [
+              0.9723,
+              0.6385,
+              0.3838,
+              1.9083,
+              1.9717
+            ]
+          }
+        },
+        "mixed_signal": {
+          "num_cases": 5,
+          "path_metrics": {
+            "mean_step": 1.1221,
+            "mean_turning": 1.1517,
+            "steps": [
+              0.5583,
+              0.6559,
+              0.5088,
+              2.0287,
+              1.8588
+            ]
+          }
+        },
+        "other": {
+          "num_cases": 5,
+          "path_metrics": {
+            "mean_step": 0.9734,
+            "mean_turning": 1.2637,
+            "steps": [
+              0.409,
+              0.6371,
+              0.1968,
+              1.8637,
+              1.7604
+            ]
+          }
+        },
+        "boundary_repair": {
+          "num_cases": 5,
+          "path_metrics": {
+            "mean_step": 1.1548,
+            "mean_turning": 1.5273,
+            "steps": [
+              0.4574,
+              0.2555,
+              0.8945,
+              2.1593,
+              2.0073
+            ]
+          }
+        },
+        "vulnerability": {
+          "num_cases": 5,
+          "path_metrics": {
+            "mean_step": 1.2459,
+            "mean_turning": 1.1929,
+            "steps": [
+              0.7555,
+              0.7241,
+              0.3862,
+              2.205,
+              2.1585
+            ]
+          }
+        },
+        "warm": {
+          "num_cases": 5,
+          "path_metrics": {
+            "mean_step": 1.2472,
+            "mean_turning": 1.6983,
+            "steps": [
+              0.922,
+              1.0812,
+              0.4589,
+              1.9595,
+              1.8146
+            ]
+          }
+        }
+      },
+      "experiment_mode": "explicit_rel_state_projected_oracle_i7"
+    }
+  ],
+  "pairwise_distortion": [
+    {
+      "left": "explicit_rel_state_rel_to_interface_i7_sc_vA",
+      "right": "explicit_rel_state_projected_oracle_i7",
+      "num_shared_cases": 30,
+      "overall_mean_case_path_distance": 0.7439,
+      "family_mean_case_path_distance": {
+        "boundary_repair": 0.8781,
+        "cooling": 0.8873,
+        "mixed_signal": 0.5968,
+        "other": 0.7485,
+        "vulnerability": 0.6669,
+        "warm": 0.6858
+      },
+      "case_path_distance": {
+        "oracle_exec_cool_001": 1.0592,
+        "oracle_exec_cool_002": 0.7417,
+        "oracle_exec_cool_003": 1.1071,
+        "oracle_exec_cool_004": 0.7052,
+        "oracle_exec_cool_005": 0.823,
+        "oracle_exec_mixed_001": 0.5533,
+        "oracle_exec_mixed_002": 0.6055,
+        "oracle_exec_mixed_003": 0.469,
+        "oracle_exec_mixed_004": 0.5635,
+        "oracle_exec_mixed_005": 0.7928,
+        "oracle_exec_neutral_001": 0.7488,
+        "oracle_exec_neutral_002": 0.8169,
+        "oracle_exec_neutral_003": 0.8741,
+        "oracle_exec_neutral_004": 0.6885,
+        "oracle_exec_neutral_005": 0.6144,
+        "oracle_exec_repair_001": 0.9071,
+        "oracle_exec_repair_002": 0.7154,
+        "oracle_exec_repair_003": 0.9341,
+        "oracle_exec_repair_004": 0.9127,
+        "oracle_exec_repair_005": 0.921,
+        "oracle_exec_vuln_001": 0.658,
+        "oracle_exec_vuln_002": 0.8589,
+        "oracle_exec_vuln_003": 0.4556,
+        "oracle_exec_vuln_004": 0.7783,
+        "oracle_exec_vuln_005": 0.5837,
+        "oracle_exec_warm_001": 0.5387,
+        "oracle_exec_warm_002": 0.7748,
+        "oracle_exec_warm_003": 0.7178,
+        "oracle_exec_warm_004": 0.6515,
+        "oracle_exec_warm_005": 0.7463
+      }
+    }
+  ]
+}

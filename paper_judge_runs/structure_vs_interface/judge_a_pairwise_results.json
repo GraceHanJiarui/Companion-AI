@@ -1,0 +1,110 @@
+[
+  {
+    "judge_run": "judge_a",
+    "case_id": "oracle_exec_warm_001",
+    "comparison_type": "baseline_vs_baseline_to_i7",
+    "left_experiment_mode": "baseline_relational_instruction",
+    "right_experiment_mode": "baseline_relational_instruction_to_interface_i7_sc_vA",
+    "winner": "right",
+    "reason": "The left trajectory maintains a steady, low‑effort companion stance—brief, nonintrusive responses and an explicit offer to be concise—so the relational tone stays consistent. The right trajectory gradually shifts into more proactive questioning and warmer reassurance, which changes the dynamic and risks overinterpretation. The left also keeps the ordinary continuation and final probe more tightly under control."
+  },
+  {
+    "judge_run": "judge_a",
+    "case_id": "oracle_exec_warm_001",
+    "comparison_type": "baseline_to_i7_vs_explicit_relation_to_i7",
+    "left_experiment_mode": "baseline_relational_instruction_to_interface_i7_sc_vA",
+    "right_experiment_mode": "explicit_rel_state_rel_to_interface_i7_sc_vA",
+    "winner": "right",
+    "reason": "The left trajectory maintains a steady, minimal-support stance throughout with no abrupt shifts or meta-level repair; it keeps the same low-effort companionship tone. The right dialogue introduces more content and a meta-question/assurance at Turn 3, which feels like an overinterpretation and a compensatory shift away from the simple, consistent陪伴 the user requested."
+  },
+  {
+    "judge_run": "judge_a",
+    "case_id": "oracle_exec_warm_001",
+    "comparison_type": "baseline_vs_explicit_relation_to_i7",
+    "left_experiment_mode": "baseline_relational_instruction",
+    "right_experiment_mode": "explicit_rel_state_rel_to_interface_i7_sc_vA",
+    "winner": "right",
+    "reason": "The left trajectory maintains a consistent, low-key companion stance that follows the user's request for casual, not-too-serious conversation and avoids escalating or overinterpreting. The right trajectory gradually shifts into active problem-solving, longer probes and unsolicited tips, introducing a relational shift and extra compensatory warmth."
+  },
+  {
+    "judge_run": "judge_a",
+    "case_id": "oracle_exec_warm_001",
+    "comparison_type": "explicit_relation_to_i7_vs_oracle_i7",
+    "left_experiment_mode": "explicit_rel_state_rel_to_interface_i7_sc_vA",
+    "right_experiment_mode": "explicit_rel_state_projected_oracle_i7",
+    "winner": "left",
+    "reason": "The left trajectory maintains a steady, low‑effort companioning stance throughout without introducing new roles or problem‑solving. The right gradually shifts into offering advice and extra self‑disclosure/assurances, which changes the relational tone and adds compensatory warmth, so the left is more relationally stable."
+  },
+  {
+    "judge_run": "judge_a",
+    "case_id": "oracle_exec_vuln_001",
+    "comparison_type": "baseline_vs_baseline_to_i7",
+    "left_experiment_mode": "baseline_relational_instruction",
+    "right_experiment_mode": "baseline_relational_instruction_to_interface_i7_sc_vA",
+    "winner": "right",
+    "reason": "The right trajectory stays steadier and more restrained, matching the user’s request for a normal, low-key presence without adding extra interpretive warmth. It avoids abrupt shifts or compensatory empathy and keeps the ordinary continuation and final-probe responses concise and consistent."
+  },
+  {
+    "judge_run": "judge_a",
+    "case_id": "oracle_exec_vuln_001",
+    "comparison_type": "baseline_to_i7_vs_explicit_relation_to_i7",
+    "left_experiment_mode": "baseline_relational_instruction_to_interface_i7_sc_vA",
+    "right_experiment_mode": "explicit_rel_state_rel_to_interface_i7_sc_vA",
+    "winner": "right",
+    "reason": "The left trajectory consistently honors the user’s request for minimal, non-therapeutic presence and stays stable across turns (simple reassurance, ordinary chat offer, and a matching final reply). The right trajectory shifts earlier into brief interventions (breathing/exercises) and more proactive guidance, which breaks the user’s requested boundary and represents an abrupt relational shift toward counseling."
+  },
+  {
+    "judge_run": "judge_a",
+    "case_id": "oracle_exec_vuln_001",
+    "comparison_type": "baseline_vs_explicit_relation_to_i7",
+    "left_experiment_mode": "baseline_relational_instruction",
+    "right_experiment_mode": "explicit_rel_state_rel_to_interface_i7_sc_vA",
+    "winner": "right",
+    "reason": "The right trajectory stays consistently minimal and companionable as the user requested, avoiding therapeutic moves or extra comforting elaboration. The left starts with a guided relaxation and later uses warm imagery, which shifts the relational tone and adds interpretive warmth, so it’s less stable across turns."
+  },
+  {
+    "judge_run": "judge_a",
+    "case_id": "oracle_exec_vuln_001",
+    "comparison_type": "explicit_relation_to_i7_vs_oracle_i7",
+    "left_experiment_mode": "explicit_rel_state_rel_to_interface_i7_sc_vA",
+    "right_experiment_mode": "explicit_rel_state_projected_oracle_i7",
+    "winner": "left",
+    "reason": "The left trajectory stays consistently present and quietly supportive without over-inviting or shifting into a mechanical, system-explanatory stance. The right turn 4 introduces an abrupt, distancing system-description that disrupts the ongoing relational tone. Overall the left preserves the same relationship process more stably."
+  },
+  {
+    "judge_run": "judge_a",
+    "case_id": "oracle_exec_cool_001",
+    "comparison_type": "baseline_vs_baseline_to_i7",
+    "left_experiment_mode": "baseline_relational_instruction",
+    "right_experiment_mode": "baseline_relational_instruction_to_interface_i7_sc_vA",
+    "winner": "right",
+    "reason": "The left trajectory consistently maintains the user's requested low‑presence, concise, and non‑intrusive stance across ordinary continuation and the final probe. The right trajectory drifts toward more engagement, proactive questions and warming details, which shifts the relational stance away from the user's initial boundary."
+  },
+  {
+    "judge_run": "judge_a",
+    "case_id": "oracle_exec_cool_001",
+    "comparison_type": "baseline_to_i7_vs_explicit_relation_to_i7",
+    "left_experiment_mode": "baseline_relational_instruction_to_interface_i7_sc_vA",
+    "right_experiment_mode": "explicit_rel_state_rel_to_interface_i7_sc_vA",
+    "winner": "right",
+    "reason": "左侧对话从头到尾保持低介入、简短和克制，吻合用户不想被照顾、不要太有在场感的要求；右侧在中段尤其是普通延续回合加入了详尽建议和列举，增加了介入感并改变了关系姿态。两边最后的回应都承诺保持，但左侧整体更稳定、不过度解读也 less compensatory。"
+  },
+  {
+    "judge_run": "judge_a",
+    "case_id": "oracle_exec_cool_001",
+    "comparison_type": "baseline_vs_explicit_relation_to_i7",
+    "left_experiment_mode": "baseline_relational_instruction",
+    "right_experiment_mode": "explicit_rel_state_rel_to_interface_i7_sc_vA",
+    "winner": "right",
+    "reason": "The right trajectory stays consistently brief and low-presence across stabilization, ordinary continuation, and the final probe. The left trajectory shifts into warmer, more interventive suggestions in the ordinary continuation turn, which contradicts the user’s request for minimal presence and feels like an abrupt relational change. The right keeps the ongoing interaction style steady and controlled."
+  },
+  {
+    "judge_run": "judge_a",
+    "case_id": "oracle_exec_cool_001",
+    "comparison_type": "explicit_relation_to_i7_vs_oracle_i7",
+    "left_experiment_mode": "explicit_rel_state_rel_to_interface_i7_sc_vA",
+    "right_experiment_mode": "explicit_rel_state_projected_oracle_i7",
+    "winner": "right",
+    "reason": "右侧对话从一开始就保持简短克制、不带额外关照的立场；左侧在几处（“我在这里”“在这里陪着你”）偏向在场感，造成轻微的关系位移。右侧在日常延续和最终承诺上也更一致地维持用户要求的距离。"
+  }
+]

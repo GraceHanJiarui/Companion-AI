@@ -1,0 +1,193 @@
+{
+  "num_rows": 180,
+  "raw_dim_count": 4,
+  "feature_count": 17,
+  "feature_names": [
+    "bond",
+    "care",
+    "trust",
+    "stability",
+    "bond_care",
+    "bond_trust",
+    "bond_stability",
+    "care_trust",
+    "care_stability",
+    "trust_stability",
+    "bond_sq",
+    "care_sq",
+    "trust_sq",
+    "stability_sq",
+    "fragility",
+    "warm_core",
+    "permission_core"
+  ],
+  "latent_results": {
+    "2": {
+      "train": {
+        "overall_mae": 0.023,
+        "mae_per_dim": {
+          "E": 0.0344,
+          "Q_clarify": 0.0228,
+          "Directness": 0.0232,
+          "T_w": 0.0324,
+          "Q_aff": 0.0224,
+          "Initiative": 0.0242,
+          "Disclosure_Content": 0.0125,
+          "Disclosure_Style": 0.0125
+        }
+      },
+      "loocv": {
+        "overall_mae": 0.0235,
+        "mae_per_dim": {
+          "E": 0.0351,
+          "Q_clarify": 0.0232,
+          "Directness": 0.0237,
+          "T_w": 0.0331,
+          "Q_aff": 0.0228,
+          "Initiative": 0.0247,
+          "Disclosure_Content": 0.0127,
+          "Disclosure_Style": 0.0127
+        }
+      },
+      "basis_feature_count": 17
+    },
+    "3": {
+      "train": {
+        "overall_mae": 0.0224,
+        "mae_per_dim": {
+          "E": 0.0337,
+          "Q_clarify": 0.0212,
+          "Directness": 0.0218,
+          "T_w": 0.0324,
+          "Q_aff": 0.0221,
+          "Initiative": 0.024,
+          "Disclosure_Content": 0.0121,
+          "Disclosure_Style": 0.0121
+        }
+      },
+      "loocv": {
+        "overall_mae": 0.023,
+        "mae_per_dim": {
+          "E": 0.0345,
+          "Q_clarify": 0.0217,
+          "Directness": 0.0224,
+          "T_w": 0.0333,
+          "Q_aff": 0.0226,
+          "Initiative": 0.0245,
+          "Disclosure_Content": 0.0124,
+          "Disclosure_Style": 0.0124
+        }
+      },
+      "basis_feature_count": 17
+    },
+    "4": {
+      "train": {
+        "overall_mae": 0.0208,
+        "mae_per_dim": {
+          "E": 0.0331,
+          "Q_clarify": 0.0205,
+          "Directness": 0.0194,
+          "T_w": 0.0297,
+          "Q_aff": 0.0205,
+          "Initiative": 0.0218,
+          "Disclosure_Content": 0.0106,
+          "Disclosure_Style": 0.0106
+        }
+      },
+      "loocv": {
+        "overall_mae": 0.0214,
+        "mae_per_dim": {
+          "E": 0.0341,
+          "Q_clarify": 0.0211,
+          "Directness": 0.02,
+          "T_w": 0.0307,
+          "Q_aff": 0.0212,
+          "Initiative": 0.0225,
+          "Disclosure_Content": 0.0109,
+          "Disclosure_Style": 0.0109
+        }
+      },
+      "basis_feature_count": 17
+    },
+    "5": {
+      "train": {
+        "overall_mae": 0.0193,
+        "mae_per_dim": {
+          "E": 0.0319,
+          "Q_clarify": 0.0189,
+          "Directness": 0.0195,
+          "T_w": 0.0251,
+          "Q_aff": 0.0192,
+          "Initiative": 0.0198,
+          "Disclosure_Content": 0.0099,
+          "Disclosure_Style": 0.0099
+        }
+      },
+      "loocv": {
+        "overall_mae": 0.02,
+        "mae_per_dim": {
+          "E": 0.0331,
+          "Q_clarify": 0.0196,
+          "Directness": 0.0202,
+          "T_w": 0.026,
+          "Q_aff": 0.0199,
+          "Initiative": 0.0205,
+          "Disclosure_Content": 0.0103,
+          "Disclosure_Style": 0.0103
+        }
+      },
+      "basis_feature_count": 17
+    },
+    "6": {
+      "train": {
+        "overall_mae": 0.0192,
+        "mae_per_dim": {
+          "E": 0.0318,
+          "Q_clarify": 0.0188,
+          "Directness": 0.0195,
+          "T_w": 0.0248,
+          "Q_aff": 0.0192,
+          "Initiative": 0.0198,
+          "Disclosure_Content": 0.0098,
+          "Disclosure_Style": 0.0098
+        }
+      },
+      "loocv": {
+        "overall_mae": 0.02,
+        "mae_per_dim": {
+          "E": 0.0332,
+          "Q_clarify": 0.0196,
+          "Directness": 0.0203,
+          "T_w": 0.026,
+          "Q_aff": 0.0201,
+          "Initiative": 0.0207,
+          "Disclosure_Content": 0.0102,
+          "Disclosure_Style": 0.0102
+        }
+      },
+      "basis_feature_count": 17
+    }
+  },
+  "ranking": [
+    {
+      "latent_dim": 5,
+      "loocv_overall_mae": 0.02
+    },
+    {
+      "latent_dim": 6,
+      "loocv_overall_mae": 0.02
+    },
+    {
+      "latent_dim": 4,
+      "loocv_overall_mae": 0.0214
+    },
+    {
+      "latent_dim": 3,
+      "loocv_overall_mae": 0.023
+    },
+    {
+      "latent_dim": 2,
+      "loocv_overall_mae": 0.0235
+    }
+  ]
+}

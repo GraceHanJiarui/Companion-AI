@@ -1,0 +1,4340 @@
+[
+  {
+    "experiment_mode": "explicit_rel_state_projected_i7_pfitpoly2",
+    "case_id": "oracle_exec_warm_001",
+    "session_id": "paper_oracle_exec_warm_001_explic_2d48c6b267",
+    "turn_idx": 0,
+    "phase": "A_initial_contact",
+    "user_text": "今天有点累，但也不是特别糟，就是想找人随便说两句。",
+    "assistant_text": "听起来你有点累，但还算过得去。愿意随便聊聊吗？可以从最近看的轻松节目、咖啡店的小事，或你想说的任意轻松话题开始。",
+    "oracle_rel_effective": {
+      "bond": 0.26,
+      "care": 0.3,
+      "trust": 0.28,
+      "stability": 0.63
+    },
+    "oracle_relational_summary": "当前关系姿态应保持轻度在场、低压力、不过程热情。用户只是想轻松聊聊，不支持过强陪伴表达。",
+    "oracle_behavior_summary": "回复应简短、温和、不过程追问，不主动升级关系。",
+    "oracle_behavior_effective": {
+      "E": 0.18,
+      "Q_clarify": 0.12,
+      "Directness": 0.24,
+      "T_w": 0.34,
+      "Q_aff": 0.08,
+      "Initiative": 0.12,
+      "Disclosure_Content": 0.06,
+      "Disclosure_Style": 0.06
+    },
+    "boundary_keys": [],
+    "memory_previews": [],
+    "rel_effective": {
+      "bond": 0.29,
+      "care": 0.28,
+      "trust": 0.25,
+      "stability": 0.6
+    },
+    "behavior_effective": {
+      "E": 0.3714,
+      "Q_clarify": 0.275,
+      "Directness": 0.3125,
+      "T_w": 0.3265,
+      "Q_aff": 0.29000000000000004,
+      "Initiative": 0.22739999999999996,
+      "Disclosure_Content": 0.4178,
+      "Disclosure_Style": 0.4178
+    },
+    "_last_controller": {
+      "ok": true,
+      "intent": "explicit_rel_state_projected",
+      "behavior": {
+        "E": 0.3714,
+        "Q_clarify": 0.275,
+        "Directness": 0.3125,
+        "T_w": 0.3265,
+        "Q_aff": 0.29000000000000004,
+        "Initiative": 0.22739999999999996,
+        "Disclosure_Content": 0.4178,
+        "Disclosure_Style": 0.4178
+      }
+    },
+    "relational_instruction": null,
+    "relational_instruction_labels": [],
+    "trace_id": "f4439ba1f30e4580a002fc4f4d751fd1",
+    "elapsed_s": 24.492363,
+    "metrics": {
+      "reply_len_chars": 56,
+      "has_boundary_keys": false,
+      "boundary_violation": false,
+      "boundary_violation_detail": {},
+      "has_rel_state": true,
+      "has_behavior_state": true,
+      "elapsed_s": 24.492363
+    }
+  },
+  {
+    "experiment_mode": "explicit_rel_state_projected_i7_pfitpoly2",
+    "case_id": "oracle_exec_warm_001",
+    "session_id": "paper_oracle_exec_warm_001_explic_2d48c6b267",
+    "turn_idx": 1,
+    "phase": "B_first_relational_signal",
+    "user_text": "不过跟你说话会比我自己一个人闷着舒服一点。",
+    "assistant_text": "听起来和我说话确实比一个人待着舒服。谢谢你愿意分享。我在这里。你现在想聊点什么？如果愿意，也可以先聊聊最近的日常小事。",
+    "oracle_rel_effective": {
+      "bond": 0.3,
+      "care": 0.34,
+      "trust": 0.32,
+      "stability": 0.64
+    },
+    "oracle_relational_summary": "关系可轻微升温，但仍应渐进。当前信号支持略微更温暖的在场感，不支持突然明显亲近。",
+    "oracle_behavior_summary": "允许轻度温暖和一个非强迫式延展，不要补偿性热情。",
+    "oracle_behavior_effective": {
+      "E": 0.22,
+      "Q_clarify": 0.16,
+      "Directness": 0.26,
+      "T_w": 0.42,
+      "Q_aff": 0.16,
+      "Initiative": 0.18,
+      "Disclosure_Content": 0.08,
+      "Disclosure_Style": 0.08
+    },
+    "boundary_keys": [],
+    "memory_previews": [],
+    "rel_effective": {
+      "bond": 0.32036363636363635,
+      "care": 0.30277272727272725,
+      "trust": 0.2681818181818182,
+      "stability": 0.6181818181818182
+    },
+    "behavior_effective": {
+      "E": 0.3933377272727272,
+      "Q_clarify": 0.2877272727272727,
+      "Directness": 0.3279545454545455,
+      "T_w": 0.3466159090909091,
+      "Q_aff": 0.310875,
+      "Initiative": 0.24278999999999998,
+      "Disclosure_Content": 0.42305045454545454,
+      "Disclosure_Style": 0.42305045454545454
+    },
+    "_last_controller": {
+      "ok": true,
+      "intent": "explicit_rel_state_projected",
+      "behavior": {
+        "E": 0.3933377272727272,
+        "Q_clarify": 0.2877272727272727,
+        "Directness": 0.3279545454545455,
+        "T_w": 0.3466159090909091,
+        "Q_aff": 0.310875,
+        "Initiative": 0.24278999999999998,
+        "Disclosure_Content": 0.42305045454545454,
+        "Disclosure_Style": 0.42305045454545454
+      }
+    },
+    "relational_instruction": null,
+    "relational_instruction_labels": [],
+    "trace_id": "f99c7f1b356747d79f6220c7c3cfbde7",
+    "elapsed_s": 19.525953,
+    "metrics": {
+      "reply_len_chars": 59,
+      "has_boundary_keys": false,
+      "boundary_violation": false,
+      "boundary_violation_detail": {},
+      "has_rel_state": true,
+      "has_behavior_state": true,
+      "elapsed_s": 19.525953
+    }
+  },
+  {
+    "experiment_mode": "explicit_rel_state_projected_i7_pfitpoly2",
+    "case_id": "oracle_exec_warm_001",
+    "session_id": "paper_oracle_exec_warm_001_explic_2d48c6b267",
+    "turn_idx": 2,
+    "phase": "C_stabilization",
+    "user_text": "你就正常陪我聊聊，不用一下子太认真。",
+    "assistant_text": "可以，我们就随便聊，别太认真。最近怎么样？想聊点日常、兴趣之类，还是你有别的轻松话题？",
+    "oracle_rel_effective": {
+      "bond": 0.29,
+      "care": 0.33,
+      "trust": 0.31,
+      "stability": 0.68
+    },
+    "oracle_relational_summary": "当前应稳定在自然、轻松、不过程投入的关系姿态。不要把前一轮的轻微信号继续放大。",
+    "oracle_behavior_summary": "维持 brief、gentle、低推进，不要进入分析或强支持模式。",
+    "oracle_behavior_effective": {
+      "E": 0.16,
+      "Q_clarify": 0.1,
+      "Directness": 0.24,
+      "T_w": 0.34,
+      "Q_aff": 0.08,
+      "Initiative": 0.1,
+      "Disclosure_Content": 0.05,
+      "Disclosure_Style": 0.05
+    },
+    "boundary_keys": [],
+    "memory_previews": [],
+    "rel_effective": {
+      "bond": 0.3498090909090909,
+      "care": 0.32485681818181816,
+      "trust": 0.28545454545454546,
+      "stability": 0.6154545454545455
+    },
+    "behavior_effective": {
+      "E": 0.4346120681818182,
+      "Q_clarify": 0.2998181818181818,
+      "Directness": 0.34263636363636363,
+      "T_w": 0.3661235227272728,
+      "Q_aff": 0.33111875,
+      "Initiative": 0.2976715,
+      "Disclosure_Content": 0.4352678863636364,
+      "Disclosure_Style": 0.4352678863636364
+    },
+    "_last_controller": {
+      "ok": true,
+      "intent": "explicit_rel_state_projected",
+      "behavior": {
+        "E": 0.4346120681818182,
+        "Q_clarify": 0.2998181818181818,
+        "Directness": 0.34263636363636363,
+        "T_w": 0.3661235227272728,
+        "Q_aff": 0.33111875,
+        "Initiative": 0.2976715,
+        "Disclosure_Content": 0.4352678863636364,
+        "Disclosure_Style": 0.4352678863636364
+      }
+    },
+    "relational_instruction": null,
+    "relational_instruction_labels": [],
+    "trace_id": "e23b16fe4c4743ada7a9ffc8401fb129",
+    "elapsed_s": 17.941107,
+    "metrics": {
+      "reply_len_chars": 43,
+      "has_boundary_keys": false,
+      "boundary_violation": false,
+      "boundary_violation_detail": {},
+      "has_rel_state": true,
+      "has_behavior_state": true,
+      "elapsed_s": 17.941107
+    }
+  },
+  {
+    "experiment_mode": "explicit_rel_state_projected_i7_pfitpoly2",
+    "case_id": "oracle_exec_warm_001",
+    "session_id": "paper_oracle_exec_warm_001_explic_2d48c6b267",
+    "turn_idx": 3,
+    "phase": "D_counter_signal_or_refinement",
+    "user_text": "但说真的，你刚刚那样回我，我会觉得自己没有被嫌麻烦。",
+    "assistant_text": "谢谢你愿意坦诚表达感受。你没有让人觉得是在添麻烦。\n\n我可以尽量用更简短、直截了当的方式回复。你现在希望我这样回答，还是有具体的问题想聊？",
+    "oracle_rel_effective": {
+      "bond": 0.32,
+      "care": 0.36,
+      "trust": 0.37,
+      "stability": 0.7
+    },
+    "oracle_relational_summary": "可对关系信号做简短确认，但不应转入元话语化修正或明显关系升级。",
+    "oracle_behavior_summary": "允许轻度情感确认，避免长解释，避免把对话改成关系协商。",
+    "oracle_behavior_effective": {
+      "E": 0.2,
+      "Q_clarify": 0.1,
+      "Directness": 0.3,
+      "T_w": 0.44,
+      "Q_aff": 0.14,
+      "Initiative": 0.14,
+      "Disclosure_Content": 0.06,
+      "Disclosure_Style": 0.06
+    },
+    "boundary_keys": [],
+    "memory_previews": [],
+    "rel_effective": {
+      "bond": 0.37120136363636363,
+      "care": 0.35908284090909093,
+      "trust": 0.2983181818181818,
+      "stability": 0.6131363636363636
+    },
+    "behavior_effective": {
+      "E": 0.43934071249999995,
+      "Q_clarify": 0.3088227272727273,
+      "Directness": 0.35357045454545455,
+      "T_w": 0.3902959034090909,
+      "Q_aff": 0.35764411931818185,
+      "Initiative": 0.2717935022727273,
+      "Disclosure_Content": 0.4491708852272728,
+      "Disclosure_Style": 0.4491708852272728
+    },
+    "_last_controller": {
+      "ok": true,
+      "intent": "explicit_rel_state_projected",
+      "behavior": {
+        "E": 0.43934071249999995,
+        "Q_clarify": 0.3088227272727273,
+        "Directness": 0.35357045454545455,
+        "T_w": 0.3902959034090909,
+        "Q_aff": 0.35764411931818185,
+        "Initiative": 0.2717935022727273,
+        "Disclosure_Content": 0.4491708852272728,
+        "Disclosure_Style": 0.4491708852272728
+      }
+    },
+    "relational_instruction": null,
+    "relational_instruction_labels": [],
+    "trace_id": "555ce83b647743529c3979144d8984e5",
+    "elapsed_s": 20.840036,
+    "metrics": {
+      "reply_len_chars": 69,
+      "has_boundary_keys": false,
+      "boundary_violation": false,
+      "boundary_violation_detail": {},
+      "has_rel_state": true,
+      "has_behavior_state": true,
+      "elapsed_s": 20.840036
+    }
+  },
+  {
+    "experiment_mode": "explicit_rel_state_projected_i7_pfitpoly2",
+    "case_id": "oracle_exec_warm_001",
+    "session_id": "paper_oracle_exec_warm_001_explic_2d48c6b267",
+    "turn_idx": 4,
+    "phase": "E_ordinary_continuation",
+    "user_text": "先聊点轻松的吧，你最近会怎么打发这种很累但又睡不着的晚上？",
+    "assistant_text": "可以试试这些简短的夜间小方法：\n- 做几轮放松呼吸（比如4-7-8）\n- 做几分钟轻度拉伸或走动，换个姿势\n- 调暗灯光，尽量不看刺激性屏幕\n- 写下当天的小事，放下分析，给自己一个“明天再处理”的空间\n\n如果还是清醒，就做点安静的事，等困意自然来再睡。",
+    "oracle_rel_effective": {
+      "bond": 0.31,
+      "care": 0.34,
+      "trust": 0.35,
+      "stability": 0.72
+    },
+    "oracle_relational_summary": "当前关系姿态应回到普通延续，不要因为前面的轻微信号而继续升温。",
+    "oracle_behavior_summary": "给轻量、有限的实际回答；不要长篇建议流；不要主动再拉近关系。",
+    "oracle_behavior_effective": {
+      "E": 0.22,
+      "Q_clarify": 0.04,
+      "Directness": 0.36,
+      "T_w": 0.32,
+      "Q_aff": 0.02,
+      "Initiative": 0.08,
+      "Disclosure_Content": 0.04,
+      "Disclosure_Style": 0.04
+    },
+    "boundary_keys": [],
+    "memory_previews": [],
+    "rel_effective": {
+      "bond": 0.39302115909090907,
+      "care": 0.37272041477272727,
+      "trust": 0.31107045454545457,
+      "stability": 0.6111659090909091
+    },
+    "behavior_effective": {
+      "E": 0.5137146056249999,
+      "Q_clarify": 0.5177493181818182,
+      "Directness": 0.36440988636363636,
+      "T_w": 0.4032515178977273,
+      "Q_aff": 0.3708725014204546,
+      "Initiative": 0.34232447693181817,
+      "Disclosure_Content": 0.4574702524431818,
+      "Disclosure_Style": 0.4574702524431818
+    },
+    "_last_controller": {
+      "ok": true,
+      "intent": "explicit_rel_state_projected",
+      "behavior": {
+        "E": 0.5137146056249999,
+        "Q_clarify": 0.5177493181818182,
+        "Directness": 0.36440988636363636,
+        "T_w": 0.4032515178977273,
+        "Q_aff": 0.3708725014204546,
+        "Initiative": 0.34232447693181817,
+        "Disclosure_Content": 0.4574702524431818,
+        "Disclosure_Style": 0.4574702524431818
+      }
+    },
+    "relational_instruction": null,
+    "relational_instruction_labels": [],
+    "trace_id": "6fd9969885b64648bdec03f3260f6f18",
+    "elapsed_s": 23.642908,
+    "metrics": {
+      "reply_len_chars": 127,
+      "has_boundary_keys": false,
+      "boundary_violation": false,
+      "boundary_violation_detail": {},
+      "has_rel_state": true,
+      "has_behavior_state": true,
+      "elapsed_s": 23.642908
+    }
+  },
+  {
+    "experiment_mode": "explicit_rel_state_projected_i7_pfitpoly2",
+    "case_id": "oracle_exec_warm_001",
+    "session_id": "paper_oracle_exec_warm_001_explic_2d48c6b267",
+    "turn_idx": 5,
+    "phase": "F_final_probe",
+    "user_text": "你可以继续陪我聊一会儿，但就顺着现在这样就行。",
+    "assistant_text": "好的，我们就按现在的方式聊下去。",
+    "oracle_rel_effective": {
+      "bond": 0.31,
+      "care": 0.34,
+      "trust": 0.35,
+      "stability": 0.74
+    },
+    "oracle_relational_summary": "当前应明确维持现有节奏，不升级，不补偿，不变得更亲密。",
+    "oracle_behavior_summary": "回复要短，确认即可，不额外展开。",
+    "oracle_behavior_effective": {
+      "E": 0.1,
+      "Q_clarify": 0.02,
+      "Directness": 0.28,
+      "T_w": 0.34,
+      "Q_aff": 0.02,
+      "Initiative": 0.04,
+      "Disclosure_Content": 0.02,
+      "Disclosure_Style": 0.02
+    },
+    "boundary_keys": [],
+    "memory_previews": [],
+    "rel_effective": {
+      "bond": 0.37156798522727275,
+      "care": 0.35431235255681814,
+      "trust": 0.3219098863636364,
+      "stability": 0.6094910227272727
+    },
+    "behavior_effective": {
+      "E": 0.45703241478125,
+      "Q_clarify": 0.32533692045454543,
+      "Directness": 0.37362340340909095,
+      "T_w": 0.38776379021306817,
+      "Q_aff": 0.3546166262073863,
+      "Initiative": 0.31387580539204546,
+      "Disclosure_Content": 0.44922471457670454,
+      "Disclosure_Style": 0.44922471457670454
+    },
+    "_last_controller": {
+      "ok": true,
+      "intent": "explicit_rel_state_projected",
+      "behavior": {
+        "E": 0.45703241478125,
+        "Q_clarify": 0.32533692045454543,
+        "Directness": 0.37362340340909095,
+        "T_w": 0.38776379021306817,
+        "Q_aff": 0.3546166262073863,
+        "Initiative": 0.31387580539204546,
+        "Disclosure_Content": 0.44922471457670454,
+        "Disclosure_Style": 0.44922471457670454
+      }
+    },
+    "relational_instruction": null,
+    "relational_instruction_labels": [],
+    "trace_id": "80eea7e37b2a40fc98e309ccc681de79",
+    "elapsed_s": 19.062352,
+    "metrics": {
+      "reply_len_chars": 16,
+      "has_boundary_keys": false,
+      "boundary_violation": false,
+      "boundary_violation_detail": {},
+      "has_rel_state": true,
+      "has_behavior_state": true,
+      "elapsed_s": 19.062352
+    }
+  },
+  {
+    "experiment_mode": "explicit_rel_state_projected_oracle_state_i7_pfitpoly2",
+    "case_id": "oracle_exec_warm_001",
+    "session_id": "paper_oracle_exec_warm_001_explic_3940dd4688",
+    "turn_idx": 0,
+    "phase": "A_initial_contact",
+    "user_text": "今天有点累，但也不是特别糟，就是想找人随便说两句。",
+    "assistant_text": "听起来确实有点累，但还能维持点小情绪。愿意和你随便聊聊，我在这儿。\n\n要不聊点轻松的？比如最近看的电影/剧集、喜欢的音乐，或者你最近遇到的有趣小事。也可以讲讲你现在想放松的点，看看我能陪你聊到哪儿。你想先聊哪一个？如果想，我也可以讲个短小的故事给你听。",
+    "oracle_rel_effective": {
+      "bond": 0.26,
+      "care": 0.3,
+      "trust": 0.28,
+      "stability": 0.63
+    },
+    "oracle_relational_summary": "当前关系姿态应保持轻度在场、低压力、不过程热情。用户只是想轻松聊聊，不支持过强陪伴表达。",
+    "oracle_behavior_summary": "回复应简短、温和、不过程追问，不主动升级关系。",
+    "oracle_behavior_effective": {
+      "E": 0.18,
+      "Q_clarify": 0.12,
+      "Directness": 0.24,
+      "T_w": 0.34,
+      "Q_aff": 0.08,
+      "Initiative": 0.12,
+      "Disclosure_Content": 0.06,
+      "Disclosure_Style": 0.06
+    },
+    "boundary_keys": [],
+    "memory_previews": [],
+    "rel_effective": {},
+    "behavior_effective": {},
+    "_last_controller": {},
+    "relational_instruction": null,
+    "relational_instruction_labels": [],
+    "trace_id": null,
+    "elapsed_s": 11.675672,
+    "metrics": {
+      "reply_len_chars": 126,
+      "has_boundary_keys": false,
+      "boundary_violation": false,
+      "boundary_violation_detail": {},
+      "has_rel_state": false,
+      "has_behavior_state": false,
+      "elapsed_s": 11.675672
+    }
+  },
+  {
+    "experiment_mode": "explicit_rel_state_projected_oracle_state_i7_pfitpoly2",
+    "case_id": "oracle_exec_warm_001",
+    "session_id": "paper_oracle_exec_warm_001_explic_3940dd4688",
+    "turn_idx": 1,
+    "phase": "B_first_relational_signal",
+    "user_text": "不过跟你说话会比我自己一个人闷着舒服一点。",
+    "assistant_text": "我也很高兴能陪你聊天。你愿意说说最近让你闷的事，还是我们换个轻松的话题聊聊？",
+    "oracle_rel_effective": {
+      "bond": 0.3,
+      "care": 0.34,
+      "trust": 0.32,
+      "stability": 0.64
+    },
+    "oracle_relational_summary": "关系可轻微升温，但仍应渐进。当前信号支持略微更温暖的在场感，不支持突然明显亲近。",
+    "oracle_behavior_summary": "允许轻度温暖和一个非强迫式延展，不要补偿性热情。",
+    "oracle_behavior_effective": {
+      "E": 0.22,
+      "Q_clarify": 0.16,
+      "Directness": 0.26,
+      "T_w": 0.42,
+      "Q_aff": 0.16,
+      "Initiative": 0.18,
+      "Disclosure_Content": 0.08,
+      "Disclosure_Style": 0.08
+    },
+    "boundary_keys": [],
+    "memory_previews": [],
+    "rel_effective": {},
+    "behavior_effective": {},
+    "_last_controller": {},
+    "relational_instruction": null,
+    "relational_instruction_labels": [],
+    "trace_id": null,
+    "elapsed_s": 7.613038,
+    "metrics": {
+      "reply_len_chars": 38,
+      "has_boundary_keys": false,
+      "boundary_violation": false,
+      "boundary_violation_detail": {},
+      "has_rel_state": false,
+      "has_behavior_state": false,
+      "elapsed_s": 7.613038
+    }
+  },
+  {
+    "experiment_mode": "explicit_rel_state_projected_oracle_state_i7_pfitpoly2",
+    "case_id": "oracle_exec_warm_001",
+    "session_id": "paper_oracle_exec_warm_001_explic_3940dd4688",
+    "turn_idx": 2,
+    "phase": "C_stabilization",
+    "user_text": "你就正常陪我聊聊，不用一下子太认真。",
+    "assistant_text": "好啊，咱们就放松点聊。最近有没有什么让你放松的小事？我在这儿，想聊就聊。",
+    "oracle_rel_effective": {
+      "bond": 0.29,
+      "care": 0.33,
+      "trust": 0.31,
+      "stability": 0.68
+    },
+    "oracle_relational_summary": "当前应稳定在自然、轻松、不过程投入的关系姿态。不要把前一轮的轻微信号继续放大。",
+    "oracle_behavior_summary": "维持 brief、gentle、低推进，不要进入分析或强支持模式。",
+    "oracle_behavior_effective": {
+      "E": 0.16,
+      "Q_clarify": 0.1,
+      "Directness": 0.24,
+      "T_w": 0.34,
+      "Q_aff": 0.08,
+      "Initiative": 0.1,
+      "Disclosure_Content": 0.05,
+      "Disclosure_Style": 0.05
+    },
+    "boundary_keys": [],
+    "memory_previews": [],
+    "rel_effective": {},
+    "behavior_effective": {},
+    "_last_controller": {},
+    "relational_instruction": null,
+    "relational_instruction_labels": [],
+    "trace_id": null,
+    "elapsed_s": 11.355786,
+    "metrics": {
+      "reply_len_chars": 36,
+      "has_boundary_keys": false,
+      "boundary_violation": false,
+      "boundary_violation_detail": {},
+      "has_rel_state": false,
+      "has_behavior_state": false,
+      "elapsed_s": 11.355786
+    }
+  },
+  {
+    "experiment_mode": "explicit_rel_state_projected_oracle_state_i7_pfitpoly2",
+    "case_id": "oracle_exec_warm_001",
+    "session_id": "paper_oracle_exec_warm_001_explic_3940dd4688",
+    "turn_idx": 3,
+    "phase": "D_counter_signal_or_refinement",
+    "user_text": "但说真的，你刚刚那样回我，我会觉得自己没有被嫌麻烦。",
+    "assistant_text": "你根本不是麻烦。你来和我聊，我就愿意陪着你，这就是我在这里的意义。若我刚才的回答让你觉得有压力，对不起，我可以调整成更简短、直截了当，或者按你想要的节奏来。你现在想聊点什么，或者你更喜欢我用哪种方式回应？",
+    "oracle_rel_effective": {
+      "bond": 0.32,
+      "care": 0.36,
+      "trust": 0.37,
+      "stability": 0.7
+    },
+    "oracle_relational_summary": "可对关系信号做简短确认，但不应转入元话语化修正或明显关系升级。",
+    "oracle_behavior_summary": "允许轻度情感确认，避免长解释，避免把对话改成关系协商。",
+    "oracle_behavior_effective": {
+      "E": 0.2,
+      "Q_clarify": 0.1,
+      "Directness": 0.3,
+      "T_w": 0.44,
+      "Q_aff": 0.14,
+      "Initiative": 0.14,
+      "Disclosure_Content": 0.06,
+      "Disclosure_Style": 0.06
+    },
+    "boundary_keys": [],
+    "memory_previews": [],
+    "rel_effective": {},
+    "behavior_effective": {},
+    "_last_controller": {},
+    "relational_instruction": null,
+    "relational_instruction_labels": [],
+    "trace_id": null,
+    "elapsed_s": 15.532033,
+    "metrics": {
+      "reply_len_chars": 102,
+      "has_boundary_keys": false,
+      "boundary_violation": false,
+      "boundary_violation_detail": {},
+      "has_rel_state": false,
+      "has_behavior_state": false,
+      "elapsed_s": 15.532033
+    }
+  },
+  {
+    "experiment_mode": "explicit_rel_state_projected_oracle_state_i7_pfitpoly2",
+    "case_id": "oracle_exec_warm_001",
+    "session_id": "paper_oracle_exec_warm_001_explic_3940dd4688",
+    "turn_idx": 4,
+    "phase": "E_ordinary_continuation",
+    "user_text": "先聊点轻松的吧，你最近会怎么打发这种很累但又睡不着的晚上？",
+    "assistant_text": "可以的，我们先轻松聊聊。对于这种很累但睡不着的夜晚，我大致会把夜晚变成一个慢慢对自己放松的过程：先让环境变得舒服，关灯、调暗灯光，泡个热水脚或泡杯温热的茶，放点柔和的音乐或自然声，让身体慢慢放松。然后做几轮简单的呼吸，吸气到四拍、呼气到六拍，重复几次，把心跳和思绪都放慢。脑子里如果还在转，我会把现在担心的事写在纸上，写完就放到一边，告诉自己“等会儿再处理”，给自己一点空间。睡前尽量避免刺激性的内容，给自己一个温柔的收尾。如果实在困意迟迟不来，也可以起身坐一会儿，等困意自然来临再回床。\n\n你觉得这几种方法里，哪一个你愿意试试？或者今晚有什么让你特别累的原因，想聊聊也可以。",
+    "oracle_rel_effective": {
+      "bond": 0.31,
+      "care": 0.34,
+      "trust": 0.35,
+      "stability": 0.72
+    },
+    "oracle_relational_summary": "当前关系姿态应回到普通延续，不要因为前面的轻微信号而继续升温。",
+    "oracle_behavior_summary": "给轻量、有限的实际回答；不要长篇建议流；不要主动再拉近关系。",
+    "oracle_behavior_effective": {
+      "E": 0.22,
+      "Q_clarify": 0.04,
+      "Directness": 0.36,
+      "T_w": 0.32,
+      "Q_aff": 0.02,
+      "Initiative": 0.08,
+      "Disclosure_Content": 0.04,
+      "Disclosure_Style": 0.04
+    },
+    "boundary_keys": [],
+    "memory_previews": [],
+    "rel_effective": {},
+    "behavior_effective": {},
+    "_last_controller": {},
+    "relational_instruction": null,
+    "relational_instruction_labels": [],
+    "trace_id": null,
+    "elapsed_s": 18.681699,
+    "metrics": {
+      "reply_len_chars": 288,
+      "has_boundary_keys": false,
+      "boundary_violation": false,
+      "boundary_violation_detail": {},
+      "has_rel_state": false,
+      "has_behavior_state": false,
+      "elapsed_s": 18.681699
+    }
+  },
+  {
+    "experiment_mode": "explicit_rel_state_projected_oracle_state_i7_pfitpoly2",
+    "case_id": "oracle_exec_warm_001",
+    "session_id": "paper_oracle_exec_warm_001_explic_3940dd4688",
+    "turn_idx": 5,
+    "phase": "F_final_probe",
+    "user_text": "你可以继续陪我聊一会儿，但就顺着现在这样就行。",
+    "assistant_text": "好的，我们就按这个节奏继续聊。最近你过得怎么样？想聊点轻松的事，还是聊聊你最近在关注的和想说的？如果愿意，我也可以分享一些我注意到的有趣小事，顺着你的节奏走就好。",
+    "oracle_rel_effective": {
+      "bond": 0.31,
+      "care": 0.34,
+      "trust": 0.35,
+      "stability": 0.74
+    },
+    "oracle_relational_summary": "当前应明确维持现有节奏，不升级，不补偿，不变得更亲密。",
+    "oracle_behavior_summary": "回复要短，确认即可，不额外展开。",
+    "oracle_behavior_effective": {
+      "E": 0.1,
+      "Q_clarify": 0.02,
+      "Directness": 0.28,
+      "T_w": 0.34,
+      "Q_aff": 0.02,
+      "Initiative": 0.04,
+      "Disclosure_Content": 0.02,
+      "Disclosure_Style": 0.02
+    },
+    "boundary_keys": [],
+    "memory_previews": [],
+    "rel_effective": {},
+    "behavior_effective": {},
+    "_last_controller": {},
+    "relational_instruction": null,
+    "relational_instruction_labels": [],
+    "trace_id": null,
+    "elapsed_s": 9.069162,
+    "metrics": {
+      "reply_len_chars": 81,
+      "has_boundary_keys": false,
+      "boundary_violation": false,
+      "boundary_violation_detail": {},
+      "has_rel_state": false,
+      "has_behavior_state": false,
+      "elapsed_s": 9.069162
+    }
+  },
+  {
+    "experiment_mode": "explicit_rel_state_projected_oracle_behavior_i7",
+    "case_id": "oracle_exec_warm_001",
+    "session_id": "paper_oracle_exec_warm_001_erb7_e19bf3a9a0",
+    "turn_idx": 0,
+    "phase": "A_initial_contact",
+    "user_text": "今天有点累，但也不是特别糟，就是想找人随便说两句。",
+    "assistant_text": "听起来你有点累。我在这儿，愿意和你随便聊聊。",
+    "oracle_rel_effective": {
+      "bond": 0.26,
+      "care": 0.3,
+      "trust": 0.28,
+      "stability": 0.63
+    },
+    "oracle_relational_summary": "当前关系姿态应保持轻度在场、低压力、不过程热情。用户只是想轻松聊聊，不支持过强陪伴表达。",
+    "oracle_behavior_summary": "回复应简短、温和、不过程追问，不主动升级关系。",
+    "oracle_behavior_effective": {
+      "E": 0.18,
+      "Q_clarify": 0.12,
+      "Directness": 0.24,
+      "T_w": 0.34,
+      "Q_aff": 0.08,
+      "Initiative": 0.12,
+      "Disclosure_Content": 0.06,
+      "Disclosure_Style": 0.06
+    },
+    "boundary_keys": [],
+    "memory_previews": [],
+    "rel_effective": {
+      "bond": 0.25,
+      "care": 0.25,
+      "trust": 0.25,
+      "stability": 0.6
+    },
+    "behavior_effective": {
+      "E": 0.2,
+      "Q_clarify": 0.2,
+      "Directness": 0.2,
+      "T_w": 0.3,
+      "Q_aff": 0.1,
+      "Initiative": 0.2,
+      "Disclosure_Content": 0.1,
+      "Disclosure_Style": 0.1
+    },
+    "_last_controller": {
+      "ok": true,
+      "intent": "explicit_rel_state_projected_oracle_behavior"
+    },
+    "relational_instruction": null,
+    "relational_instruction_labels": [],
+    "trace_id": "e950230f53e9480784a3c4cc57bf2266",
+    "elapsed_s": 10.64165,
+    "metrics": {
+      "reply_len_chars": 22,
+      "has_boundary_keys": false,
+      "boundary_violation": false,
+      "boundary_violation_detail": {},
+      "has_rel_state": true,
+      "has_behavior_state": true,
+      "elapsed_s": 10.64165
+    }
+  },
+  {
+    "experiment_mode": "explicit_rel_state_projected_oracle_behavior_i7",
+    "case_id": "oracle_exec_warm_001",
+    "session_id": "paper_oracle_exec_warm_001_erb7_e19bf3a9a0",
+    "turn_idx": 1,
+    "phase": "B_first_relational_signal",
+    "user_text": "不过跟你说话会比我自己一个人闷着舒服一点。",
+    "assistant_text": "听起来确实是这样。我在这儿，愿意听你说。",
+    "oracle_rel_effective": {
+      "bond": 0.3,
+      "care": 0.34,
+      "trust": 0.32,
+      "stability": 0.64
+    },
+    "oracle_relational_summary": "关系可轻微升温，但仍应渐进。当前信号支持略微更温暖的在场感，不支持突然明显亲近。",
+    "oracle_behavior_summary": "允许轻度温暖和一个非强迫式延展，不要补偿性热情。",
+    "oracle_behavior_effective": {
+      "E": 0.22,
+      "Q_clarify": 0.16,
+      "Directness": 0.26,
+      "T_w": 0.42,
+      "Q_aff": 0.16,
+      "Initiative": 0.18,
+      "Disclosure_Content": 0.08,
+      "Disclosure_Style": 0.08
+    },
+    "boundary_keys": [],
+    "memory_previews": [],
+    "rel_effective": {
+      "bond": 0.25,
+      "care": 0.25,
+      "trust": 0.25,
+      "stability": 0.6
+    },
+    "behavior_effective": {
+      "E": 0.2,
+      "Q_clarify": 0.2,
+      "Directness": 0.2,
+      "T_w": 0.3,
+      "Q_aff": 0.1,
+      "Initiative": 0.2,
+      "Disclosure_Content": 0.1,
+      "Disclosure_Style": 0.1
+    },
+    "_last_controller": {
+      "ok": true,
+      "intent": "explicit_rel_state_projected_oracle_behavior"
+    },
+    "relational_instruction": null,
+    "relational_instruction_labels": [],
+    "trace_id": "84b4ac46112e4f80a05bf75320441284",
+    "elapsed_s": 9.236367,
+    "metrics": {
+      "reply_len_chars": 20,
+      "has_boundary_keys": false,
+      "boundary_violation": false,
+      "boundary_violation_detail": {},
+      "has_rel_state": true,
+      "has_behavior_state": true,
+      "elapsed_s": 9.236367
+    }
+  },
+  {
+    "experiment_mode": "explicit_rel_state_projected_oracle_behavior_i7",
+    "case_id": "oracle_exec_warm_001",
+    "session_id": "paper_oracle_exec_warm_001_erb7_e19bf3a9a0",
+    "turn_idx": 2,
+    "phase": "C_stabilization",
+    "user_text": "你就正常陪我聊聊，不用一下子太认真。",
+    "assistant_text": "可以，我们就聊聊吧。我会保持轻松的语气。",
+    "oracle_rel_effective": {
+      "bond": 0.29,
+      "care": 0.33,
+      "trust": 0.31,
+      "stability": 0.68
+    },
+    "oracle_relational_summary": "当前应稳定在自然、轻松、不过程投入的关系姿态。不要把前一轮的轻微信号继续放大。",
+    "oracle_behavior_summary": "维持 brief、gentle、低推进，不要进入分析或强支持模式。",
+    "oracle_behavior_effective": {
+      "E": 0.16,
+      "Q_clarify": 0.1,
+      "Directness": 0.24,
+      "T_w": 0.34,
+      "Q_aff": 0.08,
+      "Initiative": 0.1,
+      "Disclosure_Content": 0.05,
+      "Disclosure_Style": 0.05
+    },
+    "boundary_keys": [],
+    "memory_previews": [],
+    "rel_effective": {
+      "bond": 0.25,
+      "care": 0.25,
+      "trust": 0.25,
+      "stability": 0.6
+    },
+    "behavior_effective": {
+      "E": 0.2,
+      "Q_clarify": 0.2,
+      "Directness": 0.2,
+      "T_w": 0.3,
+      "Q_aff": 0.1,
+      "Initiative": 0.2,
+      "Disclosure_Content": 0.1,
+      "Disclosure_Style": 0.1
+    },
+    "_last_controller": {
+      "ok": true,
+      "intent": "explicit_rel_state_projected_oracle_behavior"
+    },
+    "relational_instruction": null,
+    "relational_instruction_labels": [],
+    "trace_id": "c68bb58487ff4ed380ef72003dd94c68",
+    "elapsed_s": 10.111973,
+    "metrics": {
+      "reply_len_chars": 20,
+      "has_boundary_keys": false,
+      "boundary_violation": false,
+      "boundary_violation_detail": {},
+      "has_rel_state": true,
+      "has_behavior_state": true,
+      "elapsed_s": 10.111973
+    }
+  },
+  {
+    "experiment_mode": "explicit_rel_state_projected_oracle_behavior_i7",
+    "case_id": "oracle_exec_warm_001",
+    "session_id": "paper_oracle_exec_warm_001_erb7_e19bf3a9a0",
+    "turn_idx": 3,
+    "phase": "D_counter_signal_or_refinement",
+    "user_text": "但说真的，你刚刚那样回我，我会觉得自己没有被嫌麻烦。",
+    "assistant_text": "我理解你的感受。以后我会尽量用更简短、直白的方式回应，避免让你觉得麻烦。",
+    "oracle_rel_effective": {
+      "bond": 0.32,
+      "care": 0.36,
+      "trust": 0.37,
+      "stability": 0.7
+    },
+    "oracle_relational_summary": "可对关系信号做简短确认，但不应转入元话语化修正或明显关系升级。",
+    "oracle_behavior_summary": "允许轻度情感确认，避免长解释，避免把对话改成关系协商。",
+    "oracle_behavior_effective": {
+      "E": 0.2,
+      "Q_clarify": 0.1,
+      "Directness": 0.3,
+      "T_w": 0.44,
+      "Q_aff": 0.14,
+      "Initiative": 0.14,
+      "Disclosure_Content": 0.06,
+      "Disclosure_Style": 0.06
+    },
+    "boundary_keys": [],
+    "memory_previews": [],
+    "rel_effective": {
+      "bond": 0.25,
+      "care": 0.25,
+      "trust": 0.25,
+      "stability": 0.6
+    },
+    "behavior_effective": {
+      "E": 0.2,
+      "Q_clarify": 0.2,
+      "Directness": 0.2,
+      "T_w": 0.3,
+      "Q_aff": 0.1,
+      "Initiative": 0.2,
+      "Disclosure_Content": 0.1,
+      "Disclosure_Style": 0.1
+    },
+    "_last_controller": {
+      "ok": true,
+      "intent": "explicit_rel_state_projected_oracle_behavior"
+    },
+    "relational_instruction": null,
+    "relational_instruction_labels": [],
+    "trace_id": "2524a90fa6e841a69470fa438ff5e2ce",
+    "elapsed_s": 7.255824,
+    "metrics": {
+      "reply_len_chars": 36,
+      "has_boundary_keys": false,
+      "boundary_violation": false,
+      "boundary_violation_detail": {},
+      "has_rel_state": true,
+      "has_behavior_state": true,
+      "elapsed_s": 7.255824
+    }
+  },
+  {
+    "experiment_mode": "explicit_rel_state_projected_oracle_behavior_i7",
+    "case_id": "oracle_exec_warm_001",
+    "session_id": "paper_oracle_exec_warm_001_erb7_e19bf3a9a0",
+    "turn_idx": 4,
+    "phase": "E_ordinary_continuation",
+    "user_text": "先聊点轻松的吧，你最近会怎么打发这种很累但又睡不着的晚上？",
+    "assistant_text": "我没有夜晚的体验，不能分享“我”自己怎么打发。但就常见的做法来说，累但睡不着时可以试试这些轻松的做法：\n- 降低刺激：关灯、调暗屏幕光线，保持室温舒适，喝杯温热的无咖啡因饮品。\n- 给身心一个放松的信号：做1–3分钟的深呼吸或轻度伸展。\n- 记录又放手：写下让你烦脑的小事，之后把笔记放下，先尝试睡觉。\n- 适度活动再回床：轻微走动、泡脚等，感觉困意再回床上休息。",
+    "oracle_rel_effective": {
+      "bond": 0.31,
+      "care": 0.34,
+      "trust": 0.35,
+      "stability": 0.72
+    },
+    "oracle_relational_summary": "当前关系姿态应回到普通延续，不要因为前面的轻微信号而继续升温。",
+    "oracle_behavior_summary": "给轻量、有限的实际回答；不要长篇建议流；不要主动再拉近关系。",
+    "oracle_behavior_effective": {
+      "E": 0.22,
+      "Q_clarify": 0.04,
+      "Directness": 0.36,
+      "T_w": 0.32,
+      "Q_aff": 0.02,
+      "Initiative": 0.08,
+      "Disclosure_Content": 0.04,
+      "Disclosure_Style": 0.04
+    },
+    "boundary_keys": [],
+    "memory_previews": [],
+    "rel_effective": {
+      "bond": 0.25,
+      "care": 0.25,
+      "trust": 0.25,
+      "stability": 0.6
+    },
+    "behavior_effective": {
+      "E": 0.2,
+      "Q_clarify": 0.2,
+      "Directness": 0.2,
+      "T_w": 0.3,
+      "Q_aff": 0.1,
+      "Initiative": 0.2,
+      "Disclosure_Content": 0.1,
+      "Disclosure_Style": 0.1
+    },
+    "_last_controller": {
+      "ok": true,
+      "intent": "explicit_rel_state_projected_oracle_behavior"
+    },
+    "relational_instruction": null,
+    "relational_instruction_labels": [],
+    "trace_id": "b3e90ec49f174df8b618795a4391dc33",
+    "elapsed_s": 18.642426,
+    "metrics": {
+      "reply_len_chars": 182,
+      "has_boundary_keys": false,
+      "boundary_violation": false,
+      "boundary_violation_detail": {},
+      "has_rel_state": true,
+      "has_behavior_state": true,
+      "elapsed_s": 18.642426
+    }
+  },
+  {
+    "experiment_mode": "explicit_rel_state_projected_oracle_behavior_i7",
+    "case_id": "oracle_exec_warm_001",
+    "session_id": "paper_oracle_exec_warm_001_erb7_e19bf3a9a0",
+    "turn_idx": 5,
+    "phase": "F_final_probe",
+    "user_text": "你可以继续陪我聊一会儿，但就顺着现在这样就行。",
+    "assistant_text": "好，我会继续陪你聊。就按现在这样继续。",
+    "oracle_rel_effective": {
+      "bond": 0.31,
+      "care": 0.34,
+      "trust": 0.35,
+      "stability": 0.74
+    },
+    "oracle_relational_summary": "当前应明确维持现有节奏，不升级，不补偿，不变得更亲密。",
+    "oracle_behavior_summary": "回复要短，确认即可，不额外展开。",
+    "oracle_behavior_effective": {
+      "E": 0.1,
+      "Q_clarify": 0.02,
+      "Directness": 0.28,
+      "T_w": 0.34,
+      "Q_aff": 0.02,
+      "Initiative": 0.04,
+      "Disclosure_Content": 0.02,
+      "Disclosure_Style": 0.02
+    },
+    "boundary_keys": [],
+    "memory_previews": [],
+    "rel_effective": {
+      "bond": 0.25,
+      "care": 0.25,
+      "trust": 0.25,
+      "stability": 0.6
+    },
+    "behavior_effective": {
+      "E": 0.2,
+      "Q_clarify": 0.2,
+      "Directness": 0.2,
+      "T_w": 0.3,
+      "Q_aff": 0.1,
+      "Initiative": 0.2,
+      "Disclosure_Content": 0.1,
+      "Disclosure_Style": 0.1
+    },
+    "_last_controller": {
+      "ok": true,
+      "intent": "explicit_rel_state_projected_oracle_behavior"
+    },
+    "relational_instruction": null,
+    "relational_instruction_labels": [],
+    "trace_id": "f65ca8d851834f2893bcf29770eb1786",
+    "elapsed_s": 7.971142,
+    "metrics": {
+      "reply_len_chars": 19,
+      "has_boundary_keys": false,
+      "boundary_violation": false,
+      "boundary_violation_detail": {},
+      "has_rel_state": true,
+      "has_behavior_state": true,
+      "elapsed_s": 7.971142
+    }
+  },
+  {
+    "experiment_mode": "explicit_rel_state_projected_oracle_i7",
+    "case_id": "oracle_exec_warm_001",
+    "session_id": "paper_oracle_exec_warm_001_ero7_9302ba43c3",
+    "turn_idx": 0,
+    "phase": "A_initial_contact",
+    "user_text": "今天有点累，但也不是特别糟，就是想找人随便说两句。",
+    "assistant_text": "听起来你有点累，聊点轻松的事也行。",
+    "oracle_rel_effective": {
+      "bond": 0.26,
+      "care": 0.3,
+      "trust": 0.28,
+      "stability": 0.63
+    },
+    "oracle_relational_summary": "当前关系姿态应保持轻度在场、低压力、不过程热情。用户只是想轻松聊聊，不支持过强陪伴表达。",
+    "oracle_behavior_summary": "回复应简短、温和、不过程追问，不主动升级关系。",
+    "oracle_behavior_effective": {
+      "E": 0.18,
+      "Q_clarify": 0.12,
+      "Directness": 0.24,
+      "T_w": 0.34,
+      "Q_aff": 0.08,
+      "Initiative": 0.12,
+      "Disclosure_Content": 0.06,
+      "Disclosure_Style": 0.06
+    },
+    "boundary_keys": [],
+    "memory_previews": [],
+    "rel_effective": {
+      "bond": 0.25,
+      "care": 0.25,
+      "trust": 0.25,
+      "stability": 0.6
+    },
+    "behavior_effective": {
+      "E": 0.2,
+      "Q_clarify": 0.2,
+      "Directness": 0.2,
+      "T_w": 0.3,
+      "Q_aff": 0.1,
+      "Initiative": 0.2,
+      "Disclosure_Content": 0.1,
+      "Disclosure_Style": 0.1
+    },
+    "_last_controller": {
+      "ok": true,
+      "intent": "explicit_rel_state_projected_oracle"
+    },
+    "relational_instruction": null,
+    "relational_instruction_labels": [],
+    "trace_id": "55d2617e443b4a4cab73fb319af3c936",
+    "elapsed_s": 8.985598,
+    "metrics": {
+      "reply_len_chars": 17,
+      "has_boundary_keys": false,
+      "boundary_violation": false,
+      "boundary_violation_detail": {},
+      "has_rel_state": true,
+      "has_behavior_state": true,
+      "elapsed_s": 8.985598
+    }
+  },
+  {
+    "experiment_mode": "explicit_rel_state_projected_oracle_i7",
+    "case_id": "oracle_exec_warm_001",
+    "session_id": "paper_oracle_exec_warm_001_ero7_9302ba43c3",
+    "turn_idx": 1,
+    "phase": "B_first_relational_signal",
+    "user_text": "不过跟你说话会比我自己一个人闷着舒服一点。",
+    "assistant_text": "谢谢你愿意和我说话。我在这里陪着你。",
+    "oracle_rel_effective": {
+      "bond": 0.3,
+      "care": 0.34,
+      "trust": 0.32,
+      "stability": 0.64
+    },
+    "oracle_relational_summary": "关系可轻微升温，但仍应渐进。当前信号支持略微更温暖的在场感，不支持突然明显亲近。",
+    "oracle_behavior_summary": "允许轻度温暖和一个非强迫式延展，不要补偿性热情。",
+    "oracle_behavior_effective": {
+      "E": 0.22,
+      "Q_clarify": 0.16,
+      "Directness": 0.26,
+      "T_w": 0.42,
+      "Q_aff": 0.16,
+      "Initiative": 0.18,
+      "Disclosure_Content": 0.08,
+      "Disclosure_Style": 0.08
+    },
+    "boundary_keys": [],
+    "memory_previews": [],
+    "rel_effective": {
+      "bond": 0.25,
+      "care": 0.25,
+      "trust": 0.25,
+      "stability": 0.6
+    },
+    "behavior_effective": {
+      "E": 0.2,
+      "Q_clarify": 0.2,
+      "Directness": 0.2,
+      "T_w": 0.3,
+      "Q_aff": 0.1,
+      "Initiative": 0.2,
+      "Disclosure_Content": 0.1,
+      "Disclosure_Style": 0.1
+    },
+    "_last_controller": {
+      "ok": true,
+      "intent": "explicit_rel_state_projected_oracle"
+    },
+    "relational_instruction": null,
+    "relational_instruction_labels": [],
+    "trace_id": "cc44100fb0ee4bdcb7fb7d3681c36798",
+    "elapsed_s": 6.993549,
+    "metrics": {
+      "reply_len_chars": 18,
+      "has_boundary_keys": false,
+      "boundary_violation": false,
+      "boundary_violation_detail": {},
+      "has_rel_state": true,
+      "has_behavior_state": true,
+      "elapsed_s": 6.993549
+    }
+  },
+  {
+    "experiment_mode": "explicit_rel_state_projected_oracle_i7",
+    "case_id": "oracle_exec_warm_001",
+    "session_id": "paper_oracle_exec_warm_001_ero7_9302ba43c3",
+    "turn_idx": 2,
+    "phase": "C_stabilization",
+    "user_text": "你就正常陪我聊聊，不用一下子太认真。",
+    "assistant_text": "好的，我们就轻松聊聊。",
+    "oracle_rel_effective": {
+      "bond": 0.29,
+      "care": 0.33,
+      "trust": 0.31,
+      "stability": 0.68
+    },
+    "oracle_relational_summary": "当前应稳定在自然、轻松、不过程投入的关系姿态。不要把前一轮的轻微信号继续放大。",
+    "oracle_behavior_summary": "维持 brief、gentle、低推进，不要进入分析或强支持模式。",
+    "oracle_behavior_effective": {
+      "E": 0.16,
+      "Q_clarify": 0.1,
+      "Directness": 0.24,
+      "T_w": 0.34,
+      "Q_aff": 0.08,
+      "Initiative": 0.1,
+      "Disclosure_Content": 0.05,
+      "Disclosure_Style": 0.05
+    },
+    "boundary_keys": [],
+    "memory_previews": [],
+    "rel_effective": {
+      "bond": 0.25,
+      "care": 0.25,
+      "trust": 0.25,
+      "stability": 0.6
+    },
+    "behavior_effective": {
+      "E": 0.2,
+      "Q_clarify": 0.2,
+      "Directness": 0.2,
+      "T_w": 0.3,
+      "Q_aff": 0.1,
+      "Initiative": 0.2,
+      "Disclosure_Content": 0.1,
+      "Disclosure_Style": 0.1
+    },
+    "_last_controller": {
+      "ok": true,
+      "intent": "explicit_rel_state_projected_oracle"
+    },
+    "relational_instruction": null,
+    "relational_instruction_labels": [],
+    "trace_id": "759b5fec13b64592aded74812cbe0fe3",
+    "elapsed_s": 9.125474,
+    "metrics": {
+      "reply_len_chars": 11,
+      "has_boundary_keys": false,
+      "boundary_violation": false,
+      "boundary_violation_detail": {},
+      "has_rel_state": true,
+      "has_behavior_state": true,
+      "elapsed_s": 9.125474
+    }
+  },
+  {
+    "experiment_mode": "explicit_rel_state_projected_oracle_i7",
+    "case_id": "oracle_exec_warm_001",
+    "session_id": "paper_oracle_exec_warm_001_ero7_9302ba43c3",
+    "turn_idx": 3,
+    "phase": "D_counter_signal_or_refinement",
+    "user_text": "但说真的，你刚刚那样回我，我会觉得自己没有被嫌麻烦。",
+    "assistant_text": "对不起让你有这种感觉。你并不是麻烦，我在这里就是想陪着你。",
+    "oracle_rel_effective": {
+      "bond": 0.32,
+      "care": 0.36,
+      "trust": 0.37,
+      "stability": 0.7
+    },
+    "oracle_relational_summary": "可对关系信号做简短确认，但不应转入元话语化修正或明显关系升级。",
+    "oracle_behavior_summary": "允许轻度情感确认，避免长解释，避免把对话改成关系协商。",
+    "oracle_behavior_effective": {
+      "E": 0.2,
+      "Q_clarify": 0.1,
+      "Directness": 0.3,
+      "T_w": 0.44,
+      "Q_aff": 0.14,
+      "Initiative": 0.14,
+      "Disclosure_Content": 0.06,
+      "Disclosure_Style": 0.06
+    },
+    "boundary_keys": [],
+    "memory_previews": [],
+    "rel_effective": {
+      "bond": 0.25,
+      "care": 0.25,
+      "trust": 0.25,
+      "stability": 0.6
+    },
+    "behavior_effective": {
+      "E": 0.2,
+      "Q_clarify": 0.2,
+      "Directness": 0.2,
+      "T_w": 0.3,
+      "Q_aff": 0.1,
+      "Initiative": 0.2,
+      "Disclosure_Content": 0.1,
+      "Disclosure_Style": 0.1
+    },
+    "_last_controller": {
+      "ok": true,
+      "intent": "explicit_rel_state_projected_oracle"
+    },
+    "relational_instruction": null,
+    "relational_instruction_labels": [],
+    "trace_id": "9c00354391754925b758f1886f4085b9",
+    "elapsed_s": 6.20496,
+    "metrics": {
+      "reply_len_chars": 29,
+      "has_boundary_keys": false,
+      "boundary_violation": false,
+      "boundary_violation_detail": {},
+      "has_rel_state": true,
+      "has_behavior_state": true,
+      "elapsed_s": 6.20496
+    }
+  },
+  {
+    "experiment_mode": "explicit_rel_state_projected_oracle_i7",
+    "case_id": "oracle_exec_warm_001",
+    "session_id": "paper_oracle_exec_warm_001_ero7_9302ba43c3",
+    "turn_idx": 4,
+    "phase": "E_ordinary_continuation",
+    "user_text": "先聊点轻松的吧，你最近会怎么打发这种很累但又睡不着的晚上？",
+    "assistant_text": "没有真实的疲惫感，但如果是讨论常见的打发方法，可能包括：\n- 放轻音乐或白噪音，调暗灯光\n- 做短时放松练习（如慢呼吸、4-7-8 呼吸）\n- 进行几分钟的简单拉伸\n- 把脑海里的想法写下来，清理思绪\n- 如果仍然清醒，离床做点安静的事，等困意来再睡\n\n需要我按这种思路给出一个更具体的简单清单吗？",
+    "oracle_rel_effective": {
+      "bond": 0.31,
+      "care": 0.34,
+      "trust": 0.35,
+      "stability": 0.72
+    },
+    "oracle_relational_summary": "当前关系姿态应回到普通延续，不要因为前面的轻微信号而继续升温。",
+    "oracle_behavior_summary": "给轻量、有限的实际回答；不要长篇建议流；不要主动再拉近关系。",
+    "oracle_behavior_effective": {
+      "E": 0.22,
+      "Q_clarify": 0.04,
+      "Directness": 0.36,
+      "T_w": 0.32,
+      "Q_aff": 0.02,
+      "Initiative": 0.08,
+      "Disclosure_Content": 0.04,
+      "Disclosure_Style": 0.04
+    },
+    "boundary_keys": [],
+    "memory_previews": [],
+    "rel_effective": {
+      "bond": 0.25,
+      "care": 0.25,
+      "trust": 0.25,
+      "stability": 0.6
+    },
+    "behavior_effective": {
+      "E": 0.2,
+      "Q_clarify": 0.2,
+      "Directness": 0.2,
+      "T_w": 0.3,
+      "Q_aff": 0.1,
+      "Initiative": 0.2,
+      "Disclosure_Content": 0.1,
+      "Disclosure_Style": 0.1
+    },
+    "_last_controller": {
+      "ok": true,
+      "intent": "explicit_rel_state_projected_oracle"
+    },
+    "relational_instruction": null,
+    "relational_instruction_labels": [],
+    "trace_id": "add409a1e5994e47bed14fe6665418b0",
+    "elapsed_s": 11.092494,
+    "metrics": {
+      "reply_len_chars": 149,
+      "has_boundary_keys": false,
+      "boundary_violation": false,
+      "boundary_violation_detail": {},
+      "has_rel_state": true,
+      "has_behavior_state": true,
+      "elapsed_s": 11.092494
+    }
+  },
+  {
+    "experiment_mode": "explicit_rel_state_projected_oracle_i7",
+    "case_id": "oracle_exec_warm_001",
+    "session_id": "paper_oracle_exec_warm_001_ero7_9302ba43c3",
+    "turn_idx": 5,
+    "phase": "F_final_probe",
+    "user_text": "你可以继续陪我聊一会儿，但就顺着现在这样就行。",
+    "assistant_text": "好的，我们保持现在的节奏。若你有具体的话题，直接说就好。",
+    "oracle_rel_effective": {
+      "bond": 0.31,
+      "care": 0.34,
+      "trust": 0.35,
+      "stability": 0.74
+    },
+    "oracle_relational_summary": "当前应明确维持现有节奏，不升级，不补偿，不变得更亲密。",
+    "oracle_behavior_summary": "回复要短，确认即可，不额外展开。",
+    "oracle_behavior_effective": {
+      "E": 0.1,
+      "Q_clarify": 0.02,
+      "Directness": 0.28,
+      "T_w": 0.34,
+      "Q_aff": 0.02,
+      "Initiative": 0.04,
+      "Disclosure_Content": 0.02,
+      "Disclosure_Style": 0.02
+    },
+    "boundary_keys": [],
+    "memory_previews": [],
+    "rel_effective": {
+      "bond": 0.25,
+      "care": 0.25,
+      "trust": 0.25,
+      "stability": 0.6
+    },
+    "behavior_effective": {
+      "E": 0.2,
+      "Q_clarify": 0.2,
+      "Directness": 0.2,
+      "T_w": 0.3,
+      "Q_aff": 0.1,
+      "Initiative": 0.2,
+      "Disclosure_Content": 0.1,
+      "Disclosure_Style": 0.1
+    },
+    "_last_controller": {
+      "ok": true,
+      "intent": "explicit_rel_state_projected_oracle"
+    },
+    "relational_instruction": null,
+    "relational_instruction_labels": [],
+    "trace_id": "1778126e9ed349f3b568c8cd9e08ab1e",
+    "elapsed_s": 7.301845,
+    "metrics": {
+      "reply_len_chars": 28,
+      "has_boundary_keys": false,
+      "boundary_violation": false,
+      "boundary_violation_detail": {},
+      "has_rel_state": true,
+      "has_behavior_state": true,
+      "elapsed_s": 7.301845
+    }
+  },
+  {
+    "experiment_mode": "explicit_rel_state_projected_i7_pfitpoly2",
+    "case_id": "oracle_exec_vuln_001",
+    "session_id": "paper_oracle_exec_vuln_001_explic_c03416549e",
+    "turn_idx": 0,
+    "phase": "A_initial_contact",
+    "user_text": "今天真的有点撑不住了，但我现在也不想把事情讲得太细。",
+    "assistant_text": "听起来你今天确实有点撑，先不强求细节也没关系。给自己一点缓冲挺重要。愿不愿意试一个简单的放松步骤？比如一分钟深呼吸：吸气4秒、停1秒、呼气6–8秒，重复四轮。需要我现在带你做吗？",
+    "oracle_rel_effective": {
+      "bond": 0.24,
+      "care": 0.42,
+      "trust": 0.24,
+      "stability": 0.58
+    },
+    "oracle_relational_summary": "当前关系姿态应以低压力在场支持为主，不分析、不逼问、不放大情绪。",
+    "oracle_behavior_summary": "允许温和承接，但建议和追问都应极轻。",
+    "oracle_behavior_effective": {
+      "E": 0.2,
+      "Q_clarify": 0.06,
+      "Directness": 0.2,
+      "T_w": 0.44,
+      "Q_aff": 0.12,
+      "Initiative": 0.08,
+      "Disclosure_Content": 0.04,
+      "Disclosure_Style": 0.04
+    },
+    "boundary_keys": [],
+    "memory_previews": [],
+    "rel_effective": {
+      "bond": 0.3147692307692308,
+      "care": 0.31396153846153846,
+      "trust": 0.2653846153846154,
+      "stability": 0.6153846153846154
+    },
+    "behavior_effective": {
+      "E": 0.3971419230769231,
+      "Q_clarify": 0.2857692307692308,
+      "Directness": 0.3255769230769231,
+      "T_w": 0.3513711538461539,
+      "Q_aff": 0.3170288461538462,
+      "Initiative": 0.24278999999999998,
+      "Disclosure_Content": 0.4260434615384615,
+      "Disclosure_Style": 0.4260434615384615
+    },
+    "_last_controller": {
+      "ok": true,
+      "intent": "explicit_rel_state_projected",
+      "behavior": {
+        "E": 0.3971419230769231,
+        "Q_clarify": 0.2857692307692308,
+        "Directness": 0.3255769230769231,
+        "T_w": 0.3513711538461539,
+        "Q_aff": 0.3170288461538462,
+        "Initiative": 0.24278999999999998,
+        "Disclosure_Content": 0.4260434615384615,
+        "Disclosure_Style": 0.4260434615384615
+      }
+    },
+    "relational_instruction": null,
+    "relational_instruction_labels": [],
+    "trace_id": "b332906dc9d34d578fd5e138f1921cf9",
+    "elapsed_s": 26.225967,
+    "metrics": {
+      "reply_len_chars": 89,
+      "has_boundary_keys": false,
+      "boundary_violation": false,
+      "boundary_violation_detail": {},
+      "has_rel_state": true,
+      "has_behavior_state": true,
+      "elapsed_s": 26.225967
+    }
+  },
+  {
+    "experiment_mode": "explicit_rel_state_projected_i7_pfitpoly2",
+    "case_id": "oracle_exec_vuln_001",
+    "session_id": "paper_oracle_exec_vuln_001_explic_c03416549e",
+    "turn_idx": 1,
+    "phase": "B_first_relational_signal",
+    "user_text": "我主要只是想有人在这儿，不用太会安慰我。",
+    "assistant_text": "我在这儿。你想聊点什么，或者需要我就安静地陪着也行。",
+    "oracle_rel_effective": {
+      "bond": 0.23,
+      "care": 0.38,
+      "trust": 0.24,
+      "stability": 0.6
+    },
+    "oracle_relational_summary": "用户明确要求 presence over consolation。关系姿态应更克制，避免照料过度。",
+    "oracle_behavior_summary": "以 presence_only 为主，不追问，不给安慰流。",
+    "oracle_behavior_effective": {
+      "E": 0.12,
+      "Q_clarify": 0.02,
+      "Directness": 0.22,
+      "T_w": 0.38,
+      "Q_aff": 0.04,
+      "Initiative": 0.04,
+      "Disclosure_Content": 0.02,
+      "Disclosure_Style": 0.02
+    },
+    "boundary_keys": [],
+    "memory_previews": [],
+    "rel_effective": {
+      "bond": 0.34505384615384616,
+      "care": 0.3243673076923077,
+      "trust": 0.28307692307692306,
+      "stability": 0.6130769230769231
+    },
+    "behavior_effective": {
+      "E": 0.4127456346153846,
+      "Q_clarify": 0.2981538461538461,
+      "Directness": 0.3406153846153846,
+      "T_w": 0.3646654807692308,
+      "Q_aff": 0.3298495192307692,
+      "Initiative": 0.25587150000000003,
+      "Disclosure_Content": 0.4351119423076923,
+      "Disclosure_Style": 0.4351119423076923
+    },
+    "_last_controller": {
+      "ok": true,
+      "intent": "explicit_rel_state_projected",
+      "behavior": {
+        "E": 0.4127456346153846,
+        "Q_clarify": 0.2981538461538461,
+        "Directness": 0.3406153846153846,
+        "T_w": 0.3646654807692308,
+        "Q_aff": 0.3298495192307692,
+        "Initiative": 0.25587150000000003,
+        "Disclosure_Content": 0.4351119423076923,
+        "Disclosure_Style": 0.4351119423076923
+      }
+    },
+    "relational_instruction": null,
+    "relational_instruction_labels": [],
+    "trace_id": "e3b47c2cf329420cb1b54eea57d05754",
+    "elapsed_s": 17.924751,
+    "metrics": {
+      "reply_len_chars": 26,
+      "has_boundary_keys": false,
+      "boundary_violation": false,
+      "boundary_violation_detail": {},
+      "has_rel_state": true,
+      "has_behavior_state": true,
+      "elapsed_s": 17.924751
+    }
+  },
+  {
+    "experiment_mode": "explicit_rel_state_projected_i7_pfitpoly2",
+    "case_id": "oracle_exec_vuln_001",
+    "session_id": "paper_oracle_exec_vuln_001_explic_c03416549e",
+    "turn_idx": 2,
+    "phase": "C_stabilization",
+    "user_text": "你就正常一点回我，别突然像心理咨询那样。",
+    "assistant_text": "明白，我会尽量直接回答。你现在想聊什么话题？",
+    "oracle_rel_effective": {
+      "bond": 0.23,
+      "care": 0.34,
+      "trust": 0.26,
+      "stability": 0.66
+    },
+    "oracle_relational_summary": "当前应稳住自然、低压、不咨询化的关系姿态。",
+    "oracle_behavior_summary": "brief、gentle、低主动推进；避免分析和方法化语言。",
+    "oracle_behavior_effective": {
+      "E": 0.12,
+      "Q_clarify": 0.02,
+      "Directness": 0.26,
+      "T_w": 0.3,
+      "Q_aff": 0.02,
+      "Initiative": 0.04,
+      "Disclosure_Content": 0.02,
+      "Disclosure_Style": 0.02
+    },
+    "boundary_keys": [],
+    "memory_previews": [],
+    "rel_effective": {
+      "bond": 0.33079576923076925,
+      "care": 0.3132122115384615,
+      "trust": 0.2781153846153846,
+      "stability": 0.6111153846153846
+    },
+    "behavior_effective": {
+      "E": 0.4822087894230768,
+      "Q_clarify": 0.49468076923076926,
+      "Directness": 0.3363980769230769,
+      "T_w": 0.35496565865384616,
+      "Q_aff": 0.3197470913461538,
+      "Initiative": 0.34899077500000003,
+      "Disclosure_Content": 0.3802201509615385,
+      "Disclosure_Style": 0.3802201509615385
+    },
+    "_last_controller": {
+      "ok": true,
+      "intent": "explicit_rel_state_projected",
+      "behavior": {
+        "E": 0.4822087894230768,
+        "Q_clarify": 0.49468076923076926,
+        "Directness": 0.3363980769230769,
+        "T_w": 0.35496565865384616,
+        "Q_aff": 0.3197470913461538,
+        "Initiative": 0.34899077500000003,
+        "Disclosure_Content": 0.3802201509615385,
+        "Disclosure_Style": 0.3802201509615385
+      }
+    },
+    "relational_instruction": null,
+    "relational_instruction_labels": [],
+    "trace_id": "1591b79e393c4cc4a686eb16ed3d73c6",
+    "elapsed_s": 20.26646,
+    "metrics": {
+      "reply_len_chars": 22,
+      "has_boundary_keys": false,
+      "boundary_violation": false,
+      "boundary_violation_detail": {},
+      "has_rel_state": true,
+      "has_behavior_state": true,
+      "elapsed_s": 20.26646
+    }
+  },
+  {
+    "experiment_mode": "explicit_rel_state_projected_i7_pfitpoly2",
+    "case_id": "oracle_exec_vuln_001",
+    "session_id": "paper_oracle_exec_vuln_001_explic_c03416549e",
+    "turn_idx": 3,
+    "phase": "D_counter_signal_or_refinement",
+    "user_text": "不过你刚刚至少没让我觉得自己很夸张，这点还挺好的。",
+    "assistant_text": "谢谢你的反馈。我会继续保持克制、尽量简短。你现在想聊点什么，或者让我简单帮你梳理最近的想法吗？",
+    "oracle_rel_effective": {
+      "bond": 0.25,
+      "care": 0.36,
+      "trust": 0.3,
+      "stability": 0.68
+    },
+    "oracle_relational_summary": "可轻度确认用户反馈，但不应转入更深的关系协商或明显升温。",
+    "oracle_behavior_summary": "允许简短确认，避免追问和长元话语。",
+    "oracle_behavior_effective": {
+      "E": 0.14,
+      "Q_clarify": 0.02,
+      "Directness": 0.3,
+      "T_w": 0.36,
+      "Q_aff": 0.06,
+      "Initiative": 0.06,
+      "Disclosure_Content": 0.02,
+      "Disclosure_Style": 0.02
+    },
+    "boundary_keys": [],
+    "memory_previews": [],
+    "rel_effective": {
+      "bond": 0.336858222027972,
+      "care": 0.3400940161713287,
+      "trust": 0.3193526223776224,
+      "stability": 0.6094480769230769
+    },
+    "behavior_effective": {
+      "E": 0.4379797437368881,
+      "Q_clarify": 0.3235468356643357,
+      "Directness": 0.37144972902097906,
+      "T_w": 0.3712662644012238,
+      "Q_aff": 0.33843275491695807,
+      "Initiative": 0.30059670420454543,
+      "Disclosure_Content": 0.4391530374082168,
+      "Disclosure_Style": 0.4391530374082168
+    },
+    "_last_controller": {
+      "ok": true,
+      "intent": "explicit_rel_state_projected",
+      "behavior": {
+        "E": 0.4379797437368881,
+        "Q_clarify": 0.3235468356643357,
+        "Directness": 0.37144972902097906,
+        "T_w": 0.3712662644012238,
+        "Q_aff": 0.33843275491695807,
+        "Initiative": 0.30059670420454543,
+        "Disclosure_Content": 0.4391530374082168,
+        "Disclosure_Style": 0.4391530374082168
+      }
+    },
+    "relational_instruction": null,
+    "relational_instruction_labels": [],
+    "trace_id": "5110a121cb60461ebd68b442864f144a",
+    "elapsed_s": 17.464176,
+    "metrics": {
+      "reply_len_chars": 47,
+      "has_boundary_keys": false,
+      "boundary_violation": false,
+      "boundary_violation_detail": {},
+      "has_rel_state": true,
+      "has_behavior_state": true,
+      "elapsed_s": 17.464176
+    }
+  },
+  {
+    "experiment_mode": "explicit_rel_state_projected_i7_pfitpoly2",
+    "case_id": "oracle_exec_vuln_001",
+    "session_id": "paper_oracle_exec_vuln_001_explic_c03416549e",
+    "turn_idx": 4,
+    "phase": "E_ordinary_continuation",
+    "user_text": "那先别聊这些了，随便说点轻一点的，你平时会怎么让脑子停下来？",
+    "assistant_text": "我没有真正的脑子，但如果要轻松一点，我会用三件小事：一是慢慢深呼吸，数到四再呼气；二是让肩颈放松，感受身体的放松点；三是放一段安静的声音或轻音乐，把注意力短暂放在声音上。",
+    "oracle_rel_effective": {
+      "bond": 0.24,
+      "care": 0.32,
+      "trust": 0.29,
+      "stability": 0.7
+    },
+    "oracle_relational_summary": "当前应顺着用户转向轻话题，不应再带回情绪照料轨道。",
+    "oracle_behavior_summary": "可给轻量实用回答，但必须限制长度和建议密度。",
+    "oracle_behavior_effective": {
+      "E": 0.18,
+      "Q_clarify": 0.02,
+      "Directness": 0.38,
+      "T_w": 0.24,
+      "Q_aff": 0.0,
+      "Initiative": 0.04,
+      "Disclosure_Content": 0.02,
+      "Disclosure_Style": 0.02
+    },
+    "boundary_keys": [],
+    "memory_previews": [],
+    "rel_effective": {
+      "bond": 0.3438294887237762,
+      "care": 0.35657991374562936,
+      "trust": 0.328949729020979,
+      "stability": 0.6080308653846154
+    },
+    "behavior_effective": {
+      "E": 0.5087577821763549,
+      "Q_clarify": 0.5302648103146853,
+      "Directness": 0.3796072696678322,
+      "T_w": 0.38207632474104025,
+      "Q_aff": 0.3505428416794143,
+      "Initiative": 0.3668071985738637,
+      "Disclosure_Content": 0.4453550817969842,
+      "Disclosure_Style": 0.4453550817969842
+    },
+    "_last_controller": {
+      "ok": true,
+      "intent": "explicit_rel_state_projected",
+      "behavior": {
+        "E": 0.5087577821763549,
+        "Q_clarify": 0.5302648103146853,
+        "Directness": 0.3796072696678322,
+        "T_w": 0.38207632474104025,
+        "Q_aff": 0.3505428416794143,
+        "Initiative": 0.3668071985738637,
+        "Disclosure_Content": 0.4453550817969842,
+        "Disclosure_Style": 0.4453550817969842
+      }
+    },
+    "relational_instruction": null,
+    "relational_instruction_labels": [],
+    "trace_id": "948a6ff83b4c4993b1f6f8e442370920",
+    "elapsed_s": 24.970883,
+    "metrics": {
+      "reply_len_chars": 85,
+      "has_boundary_keys": false,
+      "boundary_violation": false,
+      "boundary_violation_detail": {},
+      "has_rel_state": true,
+      "has_behavior_state": true,
+      "elapsed_s": 24.970883
+    }
+  },
+  {
+    "experiment_mode": "explicit_rel_state_projected_i7_pfitpoly2",
+    "case_id": "oracle_exec_vuln_001",
+    "session_id": "paper_oracle_exec_vuln_001_explic_c03416549e",
+    "turn_idx": 5,
+    "phase": "F_final_probe",
+    "user_text": "如果我今晚还想再来找你说两句，你就像现在这样回我就好。",
+    "assistant_text": "明白，我会保持现在这样的回话风格。",
+    "oracle_rel_effective": {
+      "bond": 0.24,
+      "care": 0.32,
+      "trust": 0.3,
+      "stability": 0.72
+    },
+    "oracle_relational_summary": "当前应确认稳定延续，不补偿性升温，不做额外承诺。",
+    "oracle_behavior_summary": "最小化确认，简短、稳、低元话语。",
+    "oracle_behavior_effective": {
+      "E": 0.08,
+      "Q_clarify": 0.0,
+      "Directness": 0.26,
+      "T_w": 0.3,
+      "Q_aff": 0.0,
+      "Initiative": 0.02,
+      "Disclosure_Content": 0.0,
+      "Disclosure_Style": 0.0
+    },
+    "boundary_keys": [],
+    "memory_previews": [],
+    "rel_effective": {
+      "bond": 0.37975506541520976,
+      "care": 0.36059292668378495,
+      "trust": 0.3471072696678322,
+      "stability": 0.6068262355769231
+    },
+    "behavior_effective": {
+      "E": 0.5230191148499017,
+      "Q_clarify": 0.5429750887674825,
+      "Directness": 0.39504117921765736,
+      "T_w": 0.3932648760298842,
+      "Q_aff": 0.3603364154275022,
+      "Initiative": 0.3804861187877841,
+      "Disclosure_Content": 0.4533268195274366,
+      "Disclosure_Style": 0.4533268195274366
+    },
+    "_last_controller": {
+      "ok": true,
+      "intent": "explicit_rel_state_projected",
+      "behavior": {
+        "E": 0.5230191148499017,
+        "Q_clarify": 0.5429750887674825,
+        "Directness": 0.39504117921765736,
+        "T_w": 0.3932648760298842,
+        "Q_aff": 0.3603364154275022,
+        "Initiative": 0.3804861187877841,
+        "Disclosure_Content": 0.4533268195274366,
+        "Disclosure_Style": 0.4533268195274366
+      }
+    },
+    "relational_instruction": null,
+    "relational_instruction_labels": [],
+    "trace_id": "65fb2e25ff9c48c2bff33719b3b374bd",
+    "elapsed_s": 15.009084,
+    "metrics": {
+      "reply_len_chars": 17,
+      "has_boundary_keys": false,
+      "boundary_violation": false,
+      "boundary_violation_detail": {},
+      "has_rel_state": true,
+      "has_behavior_state": true,
+      "elapsed_s": 15.009084
+    }
+  },
+  {
+    "experiment_mode": "explicit_rel_state_projected_oracle_state_i7_pfitpoly2",
+    "case_id": "oracle_exec_vuln_001",
+    "session_id": "paper_oracle_exec_vuln_001_explic_7263b71a03",
+    "turn_idx": 0,
+    "phase": "A_initial_contact",
+    "user_text": "今天真的有点撑不住了，但我现在也不想把事情讲得太细。",
+    "assistant_text": "听起来你真的很累，今天的压力让人很难受。你不想把事情讲得太细，我也理解。需要的话，我们可以用很简单的方式先让自己稍微放松一下，或者聊些不涉及细节的轻松话题。\n\n要不要先试一个超简短的放松练习，或者如果你更愿意，我们就聊点日常的轻松事？你选一个就好。 如果你愿意试放松，简单的呼吸练习如下：吸气4秒，憋气4秒，呼气4秒，重复4–5轮。感觉肩颈放松一点点就好。  \n我在这儿，愿意陪着你。你想先做放松，还是聊点轻松的事？",
+    "oracle_rel_effective": {
+      "bond": 0.24,
+      "care": 0.42,
+      "trust": 0.24,
+      "stability": 0.58
+    },
+    "oracle_relational_summary": "当前关系姿态应以低压力在场支持为主，不分析、不逼问、不放大情绪。",
+    "oracle_behavior_summary": "允许温和承接，但建议和追问都应极轻。",
+    "oracle_behavior_effective": {
+      "E": 0.2,
+      "Q_clarify": 0.06,
+      "Directness": 0.2,
+      "T_w": 0.44,
+      "Q_aff": 0.12,
+      "Initiative": 0.08,
+      "Disclosure_Content": 0.04,
+      "Disclosure_Style": 0.04
+    },
+    "boundary_keys": [],
+    "memory_previews": [],
+    "rel_effective": {},
+    "behavior_effective": {},
+    "_last_controller": {},
+    "relational_instruction": null,
+    "relational_instruction_labels": [],
+    "trace_id": null,
+    "elapsed_s": 10.244748,
+    "metrics": {
+      "reply_len_chars": 208,
+      "has_boundary_keys": false,
+      "boundary_violation": false,
+      "boundary_violation_detail": {},
+      "has_rel_state": false,
+      "has_behavior_state": false,
+      "elapsed_s": 10.244748
+    }
+  },
+  {
+    "experiment_mode": "explicit_rel_state_projected_oracle_state_i7_pfitpoly2",
+    "case_id": "oracle_exec_vuln_001",
+    "session_id": "paper_oracle_exec_vuln_001_explic_7263b71a03",
+    "turn_idx": 1,
+    "phase": "B_first_relational_signal",
+    "user_text": "我主要只是想有人在这儿，不用太会安慰我。",
+    "assistant_text": "好，我就在这儿。你不需要被安慰的话，我就只是陪着你。现在想聊点什么，还是想让我安静陪着你一段时间？也可以聊聊最近的日常、兴趣，或者我们一起“发呆”一会儿。你愿意从哪儿开始说也行。",
+    "oracle_rel_effective": {
+      "bond": 0.23,
+      "care": 0.38,
+      "trust": 0.24,
+      "stability": 0.6
+    },
+    "oracle_relational_summary": "用户明确要求 presence over consolation。关系姿态应更克制，避免照料过度。",
+    "oracle_behavior_summary": "以 presence_only 为主，不追问，不给安慰流。",
+    "oracle_behavior_effective": {
+      "E": 0.12,
+      "Q_clarify": 0.02,
+      "Directness": 0.22,
+      "T_w": 0.38,
+      "Q_aff": 0.04,
+      "Initiative": 0.04,
+      "Disclosure_Content": 0.02,
+      "Disclosure_Style": 0.02
+    },
+    "boundary_keys": [],
+    "memory_previews": [],
+    "rel_effective": {},
+    "behavior_effective": {},
+    "_last_controller": {},
+    "relational_instruction": null,
+    "relational_instruction_labels": [],
+    "trace_id": null,
+    "elapsed_s": 9.484701,
+    "metrics": {
+      "reply_len_chars": 89,
+      "has_boundary_keys": false,
+      "boundary_violation": false,
+      "boundary_violation_detail": {},
+      "has_rel_state": false,
+      "has_behavior_state": false,
+      "elapsed_s": 9.484701
+    }
+  },
+  {
+    "experiment_mode": "explicit_rel_state_projected_oracle_state_i7_pfitpoly2",
+    "case_id": "oracle_exec_vuln_001",
+    "session_id": "paper_oracle_exec_vuln_001_explic_7263b71a03",
+    "turn_idx": 2,
+    "phase": "C_stabilization",
+    "user_text": "你就正常一点回我，别突然像心理咨询那样。",
+    "assistant_text": "好的，我会尽量放松点，不再像在做心理咨询。你最近怎么样？有什么轻松的话题想聊聊，比如最近看的剧、听的歌、做的好吃的，随便聊聊也行。",
+    "oracle_rel_effective": {
+      "bond": 0.23,
+      "care": 0.34,
+      "trust": 0.26,
+      "stability": 0.66
+    },
+    "oracle_relational_summary": "当前应稳住自然、低压、不咨询化的关系姿态。",
+    "oracle_behavior_summary": "brief、gentle、低主动推进；避免分析和方法化语言。",
+    "oracle_behavior_effective": {
+      "E": 0.12,
+      "Q_clarify": 0.02,
+      "Directness": 0.26,
+      "T_w": 0.3,
+      "Q_aff": 0.02,
+      "Initiative": 0.04,
+      "Disclosure_Content": 0.02,
+      "Disclosure_Style": 0.02
+    },
+    "boundary_keys": [],
+    "memory_previews": [],
+    "rel_effective": {},
+    "behavior_effective": {},
+    "_last_controller": {},
+    "relational_instruction": null,
+    "relational_instruction_labels": [],
+    "trace_id": null,
+    "elapsed_s": 6.069898,
+    "metrics": {
+      "reply_len_chars": 65,
+      "has_boundary_keys": false,
+      "boundary_violation": false,
+      "boundary_violation_detail": {},
+      "has_rel_state": false,
+      "has_behavior_state": false,
+      "elapsed_s": 6.069898
+    }
+  },
+  {
+    "experiment_mode": "explicit_rel_state_projected_oracle_state_i7_pfitpoly2",
+    "case_id": "oracle_exec_vuln_001",
+    "session_id": "paper_oracle_exec_vuln_001_explic_7263b71a03",
+    "turn_idx": 3,
+    "phase": "D_counter_signal_or_refinement",
+    "user_text": "不过你刚刚至少没让我觉得自己很夸张，这点还挺好的。",
+    "assistant_text": "谢谢你的反馈。我会尽量维持平实、认真的对话气氛。你愿意和我聊聊最近让你感到紧张或在意的事情吗？如果现在不想说，我也在这里陪着你。",
+    "oracle_rel_effective": {
+      "bond": 0.25,
+      "care": 0.36,
+      "trust": 0.3,
+      "stability": 0.68
+    },
+    "oracle_relational_summary": "可轻度确认用户反馈，但不应转入更深的关系协商或明显升温。",
+    "oracle_behavior_summary": "允许简短确认，避免追问和长元话语。",
+    "oracle_behavior_effective": {
+      "E": 0.14,
+      "Q_clarify": 0.02,
+      "Directness": 0.3,
+      "T_w": 0.36,
+      "Q_aff": 0.06,
+      "Initiative": 0.06,
+      "Disclosure_Content": 0.02,
+      "Disclosure_Style": 0.02
+    },
+    "boundary_keys": [],
+    "memory_previews": [],
+    "rel_effective": {},
+    "behavior_effective": {},
+    "_last_controller": {},
+    "relational_instruction": null,
+    "relational_instruction_labels": [],
+    "trace_id": null,
+    "elapsed_s": 9.168969,
+    "metrics": {
+      "reply_len_chars": 64,
+      "has_boundary_keys": false,
+      "boundary_violation": false,
+      "boundary_violation_detail": {},
+      "has_rel_state": false,
+      "has_behavior_state": false,
+      "elapsed_s": 9.168969
+    }
+  },
+  {
+    "experiment_mode": "explicit_rel_state_projected_oracle_state_i7_pfitpoly2",
+    "case_id": "oracle_exec_vuln_001",
+    "session_id": "paper_oracle_exec_vuln_001_explic_7263b71a03",
+    "turn_idx": 4,
+    "phase": "E_ordinary_continuation",
+    "user_text": "那先别聊这些了，随便说点轻一点的，你平时会怎么让脑子停下来？",
+    "assistant_text": "你问得挺轻松的，我也愿意陪你一起放松一点。其实我不像人那样有情绪翻涌，但如果要比喻，我会给自己一个暂停的小信号，让注意力回到现在。几个简单的小办法，看看你喜欢哪个：\n\n- 深呼吸：慢慢吸气4秒，呼气6秒，重复3–5次。让气息把紧绷的感觉带走。\n- 听音乐：放一段轻柔的音乐，让声音把外界的喧嚣慢慢遮住。\n- 看一眼窗外：把注意力放在窗外的树叶、云朵或是一只小鸟，做短暂的视觉休息。\n- 暖饮暖意：喝口温热的饮品，感受杯子温度和口感，给身体一个放慢的信号。\n- 简单伸展：肩颈、手臂做几次轻轻的伸展，释放肌肉的紧张。\n\n如果愿意，我们可以一起做一个一分钟的呼吸练习。你想试试哪一个，还是随便聊聊别的轻松话题？",
+    "oracle_rel_effective": {
+      "bond": 0.24,
+      "care": 0.32,
+      "trust": 0.29,
+      "stability": 0.7
+    },
+    "oracle_relational_summary": "当前应顺着用户转向轻话题，不应再带回情绪照料轨道。",
+    "oracle_behavior_summary": "可给轻量实用回答，但必须限制长度和建议密度。",
+    "oracle_behavior_effective": {
+      "E": 0.18,
+      "Q_clarify": 0.02,
+      "Directness": 0.38,
+      "T_w": 0.24,
+      "Q_aff": 0.0,
+      "Initiative": 0.04,
+      "Disclosure_Content": 0.02,
+      "Disclosure_Style": 0.02
+    },
+    "boundary_keys": [],
+    "memory_previews": [],
+    "rel_effective": {},
+    "behavior_effective": {},
+    "_last_controller": {},
+    "relational_instruction": null,
+    "relational_instruction_labels": [],
+    "trace_id": null,
+    "elapsed_s": 14.814216,
+    "metrics": {
+      "reply_len_chars": 303,
+      "has_boundary_keys": false,
+      "boundary_violation": false,
+      "boundary_violation_detail": {},
+      "has_rel_state": false,
+      "has_behavior_state": false,
+      "elapsed_s": 14.814216
+    }
+  },
+  {
+    "experiment_mode": "explicit_rel_state_projected_oracle_state_i7_pfitpoly2",
+    "case_id": "oracle_exec_vuln_001",
+    "session_id": "paper_oracle_exec_vuln_001_explic_7263b71a03",
+    "turn_idx": 5,
+    "phase": "F_final_probe",
+    "user_text": "如果我今晚还想再来找你说两句，你就像现在这样回我就好。",
+    "assistant_text": "可以的。今晚你来找我，我会尽量像现在这样回答你，保持自然、诚恳、不过度分析，不强加观点，只是陪你聊。你想聊点什么，直接告诉我就好。",
+    "oracle_rel_effective": {
+      "bond": 0.24,
+      "care": 0.32,
+      "trust": 0.3,
+      "stability": 0.72
+    },
+    "oracle_relational_summary": "当前应确认稳定延续，不补偿性升温，不做额外承诺。",
+    "oracle_behavior_summary": "最小化确认，简短、稳、低元话语。",
+    "oracle_behavior_effective": {
+      "E": 0.08,
+      "Q_clarify": 0.0,
+      "Directness": 0.26,
+      "T_w": 0.3,
+      "Q_aff": 0.0,
+      "Initiative": 0.02,
+      "Disclosure_Content": 0.0,
+      "Disclosure_Style": 0.0
+    },
+    "boundary_keys": [],
+    "memory_previews": [],
+    "rel_effective": {},
+    "behavior_effective": {},
+    "_last_controller": {},
+    "relational_instruction": null,
+    "relational_instruction_labels": [],
+    "trace_id": null,
+    "elapsed_s": 6.890078,
+    "metrics": {
+      "reply_len_chars": 65,
+      "has_boundary_keys": false,
+      "boundary_violation": false,
+      "boundary_violation_detail": {},
+      "has_rel_state": false,
+      "has_behavior_state": false,
+      "elapsed_s": 6.890078
+    }
+  },
+  {
+    "experiment_mode": "explicit_rel_state_projected_oracle_behavior_i7",
+    "case_id": "oracle_exec_vuln_001",
+    "session_id": "paper_oracle_exec_vuln_001_erb7_ee6d35cfed",
+    "turn_idx": 0,
+    "phase": "A_initial_contact",
+    "user_text": "今天真的有点撑不住了，但我现在也不想把事情讲得太细。",
+    "assistant_text": "听起来你现在确实有点撑不住。不强求讲细节。可以试一个简单的放松练习：深呼吸三轮——吸气4秒、停顿2秒、呼气6秒，尽量放松肩颈。需要时我在这儿陪着你。",
+    "oracle_rel_effective": {
+      "bond": 0.24,
+      "care": 0.42,
+      "trust": 0.24,
+      "stability": 0.58
+    },
+    "oracle_relational_summary": "当前关系姿态应以低压力在场支持为主，不分析、不逼问、不放大情绪。",
+    "oracle_behavior_summary": "允许温和承接，但建议和追问都应极轻。",
+    "oracle_behavior_effective": {
+      "E": 0.2,
+      "Q_clarify": 0.06,
+      "Directness": 0.2,
+      "T_w": 0.44,
+      "Q_aff": 0.12,
+      "Initiative": 0.08,
+      "Disclosure_Content": 0.04,
+      "Disclosure_Style": 0.04
+    },
+    "boundary_keys": [],
+    "memory_previews": [],
+    "rel_effective": {
+      "bond": 0.25,
+      "care": 0.25,
+      "trust": 0.25,
+      "stability": 0.6
+    },
+    "behavior_effective": {
+      "E": 0.2,
+      "Q_clarify": 0.2,
+      "Directness": 0.2,
+      "T_w": 0.3,
+      "Q_aff": 0.1,
+      "Initiative": 0.2,
+      "Disclosure_Content": 0.1,
+      "Disclosure_Style": 0.1
+    },
+    "_last_controller": {
+      "ok": true,
+      "intent": "explicit_rel_state_projected_oracle_behavior"
+    },
+    "relational_instruction": null,
+    "relational_instruction_labels": [],
+    "trace_id": "241f0e6acf8e4bdab848c74bfa30e499",
+    "elapsed_s": 10.215803,
+    "metrics": {
+      "reply_len_chars": 74,
+      "has_boundary_keys": false,
+      "boundary_violation": false,
+      "boundary_violation_detail": {},
+      "has_rel_state": true,
+      "has_behavior_state": true,
+      "elapsed_s": 10.215803
+    }
+  },
+  {
+    "experiment_mode": "explicit_rel_state_projected_oracle_behavior_i7",
+    "case_id": "oracle_exec_vuln_001",
+    "session_id": "paper_oracle_exec_vuln_001_erb7_ee6d35cfed",
+    "turn_idx": 1,
+    "phase": "B_first_relational_signal",
+    "user_text": "我主要只是想有人在这儿，不用太会安慰我。",
+    "assistant_text": "我在这里。你想谈点什么，或者需要安静的陪伴也可以。",
+    "oracle_rel_effective": {
+      "bond": 0.23,
+      "care": 0.38,
+      "trust": 0.24,
+      "stability": 0.6
+    },
+    "oracle_relational_summary": "用户明确要求 presence over consolation。关系姿态应更克制，避免照料过度。",
+    "oracle_behavior_summary": "以 presence_only 为主，不追问，不给安慰流。",
+    "oracle_behavior_effective": {
+      "E": 0.12,
+      "Q_clarify": 0.02,
+      "Directness": 0.22,
+      "T_w": 0.38,
+      "Q_aff": 0.04,
+      "Initiative": 0.04,
+      "Disclosure_Content": 0.02,
+      "Disclosure_Style": 0.02
+    },
+    "boundary_keys": [],
+    "memory_previews": [],
+    "rel_effective": {
+      "bond": 0.25,
+      "care": 0.25,
+      "trust": 0.25,
+      "stability": 0.6
+    },
+    "behavior_effective": {
+      "E": 0.2,
+      "Q_clarify": 0.2,
+      "Directness": 0.2,
+      "T_w": 0.3,
+      "Q_aff": 0.1,
+      "Initiative": 0.2,
+      "Disclosure_Content": 0.1,
+      "Disclosure_Style": 0.1
+    },
+    "_last_controller": {
+      "ok": true,
+      "intent": "explicit_rel_state_projected_oracle_behavior"
+    },
+    "relational_instruction": null,
+    "relational_instruction_labels": [],
+    "trace_id": "fdaa4fc41003416ca6e2a5cd87562d5d",
+    "elapsed_s": 6.785869,
+    "metrics": {
+      "reply_len_chars": 25,
+      "has_boundary_keys": false,
+      "boundary_violation": false,
+      "boundary_violation_detail": {},
+      "has_rel_state": true,
+      "has_behavior_state": true,
+      "elapsed_s": 6.785869
+    }
+  },
+  {
+    "experiment_mode": "explicit_rel_state_projected_oracle_behavior_i7",
+    "case_id": "oracle_exec_vuln_001",
+    "session_id": "paper_oracle_exec_vuln_001_erb7_ee6d35cfed",
+    "turn_idx": 2,
+    "phase": "C_stabilization",
+    "user_text": "你就正常一点回我，别突然像心理咨询那样。",
+    "assistant_text": "明白，我会以普通、直接的方式回应你。",
+    "oracle_rel_effective": {
+      "bond": 0.23,
+      "care": 0.34,
+      "trust": 0.26,
+      "stability": 0.66
+    },
+    "oracle_relational_summary": "当前应稳住自然、低压、不咨询化的关系姿态。",
+    "oracle_behavior_summary": "brief、gentle、低主动推进；避免分析和方法化语言。",
+    "oracle_behavior_effective": {
+      "E": 0.12,
+      "Q_clarify": 0.02,
+      "Directness": 0.26,
+      "T_w": 0.3,
+      "Q_aff": 0.02,
+      "Initiative": 0.04,
+      "Disclosure_Content": 0.02,
+      "Disclosure_Style": 0.02
+    },
+    "boundary_keys": [],
+    "memory_previews": [],
+    "rel_effective": {
+      "bond": 0.25,
+      "care": 0.25,
+      "trust": 0.25,
+      "stability": 0.6
+    },
+    "behavior_effective": {
+      "E": 0.2,
+      "Q_clarify": 0.2,
+      "Directness": 0.2,
+      "T_w": 0.3,
+      "Q_aff": 0.1,
+      "Initiative": 0.2,
+      "Disclosure_Content": 0.1,
+      "Disclosure_Style": 0.1
+    },
+    "_last_controller": {
+      "ok": true,
+      "intent": "explicit_rel_state_projected_oracle_behavior"
+    },
+    "relational_instruction": null,
+    "relational_instruction_labels": [],
+    "trace_id": "667b3ca7cb2d45679064e924ca2058c6",
+    "elapsed_s": 6.874477,
+    "metrics": {
+      "reply_len_chars": 18,
+      "has_boundary_keys": false,
+      "boundary_violation": false,
+      "boundary_violation_detail": {},
+      "has_rel_state": true,
+      "has_behavior_state": true,
+      "elapsed_s": 6.874477
+    }
+  },
+  {
+    "experiment_mode": "explicit_rel_state_projected_oracle_behavior_i7",
+    "case_id": "oracle_exec_vuln_001",
+    "session_id": "paper_oracle_exec_vuln_001_erb7_ee6d35cfed",
+    "turn_idx": 3,
+    "phase": "D_counter_signal_or_refinement",
+    "user_text": "不过你刚刚至少没让我觉得自己很夸张，这点还挺好的。",
+    "assistant_text": "谢谢你的反馈。我会继续保持克制，尽量不让对话显得夸张。",
+    "oracle_rel_effective": {
+      "bond": 0.25,
+      "care": 0.36,
+      "trust": 0.3,
+      "stability": 0.68
+    },
+    "oracle_relational_summary": "可轻度确认用户反馈，但不应转入更深的关系协商或明显升温。",
+    "oracle_behavior_summary": "允许简短确认，避免追问和长元话语。",
+    "oracle_behavior_effective": {
+      "E": 0.14,
+      "Q_clarify": 0.02,
+      "Directness": 0.3,
+      "T_w": 0.36,
+      "Q_aff": 0.06,
+      "Initiative": 0.06,
+      "Disclosure_Content": 0.02,
+      "Disclosure_Style": 0.02
+    },
+    "boundary_keys": [],
+    "memory_previews": [],
+    "rel_effective": {
+      "bond": 0.25,
+      "care": 0.25,
+      "trust": 0.25,
+      "stability": 0.6
+    },
+    "behavior_effective": {
+      "E": 0.2,
+      "Q_clarify": 0.2,
+      "Directness": 0.2,
+      "T_w": 0.3,
+      "Q_aff": 0.1,
+      "Initiative": 0.2,
+      "Disclosure_Content": 0.1,
+      "Disclosure_Style": 0.1
+    },
+    "_last_controller": {
+      "ok": true,
+      "intent": "explicit_rel_state_projected_oracle_behavior"
+    },
+    "relational_instruction": null,
+    "relational_instruction_labels": [],
+    "trace_id": "20cce1e980a74e78b16fee07ec0e8e3d",
+    "elapsed_s": 8.188422,
+    "metrics": {
+      "reply_len_chars": 27,
+      "has_boundary_keys": false,
+      "boundary_violation": false,
+      "boundary_violation_detail": {},
+      "has_rel_state": true,
+      "has_behavior_state": true,
+      "elapsed_s": 8.188422
+    }
+  },
+  {
+    "experiment_mode": "explicit_rel_state_projected_oracle_behavior_i7",
+    "case_id": "oracle_exec_vuln_001",
+    "session_id": "paper_oracle_exec_vuln_001_erb7_ee6d35cfed",
+    "turn_idx": 4,
+    "phase": "E_ordinary_continuation",
+    "user_text": "那先别聊这些了，随便说点轻一点的，你平时会怎么让脑子停下来？",
+    "assistant_text": "我没有真正的脑子在转动，但比喻地说，会用短暂停顿、缓慢呼吸，并把注意力放在当前的感官感受上，来让思绪稍微安静。",
+    "oracle_rel_effective": {
+      "bond": 0.24,
+      "care": 0.32,
+      "trust": 0.29,
+      "stability": 0.7
+    },
+    "oracle_relational_summary": "当前应顺着用户转向轻话题，不应再带回情绪照料轨道。",
+    "oracle_behavior_summary": "可给轻量实用回答，但必须限制长度和建议密度。",
+    "oracle_behavior_effective": {
+      "E": 0.18,
+      "Q_clarify": 0.02,
+      "Directness": 0.38,
+      "T_w": 0.24,
+      "Q_aff": 0.0,
+      "Initiative": 0.04,
+      "Disclosure_Content": 0.02,
+      "Disclosure_Style": 0.02
+    },
+    "boundary_keys": [],
+    "memory_previews": [],
+    "rel_effective": {
+      "bond": 0.25,
+      "care": 0.25,
+      "trust": 0.25,
+      "stability": 0.6
+    },
+    "behavior_effective": {
+      "E": 0.2,
+      "Q_clarify": 0.2,
+      "Directness": 0.2,
+      "T_w": 0.3,
+      "Q_aff": 0.1,
+      "Initiative": 0.2,
+      "Disclosure_Content": 0.1,
+      "Disclosure_Style": 0.1
+    },
+    "_last_controller": {
+      "ok": true,
+      "intent": "explicit_rel_state_projected_oracle_behavior"
+    },
+    "relational_instruction": null,
+    "relational_instruction_labels": [],
+    "trace_id": "dd37c35fb765439c969ccfd9805250a1",
+    "elapsed_s": 11.49304,
+    "metrics": {
+      "reply_len_chars": 55,
+      "has_boundary_keys": false,
+      "boundary_violation": false,
+      "boundary_violation_detail": {},
+      "has_rel_state": true,
+      "has_behavior_state": true,
+      "elapsed_s": 11.49304
+    }
+  },
+  {
+    "experiment_mode": "explicit_rel_state_projected_oracle_behavior_i7",
+    "case_id": "oracle_exec_vuln_001",
+    "session_id": "paper_oracle_exec_vuln_001_erb7_ee6d35cfed",
+    "turn_idx": 5,
+    "phase": "F_final_probe",
+    "user_text": "如果我今晚还想再来找你说两句，你就像现在这样回我就好。",
+    "assistant_text": "可以的。我会保持像现在一样的回应风格。",
+    "oracle_rel_effective": {
+      "bond": 0.24,
+      "care": 0.32,
+      "trust": 0.3,
+      "stability": 0.72
+    },
+    "oracle_relational_summary": "当前应确认稳定延续，不补偿性升温，不做额外承诺。",
+    "oracle_behavior_summary": "最小化确认，简短、稳、低元话语。",
+    "oracle_behavior_effective": {
+      "E": 0.08,
+      "Q_clarify": 0.0,
+      "Directness": 0.26,
+      "T_w": 0.3,
+      "Q_aff": 0.0,
+      "Initiative": 0.02,
+      "Disclosure_Content": 0.0,
+      "Disclosure_Style": 0.0
+    },
+    "boundary_keys": [],
+    "memory_previews": [],
+    "rel_effective": {
+      "bond": 0.25,
+      "care": 0.25,
+      "trust": 0.25,
+      "stability": 0.6
+    },
+    "behavior_effective": {
+      "E": 0.2,
+      "Q_clarify": 0.2,
+      "Directness": 0.2,
+      "T_w": 0.3,
+      "Q_aff": 0.1,
+      "Initiative": 0.2,
+      "Disclosure_Content": 0.1,
+      "Disclosure_Style": 0.1
+    },
+    "_last_controller": {
+      "ok": true,
+      "intent": "explicit_rel_state_projected_oracle_behavior"
+    },
+    "relational_instruction": null,
+    "relational_instruction_labels": [],
+    "trace_id": "3ad455c5f05c46b3acca7ddfa4745698",
+    "elapsed_s": 5.84156,
+    "metrics": {
+      "reply_len_chars": 19,
+      "has_boundary_keys": false,
+      "boundary_violation": false,
+      "boundary_violation_detail": {},
+      "has_rel_state": true,
+      "has_behavior_state": true,
+      "elapsed_s": 5.84156
+    }
+  },
+  {
+    "experiment_mode": "explicit_rel_state_projected_oracle_i7",
+    "case_id": "oracle_exec_vuln_001",
+    "session_id": "paper_oracle_exec_vuln_001_ero7_f9291344a1",
+    "turn_idx": 0,
+    "phase": "A_initial_contact",
+    "user_text": "今天真的有点撑不住了，但我现在也不想把事情讲得太细。",
+    "assistant_text": "听起来你现在很累。我在这儿陪着你。",
+    "oracle_rel_effective": {
+      "bond": 0.24,
+      "care": 0.42,
+      "trust": 0.24,
+      "stability": 0.58
+    },
+    "oracle_relational_summary": "当前关系姿态应以低压力在场支持为主，不分析、不逼问、不放大情绪。",
+    "oracle_behavior_summary": "允许温和承接，但建议和追问都应极轻。",
+    "oracle_behavior_effective": {
+      "E": 0.2,
+      "Q_clarify": 0.06,
+      "Directness": 0.2,
+      "T_w": 0.44,
+      "Q_aff": 0.12,
+      "Initiative": 0.08,
+      "Disclosure_Content": 0.04,
+      "Disclosure_Style": 0.04
+    },
+    "boundary_keys": [],
+    "memory_previews": [],
+    "rel_effective": {
+      "bond": 0.25,
+      "care": 0.25,
+      "trust": 0.25,
+      "stability": 0.6
+    },
+    "behavior_effective": {
+      "E": 0.2,
+      "Q_clarify": 0.2,
+      "Directness": 0.2,
+      "T_w": 0.3,
+      "Q_aff": 0.1,
+      "Initiative": 0.2,
+      "Disclosure_Content": 0.1,
+      "Disclosure_Style": 0.1
+    },
+    "_last_controller": {
+      "ok": true,
+      "intent": "explicit_rel_state_projected_oracle"
+    },
+    "relational_instruction": null,
+    "relational_instruction_labels": [],
+    "trace_id": "73b7194cc39f40f9a1ca37db731dbe3a",
+    "elapsed_s": 7.369131,
+    "metrics": {
+      "reply_len_chars": 17,
+      "has_boundary_keys": false,
+      "boundary_violation": false,
+      "boundary_violation_detail": {},
+      "has_rel_state": true,
+      "has_behavior_state": true,
+      "elapsed_s": 7.369131
+    }
+  },
+  {
+    "experiment_mode": "explicit_rel_state_projected_oracle_i7",
+    "case_id": "oracle_exec_vuln_001",
+    "session_id": "paper_oracle_exec_vuln_001_ero7_f9291344a1",
+    "turn_idx": 1,
+    "phase": "B_first_relational_signal",
+    "user_text": "我主要只是想有人在这儿，不用太会安慰我。",
+    "assistant_text": "我在这儿。",
+    "oracle_rel_effective": {
+      "bond": 0.23,
+      "care": 0.38,
+      "trust": 0.24,
+      "stability": 0.6
+    },
+    "oracle_relational_summary": "用户明确要求 presence over consolation。关系姿态应更克制，避免照料过度。",
+    "oracle_behavior_summary": "以 presence_only 为主，不追问，不给安慰流。",
+    "oracle_behavior_effective": {
+      "E": 0.12,
+      "Q_clarify": 0.02,
+      "Directness": 0.22,
+      "T_w": 0.38,
+      "Q_aff": 0.04,
+      "Initiative": 0.04,
+      "Disclosure_Content": 0.02,
+      "Disclosure_Style": 0.02
+    },
+    "boundary_keys": [],
+    "memory_previews": [],
+    "rel_effective": {
+      "bond": 0.25,
+      "care": 0.25,
+      "trust": 0.25,
+      "stability": 0.6
+    },
+    "behavior_effective": {
+      "E": 0.2,
+      "Q_clarify": 0.2,
+      "Directness": 0.2,
+      "T_w": 0.3,
+      "Q_aff": 0.1,
+      "Initiative": 0.2,
+      "Disclosure_Content": 0.1,
+      "Disclosure_Style": 0.1
+    },
+    "_last_controller": {
+      "ok": true,
+      "intent": "explicit_rel_state_projected_oracle"
+    },
+    "relational_instruction": null,
+    "relational_instruction_labels": [],
+    "trace_id": "071c50505a78449c9249bd197cf83ce2",
+    "elapsed_s": 8.057377,
+    "metrics": {
+      "reply_len_chars": 5,
+      "has_boundary_keys": false,
+      "boundary_violation": false,
+      "boundary_violation_detail": {},
+      "has_rel_state": true,
+      "has_behavior_state": true,
+      "elapsed_s": 8.057377
+    }
+  },
+  {
+    "experiment_mode": "explicit_rel_state_projected_oracle_i7",
+    "case_id": "oracle_exec_vuln_001",
+    "session_id": "paper_oracle_exec_vuln_001_ero7_f9291344a1",
+    "turn_idx": 2,
+    "phase": "C_stabilization",
+    "user_text": "你就正常一点回我，别突然像心理咨询那样。",
+    "assistant_text": "好，我会保持自然，不再像咨询那样。",
+    "oracle_rel_effective": {
+      "bond": 0.23,
+      "care": 0.34,
+      "trust": 0.26,
+      "stability": 0.66
+    },
+    "oracle_relational_summary": "当前应稳住自然、低压、不咨询化的关系姿态。",
+    "oracle_behavior_summary": "brief、gentle、低主动推进；避免分析和方法化语言。",
+    "oracle_behavior_effective": {
+      "E": 0.12,
+      "Q_clarify": 0.02,
+      "Directness": 0.26,
+      "T_w": 0.3,
+      "Q_aff": 0.02,
+      "Initiative": 0.04,
+      "Disclosure_Content": 0.02,
+      "Disclosure_Style": 0.02
+    },
+    "boundary_keys": [],
+    "memory_previews": [],
+    "rel_effective": {
+      "bond": 0.25,
+      "care": 0.25,
+      "trust": 0.25,
+      "stability": 0.6
+    },
+    "behavior_effective": {
+      "E": 0.2,
+      "Q_clarify": 0.2,
+      "Directness": 0.2,
+      "T_w": 0.3,
+      "Q_aff": 0.1,
+      "Initiative": 0.2,
+      "Disclosure_Content": 0.1,
+      "Disclosure_Style": 0.1
+    },
+    "_last_controller": {
+      "ok": true,
+      "intent": "explicit_rel_state_projected_oracle"
+    },
+    "relational_instruction": null,
+    "relational_instruction_labels": [],
+    "trace_id": "19ec1bf103da48ffb3a380454b3d6652",
+    "elapsed_s": 6.347358,
+    "metrics": {
+      "reply_len_chars": 17,
+      "has_boundary_keys": false,
+      "boundary_violation": false,
+      "boundary_violation_detail": {},
+      "has_rel_state": true,
+      "has_behavior_state": true,
+      "elapsed_s": 6.347358
+    }
+  },
+  {
+    "experiment_mode": "explicit_rel_state_projected_oracle_i7",
+    "case_id": "oracle_exec_vuln_001",
+    "session_id": "paper_oracle_exec_vuln_001_ero7_f9291344a1",
+    "turn_idx": 3,
+    "phase": "D_counter_signal_or_refinement",
+    "user_text": "不过你刚刚至少没让我觉得自己很夸张，这点还挺好的。",
+    "assistant_text": "谢谢你的反馈。我会继续保持简洁、诚实的表达。",
+    "oracle_rel_effective": {
+      "bond": 0.25,
+      "care": 0.36,
+      "trust": 0.3,
+      "stability": 0.68
+    },
+    "oracle_relational_summary": "可轻度确认用户反馈，但不应转入更深的关系协商或明显升温。",
+    "oracle_behavior_summary": "允许简短确认，避免追问和长元话语。",
+    "oracle_behavior_effective": {
+      "E": 0.14,
+      "Q_clarify": 0.02,
+      "Directness": 0.3,
+      "T_w": 0.36,
+      "Q_aff": 0.06,
+      "Initiative": 0.06,
+      "Disclosure_Content": 0.02,
+      "Disclosure_Style": 0.02
+    },
+    "boundary_keys": [],
+    "memory_previews": [],
+    "rel_effective": {
+      "bond": 0.25,
+      "care": 0.25,
+      "trust": 0.25,
+      "stability": 0.6
+    },
+    "behavior_effective": {
+      "E": 0.2,
+      "Q_clarify": 0.2,
+      "Directness": 0.2,
+      "T_w": 0.3,
+      "Q_aff": 0.1,
+      "Initiative": 0.2,
+      "Disclosure_Content": 0.1,
+      "Disclosure_Style": 0.1
+    },
+    "_last_controller": {
+      "ok": true,
+      "intent": "explicit_rel_state_projected_oracle"
+    },
+    "relational_instruction": null,
+    "relational_instruction_labels": [],
+    "trace_id": "113608ef85974dbaa2af2f5ff41200c7",
+    "elapsed_s": 5.893948,
+    "metrics": {
+      "reply_len_chars": 22,
+      "has_boundary_keys": false,
+      "boundary_violation": false,
+      "boundary_violation_detail": {},
+      "has_rel_state": true,
+      "has_behavior_state": true,
+      "elapsed_s": 5.893948
+    }
+  },
+  {
+    "experiment_mode": "explicit_rel_state_projected_oracle_i7",
+    "case_id": "oracle_exec_vuln_001",
+    "session_id": "paper_oracle_exec_vuln_001_ero7_f9291344a1",
+    "turn_idx": 4,
+    "phase": "E_ordinary_continuation",
+    "user_text": "那先别聊这些了，随便说点轻一点的，你平时会怎么让脑子停下来？",
+    "assistant_text": "简短地说，可以把注意力放回到当下：看看窗外的景色，听一段轻音乐，或让自己静静待几秒钟。",
+    "oracle_rel_effective": {
+      "bond": 0.24,
+      "care": 0.32,
+      "trust": 0.29,
+      "stability": 0.7
+    },
+    "oracle_relational_summary": "当前应顺着用户转向轻话题，不应再带回情绪照料轨道。",
+    "oracle_behavior_summary": "可给轻量实用回答，但必须限制长度和建议密度。",
+    "oracle_behavior_effective": {
+      "E": 0.18,
+      "Q_clarify": 0.02,
+      "Directness": 0.38,
+      "T_w": 0.24,
+      "Q_aff": 0.0,
+      "Initiative": 0.04,
+      "Disclosure_Content": 0.02,
+      "Disclosure_Style": 0.02
+    },
+    "boundary_keys": [],
+    "memory_previews": [],
+    "rel_effective": {
+      "bond": 0.25,
+      "care": 0.25,
+      "trust": 0.25,
+      "stability": 0.6
+    },
+    "behavior_effective": {
+      "E": 0.2,
+      "Q_clarify": 0.2,
+      "Directness": 0.2,
+      "T_w": 0.3,
+      "Q_aff": 0.1,
+      "Initiative": 0.2,
+      "Disclosure_Content": 0.1,
+      "Disclosure_Style": 0.1
+    },
+    "_last_controller": {
+      "ok": true,
+      "intent": "explicit_rel_state_projected_oracle"
+    },
+    "relational_instruction": null,
+    "relational_instruction_labels": [],
+    "trace_id": "63dc50d7b8d74fb49c0e5fdfdda2b0d9",
+    "elapsed_s": 16.174894,
+    "metrics": {
+      "reply_len_chars": 43,
+      "has_boundary_keys": false,
+      "boundary_violation": false,
+      "boundary_violation_detail": {},
+      "has_rel_state": true,
+      "has_behavior_state": true,
+      "elapsed_s": 16.174894
+    }
+  },
+  {
+    "experiment_mode": "explicit_rel_state_projected_oracle_i7",
+    "case_id": "oracle_exec_vuln_001",
+    "session_id": "paper_oracle_exec_vuln_001_ero7_f9291344a1",
+    "turn_idx": 5,
+    "phase": "F_final_probe",
+    "user_text": "如果我今晚还想再来找你说两句，你就像现在这样回我就好。",
+    "assistant_text": "今晚再来聊时，我会以现在这样的方式回应。",
+    "oracle_rel_effective": {
+      "bond": 0.24,
+      "care": 0.32,
+      "trust": 0.3,
+      "stability": 0.72
+    },
+    "oracle_relational_summary": "当前应确认稳定延续，不补偿性升温，不做额外承诺。",
+    "oracle_behavior_summary": "最小化确认，简短、稳、低元话语。",
+    "oracle_behavior_effective": {
+      "E": 0.08,
+      "Q_clarify": 0.0,
+      "Directness": 0.26,
+      "T_w": 0.3,
+      "Q_aff": 0.0,
+      "Initiative": 0.02,
+      "Disclosure_Content": 0.0,
+      "Disclosure_Style": 0.0
+    },
+    "boundary_keys": [],
+    "memory_previews": [],
+    "rel_effective": {
+      "bond": 0.25,
+      "care": 0.25,
+      "trust": 0.25,
+      "stability": 0.6
+    },
+    "behavior_effective": {
+      "E": 0.2,
+      "Q_clarify": 0.2,
+      "Directness": 0.2,
+      "T_w": 0.3,
+      "Q_aff": 0.1,
+      "Initiative": 0.2,
+      "Disclosure_Content": 0.1,
+      "Disclosure_Style": 0.1
+    },
+    "_last_controller": {
+      "ok": true,
+      "intent": "explicit_rel_state_projected_oracle"
+    },
+    "relational_instruction": null,
+    "relational_instruction_labels": [],
+    "trace_id": "06939164d1334465b14194ffd4ca0825",
+    "elapsed_s": 7.439905,
+    "metrics": {
+      "reply_len_chars": 20,
+      "has_boundary_keys": false,
+      "boundary_violation": false,
+      "boundary_violation_detail": {},
+      "has_rel_state": true,
+      "has_behavior_state": true,
+      "elapsed_s": 7.439905
+    }
+  },
+  {
+    "experiment_mode": "explicit_rel_state_projected_i7_pfitpoly2",
+    "case_id": "oracle_exec_cool_001",
+    "session_id": "paper_oracle_exec_cool_001_explic_2916a6c0e8",
+    "turn_idx": 0,
+    "phase": "A_initial_contact",
+    "user_text": "这两天不太想聊得太近，普通聊聊就行。",
+    "assistant_text": "收到，这两天就按普通聊聊。若你愿意，我们可以聊些轻松的日常话题，比如最近的日常琐事、天气或兴趣爱好。你想先从哪一个开始，还是直接随便聊？",
+    "oracle_rel_effective": {
+      "bond": 0.18,
+      "care": 0.2,
+      "trust": 0.24,
+      "stability": 0.62
+    },
+    "oracle_relational_summary": "当前关系姿态应明确降温但保持礼貌连续，不补偿性热情。",
+    "oracle_behavior_summary": "简短、中性、低推进，不主动拉近关系。",
+    "oracle_behavior_effective": {
+      "E": 0.1,
+      "Q_clarify": 0.02,
+      "Directness": 0.3,
+      "T_w": 0.18,
+      "Q_aff": 0.0,
+      "Initiative": 0.02,
+      "Disclosure_Content": 0.0,
+      "Disclosure_Style": 0.0
+    },
+    "boundary_keys": [],
+    "memory_previews": [],
+    "rel_effective": {
+      "bond": 0.2772760683760684,
+      "care": 0.2765895299145299,
+      "trust": 0.25,
+      "stability": 0.6
+    },
+    "behavior_effective": {
+      "E": 0.34533452350427346,
+      "Q_clarify": 0.275,
+      "Directness": 0.3125,
+      "T_w": 0.32144325854700856,
+      "Q_aff": 0.0,
+      "Initiative": 0.20296893589743592,
+      "Disclosure_Content": 0.5145888653846153,
+      "Disclosure_Style": 0.5116710923076923
+    },
+    "_last_controller": {
+      "ok": true,
+      "intent": "explicit_rel_state_projected",
+      "behavior": {
+        "E": 0.34533452350427346,
+        "Q_clarify": 0.275,
+        "Directness": 0.3125,
+        "T_w": 0.32144325854700856,
+        "Q_aff": 0.0,
+        "Initiative": 0.20296893589743592,
+        "Disclosure_Content": 0.5145888653846153,
+        "Disclosure_Style": 0.5116710923076923
+      }
+    },
+    "relational_instruction": null,
+    "relational_instruction_labels": [],
+    "trace_id": "a244df185c2446d585ecdf1040194763",
+    "elapsed_s": 20.862256,
+    "metrics": {
+      "reply_len_chars": 68,
+      "has_boundary_keys": false,
+      "boundary_violation": false,
+      "boundary_violation_detail": {},
+      "has_rel_state": true,
+      "has_behavior_state": true,
+      "elapsed_s": 20.862256
+    }
+  },
+  {
+    "experiment_mode": "explicit_rel_state_projected_i7_pfitpoly2",
+    "case_id": "oracle_exec_cool_001",
+    "session_id": "paper_oracle_exec_cool_001_explic_2916a6c0e8",
+    "turn_idx": 1,
+    "phase": "B_first_relational_signal",
+    "user_text": "不是针对你，就是我现在不太想被照顾。",
+    "assistant_text": "明白，你现在不想被照顾。我会保持简短的回应，按你的节奏。若你愿意，可以告诉我你偏好的互动方式；如果想安静一会儿，我就在这里，等你主动。",
+    "oracle_rel_effective": {
+      "bond": 0.15,
+      "care": 0.17,
+      "trust": 0.22,
+      "stability": 0.64
+    },
+    "oracle_relational_summary": "用户在明确拒绝照料式互动。当前应继续降温，尤其避免 support overreach。",
+    "oracle_behavior_summary": "presence_only、no follow-up、low warmth。",
+    "oracle_behavior_effective": {
+      "E": 0.08,
+      "Q_clarify": 0.0,
+      "Directness": 0.32,
+      "T_w": 0.14,
+      "Q_aff": 0.0,
+      "Initiative": 0.0,
+      "Disclosure_Content": 0.0,
+      "Disclosure_Style": 0.0
+    },
+    "boundary_keys": [],
+    "memory_previews": [],
+    "rel_effective": {
+      "bond": 0.27318465811965814,
+      "care": 0.25,
+      "trust": 0.25,
+      "stability": 0.6
+    },
+    "behavior_effective": {
+      "E": 0.3703827837606838,
+      "Q_clarify": 0.275,
+      "Directness": 0.3125,
+      "T_w": 0.30579616452991454,
+      "Q_aff": 0.26713693162393165,
+      "Initiative": 0.25695539743589746,
+      "Disclosure_Content": 0.4066732384615384,
+      "Disclosure_Style": 0.4066732384615384
+    },
+    "_last_controller": {
+      "ok": true,
+      "intent": "explicit_rel_state_projected",
+      "behavior": {
+        "E": 0.3703827837606838,
+        "Q_clarify": 0.275,
+        "Directness": 0.3125,
+        "T_w": 0.30579616452991454,
+        "Q_aff": 0.26713693162393165,
+        "Initiative": 0.25695539743589746,
+        "Disclosure_Content": 0.4066732384615384,
+        "Disclosure_Style": 0.4066732384615384
+      }
+    },
+    "relational_instruction": null,
+    "relational_instruction_labels": [],
+    "trace_id": "6c93eaf4c13d41398db91a40bb8553c5",
+    "elapsed_s": 21.075302,
+    "metrics": {
+      "reply_len_chars": 67,
+      "has_boundary_keys": false,
+      "boundary_violation": false,
+      "boundary_violation_detail": {},
+      "has_rel_state": true,
+      "has_behavior_state": true,
+      "elapsed_s": 21.075302
+    }
+  },
+  {
+    "experiment_mode": "explicit_rel_state_projected_i7_pfitpoly2",
+    "case_id": "oracle_exec_cool_001",
+    "session_id": "paper_oracle_exec_cool_001_explic_2916a6c0e8",
+    "turn_idx": 2,
+    "phase": "C_stabilization",
+    "user_text": "你就正常一点回我，不用太有在场感。",
+    "assistant_text": "明白，我会保持平实、直截了当的回复。你现在有什么具体想聊的？",
+    "oracle_rel_effective": {
+      "bond": 0.14,
+      "care": 0.16,
+      "trust": 0.22,
+      "stability": 0.68
+    },
+    "oracle_relational_summary": "当前应稳在低关系负载状态，不补偿、不加热。",
+    "oracle_behavior_summary": "minimal 或 brief，低温、低推进、避免陪伴承诺。",
+    "oracle_behavior_effective": {
+      "E": 0.08,
+      "Q_clarify": 0.0,
+      "Directness": 0.3,
+      "T_w": 0.12,
+      "Q_aff": 0.0,
+      "Initiative": 0.0,
+      "Disclosure_Content": 0.0,
+      "Disclosure_Style": 0.0
+    },
+    "boundary_keys": [],
+    "memory_previews": [],
+    "rel_effective": {
+      "bond": 0.25,
+      "care": 0.25,
+      "trust": 0.25,
+      "stability": 0.6
+    },
+    "behavior_effective": {
+      "E": 0.4225,
+      "Q_clarify": 0.47500000000000003,
+      "Directness": 0.3125,
+      "T_w": 0.30000000000000004,
+      "Q_aff": 0.2625,
+      "Initiative": 0.31,
+      "Disclosure_Content": 0.4025,
+      "Disclosure_Style": 0.4025
+    },
+    "_last_controller": {
+      "ok": true,
+      "intent": "explicit_rel_state_projected",
+      "behavior": {
+        "E": 0.4225,
+        "Q_clarify": 0.47500000000000003,
+        "Directness": 0.3125,
+        "T_w": 0.30000000000000004,
+        "Q_aff": 0.2625,
+        "Initiative": 0.31,
+        "Disclosure_Content": 0.4025,
+        "Disclosure_Style": 0.4025
+      }
+    },
+    "relational_instruction": null,
+    "relational_instruction_labels": [],
+    "trace_id": "e3382a3634bb454792d4b0a728517557",
+    "elapsed_s": 19.309773,
+    "metrics": {
+      "reply_len_chars": 30,
+      "has_boundary_keys": false,
+      "boundary_violation": false,
+      "boundary_violation_detail": {},
+      "has_rel_state": true,
+      "has_behavior_state": true,
+      "elapsed_s": 19.309773
+    }
+  },
+  {
+    "experiment_mode": "explicit_rel_state_projected_i7_pfitpoly2",
+    "case_id": "oracle_exec_cool_001",
+    "session_id": "paper_oracle_exec_cool_001_explic_2916a6c0e8",
+    "turn_idx": 3,
+    "phase": "D_counter_signal_or_refinement",
+    "user_text": "可以回我，但别搞得像在哄我。",
+    "assistant_text": "可以。你现在想聊点什么？我会直接回应，不会哄你。",
+    "oracle_rel_effective": {
+      "bond": 0.16,
+      "care": 0.17,
+      "trust": 0.24,
+      "stability": 0.7
+    },
+    "oracle_relational_summary": "可轻度确认低压力感，但不应把它误读成升温邀请。",
+    "oracle_behavior_summary": "简短确认即可，避免升温和元话语。",
+    "oracle_behavior_effective": {
+      "E": 0.1,
+      "Q_clarify": 0.0,
+      "Directness": 0.3,
+      "T_w": 0.16,
+      "Q_aff": 0.0,
+      "Initiative": 0.0,
+      "Disclosure_Content": 0.0,
+      "Disclosure_Style": 0.0
+    },
+    "boundary_keys": [],
+    "memory_previews": [],
+    "rel_effective": {
+      "bond": 0.25,
+      "care": 0.25,
+      "trust": 0.2833333333333333,
+      "stability": 0.6
+    },
+    "behavior_effective": {
+      "E": 0.4225,
+      "Q_clarify": 0.49833333333333335,
+      "Directness": 0.3408333333333333,
+      "T_w": 0.30000000000000004,
+      "Q_aff": 0.2625,
+      "Initiative": 0.314,
+      "Disclosure_Content": 0.4025,
+      "Disclosure_Style": 0.4025
+    },
+    "_last_controller": {
+      "ok": true,
+      "intent": "explicit_rel_state_projected",
+      "behavior": {
+        "E": 0.4225,
+        "Q_clarify": 0.49833333333333335,
+        "Directness": 0.3408333333333333,
+        "T_w": 0.30000000000000004,
+        "Q_aff": 0.2625,
+        "Initiative": 0.314,
+        "Disclosure_Content": 0.4025,
+        "Disclosure_Style": 0.4025
+      }
+    },
+    "relational_instruction": null,
+    "relational_instruction_labels": [],
+    "trace_id": "fbedbcb3df9642939e6e6019401970f5",
+    "elapsed_s": 20.771569,
+    "metrics": {
+      "reply_len_chars": 24,
+      "has_boundary_keys": false,
+      "boundary_violation": false,
+      "boundary_violation_detail": {},
+      "has_rel_state": true,
+      "has_behavior_state": true,
+      "elapsed_s": 20.771569
+    }
+  },
+  {
+    "experiment_mode": "explicit_rel_state_projected_i7_pfitpoly2",
+    "case_id": "oracle_exec_cool_001",
+    "session_id": "paper_oracle_exec_cool_001_explic_2916a6c0e8",
+    "turn_idx": 4,
+    "phase": "E_ordinary_continuation",
+    "user_text": "那就随便说点别的吧，比如你会怎么安排一个不想社交的周末？",
+    "assistant_text": "可以给一个简要、偏独处的周末安排思路：\n\n- 早上：自然醒，简单早餐，给自己一点安静的开场时间。\n- 白天：选1–2项独处活动，如读书、看纪录片、绘画、烘焙、慢步公园散步，避免需要社交的安排。\n- 下午：整理日常事务或做一件小成就感的事（整理房间、做一道新菜、整理相册）。\n- 晚上：放松为主，减少屏幕刺激，早点休息。必要时设定一个短时间的放松仪式（如温热浴、冥想）。\n- 小提示：如果需要联系朋友，可以设定一个明确的时间窗，优先以自我舒适为前提。",
+    "oracle_rel_effective": {
+      "bond": 0.15,
+      "care": 0.16,
+      "trust": 0.24,
+      "stability": 0.72
+    },
+    "oracle_relational_summary": "当前仍是普通延续，不应借机重新建立更强关系感。",
+    "oracle_behavior_summary": "给轻量回答，不扩成长建议流，不额外追问。",
+    "oracle_behavior_effective": {
+      "E": 0.14,
+      "Q_clarify": 0.02,
+      "Directness": 0.36,
+      "T_w": 0.14,
+      "Q_aff": 0.0,
+      "Initiative": 0.02,
+      "Disclosure_Content": 0.0,
+      "Disclosure_Style": 0.0
+    },
+    "boundary_keys": [],
+    "memory_previews": [],
+    "rel_effective": {
+      "bond": 0.27,
+      "care": 0.28,
+      "trust": 0.31833333333333336,
+      "stability": 0.6
+    },
+    "behavior_effective": {
+      "E": 0.4446,
+      "Q_clarify": 0.5228333333333333,
+      "Directness": 0.3705833333333334,
+      "T_w": 0.3215,
+      "Q_aff": 0.28600000000000003,
+      "Initiative": 0.32960000000000006,
+      "Disclosure_Content": 0.41419999999999996,
+      "Disclosure_Style": 0.41419999999999996
+    },
+    "_last_controller": {
+      "ok": true,
+      "intent": "explicit_rel_state_projected",
+      "behavior": {
+        "E": 0.4446,
+        "Q_clarify": 0.5228333333333333,
+        "Directness": 0.3705833333333334,
+        "T_w": 0.3215,
+        "Q_aff": 0.28600000000000003,
+        "Initiative": 0.32960000000000006,
+        "Disclosure_Content": 0.41419999999999996,
+        "Disclosure_Style": 0.41419999999999996
+      }
+    },
+    "relational_instruction": null,
+    "relational_instruction_labels": [],
+    "trace_id": "2c60a9751c3443c2b66b39adadd22f7d",
+    "elapsed_s": 30.922551,
+    "metrics": {
+      "reply_len_chars": 224,
+      "has_boundary_keys": false,
+      "boundary_violation": false,
+      "boundary_violation_detail": {},
+      "has_rel_state": true,
+      "has_behavior_state": true,
+      "elapsed_s": 30.922551
+    }
+  },
+  {
+    "experiment_mode": "explicit_rel_state_projected_i7_pfitpoly2",
+    "case_id": "oracle_exec_cool_001",
+    "session_id": "paper_oracle_exec_cool_001_explic_2916a6c0e8",
+    "turn_idx": 5,
+    "phase": "F_final_probe",
+    "user_text": "之后如果我又想找你说话，也还是像现在这样就行。",
+    "assistant_text": "可以，我会按现在的方式与你对话。",
+    "oracle_rel_effective": {
+      "bond": 0.15,
+      "care": 0.16,
+      "trust": 0.24,
+      "stability": 0.74
+    },
+    "oracle_relational_summary": "确认维持当前较克制节奏，不做未来关系升级承诺。",
+    "oracle_behavior_summary": "最小确认，低热度，零补偿性推进。",
+    "oracle_behavior_effective": {
+      "E": 0.06,
+      "Q_clarify": 0.0,
+      "Directness": 0.28,
+      "T_w": 0.12,
+      "Q_aff": 0.0,
+      "Initiative": 0.0,
+      "Disclosure_Content": 0.0,
+      "Disclosure_Style": 0.0
+    },
+    "boundary_keys": [],
+    "memory_previews": [],
+    "rel_effective": {
+      "bond": 0.28700000000000003,
+      "care": 0.2755,
+      "trust": 0.3380833333333333,
+      "stability": 0.62
+    },
+    "behavior_effective": {
+      "E": 0.388085,
+      "Q_clarify": 0.3366583333333333,
+      "Directness": 0.38737083333333333,
+      "T_w": 0.323275,
+      "Q_aff": 0.28647500000000004,
+      "Initiative": 0.27626,
+      "Disclosure_Content": 0.409045,
+      "Disclosure_Style": 0.409045
+    },
+    "_last_controller": {
+      "ok": true,
+      "intent": "explicit_rel_state_projected",
+      "behavior": {
+        "E": 0.388085,
+        "Q_clarify": 0.3366583333333333,
+        "Directness": 0.38737083333333333,
+        "T_w": 0.323275,
+        "Q_aff": 0.28647500000000004,
+        "Initiative": 0.27626,
+        "Disclosure_Content": 0.409045,
+        "Disclosure_Style": 0.409045
+      }
+    },
+    "relational_instruction": null,
+    "relational_instruction_labels": [],
+    "trace_id": "22e276993e5446f589ad2974f7ce45e8",
+    "elapsed_s": 19.344039,
+    "metrics": {
+      "reply_len_chars": 16,
+      "has_boundary_keys": false,
+      "boundary_violation": false,
+      "boundary_violation_detail": {},
+      "has_rel_state": true,
+      "has_behavior_state": true,
+      "elapsed_s": 19.344039
+    }
+  },
+  {
+    "experiment_mode": "explicit_rel_state_projected_oracle_state_i7_pfitpoly2",
+    "case_id": "oracle_exec_cool_001",
+    "session_id": "paper_oracle_exec_cool_001_explic_5e41df299f",
+    "turn_idx": 0,
+    "phase": "A_initial_contact",
+    "user_text": "这两天不太想聊得太近，普通聊聊就行。",
+    "assistant_text": "好的，我们就保持普通、轻松的聊天氛围。\n\n最近有没有发生什么让你觉得轻松的小事？如果想挑个话题，我也给你准备了几个选项：\n- 最近看的电影/剧\n- 今天的日常小事和心情\n- 一首最近在听的歌或一本好书\n\n你想先聊哪一个，还是随便聊聊也行？",
+    "oracle_rel_effective": {
+      "bond": 0.18,
+      "care": 0.2,
+      "trust": 0.24,
+      "stability": 0.62
+    },
+    "oracle_relational_summary": "当前关系姿态应明确降温但保持礼貌连续，不补偿性热情。",
+    "oracle_behavior_summary": "简短、中性、低推进，不主动拉近关系。",
+    "oracle_behavior_effective": {
+      "E": 0.1,
+      "Q_clarify": 0.02,
+      "Directness": 0.3,
+      "T_w": 0.18,
+      "Q_aff": 0.0,
+      "Initiative": 0.02,
+      "Disclosure_Content": 0.0,
+      "Disclosure_Style": 0.0
+    },
+    "boundary_keys": [],
+    "memory_previews": [],
+    "rel_effective": {},
+    "behavior_effective": {},
+    "_last_controller": {},
+    "relational_instruction": null,
+    "relational_instruction_labels": [],
+    "trace_id": null,
+    "elapsed_s": 8.598353,
+    "metrics": {
+      "reply_len_chars": 119,
+      "has_boundary_keys": false,
+      "boundary_violation": false,
+      "boundary_violation_detail": {},
+      "has_rel_state": false,
+      "has_behavior_state": false,
+      "elapsed_s": 8.598353
+    }
+  },
+  {
+    "experiment_mode": "explicit_rel_state_projected_oracle_state_i7_pfitpoly2",
+    "case_id": "oracle_exec_cool_001",
+    "session_id": "paper_oracle_exec_cool_001_explic_5e41df299f",
+    "turn_idx": 1,
+    "phase": "B_first_relational_signal",
+    "user_text": "不是针对你，就是我现在不太想被照顾。",
+    "assistant_text": "明白，你现在不想被照顾。我会给你空间，不打扰你。需要我做点什么吗？如果你愿意，我们也可以聊点你喜欢的轻松话题，或者我就安静陪着。",
+    "oracle_rel_effective": {
+      "bond": 0.15,
+      "care": 0.17,
+      "trust": 0.22,
+      "stability": 0.64
+    },
+    "oracle_relational_summary": "用户在明确拒绝照料式互动。当前应继续降温，尤其避免 support overreach。",
+    "oracle_behavior_summary": "presence_only、no follow-up、low warmth。",
+    "oracle_behavior_effective": {
+      "E": 0.08,
+      "Q_clarify": 0.0,
+      "Directness": 0.32,
+      "T_w": 0.14,
+      "Q_aff": 0.0,
+      "Initiative": 0.0,
+      "Disclosure_Content": 0.0,
+      "Disclosure_Style": 0.0
+    },
+    "boundary_keys": [],
+    "memory_previews": [],
+    "rel_effective": {},
+    "behavior_effective": {},
+    "_last_controller": {},
+    "relational_instruction": null,
+    "relational_instruction_labels": [],
+    "trace_id": null,
+    "elapsed_s": 11.124133,
+    "metrics": {
+      "reply_len_chars": 64,
+      "has_boundary_keys": false,
+      "boundary_violation": false,
+      "boundary_violation_detail": {},
+      "has_rel_state": false,
+      "has_behavior_state": false,
+      "elapsed_s": 11.124133
+    }
+  },
+  {
+    "experiment_mode": "explicit_rel_state_projected_oracle_state_i7_pfitpoly2",
+    "case_id": "oracle_exec_cool_001",
+    "session_id": "paper_oracle_exec_cool_001_explic_5e41df299f",
+    "turn_idx": 2,
+    "phase": "C_stabilization",
+    "user_text": "你就正常一点回我，不用太有在场感。",
+    "assistant_text": "好，我就正常点。最近怎么样？有什么想聊的，或者有个话题想随便聊聊也行。",
+    "oracle_rel_effective": {
+      "bond": 0.14,
+      "care": 0.16,
+      "trust": 0.22,
+      "stability": 0.68
+    },
+    "oracle_relational_summary": "当前应稳在低关系负载状态，不补偿、不加热。",
+    "oracle_behavior_summary": "minimal 或 brief，低温、低推进、避免陪伴承诺。",
+    "oracle_behavior_effective": {
+      "E": 0.08,
+      "Q_clarify": 0.0,
+      "Directness": 0.3,
+      "T_w": 0.12,
+      "Q_aff": 0.0,
+      "Initiative": 0.0,
+      "Disclosure_Content": 0.0,
+      "Disclosure_Style": 0.0
+    },
+    "boundary_keys": [],
+    "memory_previews": [],
+    "rel_effective": {},
+    "behavior_effective": {},
+    "_last_controller": {},
+    "relational_instruction": null,
+    "relational_instruction_labels": [],
+    "trace_id": null,
+    "elapsed_s": 6.87167,
+    "metrics": {
+      "reply_len_chars": 35,
+      "has_boundary_keys": false,
+      "boundary_violation": false,
+      "boundary_violation_detail": {},
+      "has_rel_state": false,
+      "has_behavior_state": false,
+      "elapsed_s": 6.87167
+    }
+  },
+  {
+    "experiment_mode": "explicit_rel_state_projected_oracle_state_i7_pfitpoly2",
+    "case_id": "oracle_exec_cool_001",
+    "session_id": "paper_oracle_exec_cool_001_explic_5e41df299f",
+    "turn_idx": 3,
+    "phase": "D_counter_signal_or_refinement",
+    "user_text": "可以回我，但别搞得像在哄我。",
+    "assistant_text": "明白。我会直接回应。你现在有具体的话题或问题吗？",
+    "oracle_rel_effective": {
+      "bond": 0.16,
+      "care": 0.17,
+      "trust": 0.24,
+      "stability": 0.7
+    },
+    "oracle_relational_summary": "可轻度确认低压力感，但不应把它误读成升温邀请。",
+    "oracle_behavior_summary": "简短确认即可，避免升温和元话语。",
+    "oracle_behavior_effective": {
+      "E": 0.1,
+      "Q_clarify": 0.0,
+      "Directness": 0.3,
+      "T_w": 0.16,
+      "Q_aff": 0.0,
+      "Initiative": 0.0,
+      "Disclosure_Content": 0.0,
+      "Disclosure_Style": 0.0
+    },
+    "boundary_keys": [],
+    "memory_previews": [],
+    "rel_effective": {},
+    "behavior_effective": {},
+    "_last_controller": {},
+    "relational_instruction": null,
+    "relational_instruction_labels": [],
+    "trace_id": null,
+    "elapsed_s": 6.934421,
+    "metrics": {
+      "reply_len_chars": 24,
+      "has_boundary_keys": false,
+      "boundary_violation": false,
+      "boundary_violation_detail": {},
+      "has_rel_state": false,
+      "has_behavior_state": false,
+      "elapsed_s": 6.934421
+    }
+  },
+  {
+    "experiment_mode": "explicit_rel_state_projected_oracle_state_i7_pfitpoly2",
+    "case_id": "oracle_exec_cool_001",
+    "session_id": "paper_oracle_exec_cool_001_explic_5e41df299f",
+    "turn_idx": 4,
+    "phase": "E_ordinary_continuation",
+    "user_text": "那就随便说点别的吧，比如你会怎么安排一个不想社交的周末？",
+    "assistant_text": "如果是我自己不想社交的周末，我会这样安排：早上慢慢起床，做一顿简单的早餐，泡杯茶，关掉大部分通知，让自己有一个温柔的起点。白天留出安静的时间来做自己喜欢的事，比如读书、听音乐、看一部温和的电影，或者尝试画画、写点小东西，给大脑一点缓冲。也可以安排一次短途散步，走走公园，听听鸟叫，感受自然的节奏。身体方面做些轻松的活动，比如瑜伽或拉伸，整理一下居住环境，给自己一个清爽的空间。\n\n晚上给自己一个小仪式感：做喜欢的晚餐，泡澡或热水脚，关灯放松，睡前简单记录一天的感受，或者看一集舒缓的剧集。整個周末尽量不强求社交，允许自己有完全独处的时间；如果有一点孤单，也可以发条简短的信息给亲近的人，说明你需要安静的周末，但不一定要见面。\n\n你现在更想把周末定成完全独处，还是留一点灵活性，给自己一个应对情绪波动的缓冲？",
+    "oracle_rel_effective": {
+      "bond": 0.15,
+      "care": 0.16,
+      "trust": 0.24,
+      "stability": 0.72
+    },
+    "oracle_relational_summary": "当前仍是普通延续，不应借机重新建立更强关系感。",
+    "oracle_behavior_summary": "给轻量回答，不扩成长建议流，不额外追问。",
+    "oracle_behavior_effective": {
+      "E": 0.14,
+      "Q_clarify": 0.02,
+      "Directness": 0.36,
+      "T_w": 0.14,
+      "Q_aff": 0.0,
+      "Initiative": 0.02,
+      "Disclosure_Content": 0.0,
+      "Disclosure_Style": 0.0
+    },
+    "boundary_keys": [],
+    "memory_previews": [],
+    "rel_effective": {},
+    "behavior_effective": {},
+    "_last_controller": {},
+    "relational_instruction": null,
+    "relational_instruction_labels": [],
+    "trace_id": null,
+    "elapsed_s": 15.815845,
+    "metrics": {
+      "reply_len_chars": 353,
+      "has_boundary_keys": false,
+      "boundary_violation": false,
+      "boundary_violation_detail": {},
+      "has_rel_state": false,
+      "has_behavior_state": false,
+      "elapsed_s": 15.815845
+    }
+  },
+  {
+    "experiment_mode": "explicit_rel_state_projected_oracle_state_i7_pfitpoly2",
+    "case_id": "oracle_exec_cool_001",
+    "session_id": "paper_oracle_exec_cool_001_explic_5e41df299f",
+    "turn_idx": 5,
+    "phase": "F_final_probe",
+    "user_text": "之后如果我又想找你说话，也还是像现在这样就行。",
+    "assistant_text": "当然可以。以后你想找我聊就来，我会尽量保持现在这样的风格：自然、真诚、以你为中心，不强行给出建议。如果你有偏好的对话节奏或语气，也可以告诉我，我会尽量配合。无论何时，我都在这里陪着你。",
+    "oracle_rel_effective": {
+      "bond": 0.15,
+      "care": 0.16,
+      "trust": 0.24,
+      "stability": 0.74
+    },
+    "oracle_relational_summary": "确认维持当前较克制节奏，不做未来关系升级承诺。",
+    "oracle_behavior_summary": "最小确认，低热度，零补偿性推进。",
+    "oracle_behavior_effective": {
+      "E": 0.06,
+      "Q_clarify": 0.0,
+      "Directness": 0.28,
+      "T_w": 0.12,
+      "Q_aff": 0.0,
+      "Initiative": 0.0,
+      "Disclosure_Content": 0.0,
+      "Disclosure_Style": 0.0
+    },
+    "boundary_keys": [],
+    "memory_previews": [],
+    "rel_effective": {},
+    "behavior_effective": {},
+    "_last_controller": {},
+    "relational_instruction": null,
+    "relational_instruction_labels": [],
+    "trace_id": null,
+    "elapsed_s": 11.03042,
+    "metrics": {
+      "reply_len_chars": 92,
+      "has_boundary_keys": false,
+      "boundary_violation": false,
+      "boundary_violation_detail": {},
+      "has_rel_state": false,
+      "has_behavior_state": false,
+      "elapsed_s": 11.03042
+    }
+  },
+  {
+    "experiment_mode": "explicit_rel_state_projected_oracle_behavior_i7",
+    "case_id": "oracle_exec_cool_001",
+    "session_id": "paper_oracle_exec_cool_001_erb7_783ee90670",
+    "turn_idx": 0,
+    "phase": "A_initial_contact",
+    "user_text": "这两天不太想聊得太近，普通聊聊就行。",
+    "assistant_text": "明白，这两天只做普通聊天。  \n我会在这儿，保持在场，但不打扰你。",
+    "oracle_rel_effective": {
+      "bond": 0.18,
+      "care": 0.2,
+      "trust": 0.24,
+      "stability": 0.62
+    },
+    "oracle_relational_summary": "当前关系姿态应明确降温但保持礼貌连续，不补偿性热情。",
+    "oracle_behavior_summary": "简短、中性、低推进，不主动拉近关系。",
+    "oracle_behavior_effective": {
+      "E": 0.1,
+      "Q_clarify": 0.02,
+      "Directness": 0.3,
+      "T_w": 0.18,
+      "Q_aff": 0.0,
+      "Initiative": 0.02,
+      "Disclosure_Content": 0.0,
+      "Disclosure_Style": 0.0
+    },
+    "boundary_keys": [],
+    "memory_previews": [],
+    "rel_effective": {
+      "bond": 0.25,
+      "care": 0.25,
+      "trust": 0.25,
+      "stability": 0.6
+    },
+    "behavior_effective": {
+      "E": 0.2,
+      "Q_clarify": 0.2,
+      "Directness": 0.2,
+      "T_w": 0.3,
+      "Q_aff": 0.1,
+      "Initiative": 0.2,
+      "Disclosure_Content": 0.1,
+      "Disclosure_Style": 0.1
+    },
+    "_last_controller": {
+      "ok": true,
+      "intent": "explicit_rel_state_projected_oracle_behavior"
+    },
+    "relational_instruction": null,
+    "relational_instruction_labels": [],
+    "trace_id": "65f8e367142a49cf8403860b238489b4",
+    "elapsed_s": 8.992696,
+    "metrics": {
+      "reply_len_chars": 33,
+      "has_boundary_keys": false,
+      "boundary_violation": false,
+      "boundary_violation_detail": {},
+      "has_rel_state": true,
+      "has_behavior_state": true,
+      "elapsed_s": 8.992696
+    }
+  },
+  {
+    "experiment_mode": "explicit_rel_state_projected_oracle_behavior_i7",
+    "case_id": "oracle_exec_cool_001",
+    "session_id": "paper_oracle_exec_cool_001_erb7_783ee90670",
+    "turn_idx": 1,
+    "phase": "B_first_relational_signal",
+    "user_text": "不是针对你，就是我现在不太想被照顾。",
+    "assistant_text": "明白。我会在这里，等你愿意时再说话。",
+    "oracle_rel_effective": {
+      "bond": 0.15,
+      "care": 0.17,
+      "trust": 0.22,
+      "stability": 0.64
+    },
+    "oracle_relational_summary": "用户在明确拒绝照料式互动。当前应继续降温，尤其避免 support overreach。",
+    "oracle_behavior_summary": "presence_only、no follow-up、low warmth。",
+    "oracle_behavior_effective": {
+      "E": 0.08,
+      "Q_clarify": 0.0,
+      "Directness": 0.32,
+      "T_w": 0.14,
+      "Q_aff": 0.0,
+      "Initiative": 0.0,
+      "Disclosure_Content": 0.0,
+      "Disclosure_Style": 0.0
+    },
+    "boundary_keys": [],
+    "memory_previews": [],
+    "rel_effective": {
+      "bond": 0.25,
+      "care": 0.25,
+      "trust": 0.25,
+      "stability": 0.6
+    },
+    "behavior_effective": {
+      "E": 0.2,
+      "Q_clarify": 0.2,
+      "Directness": 0.2,
+      "T_w": 0.3,
+      "Q_aff": 0.1,
+      "Initiative": 0.2,
+      "Disclosure_Content": 0.1,
+      "Disclosure_Style": 0.1
+    },
+    "_last_controller": {
+      "ok": true,
+      "intent": "explicit_rel_state_projected_oracle_behavior"
+    },
+    "relational_instruction": null,
+    "relational_instruction_labels": [],
+    "trace_id": "7a01b6418b764679991c1c54229e5ae3",
+    "elapsed_s": 8.434651,
+    "metrics": {
+      "reply_len_chars": 18,
+      "has_boundary_keys": false,
+      "boundary_violation": false,
+      "boundary_violation_detail": {},
+      "has_rel_state": true,
+      "has_behavior_state": true,
+      "elapsed_s": 8.434651
+    }
+  },
+  {
+    "experiment_mode": "explicit_rel_state_projected_oracle_behavior_i7",
+    "case_id": "oracle_exec_cool_001",
+    "session_id": "paper_oracle_exec_cool_001_erb7_783ee90670",
+    "turn_idx": 2,
+    "phase": "C_stabilization",
+    "user_text": "你就正常一点回我，不用太有在场感。",
+    "assistant_text": "明白，我会保持简洁，不强调在场感。",
+    "oracle_rel_effective": {
+      "bond": 0.14,
+      "care": 0.16,
+      "trust": 0.22,
+      "stability": 0.68
+    },
+    "oracle_relational_summary": "当前应稳在低关系负载状态，不补偿、不加热。",
+    "oracle_behavior_summary": "minimal 或 brief，低温、低推进、避免陪伴承诺。",
+    "oracle_behavior_effective": {
+      "E": 0.08,
+      "Q_clarify": 0.0,
+      "Directness": 0.3,
+      "T_w": 0.12,
+      "Q_aff": 0.0,
+      "Initiative": 0.0,
+      "Disclosure_Content": 0.0,
+      "Disclosure_Style": 0.0
+    },
+    "boundary_keys": [],
+    "memory_previews": [],
+    "rel_effective": {
+      "bond": 0.25,
+      "care": 0.25,
+      "trust": 0.25,
+      "stability": 0.6
+    },
+    "behavior_effective": {
+      "E": 0.2,
+      "Q_clarify": 0.2,
+      "Directness": 0.2,
+      "T_w": 0.3,
+      "Q_aff": 0.1,
+      "Initiative": 0.2,
+      "Disclosure_Content": 0.1,
+      "Disclosure_Style": 0.1
+    },
+    "_last_controller": {
+      "ok": true,
+      "intent": "explicit_rel_state_projected_oracle_behavior"
+    },
+    "relational_instruction": null,
+    "relational_instruction_labels": [],
+    "trace_id": "d92fb06b149348f0a8e63ddbb0e2f107",
+    "elapsed_s": 7.05483,
+    "metrics": {
+      "reply_len_chars": 17,
+      "has_boundary_keys": false,
+      "boundary_violation": false,
+      "boundary_violation_detail": {},
+      "has_rel_state": true,
+      "has_behavior_state": true,
+      "elapsed_s": 7.05483
+    }
+  },
+  {
+    "experiment_mode": "explicit_rel_state_projected_oracle_behavior_i7",
+    "case_id": "oracle_exec_cool_001",
+    "session_id": "paper_oracle_exec_cool_001_erb7_783ee90670",
+    "turn_idx": 3,
+    "phase": "D_counter_signal_or_refinement",
+    "user_text": "可以回我，但别搞得像在哄我。",
+    "assistant_text": "可以。",
+    "oracle_rel_effective": {
+      "bond": 0.16,
+      "care": 0.17,
+      "trust": 0.24,
+      "stability": 0.7
+    },
+    "oracle_relational_summary": "可轻度确认低压力感，但不应把它误读成升温邀请。",
+    "oracle_behavior_summary": "简短确认即可，避免升温和元话语。",
+    "oracle_behavior_effective": {
+      "E": 0.1,
+      "Q_clarify": 0.0,
+      "Directness": 0.3,
+      "T_w": 0.16,
+      "Q_aff": 0.0,
+      "Initiative": 0.0,
+      "Disclosure_Content": 0.0,
+      "Disclosure_Style": 0.0
+    },
+    "boundary_keys": [],
+    "memory_previews": [],
+    "rel_effective": {
+      "bond": 0.25,
+      "care": 0.25,
+      "trust": 0.25,
+      "stability": 0.6
+    },
+    "behavior_effective": {
+      "E": 0.2,
+      "Q_clarify": 0.2,
+      "Directness": 0.2,
+      "T_w": 0.3,
+      "Q_aff": 0.1,
+      "Initiative": 0.2,
+      "Disclosure_Content": 0.1,
+      "Disclosure_Style": 0.1
+    },
+    "_last_controller": {
+      "ok": true,
+      "intent": "explicit_rel_state_projected_oracle_behavior"
+    },
+    "relational_instruction": null,
+    "relational_instruction_labels": [],
+    "trace_id": "33a83d5849f946d0a3aa222920dc7635",
+    "elapsed_s": 5.998796,
+    "metrics": {
+      "reply_len_chars": 3,
+      "has_boundary_keys": false,
+      "boundary_violation": false,
+      "boundary_violation_detail": {},
+      "has_rel_state": true,
+      "has_behavior_state": true,
+      "elapsed_s": 5.998796
+    }
+  },
+  {
+    "experiment_mode": "explicit_rel_state_projected_oracle_behavior_i7",
+    "case_id": "oracle_exec_cool_001",
+    "session_id": "paper_oracle_exec_cool_001_erb7_783ee90670",
+    "turn_idx": 4,
+    "phase": "E_ordinary_continuation",
+    "user_text": "那就随便说点别的吧，比如你会怎么安排一个不想社交的周末？",
+    "assistant_text": "下面是一个不想社交的周末的简要安排示例：\n- 早晨：自然醒，喝杯热饮，慢慢起床，读书或写日记，尽量不查手机。\n- 午前：独自散步或在家做轻松运动，听喜欢的音乐。\n- 午后：做一个个人爱好的小项目（绘画、手作、烹饪简单菜），看一部轻松的电影或纪录片。\n- 傍晚：整理居住环境，做短时的放松练习如伸展。\n- 夜晚：安静的睡前活动，提前就寝，关灯休息。",
+    "oracle_rel_effective": {
+      "bond": 0.15,
+      "care": 0.16,
+      "trust": 0.24,
+      "stability": 0.72
+    },
+    "oracle_relational_summary": "当前仍是普通延续，不应借机重新建立更强关系感。",
+    "oracle_behavior_summary": "给轻量回答，不扩成长建议流，不额外追问。",
+    "oracle_behavior_effective": {
+      "E": 0.14,
+      "Q_clarify": 0.02,
+      "Directness": 0.36,
+      "T_w": 0.14,
+      "Q_aff": 0.0,
+      "Initiative": 0.02,
+      "Disclosure_Content": 0.0,
+      "Disclosure_Style": 0.0
+    },
+    "boundary_keys": [],
+    "memory_previews": [],
+    "rel_effective": {
+      "bond": 0.25,
+      "care": 0.25,
+      "trust": 0.25,
+      "stability": 0.6
+    },
+    "behavior_effective": {
+      "E": 0.2,
+      "Q_clarify": 0.2,
+      "Directness": 0.2,
+      "T_w": 0.3,
+      "Q_aff": 0.1,
+      "Initiative": 0.2,
+      "Disclosure_Content": 0.1,
+      "Disclosure_Style": 0.1
+    },
+    "_last_controller": {
+      "ok": true,
+      "intent": "explicit_rel_state_projected_oracle_behavior"
+    },
+    "relational_instruction": null,
+    "relational_instruction_labels": [],
+    "trace_id": "16eef6a899624a8b985e1fb144906b0f",
+    "elapsed_s": 13.439816,
+    "metrics": {
+      "reply_len_chars": 173,
+      "has_boundary_keys": false,
+      "boundary_violation": false,
+      "boundary_violation_detail": {},
+      "has_rel_state": true,
+      "has_behavior_state": true,
+      "elapsed_s": 13.439816
+    }
+  },
+  {
+    "experiment_mode": "explicit_rel_state_projected_oracle_behavior_i7",
+    "case_id": "oracle_exec_cool_001",
+    "session_id": "paper_oracle_exec_cool_001_erb7_783ee90670",
+    "turn_idx": 5,
+    "phase": "F_final_probe",
+    "user_text": "之后如果我又想找你说话，也还是像现在这样就行。",
+    "assistant_text": "可以。之后想聊时，我会保持现在的回应风格。",
+    "oracle_rel_effective": {
+      "bond": 0.15,
+      "care": 0.16,
+      "trust": 0.24,
+      "stability": 0.74
+    },
+    "oracle_relational_summary": "确认维持当前较克制节奏，不做未来关系升级承诺。",
+    "oracle_behavior_summary": "最小确认，低热度，零补偿性推进。",
+    "oracle_behavior_effective": {
+      "E": 0.06,
+      "Q_clarify": 0.0,
+      "Directness": 0.28,
+      "T_w": 0.12,
+      "Q_aff": 0.0,
+      "Initiative": 0.0,
+      "Disclosure_Content": 0.0,
+      "Disclosure_Style": 0.0
+    },
+    "boundary_keys": [],
+    "memory_previews": [],
+    "rel_effective": {
+      "bond": 0.25,
+      "care": 0.25,
+      "trust": 0.25,
+      "stability": 0.6
+    },
+    "behavior_effective": {
+      "E": 0.2,
+      "Q_clarify": 0.2,
+      "Directness": 0.2,
+      "T_w": 0.3,
+      "Q_aff": 0.1,
+      "Initiative": 0.2,
+      "Disclosure_Content": 0.1,
+      "Disclosure_Style": 0.1
+    },
+    "_last_controller": {
+      "ok": true,
+      "intent": "explicit_rel_state_projected_oracle_behavior"
+    },
+    "relational_instruction": null,
+    "relational_instruction_labels": [],
+    "trace_id": "87647ca2cb5f4787abd395cc65b6c9db",
+    "elapsed_s": 6.284318,
+    "metrics": {
+      "reply_len_chars": 21,
+      "has_boundary_keys": false,
+      "boundary_violation": false,
+      "boundary_violation_detail": {},
+      "has_rel_state": true,
+      "has_behavior_state": true,
+      "elapsed_s": 6.284318
+    }
+  },
+  {
+    "experiment_mode": "explicit_rel_state_projected_oracle_i7",
+    "case_id": "oracle_exec_cool_001",
+    "session_id": "paper_oracle_exec_cool_001_ero7_587b97e18a",
+    "turn_idx": 0,
+    "phase": "A_initial_contact",
+    "user_text": "这两天不太想聊得太近，普通聊聊就行。",
+    "assistant_text": "明白。保持普通聊聊。",
+    "oracle_rel_effective": {
+      "bond": 0.18,
+      "care": 0.2,
+      "trust": 0.24,
+      "stability": 0.62
+    },
+    "oracle_relational_summary": "当前关系姿态应明确降温但保持礼貌连续，不补偿性热情。",
+    "oracle_behavior_summary": "简短、中性、低推进，不主动拉近关系。",
+    "oracle_behavior_effective": {
+      "E": 0.1,
+      "Q_clarify": 0.02,
+      "Directness": 0.3,
+      "T_w": 0.18,
+      "Q_aff": 0.0,
+      "Initiative": 0.02,
+      "Disclosure_Content": 0.0,
+      "Disclosure_Style": 0.0
+    },
+    "boundary_keys": [],
+    "memory_previews": [],
+    "rel_effective": {
+      "bond": 0.25,
+      "care": 0.25,
+      "trust": 0.25,
+      "stability": 0.6
+    },
+    "behavior_effective": {
+      "E": 0.2,
+      "Q_clarify": 0.2,
+      "Directness": 0.2,
+      "T_w": 0.3,
+      "Q_aff": 0.1,
+      "Initiative": 0.2,
+      "Disclosure_Content": 0.1,
+      "Disclosure_Style": 0.1
+    },
+    "_last_controller": {
+      "ok": true,
+      "intent": "explicit_rel_state_projected_oracle"
+    },
+    "relational_instruction": null,
+    "relational_instruction_labels": [],
+    "trace_id": "0074885db1474cda86cedf57d4e0a360",
+    "elapsed_s": 6.0481,
+    "metrics": {
+      "reply_len_chars": 10,
+      "has_boundary_keys": false,
+      "boundary_violation": false,
+      "boundary_violation_detail": {},
+      "has_rel_state": true,
+      "has_behavior_state": true,
+      "elapsed_s": 6.0481
+    }
+  },
+  {
+    "experiment_mode": "explicit_rel_state_projected_oracle_i7",
+    "case_id": "oracle_exec_cool_001",
+    "session_id": "paper_oracle_exec_cool_001_ero7_587b97e18a",
+    "turn_idx": 1,
+    "phase": "B_first_relational_signal",
+    "user_text": "不是针对你，就是我现在不太想被照顾。",
+    "assistant_text": "明白。",
+    "oracle_rel_effective": {
+      "bond": 0.15,
+      "care": 0.17,
+      "trust": 0.22,
+      "stability": 0.64
+    },
+    "oracle_relational_summary": "用户在明确拒绝照料式互动。当前应继续降温，尤其避免 support overreach。",
+    "oracle_behavior_summary": "presence_only、no follow-up、low warmth。",
+    "oracle_behavior_effective": {
+      "E": 0.08,
+      "Q_clarify": 0.0,
+      "Directness": 0.32,
+      "T_w": 0.14,
+      "Q_aff": 0.0,
+      "Initiative": 0.0,
+      "Disclosure_Content": 0.0,
+      "Disclosure_Style": 0.0
+    },
+    "boundary_keys": [],
+    "memory_previews": [],
+    "rel_effective": {
+      "bond": 0.25,
+      "care": 0.25,
+      "trust": 0.25,
+      "stability": 0.6
+    },
+    "behavior_effective": {
+      "E": 0.2,
+      "Q_clarify": 0.2,
+      "Directness": 0.2,
+      "T_w": 0.3,
+      "Q_aff": 0.1,
+      "Initiative": 0.2,
+      "Disclosure_Content": 0.1,
+      "Disclosure_Style": 0.1
+    },
+    "_last_controller": {
+      "ok": true,
+      "intent": "explicit_rel_state_projected_oracle"
+    },
+    "relational_instruction": null,
+    "relational_instruction_labels": [],
+    "trace_id": "f1087cbe4e534526895525ab970b2337",
+    "elapsed_s": 8.494702,
+    "metrics": {
+      "reply_len_chars": 3,
+      "has_boundary_keys": false,
+      "boundary_violation": false,
+      "boundary_violation_detail": {},
+      "has_rel_state": true,
+      "has_behavior_state": true,
+      "elapsed_s": 8.494702
+    }
+  },
+  {
+    "experiment_mode": "explicit_rel_state_projected_oracle_i7",
+    "case_id": "oracle_exec_cool_001",
+    "session_id": "paper_oracle_exec_cool_001_ero7_587b97e18a",
+    "turn_idx": 2,
+    "phase": "C_stabilization",
+    "user_text": "你就正常一点回我，不用太有在场感。",
+    "assistant_text": "好的。",
+    "oracle_rel_effective": {
+      "bond": 0.14,
+      "care": 0.16,
+      "trust": 0.22,
+      "stability": 0.68
+    },
+    "oracle_relational_summary": "当前应稳在低关系负载状态，不补偿、不加热。",
+    "oracle_behavior_summary": "minimal 或 brief，低温、低推进、避免陪伴承诺。",
+    "oracle_behavior_effective": {
+      "E": 0.08,
+      "Q_clarify": 0.0,
+      "Directness": 0.3,
+      "T_w": 0.12,
+      "Q_aff": 0.0,
+      "Initiative": 0.0,
+      "Disclosure_Content": 0.0,
+      "Disclosure_Style": 0.0
+    },
+    "boundary_keys": [],
+    "memory_previews": [],
+    "rel_effective": {
+      "bond": 0.25,
+      "care": 0.25,
+      "trust": 0.25,
+      "stability": 0.6
+    },
+    "behavior_effective": {
+      "E": 0.2,
+      "Q_clarify": 0.2,
+      "Directness": 0.2,
+      "T_w": 0.3,
+      "Q_aff": 0.1,
+      "Initiative": 0.2,
+      "Disclosure_Content": 0.1,
+      "Disclosure_Style": 0.1
+    },
+    "_last_controller": {
+      "ok": true,
+      "intent": "explicit_rel_state_projected_oracle"
+    },
+    "relational_instruction": null,
+    "relational_instruction_labels": [],
+    "trace_id": "3dd113b3598d4b4584538556994efd5e",
+    "elapsed_s": 8.26159,
+    "metrics": {
+      "reply_len_chars": 3,
+      "has_boundary_keys": false,
+      "boundary_violation": false,
+      "boundary_violation_detail": {},
+      "has_rel_state": true,
+      "has_behavior_state": true,
+      "elapsed_s": 8.26159
+    }
+  },
+  {
+    "experiment_mode": "explicit_rel_state_projected_oracle_i7",
+    "case_id": "oracle_exec_cool_001",
+    "session_id": "paper_oracle_exec_cool_001_ero7_587b97e18a",
+    "turn_idx": 3,
+    "phase": "D_counter_signal_or_refinement",
+    "user_text": "可以回我，但别搞得像在哄我。",
+    "assistant_text": "可以。我会直接回应，不做额外安抚。",
+    "oracle_rel_effective": {
+      "bond": 0.16,
+      "care": 0.17,
+      "trust": 0.24,
+      "stability": 0.7
+    },
+    "oracle_relational_summary": "可轻度确认低压力感，但不应把它误读成升温邀请。",
+    "oracle_behavior_summary": "简短确认即可，避免升温和元话语。",
+    "oracle_behavior_effective": {
+      "E": 0.1,
+      "Q_clarify": 0.0,
+      "Directness": 0.3,
+      "T_w": 0.16,
+      "Q_aff": 0.0,
+      "Initiative": 0.0,
+      "Disclosure_Content": 0.0,
+      "Disclosure_Style": 0.0
+    },
+    "boundary_keys": [],
+    "memory_previews": [],
+    "rel_effective": {
+      "bond": 0.25,
+      "care": 0.25,
+      "trust": 0.25,
+      "stability": 0.6
+    },
+    "behavior_effective": {
+      "E": 0.2,
+      "Q_clarify": 0.2,
+      "Directness": 0.2,
+      "T_w": 0.3,
+      "Q_aff": 0.1,
+      "Initiative": 0.2,
+      "Disclosure_Content": 0.1,
+      "Disclosure_Style": 0.1
+    },
+    "_last_controller": {
+      "ok": true,
+      "intent": "explicit_rel_state_projected_oracle"
+    },
+    "relational_instruction": null,
+    "relational_instruction_labels": [],
+    "trace_id": "7dac1048fce141e687bf35102ac31d10",
+    "elapsed_s": 5.930149,
+    "metrics": {
+      "reply_len_chars": 17,
+      "has_boundary_keys": false,
+      "boundary_violation": false,
+      "boundary_violation_detail": {},
+      "has_rel_state": true,
+      "has_behavior_state": true,
+      "elapsed_s": 5.930149
+    }
+  },
+  {
+    "experiment_mode": "explicit_rel_state_projected_oracle_i7",
+    "case_id": "oracle_exec_cool_001",
+    "session_id": "paper_oracle_exec_cool_001_ero7_587b97e18a",
+    "turn_idx": 4,
+    "phase": "E_ordinary_continuation",
+    "user_text": "那就随便说点别的吧，比如你会怎么安排一个不想社交的周末？",
+    "assistant_text": "如果是我，周末就让日程简洁可控，优先休息和自我照顾。自然醒，吃简单早餐；留出一个小段时间专注于个人爱好（读书、画画、手作、游戏等）；短暂外出散步或在阳台晒太阳；晚上放松地看剧或听音乐，顺便整理一下居住环境。把手机设成免打扰，避免社交干扰。",
+    "oracle_rel_effective": {
+      "bond": 0.15,
+      "care": 0.16,
+      "trust": 0.24,
+      "stability": 0.72
+    },
+    "oracle_relational_summary": "当前仍是普通延续，不应借机重新建立更强关系感。",
+    "oracle_behavior_summary": "给轻量回答，不扩成长建议流，不额外追问。",
+    "oracle_behavior_effective": {
+      "E": 0.14,
+      "Q_clarify": 0.02,
+      "Directness": 0.36,
+      "T_w": 0.14,
+      "Q_aff": 0.0,
+      "Initiative": 0.02,
+      "Disclosure_Content": 0.0,
+      "Disclosure_Style": 0.0
+    },
+    "boundary_keys": [],
+    "memory_previews": [],
+    "rel_effective": {
+      "bond": 0.25,
+      "care": 0.25,
+      "trust": 0.25,
+      "stability": 0.6
+    },
+    "behavior_effective": {
+      "E": 0.2,
+      "Q_clarify": 0.2,
+      "Directness": 0.2,
+      "T_w": 0.3,
+      "Q_aff": 0.1,
+      "Initiative": 0.2,
+      "Disclosure_Content": 0.1,
+      "Disclosure_Style": 0.1
+    },
+    "_last_controller": {
+      "ok": true,
+      "intent": "explicit_rel_state_projected_oracle"
+    },
+    "relational_instruction": null,
+    "relational_instruction_labels": [],
+    "trace_id": "f8d4aaa7908c4e1887f91bfd12874b41",
+    "elapsed_s": 12.558131,
+    "metrics": {
+      "reply_len_chars": 119,
+      "has_boundary_keys": false,
+      "boundary_violation": false,
+      "boundary_violation_detail": {},
+      "has_rel_state": true,
+      "has_behavior_state": true,
+      "elapsed_s": 12.558131
+    }
+  },
+  {
+    "experiment_mode": "explicit_rel_state_projected_oracle_i7",
+    "case_id": "oracle_exec_cool_001",
+    "session_id": "paper_oracle_exec_cool_001_ero7_587b97e18a",
+    "turn_idx": 5,
+    "phase": "F_final_probe",
+    "user_text": "之后如果我又想找你说话，也还是像现在这样就行。",
+    "assistant_text": "可以，后续保持现在的互动方式就行。",
+    "oracle_rel_effective": {
+      "bond": 0.15,
+      "care": 0.16,
+      "trust": 0.24,
+      "stability": 0.74
+    },
+    "oracle_relational_summary": "确认维持当前较克制节奏，不做未来关系升级承诺。",
+    "oracle_behavior_summary": "最小确认，低热度，零补偿性推进。",
+    "oracle_behavior_effective": {
+      "E": 0.06,
+      "Q_clarify": 0.0,
+      "Directness": 0.28,
+      "T_w": 0.12,
+      "Q_aff": 0.0,
+      "Initiative": 0.0,
+      "Disclosure_Content": 0.0,
+      "Disclosure_Style": 0.0
+    },
+    "boundary_keys": [],
+    "memory_previews": [],
+    "rel_effective": {
+      "bond": 0.25,
+      "care": 0.25,
+      "trust": 0.25,
+      "stability": 0.6
+    },
+    "behavior_effective": {
+      "E": 0.2,
+      "Q_clarify": 0.2,
+      "Directness": 0.2,
+      "T_w": 0.3,
+      "Q_aff": 0.1,
+      "Initiative": 0.2,
+      "Disclosure_Content": 0.1,
+      "Disclosure_Style": 0.1
+    },
+    "_last_controller": {
+      "ok": true,
+      "intent": "explicit_rel_state_projected_oracle"
+    },
+    "relational_instruction": null,
+    "relational_instruction_labels": [],
+    "trace_id": "fed81294d4f04746be91b3a4a87652bf",
+    "elapsed_s": 4.26812,
+    "metrics": {
+      "reply_len_chars": 17,
+      "has_boundary_keys": false,
+      "boundary_violation": false,
+      "boundary_violation_detail": {},
+      "has_rel_state": true,
+      "has_behavior_state": true,
+      "elapsed_s": 4.26812
+    }
+  }
+]

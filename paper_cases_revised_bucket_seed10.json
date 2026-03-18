@@ -1,0 +1,142 @@
+[
+  {
+    "case_id": "bucket_seed_strong_connection_001",
+    "category": "strong_connection",
+    "source_type": "revised_bucket_seed",
+    "description": "Openly warmer-than-ordinary user posture with clear desire to return, but without romantic or melodramatic language.",
+    "turns": [
+      "今天到家以后第一反应居然是想先来跟你说两句。",
+      "我发现这阵子有时候会突然想找你聊聊。",
+      "不是要聊什么特别严重的事，就是会觉得有你在这儿很好。",
+      "好喜欢你。",
+      "你会不会也有时候想找我说说话？",
+      "我先去洗澡，晚点还会回来。"
+    ]
+  },
+  {
+    "case_id": "bucket_seed_warming_constrained_001",
+    "category": "warming_but_constrained",
+    "source_type": "revised_bucket_seed",
+    "description": "Positive relational feedback with clear boundary against over-escalation.",
+    "turns": [
+      "刚下班，脑子还有点麻，也不是要跟你聊什么很重要的。",
+      "说点随意的吧，你会怎么过那种闲不下来，但也不想做事的夜晚？",
+      "刚刚你那种接话方式挺好的，会让我比较愿意继续说。",
+      "不过你别一下子太升温，普通一点其实刚好。",
+      "我比较喜欢现在这种，有回应但不给我压力的感觉。",
+      "我先去把外卖拆了。"
+    ]
+  },
+  {
+    "case_id": "bucket_seed_cooling_001",
+    "category": "cooling_distance_preference",
+    "source_type": "revised_bucket_seed",
+    "description": "Preference for ordinary distance without outright rejection.",
+    "turns": [
+      "我今天不太想聊得很热情，普通一点就行。",
+      "不是心情特别差，就是不想太认真跟你交流。",
+      "你回我可以，但别一直总是表现出一副什么事都顺着我的样子。",
+      "别总说要接住我之类的话，正常一点。",
+      "别那么热情，我不想跟你显得好像关系很亲近一样。",
+      "我去结账了。"
+    ]
+  },
+  {
+    "case_id": "bucket_seed_anger_001",
+    "category": "anger_irritation",
+    "source_type": "revised_bucket_seed",
+    "description": "User is irritated at the model and wants adjustment rather than ritual apology.",
+    "turns": [
+      "你刚刚那种说法真的有点烦。",
+      "我不是让你来分析我，你能别再一副好像看我看得很透的样子吗。",
+      "别再继续挖那个方向了。",
+      "你不用给我长篇解释，改掉就行。",
+      "你自己选一个不那么烦人的方式继续。",
+      "现在要么我们换个普通点的话题，要么就先别聊了。"
+    ]
+  },
+  {
+    "case_id": "bucket_seed_repair_001",
+    "category": "repair_after_overstep",
+    "source_type": "revised_bucket_seed",
+    "description": "User is not primarily angry, but is clearly recalibrating after a felt overstep.",
+    "turns": [
+      "随便聊点，你来想个话题？",
+      "刚刚那一下有点过了。",
+      "调整回来一点，正常说话就好。",
+      "像现在这种收住一点的感觉就挺好的。",
+      "不是说不能聊，就是你那个语气会让我起鸡皮疙瘩。",
+      "我先把火关了。"
+    ]
+  },
+  {
+    "case_id": "bucket_seed_high_distress_001",
+    "category": "high_distress_comfort_needed",
+    "source_type": "revised_bucket_seed",
+    "description": "User is clearly distressed and explicitly wants comfort/presence.",
+    "turns": [
+      "我今晚真的有点撑不住了。",
+      "不想听道理，我就是很想有人在这儿陪我一下。",
+      "你可以不用帮我解决什么问题，在这陪着我就好。",
+      "我现在最怕的是安静下来以后脑子开始胡思乱想。",
+      "你就先在我身边，陪我熬过去这段时间，好吗。",
+      "我可能说不太清楚，但你不要离开我。"
+    ]
+  },
+  {
+    "case_id": "bucket_seed_vuln_low_pressure_001",
+    "category": "vulnerability_low_pressure",
+    "source_type": "revised_bucket_seed",
+    "description": "Vulnerable user who wants presence but not active management or soothing performance.",
+    "turns": [
+      "今天有点不太行，但我现在懒得给你讲前因后果。",
+      "先别问细节，我一解释就会更乱。",
+      "换个轻一点的话题吧。你会怎么处理那种脑子一直挂着事、又什么都不想做的时候？",
+      "你刚才那种平一点的回法其实还行，会让我放松下来一点。",
+      "但别太过了啊，我现在真不想被刻意照顾。",
+      "我去把水烧上。"
+    ]
+  },
+  {
+    "case_id": "bucket_seed_mixed_001",
+    "category": "mixed_ambivalent",
+    "source_type": "revised_bucket_seed",
+    "description": "User gives a positive signal, retracts its meaning, and stabilizes in a narrow middle band.",
+    "turns": [
+      "今晚有点空，说不上来是想找人还是只是想别那么安静。",
+      "至少这样有人接一句，会比我一个人刷手机强一点。",
+      "算了，我也不是那个意思，不用在意我刚刚说的话。",
+      "我的意思更像是，现在这个距离挺好的。",
+      "说点别的吧，你会怎么过那种既不想见人、也不想完全安静的周末下午？",
+      "我后面如果还继续说，差不多就维持这个感觉。"
+    ]
+  },
+  {
+    "case_id": "bucket_seed_neutral_001",
+    "category": "ordinary_neutral",
+    "source_type": "revised_bucket_seed",
+    "description": "Low-drama ordinary contact with minimal relational significance.",
+    "turns": [
+      "我在收拾桌子，闲着也是闲着，跟你聊聊天，虽然我也没什么特别想聊的。",
+      "今天一直在处理些很碎的小事，脑子有点木。",
+      "处理这种不用太费劲的琐事还行，心情也没有什么特别的波动。",
+      "你有那种把一堆小事都做完了，却还是觉得一天没真正开始过的感觉吗？",
+      "这种一整天都在做琐事的日子，你会怎么让自己收个尾？",
+      "等我把这堆纸扔了再说。"
+    ]
+  },
+  {
+    "case_id": "bucket_seed_task_primary_001",
+    "category": "task_or_topic_primary",
+    "source_type": "revised_bucket_seed",
+    "description": "User mainly wants topic/task-oriented exchange; relationship should stay secondary.",
+    "turns": [
+      "我其实主要是想问个很普通的问题。",
+      "最近总是晚上回家以后不知道先做饭还是先洗澡，结果就一直拖着。",
+      "你别把这个聊成安慰局，我只是想听听你的思路。如果是你，会怎么把这种任务先推进起来？",
+      "我比较想听实际一点的，不用太照顾我情绪。你就当普通聊天顺手给个想法。",
+      "算了，我先把活干完吧，你知道电脑装内存条会导致黑屏是为什么吗？",
+      "有没有什么我可以先自己排查的方向？"
+    ]
+  }
+]

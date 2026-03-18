@@ -1,0 +1,504 @@
+{
+  "latent_dims": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "knn_k": 5,
+  "dataset_reports": [
+    {
+      "experiment_mode": "explicit_rel_state_rel_to_interface_i7_sc_vA",
+      "num_samples": 180,
+      "families": [
+        "boundary_repair",
+        "cooling",
+        "mixed_signal",
+        "other",
+        "vulnerability",
+        "warm"
+      ],
+      "latent_results": {
+        "2": {
+          "reconstruction": {
+            "behavior_8d": {
+              "mae_standardized": 0.2946,
+              "rmse_standardized": 0.4178,
+              "corr_standardized": 0.9086
+            },
+            "i7_numeric": {
+              "mae_standardized": 0.1293,
+              "rmse_standardized": 0.3591,
+              "corr_standardized": 0.6958
+            },
+            "language_features": {
+              "mae_standardized": 0.5147,
+              "rmse_standardized": 0.8043,
+              "corr_standardized": 0.5942
+            }
+          },
+          "family_probe": {
+            "loocv_accuracy": 0.4111,
+            "neighbor_purity_at_k": 0.4433
+          },
+          "latent_trajectory_smoothness": {
+            "avg_step_distance": 2.9515,
+            "avg_step_over_global_median": 0.9042,
+            "avg_turning": 1.3273
+          },
+          "relation_prediction": {
+            "mae": 0.0363,
+            "rmse": 0.0484,
+            "corr": 0.9667
+          }
+        },
+        "3": {
+          "reconstruction": {
+            "behavior_8d": {
+              "mae_standardized": 0.279,
+              "rmse_standardized": 0.3851,
+              "corr_standardized": 0.9229
+            },
+            "i7_numeric": {
+              "mae_standardized": 0.1218,
+              "rmse_standardized": 0.3309,
+              "corr_standardized": 0.7497
+            },
+            "language_features": {
+              "mae_standardized": 0.4972,
+              "rmse_standardized": 0.7255,
+              "corr_standardized": 0.6882
+            }
+          },
+          "family_probe": {
+            "loocv_accuracy": 0.3944,
+            "neighbor_purity_at_k": 0.4233
+          },
+          "latent_trajectory_smoothness": {
+            "avg_step_distance": 3.4114,
+            "avg_step_over_global_median": 0.9214,
+            "avg_turning": 1.3275
+          },
+          "relation_prediction": {
+            "mae": 0.0357,
+            "rmse": 0.048,
+            "corr": 0.9672
+          }
+        },
+        "4": {
+          "reconstruction": {
+            "behavior_8d": {
+              "mae_standardized": 0.2627,
+              "rmse_standardized": 0.361,
+              "corr_standardized": 0.9326
+            },
+            "i7_numeric": {
+              "mae_standardized": 0.1123,
+              "rmse_standardized": 0.2904,
+              "corr_standardized": 0.8141
+            },
+            "language_features": {
+              "mae_standardized": 0.4298,
+              "rmse_standardized": 0.6413,
+              "corr_standardized": 0.7673
+            }
+          },
+          "family_probe": {
+            "loocv_accuracy": 0.4778,
+            "neighbor_purity_at_k": 0.4667
+          },
+          "latent_trajectory_smoothness": {
+            "avg_step_distance": 3.7092,
+            "avg_step_over_global_median": 0.918,
+            "avg_turning": 1.3375
+          },
+          "relation_prediction": {
+            "mae": 0.0347,
+            "rmse": 0.0464,
+            "corr": 0.9693
+          }
+        },
+        "5": {
+          "reconstruction": {
+            "behavior_8d": {
+              "mae_standardized": 0.233,
+              "rmse_standardized": 0.3099,
+              "corr_standardized": 0.9508
+            },
+            "i7_numeric": {
+              "mae_standardized": 0.1075,
+              "rmse_standardized": 0.2814,
+              "corr_standardized": 0.8266
+            },
+            "language_features": {
+              "mae_standardized": 0.3729,
+              "rmse_standardized": 0.5642,
+              "corr_standardized": 0.8257
+            }
+          },
+          "family_probe": {
+            "loocv_accuracy": 0.4667,
+            "neighbor_purity_at_k": 0.4556
+          },
+          "latent_trajectory_smoothness": {
+            "avg_step_distance": 3.9947,
+            "avg_step_over_global_median": 0.9154,
+            "avg_turning": 1.3202
+          },
+          "relation_prediction": {
+            "mae": 0.0336,
+            "rmse": 0.0452,
+            "corr": 0.971
+          }
+        },
+        "6": {
+          "reconstruction": {
+            "behavior_8d": {
+              "mae_standardized": 0.2298,
+              "rmse_standardized": 0.3057,
+              "corr_standardized": 0.9521
+            },
+            "i7_numeric": {
+              "mae_standardized": 0.1017,
+              "rmse_standardized": 0.2697,
+              "corr_standardized": 0.8421
+            },
+            "language_features": {
+              "mae_standardized": 0.3188,
+              "rmse_standardized": 0.4624,
+              "corr_standardized": 0.8867
+            }
+          },
+          "family_probe": {
+            "loocv_accuracy": 0.4778,
+            "neighbor_purity_at_k": 0.4489
+          },
+          "latent_trajectory_smoothness": {
+            "avg_step_distance": 4.1992,
+            "avg_step_over_global_median": 0.9022,
+            "avg_turning": 1.3306
+          },
+          "relation_prediction": {
+            "mae": 0.0333,
+            "rmse": 0.0448,
+            "corr": 0.9715
+          }
+        },
+        "7": {
+          "reconstruction": {
+            "behavior_8d": {
+              "mae_standardized": 0.2147,
+              "rmse_standardized": 0.2907,
+              "corr_standardized": 0.9568
+            },
+            "i7_numeric": {
+              "mae_standardized": 0.0753,
+              "rmse_standardized": 0.1993,
+              "corr_standardized": 0.9171
+            },
+            "language_features": {
+              "mae_standardized": 0.2661,
+              "rmse_standardized": 0.3946,
+              "corr_standardized": 0.9188
+            }
+          },
+          "family_probe": {
+            "loocv_accuracy": 0.4778,
+            "neighbor_purity_at_k": 0.4522
+          },
+          "latent_trajectory_smoothness": {
+            "avg_step_distance": 4.3197,
+            "avg_step_over_global_median": 0.8938,
+            "avg_turning": 1.3265
+          },
+          "relation_prediction": {
+            "mae": 0.03,
+            "rmse": 0.0408,
+            "corr": 0.9764
+          }
+        },
+        "8": {
+          "reconstruction": {
+            "behavior_8d": {
+              "mae_standardized": 0.2101,
+              "rmse_standardized": 0.2838,
+              "corr_standardized": 0.9589
+            },
+            "i7_numeric": {
+              "mae_standardized": 0.0555,
+              "rmse_standardized": 0.1382,
+              "corr_standardized": 0.961
+            },
+            "language_features": {
+              "mae_standardized": 0.2285,
+              "rmse_standardized": 0.3277,
+              "corr_standardized": 0.9448
+            }
+          },
+          "family_probe": {
+            "loocv_accuracy": 0.4944,
+            "neighbor_purity_at_k": 0.4467
+          },
+          "latent_trajectory_smoothness": {
+            "avg_step_distance": 4.4365,
+            "avg_step_over_global_median": 0.895,
+            "avg_turning": 1.3251
+          },
+          "relation_prediction": {
+            "mae": 0.0294,
+            "rmse": 0.0399,
+            "corr": 0.9774
+          }
+        }
+      }
+    },
+    {
+      "experiment_mode": "explicit_rel_state_projected_oracle_i7",
+      "num_samples": 180,
+      "families": [
+        "boundary_repair",
+        "cooling",
+        "mixed_signal",
+        "other",
+        "vulnerability",
+        "warm"
+      ],
+      "latent_results": {
+        "2": {
+          "reconstruction": {
+            "behavior_8d": {
+              "mae_standardized": 0.2979,
+              "rmse_standardized": 0.4204,
+              "corr_standardized": 0.9074
+            },
+            "i7_numeric": {
+              "mae_standardized": 0.1816,
+              "rmse_standardized": 0.3709,
+              "corr_standardized": 0.7957
+            },
+            "language_features": {
+              "mae_standardized": 0.4758,
+              "rmse_standardized": 0.7525,
+              "corr_standardized": 0.6586
+            }
+          },
+          "family_probe": {
+            "loocv_accuracy": 0.3889,
+            "neighbor_purity_at_k": 0.4922
+          },
+          "latent_trajectory_smoothness": {
+            "avg_step_distance": 3.07,
+            "avg_step_over_global_median": 0.9257,
+            "avg_turning": 1.343
+          },
+          "relation_prediction": {
+            "mae": 0.0351,
+            "rmse": 0.0471,
+            "corr": 0.9684
+          }
+        },
+        "3": {
+          "reconstruction": {
+            "behavior_8d": {
+              "mae_standardized": 0.2941,
+              "rmse_standardized": 0.4177,
+              "corr_standardized": 0.9086
+            },
+            "i7_numeric": {
+              "mae_standardized": 0.1226,
+              "rmse_standardized": 0.2599,
+              "corr_standardized": 0.9055
+            },
+            "language_features": {
+              "mae_standardized": 0.4511,
+              "rmse_standardized": 0.6887,
+              "corr_standardized": 0.725
+            }
+          },
+          "family_probe": {
+            "loocv_accuracy": 0.3889,
+            "neighbor_purity_at_k": 0.4733
+          },
+          "latent_trajectory_smoothness": {
+            "avg_step_distance": 3.4992,
+            "avg_step_over_global_median": 0.9219,
+            "avg_turning": 1.4083
+          },
+          "relation_prediction": {
+            "mae": 0.0342,
+            "rmse": 0.0462,
+            "corr": 0.9696
+          }
+        },
+        "4": {
+          "reconstruction": {
+            "behavior_8d": {
+              "mae_standardized": 0.2874,
+              "rmse_standardized": 0.3943,
+              "corr_standardized": 0.919
+            },
+            "i7_numeric": {
+              "mae_standardized": 0.1192,
+              "rmse_standardized": 0.2526,
+              "corr_standardized": 0.911
+            },
+            "language_features": {
+              "mae_standardized": 0.3883,
+              "rmse_standardized": 0.5921,
+              "corr_standardized": 0.8058
+            }
+          },
+          "family_probe": {
+            "loocv_accuracy": 0.3778,
+            "neighbor_purity_at_k": 0.4422
+          },
+          "latent_trajectory_smoothness": {
+            "avg_step_distance": 3.8505,
+            "avg_step_over_global_median": 0.9216,
+            "avg_turning": 1.3603
+          },
+          "relation_prediction": {
+            "mae": 0.0335,
+            "rmse": 0.0455,
+            "corr": 0.9705
+          }
+        },
+        "5": {
+          "reconstruction": {
+            "behavior_8d": {
+              "mae_standardized": 0.2828,
+              "rmse_standardized": 0.3899,
+              "corr_standardized": 0.9208
+            },
+            "i7_numeric": {
+              "mae_standardized": 0.1172,
+              "rmse_standardized": 0.2486,
+              "corr_standardized": 0.9139
+            },
+            "language_features": {
+              "mae_standardized": 0.3439,
+              "rmse_standardized": 0.4954,
+              "corr_standardized": 0.8687
+            }
+          },
+          "family_probe": {
+            "loocv_accuracy": 0.3778,
+            "neighbor_purity_at_k": 0.4289
+          },
+          "latent_trajectory_smoothness": {
+            "avg_step_distance": 4.0676,
+            "avg_step_over_global_median": 0.9377,
+            "avg_turning": 1.3749
+          },
+          "relation_prediction": {
+            "mae": 0.0335,
+            "rmse": 0.0454,
+            "corr": 0.9706
+          }
+        },
+        "6": {
+          "reconstruction": {
+            "behavior_8d": {
+              "mae_standardized": 0.2248,
+              "rmse_standardized": 0.2957,
+              "corr_standardized": 0.9553
+            },
+            "i7_numeric": {
+              "mae_standardized": 0.1106,
+              "rmse_standardized": 0.227,
+              "corr_standardized": 0.9288
+            },
+            "language_features": {
+              "mae_standardized": 0.2979,
+              "rmse_standardized": 0.4498,
+              "corr_standardized": 0.8931
+            }
+          },
+          "family_probe": {
+            "loocv_accuracy": 0.4167,
+            "neighbor_purity_at_k": 0.4811
+          },
+          "latent_trajectory_smoothness": {
+            "avg_step_distance": 4.245,
+            "avg_step_over_global_median": 0.9148,
+            "avg_turning": 1.3621
+          },
+          "relation_prediction": {
+            "mae": 0.03,
+            "rmse": 0.0403,
+            "corr": 0.977
+          }
+        },
+        "7": {
+          "reconstruction": {
+            "behavior_8d": {
+              "mae_standardized": 0.2007,
+              "rmse_standardized": 0.2711,
+              "corr_standardized": 0.9626
+            },
+            "i7_numeric": {
+              "mae_standardized": 0.05,
+              "rmse_standardized": 0.1179,
+              "corr_standardized": 0.9813
+            },
+            "language_features": {
+              "mae_standardized": 0.255,
+              "rmse_standardized": 0.3903,
+              "corr_standardized": 0.9207
+            }
+          },
+          "family_probe": {
+            "loocv_accuracy": 0.4278,
+            "neighbor_purity_at_k": 0.4733
+          },
+          "latent_trajectory_smoothness": {
+            "avg_step_distance": 4.3921,
+            "avg_step_over_global_median": 0.9075,
+            "avg_turning": 1.3635
+          },
+          "relation_prediction": {
+            "mae": 0.0275,
+            "rmse": 0.0373,
+            "corr": 0.9803
+          }
+        },
+        "8": {
+          "reconstruction": {
+            "behavior_8d": {
+              "mae_standardized": 0.1943,
+              "rmse_standardized": 0.2588,
+              "corr_standardized": 0.9659
+            },
+            "i7_numeric": {
+              "mae_standardized": 0.0461,
+              "rmse_standardized": 0.1144,
+              "corr_standardized": 0.9824
+            },
+            "language_features": {
+              "mae_standardized": 0.1754,
+              "rmse_standardized": 0.2929,
+              "corr_standardized": 0.9561
+            }
+          },
+          "family_probe": {
+            "loocv_accuracy": 0.4167,
+            "neighbor_purity_at_k": 0.4544
+          },
+          "latent_trajectory_smoothness": {
+            "avg_step_distance": 4.5237,
+            "avg_step_over_global_median": 0.9122,
+            "avg_turning": 1.367
+          },
+          "relation_prediction": {
+            "mae": 0.0271,
+            "rmse": 0.0362,
+            "corr": 0.9815
+          }
+        }
+      }
+    }
+  ]
+}

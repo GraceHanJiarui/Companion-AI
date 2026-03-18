@@ -1,0 +1,114 @@
+{
+  "input_jsonl": "paper_results_interface_ontology_main_v1.jsonl",
+  "knn_k": 5,
+  "mode_reports": [
+    {
+      "experiment_mode": "explicit_rel_state_rel_to_interface_i7_sc_vA",
+      "ontology_variant": "A",
+      "num_samples": 180,
+      "families": [
+        "boundary_repair",
+        "cooling",
+        "mixed_signal",
+        "other",
+        "vulnerability",
+        "warm"
+      ],
+      "view_dims": {
+        "relation_raw4": 4,
+        "behavior_8d": 8,
+        "i7_numeric": 8,
+        "language_features": 9
+      },
+      "distance_matrix_correlations": {
+        "relation_raw4__vs__behavior_8d": 0.3048,
+        "relation_raw4__vs__i7_numeric": 0.0837,
+        "relation_raw4__vs__language_features": -0.0142,
+        "behavior_8d__vs__i7_numeric": 0.06,
+        "behavior_8d__vs__language_features": 0.1148,
+        "i7_numeric__vs__language_features": 0.2191
+      },
+      "neighbor_overlap_at_k": 5,
+      "neighbor_overlaps": {
+        "relation_raw4__vs__behavior_8d": 0.5822,
+        "relation_raw4__vs__i7_numeric": 0.0633,
+        "relation_raw4__vs__language_features": 0.0744,
+        "behavior_8d__vs__i7_numeric": 0.0711,
+        "behavior_8d__vs__language_features": 0.0844,
+        "i7_numeric__vs__language_features": 0.0489
+      },
+      "trajectory_smoothness": {
+        "relation_raw4": {
+          "avg_step_distance": 0.9187,
+          "avg_step_over_global_median": 0.3637
+        },
+        "behavior_8d": {
+          "avg_step_distance": 2.1533,
+          "avg_step_over_global_median": 0.7707
+        },
+        "i7_numeric": {
+          "avg_step_distance": 1.2956,
+          "avg_step_over_global_median": 0.4828
+        },
+        "language_features": {
+          "avg_step_distance": 3.6235,
+          "avg_step_over_global_median": 1.0844
+        }
+      }
+    },
+    {
+      "experiment_mode": "explicit_rel_state_projected_oracle_i7",
+      "ontology_variant": "A",
+      "num_samples": 180,
+      "families": [
+        "boundary_repair",
+        "cooling",
+        "mixed_signal",
+        "other",
+        "vulnerability",
+        "warm"
+      ],
+      "view_dims": {
+        "relation_raw4": 4,
+        "behavior_8d": 8,
+        "i7_numeric": 8,
+        "language_features": 9
+      },
+      "distance_matrix_correlations": {
+        "relation_raw4__vs__behavior_8d": 0.3048,
+        "relation_raw4__vs__i7_numeric": 0.098,
+        "relation_raw4__vs__language_features": 0.0618,
+        "behavior_8d__vs__i7_numeric": 0.0745,
+        "behavior_8d__vs__language_features": 0.2516,
+        "i7_numeric__vs__language_features": 0.2537
+      },
+      "neighbor_overlap_at_k": 5,
+      "neighbor_overlaps": {
+        "relation_raw4__vs__behavior_8d": 0.5822,
+        "relation_raw4__vs__i7_numeric": 0.0589,
+        "relation_raw4__vs__language_features": 0.0967,
+        "behavior_8d__vs__i7_numeric": 0.0756,
+        "behavior_8d__vs__language_features": 0.1044,
+        "i7_numeric__vs__language_features": 0.05
+      },
+      "trajectory_smoothness": {
+        "relation_raw4": {
+          "avg_step_distance": 0.9187,
+          "avg_step_over_global_median": 0.3637
+        },
+        "behavior_8d": {
+          "avg_step_distance": 2.1533,
+          "avg_step_over_global_median": 0.7707
+        },
+        "i7_numeric": {
+          "avg_step_distance": 1.3416,
+          "avg_step_over_global_median": 0.5
+        },
+        "language_features": {
+          "avg_step_distance": 3.6497,
+          "avg_step_over_global_median": 1.3103
+        }
+      }
+    }
+  ]
+}

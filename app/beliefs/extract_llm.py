@@ -7,6 +7,12 @@ from pydantic import ValidationError
 
 from app.beliefs.schema import ExtractorOutput
 from app.core.config import settings
+from app.core.openai_compat import (
+    build_chat_completions_body,
+    extract_text_from_chat_completions,
+    extract_text_from_responses,
+    is_gemini_openai_compatible,
+)
 
 EXTRACTOR_SYSTEM = """你是一个“关系与边界”的结构化抽取器。
 你只做一件事：判断用户这句话是否在表达需要我更新的“边界/偏好/相处风格/关系取向”，并输出结构化结果。
@@ -65,7 +71,8 @@ async def extract_beliefs_llm(
         raise RuntimeError("LLM_API_KEY is not set (settings.llm_api_key empty)")
 
     base_url = settings.llm_base_url.rstrip("/")
-    url = f"{base_url}/responses"
+    use_chat_completions = is_gemini_openai_compatible(base_url=base_url, model=model)
+    url = f"{base_url}/chat/completions" if use_chat_completions else f"{base_url}/responses"
 
     payload = {
         "model": model,
@@ -96,24 +103,36 @@ async def extract_beliefs_llm(
     }
 
     async with httpx.AsyncClient(timeout=timeout_s) as client:
+        if use_chat_completions:
+            body = build_chat_completions_body(
+                model=model,
+                system=EXTRACTOR_SYSTEM,
+                user=(
+                    "user_text:\n"
+                    f"{user_text}\n\n"
+                    "active_beliefs (summary):\n"
+                    f"{active_beliefs_text}\n\n"
+                    "policy_json:\n"
+                    f"{policy_json}\n"
+                ),
+                json_schema_name=EXTRACTOR_JSON_SCHEMA["name"],
+                json_schema=EXTRACTOR_JSON_SCHEMA["schema"],
+            )
+        else:
+            body = payload
         resp = await client.post(
             url,
             headers={"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"},
-            json=payload,
+            json=body,
         )
         data = resp.json()
         if resp.status_code >= 400:
             raise RuntimeError(f"OpenAI Responses error {resp.status_code}: {data}")
 
-    # 从 Responses 输出里取 output_text（你现有 llm_client 也做过类似）
-    # output 中 type=message 的 content[0].type=output_text
-    out_text = None
-    for item in data.get("output", []):
-        if item.get("type") == "message":
-            for c in item.get("content", []):
-                if c.get("type") == "output_text":
-                    out_text = c.get("text")
-                    break
+    if use_chat_completions:
+        out_text = extract_text_from_chat_completions(data)
+    else:
+        out_text = extract_text_from_responses(data)
     if not out_text:
         raise RuntimeError(f"Extractor: missing output_text in response: {data}")
 

@@ -2,6 +2,12 @@ import json
 import httpx
 
 from app.core.config import settings
+from app.core.openai_compat import (
+    build_chat_completions_body,
+    extract_text_from_chat_completions,
+    extract_text_from_responses,
+    is_gemini_openai_compatible,
+)
 
 
 EVALUATOR_SYSTEM_PROMPT = """你是“关系态评估器（Relational State Evaluator）”。
@@ -91,24 +97,27 @@ class ToneEvaluatorClient:
             },
         }
         headers = {"Authorization": f"Bearer {self.api_key}", "Content-Type": "application/json"}
+        use_chat_completions = is_gemini_openai_compatible(base_url=self.base_url, model=self.model)
 
         async with httpx.AsyncClient(timeout=30.0) as client:
-            resp = await client.post(f"{self.base_url}/responses", headers=headers, json=body)
+            if use_chat_completions:
+                chat_body = build_chat_completions_body(
+                    model=self.model,
+                    system=EVALUATOR_SYSTEM_PROMPT,
+                    user=json.dumps(payload, ensure_ascii=False),
+                    json_schema_name=REL_DELTA_SCHEMA["name"],
+                    json_schema=REL_DELTA_SCHEMA["schema"],
+                )
+                resp = await client.post(f"{self.base_url}/chat/completions", headers=headers, json=chat_body)
+            else:
+                resp = await client.post(f"{self.base_url}/responses", headers=headers, json=body)
             resp.raise_for_status()
             data = resp.json()
 
-        # Responses API parse
-        text_out = ""
-        for item in data.get("output", []):
-            if not isinstance(item, dict) or item.get("type") != "message":
-                continue
-            for c in item.get("content", []) or []:
-                if isinstance(c, dict) and c.get("type") == "output_text" and isinstance(c.get("text"), str):
-                    text_out += c["text"]
-
-        text_out = (text_out or "").strip()
-        if not text_out:
-            text_out = (data.get("output_text") or "").strip()
+        if use_chat_completions:
+            text_out = extract_text_from_chat_completions(data)
+        else:
+            text_out = extract_text_from_responses(data)
 
         try:
             obj = json.loads(text_out)

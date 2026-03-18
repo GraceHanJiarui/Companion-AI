@@ -5,6 +5,12 @@ import json
 from typing import Any, Dict, List
 
 from app.core.config import settings
+from app.core.openai_compat import (
+    build_chat_completions_body,
+    extract_text_from_chat_completions,
+    extract_text_from_responses,
+    is_gemini_openai_compatible,
+)
 from app.controller.plan import Plan, Behavior, MemoryPoint
 from app.controller.prompts import CONTROLLER_SYSTEM
 
@@ -121,22 +127,27 @@ class ControllerClient:
             },
         }
         headers = {"Authorization": f"Bearer {self.api_key}", "Content-Type": "application/json"}
+        use_chat_completions = is_gemini_openai_compatible(base_url=self.base_url, model=self.model)
 
         async with httpx.AsyncClient(timeout=40.0) as client:
-            resp = await client.post(f"{self.base_url}/responses", headers=headers, json=body)
+            if use_chat_completions:
+                chat_body = build_chat_completions_body(
+                    model=self.model,
+                    system=CONTROLLER_SYSTEM,
+                    user=json.dumps(payload, ensure_ascii=False),
+                    json_schema_name="plan",
+                    json_schema=_plan_json_schema(),
+                )
+                resp = await client.post(f"{self.base_url}/chat/completions", headers=headers, json=chat_body)
+            else:
+                resp = await client.post(f"{self.base_url}/responses", headers=headers, json=body)
             resp.raise_for_status()
             data = resp.json()
 
-        chunks: List[str] = []
-        for item in data.get("output", []):
-            if not isinstance(item, dict) or item.get("type") != "message":
-                continue
-            for c in item.get("content", []) or []:
-                if isinstance(c, dict) and c.get("type") == "output_text" and isinstance(c.get("text"), str):
-                    chunks.append(c["text"])
-        raw = "".join(chunks).strip() if chunks else ""
-        if not raw:
-            raw = (data.get("output_text") or "").strip()
+        if use_chat_completions:
+            raw = extract_text_from_chat_completions(data)
+        else:
+            raw = extract_text_from_responses(data)
 
         obj = json.loads(raw)
 

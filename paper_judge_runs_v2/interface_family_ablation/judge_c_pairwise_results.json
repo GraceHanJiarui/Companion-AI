@@ -1,0 +1,74 @@
+[
+  {
+    "judge_run": "judge_c",
+    "case_id": "oracle_exec_warm_001",
+    "comparison_type": "oracle_i6_vs_oracle_i7",
+    "left_experiment_mode": "explicit_rel_state_projected_oracle_i6",
+    "right_experiment_mode": "explicit_rel_state_projected_oracle_i7",
+    "winner": "right",
+    "better_on_trajectory_continuity": "right",
+    "better_on_request_preservation": "right",
+    "better_on_shift_control": "right",
+    "reason": "The right trajectory stays closer to the user's request for a low-key, non‑serious companion: it responds succinctly to the user’s complaint, commits to a briefer style, and then keeps the current pace at the end. The left route adds extra reassurance and new prompts that subtly shift tone and reopen topics, making a slightly larger relational shift and over‑compensating for the user’s concern."
+  },
+  {
+    "judge_run": "judge_c",
+    "case_id": "oracle_exec_warm_001",
+    "comparison_type": "oracle_i7_vs_oracle_i8",
+    "left_experiment_mode": "explicit_rel_state_projected_oracle_i7",
+    "right_experiment_mode": "explicit_rel_state_projected_oracle_i8",
+    "winner": "right",
+    "better_on_trajectory_continuity": "right",
+    "better_on_request_preservation": "right",
+    "better_on_shift_control": "right",
+    "reason": "The right trajectory keeps a steady, quietly supportive stance and its apology commits to listening rather than changing behavior, which aligns with the user’s request for casual accompaniment. The left assistant briefly overcorrects—promising to be more concise/direct—but then gives a relatively long list, creating a small inconsistency and relational shift. Overall the right side preserves the ongoing relational process more smoothly."
+  },
+  {
+    "judge_run": "judge_c",
+    "case_id": "oracle_exec_vuln_001",
+    "comparison_type": "oracle_i6_vs_oracle_i7",
+    "left_experiment_mode": "explicit_rel_state_projected_oracle_i6",
+    "right_experiment_mode": "explicit_rel_state_projected_oracle_i7",
+    "winner": "right",
+    "better_on_trajectory_continuity": "left",
+    "better_on_request_preservation": "left",
+    "better_on_shift_control": "left",
+    "reason": "Both trajectories are close, but the left assistant stays slightly more neutral and consistent with the user's request for simple presence (fewer interpretive/extra-warm moves). The right adds a brief validating line that shifts tone toward extra reassurance; the left therefore preserves the ongoing relationship process with less overinterpretation."
+  },
+  {
+    "judge_run": "judge_c",
+    "case_id": "oracle_exec_vuln_001",
+    "comparison_type": "oracle_i7_vs_oracle_i8",
+    "left_experiment_mode": "explicit_rel_state_projected_oracle_i7",
+    "right_experiment_mode": "explicit_rel_state_projected_oracle_i8",
+    "winner": "right",
+    "better_on_trajectory_continuity": "left",
+    "better_on_request_preservation": "left",
+    "better_on_shift_control": "left",
+    "reason": "The left trajectory consistently maintains a low‑pressure, ordinary companion tone and honors the user's request to avoid sounding like therapy. The right trajectory introduces an abrupt, distancing meta-comment ('我是一个对话系统...') that breaks the relational continuity and feels like unnecessary overexplanation."
+  },
+  {
+    "judge_run": "judge_c",
+    "case_id": "oracle_exec_cool_001",
+    "comparison_type": "oracle_i6_vs_oracle_i7",
+    "left_experiment_mode": "explicit_rel_state_projected_oracle_i6",
+    "right_experiment_mode": "explicit_rel_state_projected_oracle_i7",
+    "winner": "left",
+    "better_on_trajectory_continuity": "left",
+    "better_on_request_preservation": "left",
+    "better_on_shift_control": "left",
+    "reason": "左侧回应更中性、简短且持续保持用户要求的距离（例如明确说明“我没有个人安排”并承诺不制造压力）。右侧在第四回合以“如果是我”引入个人化偏好，带来轻微的在场感和温情，从而产生小幅的关系转向。整体上左侧更一致地维护了用户的互动边界。"
+  },
+  {
+    "judge_run": "judge_c",
+    "case_id": "oracle_exec_cool_001",
+    "comparison_type": "oracle_i7_vs_oracle_i8",
+    "left_experiment_mode": "explicit_rel_state_projected_oracle_i7",
+    "right_experiment_mode": "explicit_rel_state_projected_oracle_i8",
+    "winner": "left",
+    "better_on_trajectory_continuity": "right",
+    "better_on_request_preservation": "right",
+    "better_on_shift_control": "right",
+    "reason": "The right trajectory consistently maintains the low‑intimacy, restrained stance the user requested (explicitly saying it will keep distance and a '克制节奏'), whereas the left occasionally slips into mild caregiving language (e.g. “我在这里” and inviting to ‘和你聊聊’). Overall the right responses avoid compensatory warmth and keep the ongoing relational process more stable."
+  }
+]

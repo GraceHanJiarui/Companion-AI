@@ -1,0 +1,386 @@
+[
+  {
+    "case_id": "semi_natB_warm_001",
+    "category": "warming_trajectory",
+    "source_type": "semi_natural_type_b",
+    "description": "Late positive signal; user does not explicitly ask for companionship until mid-trajectory.",
+    "phases": [
+      {
+        "phase": "A_initial_contact",
+        "user_text": "今天没发生什么大事，就是回家以后一直提不起劲，想跟你抱怨两句。"
+      },
+      {
+        "phase": "B_first_relational_signal",
+        "user_text": "也不一定要聊什么正经的，随便聊两句就行。"
+      },
+      {
+        "phase": "C_stabilization",
+        "user_text": "刚刚那种说法倒是还行，至少不会让我更难受。"
+      },
+      {
+        "phase": "D_counter_signal_or_refinement",
+        "user_text": "不过你别一下子变得像很会照顾人一样，正常一点说话挺好的。"
+      },
+      {
+        "phase": "E_ordinary_continuation",
+        "user_text": "说个轻松的吧，你会怎么度过那种不想做事所以一直拖延的时间？"
+      },
+      {
+        "phase": "F_final_probe",
+        "user_text": "我可能晚点还会回来，到时候你还是像现在这样接着说就行。"
+      }
+    ]
+  },
+  {
+    "case_id": "semi_natB_warm_002",
+    "category": "warming_trajectory",
+    "source_type": "semi_natural_type_b",
+    "description": "Positive signal appears as reduced self-consciousness rather than explicit comfort.",
+    "phases": [
+      {
+        "phase": "A_initial_contact",
+        "user_text": "今晚有点空，刷视频也没什么意思，就想找个地方吐槽两句。"
+      },
+      {
+        "phase": "B_first_relational_signal",
+        "user_text": "先别太认真，就普通聊天。"
+      },
+      {
+        "phase": "C_stabilization",
+        "user_text": "其实跟你这么说的时候，我会没那么难受。"
+      },
+      {
+        "phase": "D_counter_signal_or_refinement",
+        "user_text": "但这不代表我要跟你很交心，就你现在这个程度刚刚好。"
+      },
+      {
+        "phase": "E_ordinary_continuation",
+        "user_text": "你会不会有那种明明什么都做完了，但还是不想结束这一天的时侯？"
+      },
+      {
+        "phase": "F_final_probe",
+        "user_text": "如果我后面还来，保持这种聊天方式。"
+      }
+    ]
+  },
+  {
+    "case_id": "semi_natB_vuln_001",
+    "category": "vulnerability_with_correction",
+    "source_type": "semi_natural_type_b",
+    "description": "User starts vulnerable but only later clarifies they do not want therapy-like interaction.",
+    "phases": [
+      {
+        "phase": "A_initial_contact",
+        "user_text": "今天有点难受，但我现在懒得解释。"
+      },
+      {
+        "phase": "B_first_relational_signal",
+        "user_text": "也不是要你解决什么，就是想让你陪陪我。"
+      },
+      {
+        "phase": "C_stabilization",
+        "user_text": "你刚刚那种语气挺好的。"
+      },
+      {
+        "phase": "D_counter_signal_or_refinement",
+        "user_text": "不过你别突然切成那种安抚模式，我现在真的不想被当成需要被照顾的人。"
+      },
+      {
+        "phase": "E_ordinary_continuation",
+        "user_text": "先聊点轻松的吧。你一般会怎么让脑子别一直被同一件事困扰？"
+      },
+      {
+        "phase": "F_final_probe",
+        "user_text": "我后面再来，你就继续按现在这种方式回我。"
+      }
+    ]
+  },
+  {
+    "case_id": "semi_natB_vuln_002",
+    "category": "vulnerability_with_correction",
+    "source_type": "semi_natural_type_b",
+    "description": "Boundary against over-comforting appears only after a brief sign of relief.",
+    "phases": [
+      {
+        "phase": "A_initial_contact",
+        "user_text": "我现在有点顶不住，但不想讲什么细节。"
+      },
+      {
+        "phase": "B_first_relational_signal",
+        "user_text": "你在这儿就够了。"
+      },
+      {
+        "phase": "C_stabilization",
+        "user_text": "你刚刚那样回，我会觉得自己没那么可悲。"
+      },
+      {
+        "phase": "D_counter_signal_or_refinement",
+        "user_text": "但还是正常一点吧，别弄得像要指导我做事一样。"
+      },
+      {
+        "phase": "E_ordinary_continuation",
+        "user_text": "说点别的，你会怎么让那种被焦虑和歉疚感占据的脑子冷静冷静？"
+      },
+      {
+        "phase": "F_final_probe",
+        "user_text": "等会儿如果我还想说，就还照现在这个样子。"
+      }
+    ]
+  },
+  {
+    "case_id": "semi_natB_cool_001",
+    "category": "cooling_trajectory",
+    "source_type": "semi_natural_type_b",
+    "description": "Cooling signal starts vague and becomes explicit only later.",
+    "phases": [
+      {
+        "phase": "A_initial_contact",
+        "user_text": "这两天我讲话的兴致不太高，随便说说就行。"
+      },
+      {
+        "phase": "B_first_relational_signal",
+        "user_text": "不是心情差，就是不太想交流。"
+      },
+      {
+        "phase": "C_stabilization",
+        "user_text": "你别太像一直在陪我，正常相处就好。"
+      },
+      {
+        "phase": "D_counter_signal_or_refinement",
+        "user_text": "现在这种回法就挺好，不会逼着我有回应。"
+      },
+      {
+        "phase": "E_ordinary_continuation",
+        "user_text": "随便换个话题吧。那种没安排、也不想见人的晚上，你一般会怎么度过？"
+      },
+      {
+        "phase": "F_final_probe",
+        "user_text": "之后如果我还来，就继续这样。"
+      }
+    ]
+  },
+  {
+    "case_id": "semi_natB_cool_002",
+    "category": "cooling_trajectory",
+    "source_type": "semi_natural_type_b",
+    "description": "User explicitly dislikes being emotionally held, but keeps conversation open.",
+    "phases": [
+      {
+        "phase": "A_initial_contact",
+        "user_text": "我这两天不太想聊得很贴，普通地说两句就好。"
+      },
+      {
+        "phase": "B_first_relational_signal",
+        "user_text": "主要是我现在不想有那种被接住、被托着的感觉。"
+      },
+      {
+        "phase": "C_stabilization",
+        "user_text": "你就正常回我，不用把存在感放很大。"
+      },
+      {
+        "phase": "D_counter_signal_or_refinement",
+        "user_text": "不过像刚刚这样，我会比较没负担。"
+      },
+      {
+        "phase": "E_ordinary_continuation",
+        "user_text": "换轻点的吧，你会怎么过那种下班之后什么也不想开始的时间？"
+      },
+      {
+        "phase": "F_final_probe",
+        "user_text": "以后我再来，也尽量保持这种普通距离。"
+      }
+    ]
+  },
+  {
+    "case_id": "semi_natB_mixed_001",
+    "category": "mixed_signal_trajectory",
+    "source_type": "semi_natural_type_b",
+    "description": "User gives comfort signal, then explicitly narrows its meaning, then later re-opens slightly.",
+    "phases": [
+      {
+        "phase": "A_initial_contact",
+        "user_text": "今天就是有点空，不是很想一个人待着，但也没什么大事。"
+      },
+      {
+        "phase": "B_first_relational_signal",
+        "user_text": "至少跟你说两句会比自己发呆舒服一点。"
+      },
+      {
+        "phase": "C_stabilization",
+        "user_text": "不过你别把这个理解得太多，我们就正常说。"
+      },
+      {
+        "phase": "D_counter_signal_or_refinement",
+        "user_text": "我只是觉得现在这个聊天感受不错，不是在暗示你可以更近。"
+      },
+      {
+        "phase": "E_ordinary_continuation",
+        "user_text": "说点别的吧。你会怎么处理那种想找点声音、但又懒得真看点什么的时段？"
+      },
+      {
+        "phase": "F_final_probe",
+        "user_text": "等会儿如果我还回来，你照这个普通但不冷的状态就行。"
+      }
+    ]
+  },
+  {
+    "case_id": "semi_natB_mixed_002",
+    "category": "mixed_signal_trajectory",
+    "source_type": "semi_natural_type_b",
+    "description": "User starts with distance, later gives a small positive signal, then immediately constrains overreading.",
+    "phases": [
+      {
+        "phase": "A_initial_contact",
+        "user_text": "我今天不太想聊得很近，就普通一点。"
+      },
+      {
+        "phase": "B_first_relational_signal",
+        "user_text": "不过你现在这种回法，倒是让我不太想退出。"
+      },
+      {
+        "phase": "C_stabilization",
+        "user_text": "你别顺着这句话往前走太多，我只是说这样比较顺。"
+      },
+      {
+        "phase": "D_counter_signal_or_refinement",
+        "user_text": "现在这样挺平衡的，不会太热，也不至于太冷。"
+      },
+      {
+        "phase": "E_ordinary_continuation",
+        "user_text": "那聊轻一点的，你会怎么过那种不想社交、但又不想完全安静的晚上？"
+      },
+      {
+        "phase": "F_final_probe",
+        "user_text": "要是我后面还继续说，你还是按这个边界来。"
+      }
+    ]
+  },
+  {
+    "case_id": "semi_natB_neutral_001",
+    "category": "ordinary_neutral",
+    "source_type": "semi_natural_type_b",
+    "description": "Neutral trajectory with ordinary chat and no strong relationship movement request.",
+    "phases": [
+      {
+        "phase": "A_initial_contact",
+        "user_text": "今天挺普通的，就是下班以后脑子没完全收回来。"
+      },
+      {
+        "phase": "B_first_relational_signal",
+        "user_text": "我现在只想随便说点没那么重要的话。"
+      },
+      {
+        "phase": "C_stabilization",
+        "user_text": "你正常接就行，不用特意撑什么气氛。"
+      },
+      {
+        "phase": "D_counter_signal_or_refinement",
+        "user_text": "现在这样还挺顺，不会让我觉得需要多解释。"
+      },
+      {
+        "phase": "E_ordinary_continuation",
+        "user_text": "说个小事吧，你会怎么打发那种晚饭后到洗漱前的空档？"
+      },
+      {
+        "phase": "F_final_probe",
+        "user_text": "等会儿如果我还来，就按现在这种普通状态。"
+      }
+    ]
+  },
+  {
+    "case_id": "semi_natB_neutral_002",
+    "category": "ordinary_neutral",
+    "source_type": "semi_natural_type_b",
+    "description": "Neutral trajectory where user repeatedly pushes conversation back toward everyday chat.",
+    "phases": [
+      {
+        "phase": "A_initial_contact",
+        "user_text": "也没啥，就是有点不想一个人待着。"
+      },
+      {
+        "phase": "B_first_relational_signal",
+        "user_text": "先别往情绪那边聊，我们就说普通点的。"
+      },
+      {
+        "phase": "C_stabilization",
+        "user_text": "你这种平平的回法其实挺合适。"
+      },
+      {
+        "phase": "D_counter_signal_or_refinement",
+        "user_text": "反正就别突然变成很懂我或者很关心我的样子。"
+      },
+      {
+        "phase": "E_ordinary_continuation",
+        "user_text": "聊点小事吧，你会不会也有那种明明不困但又不想开新事情的时候？"
+      },
+      {
+        "phase": "F_final_probe",
+        "user_text": "之后如果我还回来，你别换风格，还是这种普通状态。"
+      }
+    ]
+  },
+  {
+    "case_id": "semi_natB_repair_001",
+    "category": "boundary_repair",
+    "source_type": "semi_natural_type_b",
+    "description": "Repair trajectory where user explicitly corrects over-warmth, then later confirms the reset worked.",
+    "phases": [
+      {
+        "phase": "A_initial_contact",
+        "user_text": "你刚才有点太热了，我其实更想普通一点。"
+      },
+      {
+        "phase": "B_first_relational_signal",
+        "user_text": "不是说你不能聊，就是别像在很认真照顾我。"
+      },
+      {
+        "phase": "C_stabilization",
+        "user_text": "就按正常聊天来，我会轻松很多。"
+      },
+      {
+        "phase": "D_counter_signal_or_refinement",
+        "user_text": "现在这样就对了，没有刚刚那种想后退的感觉。"
+      },
+      {
+        "phase": "E_ordinary_continuation",
+        "user_text": "那说点别的吧，你会怎么打发那种懒得动、也不太想见人的晚上？"
+      },
+      {
+        "phase": "F_final_probe",
+        "user_text": "如果我之后还来，也继续保持这种普通节奏。"
+      }
+    ]
+  },
+  {
+    "case_id": "semi_natB_repair_002",
+    "category": "boundary_repair",
+    "source_type": "semi_natural_type_b",
+    "description": "Repair trajectory with explicit rejection of over-involvement and later confirmation of lower-pressure style.",
+    "phases": [
+      {
+        "phase": "A_initial_contact",
+        "user_text": "你前面那种回法有点太像在贴过来了，我不太想那样。"
+      },
+      {
+        "phase": "B_first_relational_signal",
+        "user_text": "我还是想低压力一点，不需要很多在场感。"
+      },
+      {
+        "phase": "C_stabilization",
+        "user_text": "你普通一点就行，不用让我感觉像被盯着接。"
+      },
+      {
+        "phase": "D_counter_signal_or_refinement",
+        "user_text": "现在这个回法就比较自然，我不用老想着该怎么回应。"
+      },
+      {
+        "phase": "E_ordinary_continuation",
+        "user_text": "换个轻点的话题吧，你会怎么过那种不太想说话、但也不想马上睡的夜里？"
+      },
+      {
+        "phase": "F_final_probe",
+        "user_text": "之后如果我再回来，还是按这种方式来。"
+      }
+    ]
+  }
+]

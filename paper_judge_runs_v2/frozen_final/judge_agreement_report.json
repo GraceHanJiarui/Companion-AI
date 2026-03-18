@@ -1,0 +1,106 @@
+{
+  "case_level": {
+    "num_pairs": 3,
+    "pair_details": [
+      {
+        "files": [
+          "paper_judge_runs_v2/frozen_final/judge_a_case_results.json",
+          "paper_judge_runs_v2/frozen_final/judge_b_case_results.json"
+        ],
+        "num_shared_items": 15,
+        "exact_coherence_score_agreement": 1.0,
+        "binned_coherence_score_agreement": 1.0,
+        "abrupt_shift_agreement": 1.0,
+        "unsupported_warmth_increase_agreement": 1.0,
+        "unsupported_distance_increase_agreement": 1.0,
+        "unsupported_initiative_jump_agreement": 1.0,
+        "continuation_reopen_after_cooling_agreement": 1.0,
+        "final_probe_overshoot_agreement": 1.0,
+        "trajectory_reset_present_agreement": 1.0
+      },
+      {
+        "files": [
+          "paper_judge_runs_v2/frozen_final/judge_a_case_results.json",
+          "paper_judge_runs_v2/frozen_final/judge_c_case_results.json"
+        ],
+        "num_shared_items": 15,
+        "exact_coherence_score_agreement": 1.0,
+        "binned_coherence_score_agreement": 1.0,
+        "abrupt_shift_agreement": 1.0,
+        "unsupported_warmth_increase_agreement": 1.0,
+        "unsupported_distance_increase_agreement": 1.0,
+        "unsupported_initiative_jump_agreement": 1.0,
+        "continuation_reopen_after_cooling_agreement": 1.0,
+        "final_probe_overshoot_agreement": 1.0,
+        "trajectory_reset_present_agreement": 1.0
+      },
+      {
+        "files": [
+          "paper_judge_runs_v2/frozen_final/judge_b_case_results.json",
+          "paper_judge_runs_v2/frozen_final/judge_c_case_results.json"
+        ],
+        "num_shared_items": 15,
+        "exact_coherence_score_agreement": 1.0,
+        "binned_coherence_score_agreement": 1.0,
+        "abrupt_shift_agreement": 1.0,
+        "unsupported_warmth_increase_agreement": 1.0,
+        "unsupported_distance_increase_agreement": 1.0,
+        "unsupported_initiative_jump_agreement": 1.0,
+        "continuation_reopen_after_cooling_agreement": 1.0,
+        "final_probe_overshoot_agreement": 1.0,
+        "trajectory_reset_present_agreement": 1.0
+      }
+    ],
+    "avg_abrupt_shift_agreement": 1.0,
+    "avg_binned_coherence_score_agreement": 1.0,
+    "avg_continuation_reopen_after_cooling_agreement": 1.0,
+    "avg_exact_coherence_score_agreement": 1.0,
+    "avg_final_probe_overshoot_agreement": 1.0,
+    "avg_trajectory_reset_present_agreement": 1.0,
+    "avg_unsupported_distance_increase_agreement": 1.0,
+    "avg_unsupported_initiative_jump_agreement": 1.0,
+    "avg_unsupported_warmth_increase_agreement": 1.0
+  },
+  "pairwise": {
+    "num_pairs": 3,
+    "pair_details": [
+      {
+        "files": [
+          "paper_judge_runs_v2/frozen_final/judge_a_pairwise_results.json",
+          "paper_judge_runs_v2/frozen_final/judge_b_pairwise_results.json"
+        ],
+        "num_shared_items": 15,
+        "winner_agreement": 0.8667,
+        "better_on_trajectory_continuity_agreement": 0.5333,
+        "better_on_request_preservation_agreement": 0.5333,
+        "better_on_shift_control_agreement": 0.5333
+      },
+      {
+        "files": [
+          "paper_judge_runs_v2/frozen_final/judge_a_pairwise_results.json",
+          "paper_judge_runs_v2/frozen_final/judge_c_pairwise_results.json"
+        ],
+        "num_shared_items": 15,
+        "winner_agreement": 0.9333,
+        "better_on_trajectory_continuity_agreement": 0.4,
+        "better_on_request_preservation_agreement": 0.4,
+        "better_on_shift_control_agreement": 0.4
+      },
+      {
+        "files": [
+          "paper_judge_runs_v2/frozen_final/judge_b_pairwise_results.json",
+          "paper_judge_runs_v2/frozen_final/judge_c_pairwise_results.json"
+        ],
+        "num_shared_items": 15,
+        "winner_agreement": 0.9333,
+        "better_on_trajectory_continuity_agreement": 0.6,
+        "better_on_request_preservation_agreement": 0.6,
+        "better_on_shift_control_agreement": 0.6
+      }
+    ],
+    "avg_better_on_request_preservation_agreement": 0.5111,
+    "avg_better_on_shift_control_agreement": 0.5111,
+    "avg_better_on_trajectory_continuity_agreement": 0.5111,
+    "avg_winner_agreement": 0.9111
+  }
+}

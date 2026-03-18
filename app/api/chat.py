@@ -39,6 +39,8 @@ from app.generation.actor_prompt import (
     build_explicit_rel_state_projected_bridge_system_prompt,
     build_explicit_rel_state_projected_summary_system_prompt,
     build_explicit_rel_state_projected_execution_system_prompt,
+    build_explicit_rel_state_projected_continuous_execution_system_prompt,
+    build_explicit_rel_state_projected_soft_execution_system_prompt,
 )
 from app.generation.relational_instruction import (
     build_relational_instruction,
@@ -49,7 +51,16 @@ from app.generation.relational_instruction import (
 )
 from app.generation.execution_interface import (
     build_execution_interface,
+    build_execution_interface_from_rel,
+    build_execution_interface_from_instruction_labels,
     render_execution_interface,
+    render_execution_interface_with_semantics,
+    render_execution_interface_with_ontology,
+    render_continuous_execution_interface,
+    render_ordinal_soft_execution_interface,
+    render_ordinal_soft_execution_interface_with_semantics,
+    render_banded_execution_interface,
+    render_hybrid_execution_interface,
 )
 from app.relational.projector import RelState, project_behavior
 from app.core.core_self import get_active_core_self
@@ -69,6 +80,7 @@ class ChatIn(BaseModel):
     user_text: str = Field(..., min_length=1)
     experiment_mode: str | None = None
     phase: str | None = None
+    skip_memory: bool | None = None
     oracle_rel_effective: dict | None = None
     oracle_relational_summary: str | None = None
     oracle_behavior_summary: str | None = None
@@ -119,6 +131,85 @@ def _project_behavior_from_rel_effective(
     }
 
 
+def _build_non_discrete_interface_prompt(
+    *,
+    interface_variant: str,
+    semantic_variant: str,
+    core_self_text: str,
+    relational_summary: str,
+    behavior: dict,
+    memory_previews: list[dict],
+    interface_name: str,
+) -> str:
+    if interface_variant == "c8":
+        return build_explicit_rel_state_projected_continuous_execution_system_prompt(
+            core_self_text,
+            relational_summary=relational_summary,
+            continuous_interface_name=interface_name,
+            continuous_interface_text=render_continuous_execution_interface(behavior),
+            memory_previews=memory_previews,
+        )
+    if interface_variant == "o8":
+        return build_explicit_rel_state_projected_soft_execution_system_prompt(
+            core_self_text,
+            relational_summary=relational_summary,
+            interface_name=interface_name,
+            interface_text=render_ordinal_soft_execution_interface_with_semantics(
+                behavior,
+                semantic_variant=semantic_variant,
+            ),
+            chart_guidance=[
+                "把 off/low/medium/high 理解成柔性的强度带，不要把 medium 自动执行成明显升级。",
+                "只有多个字段同时偏高时，才允许明显增加热度、追问或推进。",
+                "优先保持克制和连续，不要为了显得更懂而额外展开。",
+            ],
+            memory_previews=memory_previews,
+        )
+    if interface_variant == "b8":
+        return build_explicit_rel_state_projected_soft_execution_system_prompt(
+            core_self_text,
+            relational_summary=relational_summary,
+            interface_name=interface_name,
+            interface_text=render_banded_execution_interface(behavior),
+            chart_guidance=[
+                "把数值区间理解成允许波动的小带宽，不要默认按上沿执行。",
+                "若区间仍处于低或中低范围，保持克制，不要额外追问或抬高情绪热度。",
+                "用最小足够实现这些范围，而不是把所有带宽都写满。",
+            ],
+            memory_previews=memory_previews,
+        )
+    if interface_variant == "h8":
+        return build_explicit_rel_state_projected_soft_execution_system_prompt(
+            core_self_text,
+            relational_summary=relational_summary,
+            interface_name=interface_name,
+            interface_text=render_hybrid_execution_interface(behavior),
+            chart_guidance=[
+                "把跟进、推进、回复规模等敏感字段当成优先执行的硬约束。",
+                "把 warmth/directness/disclosure 的 band 当成柔性微调，不要借它们额外放大语气。",
+                "如果离散字段已经要求收住，就不要被 band 字段诱导成更长或更热情的回复。",
+            ],
+            memory_previews=memory_previews,
+        )
+    raise ValueError(f"Unsupported non-discrete interface variant: {interface_variant}")
+
+
+def _execution_chart_guidance(ontology_variant: str) -> list[str]:
+    if ontology_variant == "B":
+        return [
+            "把这些轴理解成互动节奏与推进方式，而不是情感升级指令。",
+            "curiosity/emotional_checkin 只表示可轻触的跟进倾向，不自动要求你追问或安抚。",
+            "优先保持同一互动过程的节奏稳定，不要把中等强度写成明显升温。",
+        ]
+    if ontology_variant == "C":
+        return [
+            "把这些轴理解成许可与上限，而不是要主动做到多强。",
+            "如果 permission/limit 仍然保守，就保持克制，不要自行补足热情、追问或推进。",
+            "优先尊重边界和不越线，而不是追求显得更懂或更主动。",
+        ]
+    return []
+
+
 @router.post("/chat")
 async def chat(payload: ChatIn, db: Session = Depends(get_db)):
     experiment_mode = (payload.experiment_mode or getattr(settings, "experiment_mode", "explicit_rel_state_projected") or "explicit_rel_state_projected").strip()
@@ -127,10 +218,29 @@ async def chat(payload: ChatIn, db: Session = Depends(get_db)):
     prompt_variant = "A"
     interface_variant = None
     projector_profile = "legacy"
+    semantic_variant = "sa"
     if experiment_mode.endswith("_vA") or experiment_mode.endswith("_vB") or experiment_mode.endswith("_vC"):
         experiment_mode, prompt_variant = experiment_mode.rsplit("_v", 1)
         prompt_variant = prompt_variant.upper()
-    for suffix in ["legacy", "balanced", "conservative", "sparse", "v3a", "v3b"]:
+    for suffix in ["sa", "sb", "sc"]:
+        tag = f"_{suffix}"
+        if experiment_mode.endswith(tag):
+            experiment_mode = experiment_mode[: -len(tag)]
+            semantic_variant = suffix
+            break
+    for suffix in [
+        "legacy",
+        "balanced",
+        "conservative",
+        "sparse",
+        "v3a",
+        "v3b",
+        "fitlinear",
+        "fitpoly2",
+        "fitmlp_h4",
+        "fitmlp_h8",
+        "fitmlp_h12",
+    ]:
         tag = f"_p{suffix}"
         if experiment_mode.endswith(tag):
             experiment_mode = experiment_mode[: -len(tag)]
@@ -141,19 +251,26 @@ async def chat(payload: ChatIn, db: Session = Depends(get_db)):
         or experiment_mode.endswith("_i6")
         or experiment_mode.endswith("_i7")
         or experiment_mode.endswith("_i8")
+        or experiment_mode.endswith("_c8")
+        or experiment_mode.endswith("_o8")
+        or experiment_mode.endswith("_b8")
+        or experiment_mode.endswith("_h8")
     ):
         experiment_mode, interface_variant = experiment_mode.rsplit("_", 1)
     allowed_modes = {
         "baseline_prompt_only",
         "baseline_prompt_only_strong",
         "baseline_relational_instruction",
+        "baseline_relational_instruction_to_interface",
         "explicit_rel_state_direct",
         "explicit_rel_state_projected",
+        "explicit_rel_state_rel_to_interface",
         "explicit_rel_state_direct_oracle",
         "explicit_rel_state_projected_oracle",
         "explicit_rel_state_projected_oracle_state",
         "explicit_rel_state_projected_oracle_rel",
         "explicit_rel_state_projected_oracle_behavior",
+        "explicit_rel_state_rel_to_interface_oracle_state",
         "baseline_relational_instruction_oracle_collapsed",
     }
     if experiment_mode not in allowed_modes:
@@ -344,7 +461,10 @@ async def chat(payload: ChatIn, db: Session = Depends(get_db)):
     # 4) retrieve episodic memories
     t = time.perf_counter()
     try:
-        memories = await retrieve_memories(db, payload.session_id, payload.user_text, k=(2 if is_experiment else 5))
+        if payload.skip_memory is True or is_experiment:
+            memories = []
+        else:
+            memories = await retrieve_memories(db, payload.session_id, payload.user_text, k=5)
     except Exception as e:
         return JSONResponse(
             status_code=502,
@@ -377,7 +497,65 @@ async def chat(payload: ChatIn, db: Session = Depends(get_db)):
                 "notes": {
                     "mode": "rel_state_to_behavior_to_generation",
                     "execution_interface_variant": interface_variant,
+                    "execution_semantic_variant": semantic_variant,
                     "projector_profile": projector_profile,
+                    "phase": payload.phase,
+                },
+                "plan": None,
+                "experiment_mode": experiment_mode,
+            }
+        elif experiment_mode == "explicit_rel_state_rel_to_interface":
+            rel_state_explanation = build_rel_state_explanation_from_state(policy.get("rel_effective") or {})
+            direct_interface_variant = interface_variant or "i7"
+            direct_execution_interface = build_execution_interface_from_rel(
+                policy.get("rel_effective") or {},
+                variant=direct_interface_variant,
+                phase=payload.phase,
+            )
+            policy["_last_controller"] = {
+                "ok": True,
+                "error": None,
+                "intent": experiment_mode,
+                "behavior": None,
+                "selected_memories": memory_previews,
+                "notes": {
+                    "relational_instruction": rel_state_explanation,
+                    "execution_interface": direct_execution_interface,
+                    "execution_interface_variant": direct_interface_variant,
+                    "execution_semantic_variant": semantic_variant,
+                    "mode": "rel_state_direct_to_execution_interface",
+                    "phase": payload.phase,
+                },
+                "plan": None,
+                "experiment_mode": experiment_mode,
+            }
+        elif experiment_mode == "baseline_relational_instruction_to_interface":
+            rel_inst = build_relational_instruction(
+                user_text=payload.user_text,
+                active_boundary_keys=boundary_keys,
+                memory_previews=memory_previews,
+            )
+            direct_interface_variant = interface_variant or "i7"
+            direct_execution_interface = build_execution_interface_from_instruction_labels(
+                rel_inst.labels,
+                variant=direct_interface_variant,
+                phase=payload.phase,
+            )
+            relational_instruction = rel_inst.summary
+            policy["_last_controller"] = {
+                "ok": True,
+                "error": None,
+                "intent": experiment_mode,
+                "behavior": None,
+                "selected_memories": memory_previews,
+                "notes": {
+                    "relational_instruction": rel_inst.summary,
+                    "labels": rel_inst.labels,
+                    "reasons": rel_inst.reasons,
+                    "execution_interface": direct_execution_interface,
+                    "execution_interface_variant": direct_interface_variant,
+                    "execution_semantic_variant": semantic_variant,
+                    "mode": "baseline_rel_instruction_to_execution_interface",
                     "phase": payload.phase,
                 },
                 "plan": None,
@@ -441,6 +619,7 @@ async def chat(payload: ChatIn, db: Session = Depends(get_db)):
                     "oracle_behavior_effective": (payload.oracle_behavior_effective or {}),
                     "oracle": True,
                     "execution_interface_variant": interface_variant,
+                    "execution_semantic_variant": semantic_variant,
                     "mode": "rel_state_projected_oracle_to_generation",
                     "phase": payload.phase,
                 },
@@ -464,7 +643,7 @@ async def chat(payload: ChatIn, db: Session = Depends(get_db)):
                 "ok": True,
                 "error": None,
                 "intent": experiment_mode,
-                "behavior": None,
+                "behavior": projected_behavior,
                 "selected_memories": memory_previews,
                 "notes": {
                     "relational_instruction": relational_instruction,
@@ -472,6 +651,7 @@ async def chat(payload: ChatIn, db: Session = Depends(get_db)):
                     "projected_behavior_from_oracle_state": projected_behavior,
                     "oracle_state_only": True,
                     "execution_interface_variant": interface_variant,
+                    "execution_semantic_variant": semantic_variant,
                     "projector_profile": projector_profile,
                     "mode": "oracle_rel_state_plus_real_projection",
                     "phase": payload.phase,
@@ -479,30 +659,36 @@ async def chat(payload: ChatIn, db: Session = Depends(get_db)):
                 "plan": None,
                 "experiment_mode": experiment_mode,
             }
-        elif experiment_mode == "explicit_rel_state_projected_oracle_state":
-            notes = ((policy.get("_last_controller") or {}).get("notes", {}) or {})
-            projected_behavior = notes.get("projected_behavior_from_oracle_state") or {}
-            if interface_variant and isinstance(projected_behavior, dict):
-                execution_interface = build_execution_interface(
-                    projected_behavior,
-                    variant=interface_variant,
-                    phase=payload.phase or notes.get("phase"),
-                )
-                system_prompt = build_explicit_rel_state_projected_execution_system_prompt(
-                    core_self_text,
-                    relational_summary=(relational_instruction or ""),
-                    execution_interface_name=f"{interface_variant}_oracle_state",
-                    execution_interface_text=render_execution_interface(execution_interface),
-                    memory_previews=memory_previews,
-                )
-                notes["execution_interface"] = execution_interface
-            else:
-                system_prompt = build_explicit_rel_state_projected_summary_system_prompt(
-                    core_self_text,
-                    relational_summary_only=(relational_instruction or ""),
-                    behavior_summary_only=build_behavior_explanation_from_behavior(projected_behavior),
-                    memory_previews=memory_previews,
-                )
+        elif experiment_mode == "explicit_rel_state_rel_to_interface_oracle_state":
+            oracle_rel_effective = payload.oracle_rel_effective or {}
+            relational_instruction = (payload.oracle_relational_summary or "").strip()
+            if not relational_instruction:
+                relational_instruction = build_rel_state_explanation_from_state(oracle_rel_effective)
+            direct_interface_variant = interface_variant or "i7"
+            direct_execution_interface = build_execution_interface_from_rel(
+                oracle_rel_effective,
+                variant=direct_interface_variant,
+                phase=payload.phase,
+            )
+            policy["_last_controller"] = {
+                "ok": True,
+                "error": None,
+                "intent": experiment_mode,
+                "behavior": None,
+                "selected_memories": memory_previews,
+                "notes": {
+                    "relational_instruction": relational_instruction,
+                    "oracle_rel_effective": oracle_rel_effective,
+                    "execution_interface": direct_execution_interface,
+                    "oracle_state_only": True,
+                    "execution_interface_variant": direct_interface_variant,
+                    "execution_semantic_variant": semantic_variant,
+                    "mode": "oracle_rel_state_direct_to_execution_interface",
+                    "phase": payload.phase,
+                },
+                "plan": None,
+                "experiment_mode": experiment_mode,
+            }
         elif experiment_mode == "explicit_rel_state_projected_oracle_rel":
             relational_instruction = (payload.oracle_relational_summary or "").strip()
             if not relational_instruction:
@@ -517,6 +703,7 @@ async def chat(payload: ChatIn, db: Session = Depends(get_db)):
                     "relational_instruction": relational_instruction,
                     "oracle_rel_only": True,
                     "execution_interface_variant": interface_variant,
+                    "execution_semantic_variant": semantic_variant,
                     "projector_profile": projector_profile,
                     "mode": "rel_oracle_plus_real_behavior_projection",
                     "phase": payload.phase,
@@ -533,7 +720,7 @@ async def chat(payload: ChatIn, db: Session = Depends(get_db)):
                 "ok": True,
                 "error": None,
                 "intent": experiment_mode,
-                "behavior": None,
+                "behavior": (payload.oracle_behavior_effective or {}),
                 "selected_memories": memory_previews,
                 "notes": {
                     "relational_instruction": relational_instruction,
@@ -541,6 +728,7 @@ async def chat(payload: ChatIn, db: Session = Depends(get_db)):
                     "oracle_behavior_effective": (payload.oracle_behavior_effective or {}),
                     "oracle_behavior_only": True,
                     "execution_interface_variant": interface_variant,
+                    "execution_semantic_variant": semantic_variant,
                     "mode": "real_relation_plus_oracle_behavior_projection",
                     "phase": payload.phase,
                 },
@@ -627,7 +815,17 @@ async def chat(payload: ChatIn, db: Session = Depends(get_db)):
             rel_state_explanation = build_rel_state_explanation_from_state(policy.get("rel_effective") or {})
             behavior = (policy.get("behavior_effective") or {})
             behavior_explanation = build_behavior_explanation_from_behavior(behavior)
-            if interface_variant:
+            if interface_variant in {"c8", "o8", "b8", "h8"}:
+                system_prompt = _build_non_discrete_interface_prompt(
+                    interface_variant=interface_variant,
+                    semantic_variant=semantic_variant,
+                    core_self_text=core_self_text,
+                    relational_summary=rel_state_explanation,
+                    behavior=behavior,
+                    memory_previews=memory_previews,
+                    interface_name=interface_variant,
+                )
+            elif interface_variant:
                 execution_interface = build_execution_interface(
                     behavior,
                     variant=interface_variant,
@@ -636,8 +834,13 @@ async def chat(payload: ChatIn, db: Session = Depends(get_db)):
                 system_prompt = build_explicit_rel_state_projected_execution_system_prompt(
                     core_self_text,
                     relational_summary=rel_state_explanation,
-                    execution_interface_name=interface_variant,
-                    execution_interface_text=render_execution_interface(execution_interface),
+                    execution_interface_name=f"{interface_variant}_v{prompt_variant}",
+                    execution_interface_text=render_execution_interface_with_ontology(
+                        execution_interface,
+                        ontology_variant=prompt_variant,
+                        semantic_variant=semantic_variant,
+                    ),
+                    chart_guidance=_execution_chart_guidance(prompt_variant),
                     memory_previews=memory_previews,
                 )
                 ((policy.get("_last_controller") or {}).get("notes") or {})["execution_interface"] = execution_interface
@@ -662,6 +865,48 @@ async def chat(payload: ChatIn, db: Session = Depends(get_db)):
                     behavior=behavior,
                     memory_previews=memory_previews,
                 )
+        elif experiment_mode == "explicit_rel_state_rel_to_interface":
+            notes = ((policy.get("_last_controller") or {}).get("notes", {}) or {})
+            direct_interface_variant = notes.get("execution_interface_variant") or interface_variant or "i7"
+            direct_semantic_variant = notes.get("execution_semantic_variant") or semantic_variant
+            execution_interface = notes.get("execution_interface") or build_execution_interface_from_rel(
+                policy.get("rel_effective") or {},
+                variant=direct_interface_variant,
+                phase=payload.phase or notes.get("phase"),
+            )
+            system_prompt = build_explicit_rel_state_projected_execution_system_prompt(
+                core_self_text,
+                relational_summary=(notes.get("relational_instruction") or ""),
+                execution_interface_name=f"{direct_interface_variant}_direct_rel_v{prompt_variant}",
+                execution_interface_text=render_execution_interface_with_ontology(
+                    execution_interface,
+                    ontology_variant=prompt_variant,
+                    semantic_variant=direct_semantic_variant,
+                ),
+                chart_guidance=_execution_chart_guidance(prompt_variant),
+                memory_previews=memory_previews,
+            )
+        elif experiment_mode == "baseline_relational_instruction_to_interface":
+            notes = ((policy.get("_last_controller") or {}).get("notes", {}) or {})
+            direct_interface_variant = notes.get("execution_interface_variant") or interface_variant or "i7"
+            direct_semantic_variant = notes.get("execution_semantic_variant") or semantic_variant
+            execution_interface = notes.get("execution_interface") or build_execution_interface_from_instruction_labels(
+                notes.get("labels") or [],
+                variant=direct_interface_variant,
+                phase=payload.phase or notes.get("phase"),
+            )
+            system_prompt = build_explicit_rel_state_projected_execution_system_prompt(
+                core_self_text,
+                relational_summary=(notes.get("relational_instruction") or ""),
+                execution_interface_name=f"{direct_interface_variant}_baseline_rel_v{prompt_variant}",
+                execution_interface_text=render_execution_interface_with_ontology(
+                    execution_interface,
+                    ontology_variant=prompt_variant,
+                    semantic_variant=direct_semantic_variant,
+                ),
+                chart_guidance=_execution_chart_guidance(prompt_variant),
+                memory_previews=memory_previews,
+            )
         elif experiment_mode == "explicit_rel_state_direct":
             rel_effective = policy.get("rel_effective") or {}
             rel_state_explanation = build_rel_state_explanation_from_state(rel_effective)
@@ -692,7 +937,17 @@ async def chat(payload: ChatIn, db: Session = Depends(get_db)):
             )
         elif experiment_mode == "explicit_rel_state_projected_oracle":
             notes = ((policy.get("_last_controller") or {}).get("notes", {}) or {})
-            if interface_variant and isinstance(payload.oracle_behavior_effective, dict):
+            if interface_variant in {"c8", "o8", "b8", "h8"} and isinstance(payload.oracle_behavior_effective, dict):
+                system_prompt = _build_non_discrete_interface_prompt(
+                    interface_variant=interface_variant,
+                    semantic_variant=semantic_variant,
+                    core_self_text=core_self_text,
+                    relational_summary=(relational_instruction or ""),
+                    behavior=payload.oracle_behavior_effective,
+                    memory_previews=memory_previews,
+                    interface_name=f"{interface_variant}_oracle",
+                )
+            elif interface_variant and isinstance(payload.oracle_behavior_effective, dict):
                 execution_interface = build_execution_interface(
                     payload.oracle_behavior_effective,
                     variant=interface_variant,
@@ -701,8 +956,13 @@ async def chat(payload: ChatIn, db: Session = Depends(get_db)):
                 system_prompt = build_explicit_rel_state_projected_execution_system_prompt(
                     core_self_text,
                     relational_summary=(relational_instruction or ""),
-                    execution_interface_name=f"{interface_variant}_oracle",
-                    execution_interface_text=render_execution_interface(execution_interface),
+                    execution_interface_name=f"{interface_variant}_oracle_v{prompt_variant}",
+                    execution_interface_text=render_execution_interface_with_ontology(
+                        execution_interface,
+                        ontology_variant=prompt_variant,
+                        semantic_variant=semantic_variant,
+                    ),
+                    chart_guidance=_execution_chart_guidance(prompt_variant),
                     memory_previews=memory_previews,
                 )
                 notes["execution_interface"] = execution_interface
@@ -715,7 +975,17 @@ async def chat(payload: ChatIn, db: Session = Depends(get_db)):
                 )
         elif experiment_mode == "explicit_rel_state_projected_oracle_rel":
             notes = ((policy.get("_last_controller") or {}).get("notes", {}) or {})
-            if interface_variant:
+            if interface_variant in {"c8", "o8", "b8", "h8"}:
+                system_prompt = _build_non_discrete_interface_prompt(
+                    interface_variant=interface_variant,
+                    semantic_variant=semantic_variant,
+                    core_self_text=core_self_text,
+                    relational_summary=(relational_instruction or ""),
+                    behavior=(policy.get("behavior_effective") or {}),
+                    memory_previews=memory_previews,
+                    interface_name=f"{interface_variant}_oracle_rel",
+                )
+            elif interface_variant:
                 execution_interface = build_execution_interface(
                     policy.get("behavior_effective") or {},
                     variant=interface_variant,
@@ -724,8 +994,13 @@ async def chat(payload: ChatIn, db: Session = Depends(get_db)):
                 system_prompt = build_explicit_rel_state_projected_execution_system_prompt(
                     core_self_text,
                     relational_summary=(relational_instruction or ""),
-                    execution_interface_name=f"{interface_variant}_oracle_rel",
-                    execution_interface_text=render_execution_interface(execution_interface),
+                    execution_interface_name=f"{interface_variant}_oracle_rel_v{prompt_variant}",
+                    execution_interface_text=render_execution_interface_with_ontology(
+                        execution_interface,
+                        ontology_variant=prompt_variant,
+                        semantic_variant=semantic_variant,
+                    ),
+                    chart_guidance=_execution_chart_guidance(prompt_variant),
                     memory_previews=memory_previews,
                 )
                 notes["execution_interface"] = execution_interface
@@ -736,9 +1011,79 @@ async def chat(payload: ChatIn, db: Session = Depends(get_db)):
                     behavior_summary_only=build_behavior_explanation_from_behavior(policy.get("behavior_effective") or {}),
                     memory_previews=memory_previews,
                 )
+        elif experiment_mode == "explicit_rel_state_projected_oracle_state":
+            notes = ((policy.get("_last_controller") or {}).get("notes", {}) or {})
+            projected_behavior = notes.get("projected_behavior_from_oracle_state") or {}
+            if interface_variant in {"c8", "o8", "b8", "h8"} and isinstance(projected_behavior, dict):
+                system_prompt = _build_non_discrete_interface_prompt(
+                    interface_variant=interface_variant,
+                    semantic_variant=semantic_variant,
+                    core_self_text=core_self_text,
+                    relational_summary=(notes.get("relational_instruction") or relational_instruction or ""),
+                    behavior=projected_behavior,
+                    memory_previews=memory_previews,
+                    interface_name=f"{interface_variant}_oracle_state",
+                )
+            elif interface_variant and isinstance(projected_behavior, dict):
+                execution_interface = build_execution_interface(
+                    projected_behavior,
+                    variant=interface_variant,
+                    phase=payload.phase or notes.get("phase"),
+                )
+                system_prompt = build_explicit_rel_state_projected_execution_system_prompt(
+                    core_self_text,
+                    relational_summary=(notes.get("relational_instruction") or relational_instruction or ""),
+                    execution_interface_name=f"{interface_variant}_oracle_state_v{prompt_variant}",
+                    execution_interface_text=render_execution_interface_with_ontology(
+                        execution_interface,
+                        ontology_variant=prompt_variant,
+                        semantic_variant=semantic_variant,
+                    ),
+                    chart_guidance=_execution_chart_guidance(prompt_variant),
+                    memory_previews=memory_previews,
+                )
+                notes["execution_interface"] = execution_interface
+            else:
+                system_prompt = build_explicit_rel_state_projected_summary_system_prompt(
+                    core_self_text,
+                    relational_summary_only=(notes.get("relational_instruction") or relational_instruction or ""),
+                    behavior_summary_only=build_behavior_explanation_from_behavior(projected_behavior),
+                    memory_previews=memory_previews,
+                )
+        elif experiment_mode == "explicit_rel_state_rel_to_interface_oracle_state":
+            notes = ((policy.get("_last_controller") or {}).get("notes", {}) or {})
+            direct_interface_variant = notes.get("execution_interface_variant") or interface_variant or "i7"
+            direct_semantic_variant = notes.get("execution_semantic_variant") or semantic_variant
+            execution_interface = notes.get("execution_interface") or build_execution_interface_from_rel(
+                payload.oracle_rel_effective or {},
+                variant=direct_interface_variant,
+                phase=payload.phase or notes.get("phase"),
+            )
+            system_prompt = build_explicit_rel_state_projected_execution_system_prompt(
+                core_self_text,
+                relational_summary=(notes.get("relational_instruction") or ""),
+                execution_interface_name=f"{direct_interface_variant}_direct_oracle_state_v{prompt_variant}",
+                execution_interface_text=render_execution_interface_with_ontology(
+                    execution_interface,
+                    ontology_variant=prompt_variant,
+                    semantic_variant=direct_semantic_variant,
+                ),
+                chart_guidance=_execution_chart_guidance(prompt_variant),
+                memory_previews=memory_previews,
+            )
         elif experiment_mode == "explicit_rel_state_projected_oracle_behavior":
             notes = ((policy.get("_last_controller") or {}).get("notes", {}) or {})
-            if interface_variant and isinstance(payload.oracle_behavior_effective, dict):
+            if interface_variant in {"c8", "o8", "b8", "h8"} and isinstance(payload.oracle_behavior_effective, dict):
+                system_prompt = _build_non_discrete_interface_prompt(
+                    interface_variant=interface_variant,
+                    semantic_variant=semantic_variant,
+                    core_self_text=core_self_text,
+                    relational_summary=(relational_instruction or ""),
+                    behavior=payload.oracle_behavior_effective,
+                    memory_previews=memory_previews,
+                    interface_name=f"{interface_variant}_oracle_behavior",
+                )
+            elif interface_variant and isinstance(payload.oracle_behavior_effective, dict):
                 execution_interface = build_execution_interface(
                     payload.oracle_behavior_effective,
                     variant=interface_variant,
@@ -747,8 +1092,13 @@ async def chat(payload: ChatIn, db: Session = Depends(get_db)):
                 system_prompt = build_explicit_rel_state_projected_execution_system_prompt(
                     core_self_text,
                     relational_summary=(relational_instruction or ""),
-                    execution_interface_name=f"{interface_variant}_oracle_behavior",
-                    execution_interface_text=render_execution_interface(execution_interface),
+                    execution_interface_name=f"{interface_variant}_oracle_behavior_v{prompt_variant}",
+                    execution_interface_text=render_execution_interface_with_ontology(
+                        execution_interface,
+                        ontology_variant=prompt_variant,
+                        semantic_variant=semantic_variant,
+                    ),
+                    chart_guidance=_execution_chart_guidance(prompt_variant),
                     memory_previews=memory_previews,
                 )
                 notes["execution_interface"] = execution_interface
@@ -789,13 +1139,14 @@ async def chat(payload: ChatIn, db: Session = Depends(get_db)):
             media_type="application/json; charset=utf-8",
         )
     _mark("actor_generate", t)
+    last_controller = policy.get("_last_controller") or {}
     create_turn_event(
         db,
         session_id=payload.session_id,
         user_text=payload.user_text,
         assistant_text=reply,
         behavior=(policy["behavior_effective"] if experiment_mode == "explicit_rel_state_projected" else {}),
-        scene=policy.get("_last_controller", {}).get("intent"),
+        scene=(last_controller.get("intent") if isinstance(last_controller, dict) else None),
         tone_eval={
             "input": {
                 "user_text": payload.user_text,

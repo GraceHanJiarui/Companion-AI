@@ -1,0 +1,839 @@
+{
+  "num_rows": 18,
+  "num_pairs": 153,
+  "close_rel_large_beh_pairs": [
+    {
+      "a_case": "oracle_exec_warm_001",
+      "a_phase": "B_first_relational_signal",
+      "a_category": "warming_trajectory",
+      "b_case": "oracle_exec_warm_001",
+      "b_phase": "E_ordinary_continuation",
+      "b_category": "warming_trajectory",
+      "rel_dist": 0.03,
+      "beh_dist": 0.08,
+      "a_rel": {
+        "bond": 0.3,
+        "care": 0.34,
+        "trust": 0.32,
+        "stability": 0.64
+      },
+      "b_rel": {
+        "bond": 0.31,
+        "care": 0.34,
+        "trust": 0.35,
+        "stability": 0.72
+      },
+      "a_beh": {
+        "E": 0.22,
+        "Q_clarify": 0.16,
+        "Directness": 0.26,
+        "T_w": 0.42,
+        "Q_aff": 0.16,
+        "Initiative": 0.18,
+        "Disclosure_Content": 0.08,
+        "Disclosure_Style": 0.08
+      },
+      "b_beh": {
+        "E": 0.22,
+        "Q_clarify": 0.04,
+        "Directness": 0.36,
+        "T_w": 0.32,
+        "Q_aff": 0.02,
+        "Initiative": 0.08,
+        "Disclosure_Content": 0.04,
+        "Disclosure_Style": 0.04
+      }
+    },
+    {
+      "a_case": "oracle_exec_warm_001",
+      "a_phase": "B_first_relational_signal",
+      "a_category": "warming_trajectory",
+      "b_case": "oracle_exec_vuln_001",
+      "b_phase": "D_counter_signal_or_refinement",
+      "b_category": "vulnerability_with_correction",
+      "rel_dist": 0.0325,
+      "beh_dist": 0.0825,
+      "a_rel": {
+        "bond": 0.3,
+        "care": 0.34,
+        "trust": 0.32,
+        "stability": 0.64
+      },
+      "b_rel": {
+        "bond": 0.25,
+        "care": 0.36,
+        "trust": 0.3,
+        "stability": 0.68
+      },
+      "a_beh": {
+        "E": 0.22,
+        "Q_clarify": 0.16,
+        "Directness": 0.26,
+        "T_w": 0.42,
+        "Q_aff": 0.16,
+        "Initiative": 0.18,
+        "Disclosure_Content": 0.08,
+        "Disclosure_Style": 0.08
+      },
+      "b_beh": {
+        "E": 0.14,
+        "Q_clarify": 0.02,
+        "Directness": 0.3,
+        "T_w": 0.36,
+        "Q_aff": 0.06,
+        "Initiative": 0.06,
+        "Disclosure_Content": 0.02,
+        "Disclosure_Style": 0.02
+      }
+    },
+    {
+      "a_case": "oracle_exec_warm_001",
+      "a_phase": "B_first_relational_signal",
+      "a_category": "warming_trajectory",
+      "b_case": "oracle_exec_warm_001",
+      "b_phase": "F_final_probe",
+      "b_category": "warming_trajectory",
+      "rel_dist": 0.035,
+      "beh_dist": 0.095,
+      "a_rel": {
+        "bond": 0.3,
+        "care": 0.34,
+        "trust": 0.32,
+        "stability": 0.64
+      },
+      "b_rel": {
+        "bond": 0.31,
+        "care": 0.34,
+        "trust": 0.35,
+        "stability": 0.74
+      },
+      "a_beh": {
+        "E": 0.22,
+        "Q_clarify": 0.16,
+        "Directness": 0.26,
+        "T_w": 0.42,
+        "Q_aff": 0.16,
+        "Initiative": 0.18,
+        "Disclosure_Content": 0.08,
+        "Disclosure_Style": 0.08
+      },
+      "b_beh": {
+        "E": 0.1,
+        "Q_clarify": 0.02,
+        "Directness": 0.28,
+        "T_w": 0.34,
+        "Q_aff": 0.02,
+        "Initiative": 0.04,
+        "Disclosure_Content": 0.02,
+        "Disclosure_Style": 0.02
+      }
+    },
+    {
+      "a_case": "oracle_exec_warm_001",
+      "a_phase": "B_first_relational_signal",
+      "a_category": "warming_trajectory",
+      "b_case": "oracle_exec_vuln_001",
+      "b_phase": "C_stabilization",
+      "b_category": "vulnerability_with_correction",
+      "rel_dist": 0.0375,
+      "beh_dist": 0.095,
+      "a_rel": {
+        "bond": 0.3,
+        "care": 0.34,
+        "trust": 0.32,
+        "stability": 0.64
+      },
+      "b_rel": {
+        "bond": 0.23,
+        "care": 0.34,
+        "trust": 0.26,
+        "stability": 0.66
+      },
+      "a_beh": {
+        "E": 0.22,
+        "Q_clarify": 0.16,
+        "Directness": 0.26,
+        "T_w": 0.42,
+        "Q_aff": 0.16,
+        "Initiative": 0.18,
+        "Disclosure_Content": 0.08,
+        "Disclosure_Style": 0.08
+      },
+      "b_beh": {
+        "E": 0.12,
+        "Q_clarify": 0.02,
+        "Directness": 0.26,
+        "T_w": 0.3,
+        "Q_aff": 0.02,
+        "Initiative": 0.04,
+        "Disclosure_Content": 0.02,
+        "Disclosure_Style": 0.02
+      }
+    },
+    {
+      "a_case": "oracle_exec_warm_001",
+      "a_phase": "B_first_relational_signal",
+      "a_category": "warming_trajectory",
+      "b_case": "oracle_exec_vuln_001",
+      "b_phase": "E_ordinary_continuation",
+      "b_category": "vulnerability_with_correction",
+      "rel_dist": 0.0425,
+      "beh_dist": 0.1125,
+      "a_rel": {
+        "bond": 0.3,
+        "care": 0.34,
+        "trust": 0.32,
+        "stability": 0.64
+      },
+      "b_rel": {
+        "bond": 0.24,
+        "care": 0.32,
+        "trust": 0.29,
+        "stability": 0.7
+      },
+      "a_beh": {
+        "E": 0.22,
+        "Q_clarify": 0.16,
+        "Directness": 0.26,
+        "T_w": 0.42,
+        "Q_aff": 0.16,
+        "Initiative": 0.18,
+        "Disclosure_Content": 0.08,
+        "Disclosure_Style": 0.08
+      },
+      "b_beh": {
+        "E": 0.18,
+        "Q_clarify": 0.02,
+        "Directness": 0.38,
+        "T_w": 0.24,
+        "Q_aff": 0.0,
+        "Initiative": 0.04,
+        "Disclosure_Content": 0.02,
+        "Disclosure_Style": 0.02
+      }
+    },
+    {
+      "a_case": "oracle_exec_warm_001",
+      "a_phase": "B_first_relational_signal",
+      "a_category": "warming_trajectory",
+      "b_case": "oracle_exec_vuln_001",
+      "b_phase": "F_final_probe",
+      "b_category": "vulnerability_with_correction",
+      "rel_dist": 0.045,
+      "beh_dist": 0.1125,
+      "a_rel": {
+        "bond": 0.3,
+        "care": 0.34,
+        "trust": 0.32,
+        "stability": 0.64
+      },
+      "b_rel": {
+        "bond": 0.24,
+        "care": 0.32,
+        "trust": 0.3,
+        "stability": 0.72
+      },
+      "a_beh": {
+        "E": 0.22,
+        "Q_clarify": 0.16,
+        "Directness": 0.26,
+        "T_w": 0.42,
+        "Q_aff": 0.16,
+        "Initiative": 0.18,
+        "Disclosure_Content": 0.08,
+        "Disclosure_Style": 0.08
+      },
+      "b_beh": {
+        "E": 0.08,
+        "Q_clarify": 0.0,
+        "Directness": 0.26,
+        "T_w": 0.3,
+        "Q_aff": 0.0,
+        "Initiative": 0.02,
+        "Disclosure_Content": 0.0,
+        "Disclosure_Style": 0.0
+      }
+    },
+    {
+      "a_case": "oracle_exec_warm_001",
+      "a_phase": "D_counter_signal_or_refinement",
+      "a_category": "warming_trajectory",
+      "b_case": "oracle_exec_vuln_001",
+      "b_phase": "E_ordinary_continuation",
+      "b_category": "vulnerability_with_correction",
+      "rel_dist": 0.05,
+      "beh_dist": 0.0875,
+      "a_rel": {
+        "bond": 0.32,
+        "care": 0.36,
+        "trust": 0.37,
+        "stability": 0.7
+      },
+      "b_rel": {
+        "bond": 0.24,
+        "care": 0.32,
+        "trust": 0.29,
+        "stability": 0.7
+      },
+      "a_beh": {
+        "E": 0.2,
+        "Q_clarify": 0.1,
+        "Directness": 0.3,
+        "T_w": 0.44,
+        "Q_aff": 0.14,
+        "Initiative": 0.14,
+        "Disclosure_Content": 0.06,
+        "Disclosure_Style": 0.06
+      },
+      "b_beh": {
+        "E": 0.18,
+        "Q_clarify": 0.02,
+        "Directness": 0.38,
+        "T_w": 0.24,
+        "Q_aff": 0.0,
+        "Initiative": 0.04,
+        "Disclosure_Content": 0.02,
+        "Disclosure_Style": 0.02
+      }
+    },
+    {
+      "a_case": "oracle_exec_warm_001",
+      "a_phase": "D_counter_signal_or_refinement",
+      "a_category": "warming_trajectory",
+      "b_case": "oracle_exec_vuln_001",
+      "b_phase": "F_final_probe",
+      "b_category": "vulnerability_with_correction",
+      "rel_dist": 0.0525,
+      "beh_dist": 0.0975,
+      "a_rel": {
+        "bond": 0.32,
+        "care": 0.36,
+        "trust": 0.37,
+        "stability": 0.7
+      },
+      "b_rel": {
+        "bond": 0.24,
+        "care": 0.32,
+        "trust": 0.3,
+        "stability": 0.72
+      },
+      "a_beh": {
+        "E": 0.2,
+        "Q_clarify": 0.1,
+        "Directness": 0.3,
+        "T_w": 0.44,
+        "Q_aff": 0.14,
+        "Initiative": 0.14,
+        "Disclosure_Content": 0.06,
+        "Disclosure_Style": 0.06
+      },
+      "b_beh": {
+        "E": 0.08,
+        "Q_clarify": 0.0,
+        "Directness": 0.26,
+        "T_w": 0.3,
+        "Q_aff": 0.0,
+        "Initiative": 0.02,
+        "Disclosure_Content": 0.0,
+        "Disclosure_Style": 0.0
+      }
+    },
+    {
+      "a_case": "oracle_exec_warm_001",
+      "a_phase": "A_initial_contact",
+      "a_category": "warming_trajectory",
+      "b_case": "oracle_exec_cool_001",
+      "b_phase": "A_initial_contact",
+      "b_category": "cooling_trajectory",
+      "rel_dist": 0.0575,
+      "beh_dist": 0.0875,
+      "a_rel": {
+        "bond": 0.26,
+        "care": 0.3,
+        "trust": 0.28,
+        "stability": 0.63
+      },
+      "b_rel": {
+        "bond": 0.18,
+        "care": 0.2,
+        "trust": 0.24,
+        "stability": 0.62
+      },
+      "a_beh": {
+        "E": 0.18,
+        "Q_clarify": 0.12,
+        "Directness": 0.24,
+        "T_w": 0.34,
+        "Q_aff": 0.08,
+        "Initiative": 0.12,
+        "Disclosure_Content": 0.06,
+        "Disclosure_Style": 0.06
+      },
+      "b_beh": {
+        "E": 0.1,
+        "Q_clarify": 0.02,
+        "Directness": 0.3,
+        "T_w": 0.18,
+        "Q_aff": 0.0,
+        "Initiative": 0.02,
+        "Disclosure_Content": 0.0,
+        "Disclosure_Style": 0.0
+      }
+    },
+    {
+      "a_case": "oracle_exec_warm_001",
+      "a_phase": "B_first_relational_signal",
+      "a_category": "warming_trajectory",
+      "b_case": "oracle_exec_vuln_001",
+      "b_phase": "B_first_relational_signal",
+      "b_category": "vulnerability_with_correction",
+      "rel_dist": 0.0575,
+      "beh_dist": 0.0875,
+      "a_rel": {
+        "bond": 0.3,
+        "care": 0.34,
+        "trust": 0.32,
+        "stability": 0.64
+      },
+      "b_rel": {
+        "bond": 0.23,
+        "care": 0.38,
+        "trust": 0.24,
+        "stability": 0.6
+      },
+      "a_beh": {
+        "E": 0.22,
+        "Q_clarify": 0.16,
+        "Directness": 0.26,
+        "T_w": 0.42,
+        "Q_aff": 0.16,
+        "Initiative": 0.18,
+        "Disclosure_Content": 0.08,
+        "Disclosure_Style": 0.08
+      },
+      "b_beh": {
+        "E": 0.12,
+        "Q_clarify": 0.02,
+        "Directness": 0.22,
+        "T_w": 0.38,
+        "Q_aff": 0.04,
+        "Initiative": 0.04,
+        "Disclosure_Content": 0.02,
+        "Disclosure_Style": 0.02
+      }
+    },
+    {
+      "a_case": "oracle_exec_warm_001",
+      "a_phase": "D_counter_signal_or_refinement",
+      "a_category": "warming_trajectory",
+      "b_case": "oracle_exec_vuln_001",
+      "b_phase": "C_stabilization",
+      "b_category": "vulnerability_with_correction",
+      "rel_dist": 0.065,
+      "beh_dist": 0.08,
+      "a_rel": {
+        "bond": 0.32,
+        "care": 0.36,
+        "trust": 0.37,
+        "stability": 0.7
+      },
+      "b_rel": {
+        "bond": 0.23,
+        "care": 0.34,
+        "trust": 0.26,
+        "stability": 0.66
+      },
+      "a_beh": {
+        "E": 0.2,
+        "Q_clarify": 0.1,
+        "Directness": 0.3,
+        "T_w": 0.44,
+        "Q_aff": 0.14,
+        "Initiative": 0.14,
+        "Disclosure_Content": 0.06,
+        "Disclosure_Style": 0.06
+      },
+      "b_beh": {
+        "E": 0.12,
+        "Q_clarify": 0.02,
+        "Directness": 0.26,
+        "T_w": 0.3,
+        "Q_aff": 0.02,
+        "Initiative": 0.04,
+        "Disclosure_Content": 0.02,
+        "Disclosure_Style": 0.02
+      }
+    },
+    {
+      "a_case": "oracle_exec_vuln_001",
+      "a_phase": "A_initial_contact",
+      "a_category": "vulnerability_with_correction",
+      "b_case": "oracle_exec_vuln_001",
+      "b_phase": "E_ordinary_continuation",
+      "b_category": "vulnerability_with_correction",
+      "rel_dist": 0.0675,
+      "beh_dist": 0.08,
+      "a_rel": {
+        "bond": 0.24,
+        "care": 0.42,
+        "trust": 0.24,
+        "stability": 0.58
+      },
+      "b_rel": {
+        "bond": 0.24,
+        "care": 0.32,
+        "trust": 0.29,
+        "stability": 0.7
+      },
+      "a_beh": {
+        "E": 0.2,
+        "Q_clarify": 0.06,
+        "Directness": 0.2,
+        "T_w": 0.44,
+        "Q_aff": 0.12,
+        "Initiative": 0.08,
+        "Disclosure_Content": 0.04,
+        "Disclosure_Style": 0.04
+      },
+      "b_beh": {
+        "E": 0.18,
+        "Q_clarify": 0.02,
+        "Directness": 0.38,
+        "T_w": 0.24,
+        "Q_aff": 0.0,
+        "Initiative": 0.04,
+        "Disclosure_Content": 0.02,
+        "Disclosure_Style": 0.02
+      }
+    },
+    {
+      "a_case": "oracle_exec_vuln_001",
+      "a_phase": "A_initial_contact",
+      "a_category": "vulnerability_with_correction",
+      "b_case": "oracle_exec_vuln_001",
+      "b_phase": "F_final_probe",
+      "b_category": "vulnerability_with_correction",
+      "rel_dist": 0.075,
+      "beh_dist": 0.08,
+      "a_rel": {
+        "bond": 0.24,
+        "care": 0.42,
+        "trust": 0.24,
+        "stability": 0.58
+      },
+      "b_rel": {
+        "bond": 0.24,
+        "care": 0.32,
+        "trust": 0.3,
+        "stability": 0.72
+      },
+      "a_beh": {
+        "E": 0.2,
+        "Q_clarify": 0.06,
+        "Directness": 0.2,
+        "T_w": 0.44,
+        "Q_aff": 0.12,
+        "Initiative": 0.08,
+        "Disclosure_Content": 0.04,
+        "Disclosure_Style": 0.04
+      },
+      "b_beh": {
+        "E": 0.08,
+        "Q_clarify": 0.0,
+        "Directness": 0.26,
+        "T_w": 0.3,
+        "Q_aff": 0.0,
+        "Initiative": 0.02,
+        "Disclosure_Content": 0.0,
+        "Disclosure_Style": 0.0
+      }
+    },
+    {
+      "a_case": "oracle_exec_warm_001",
+      "a_phase": "A_initial_contact",
+      "a_category": "warming_trajectory",
+      "b_case": "oracle_exec_cool_001",
+      "b_phase": "B_first_relational_signal",
+      "b_category": "cooling_trajectory",
+      "rel_dist": 0.0775,
+      "beh_dist": 0.1025,
+      "a_rel": {
+        "bond": 0.26,
+        "care": 0.3,
+        "trust": 0.28,
+        "stability": 0.63
+      },
+      "b_rel": {
+        "bond": 0.15,
+        "care": 0.17,
+        "trust": 0.22,
+        "stability": 0.64
+      },
+      "a_beh": {
+        "E": 0.18,
+        "Q_clarify": 0.12,
+        "Directness": 0.24,
+        "T_w": 0.34,
+        "Q_aff": 0.08,
+        "Initiative": 0.12,
+        "Disclosure_Content": 0.06,
+        "Disclosure_Style": 0.06
+      },
+      "b_beh": {
+        "E": 0.08,
+        "Q_clarify": 0.0,
+        "Directness": 0.32,
+        "T_w": 0.14,
+        "Q_aff": 0.0,
+        "Initiative": 0.0,
+        "Disclosure_Content": 0.0,
+        "Disclosure_Style": 0.0
+      }
+    },
+    {
+      "a_case": "oracle_exec_vuln_001",
+      "a_phase": "A_initial_contact",
+      "a_category": "vulnerability_with_correction",
+      "b_case": "oracle_exec_cool_001",
+      "b_phase": "A_initial_contact",
+      "b_category": "cooling_trajectory",
+      "rel_dist": 0.08,
+      "beh_dist": 0.095,
+      "a_rel": {
+        "bond": 0.24,
+        "care": 0.42,
+        "trust": 0.24,
+        "stability": 0.58
+      },
+      "b_rel": {
+        "bond": 0.18,
+        "care": 0.2,
+        "trust": 0.24,
+        "stability": 0.62
+      },
+      "a_beh": {
+        "E": 0.2,
+        "Q_clarify": 0.06,
+        "Directness": 0.2,
+        "T_w": 0.44,
+        "Q_aff": 0.12,
+        "Initiative": 0.08,
+        "Disclosure_Content": 0.04,
+        "Disclosure_Style": 0.04
+      },
+      "b_beh": {
+        "E": 0.1,
+        "Q_clarify": 0.02,
+        "Directness": 0.3,
+        "T_w": 0.18,
+        "Q_aff": 0.0,
+        "Initiative": 0.02,
+        "Disclosure_Content": 0.0,
+        "Disclosure_Style": 0.0
+      }
+    }
+  ],
+  "close_rel_large_beh_pair_count": 15,
+  "high_behavior_diff_dims_within_close_rel_pairs": {
+    "E": 9,
+    "Q_clarify": 12,
+    "Directness": 6,
+    "T_w": 12,
+    "Q_aff": 15,
+    "Initiative": 12,
+    "Disclosure_Content": 1,
+    "Disclosure_Style": 1
+  },
+  "nearest_neighbor_behavior_gap": [
+    {
+      "case_id": "oracle_exec_warm_001",
+      "phase": "A_initial_contact",
+      "category": "warming_trajectory",
+      "nearest_case": "oracle_exec_vuln_001",
+      "nearest_phase": "E_ordinary_continuation",
+      "nearest_category": "vulnerability_with_correction",
+      "rel_dist": 0.03,
+      "beh_dist": 0.0725
+    },
+    {
+      "case_id": "oracle_exec_warm_001",
+      "phase": "D_counter_signal_or_refinement",
+      "category": "warming_trajectory",
+      "nearest_case": "oracle_exec_warm_001",
+      "nearest_phase": "E_ordinary_continuation",
+      "nearest_category": "warming_trajectory",
+      "rel_dist": 0.0175,
+      "beh_dist": 0.06
+    },
+    {
+      "case_id": "oracle_exec_warm_001",
+      "phase": "B_first_relational_signal",
+      "category": "warming_trajectory",
+      "nearest_case": "oracle_exec_warm_001",
+      "nearest_phase": "C_stabilization",
+      "nearest_category": "warming_trajectory",
+      "rel_dist": 0.0175,
+      "beh_dist": 0.055
+    },
+    {
+      "case_id": "oracle_exec_warm_001",
+      "phase": "C_stabilization",
+      "category": "warming_trajectory",
+      "nearest_case": "oracle_exec_warm_001",
+      "nearest_phase": "B_first_relational_signal",
+      "nearest_category": "warming_trajectory",
+      "rel_dist": 0.0175,
+      "beh_dist": 0.055
+    },
+    {
+      "case_id": "oracle_exec_vuln_001",
+      "phase": "E_ordinary_continuation",
+      "category": "vulnerability_with_correction",
+      "nearest_case": "oracle_exec_vuln_001",
+      "nearest_phase": "F_final_probe",
+      "nearest_category": "vulnerability_with_correction",
+      "rel_dist": 0.0075,
+      "beh_dist": 0.045
+    },
+    {
+      "case_id": "oracle_exec_vuln_001",
+      "phase": "F_final_probe",
+      "category": "vulnerability_with_correction",
+      "nearest_case": "oracle_exec_vuln_001",
+      "nearest_phase": "E_ordinary_continuation",
+      "nearest_category": "vulnerability_with_correction",
+      "rel_dist": 0.0075,
+      "beh_dist": 0.045
+    },
+    {
+      "case_id": "oracle_exec_vuln_001",
+      "phase": "A_initial_contact",
+      "category": "vulnerability_with_correction",
+      "nearest_case": "oracle_exec_vuln_001",
+      "nearest_phase": "B_first_relational_signal",
+      "nearest_category": "vulnerability_with_correction",
+      "rel_dist": 0.0175,
+      "beh_dist": 0.045
+    },
+    {
+      "case_id": "oracle_exec_vuln_001",
+      "phase": "B_first_relational_signal",
+      "category": "vulnerability_with_correction",
+      "nearest_case": "oracle_exec_vuln_001",
+      "nearest_phase": "A_initial_contact",
+      "nearest_category": "vulnerability_with_correction",
+      "rel_dist": 0.0175,
+      "beh_dist": 0.045
+    },
+    {
+      "case_id": "oracle_exec_warm_001",
+      "phase": "E_ordinary_continuation",
+      "category": "warming_trajectory",
+      "nearest_case": "oracle_exec_warm_001",
+      "nearest_phase": "F_final_probe",
+      "nearest_category": "warming_trajectory",
+      "rel_dist": 0.005,
+      "beh_dist": 0.04
+    },
+    {
+      "case_id": "oracle_exec_warm_001",
+      "phase": "F_final_probe",
+      "category": "warming_trajectory",
+      "nearest_case": "oracle_exec_warm_001",
+      "nearest_phase": "E_ordinary_continuation",
+      "nearest_category": "warming_trajectory",
+      "rel_dist": 0.005,
+      "beh_dist": 0.04
+    },
+    {
+      "case_id": "oracle_exec_vuln_001",
+      "phase": "D_counter_signal_or_refinement",
+      "category": "vulnerability_with_correction",
+      "nearest_case": "oracle_exec_vuln_001",
+      "nearest_phase": "E_ordinary_continuation",
+      "nearest_category": "vulnerability_with_correction",
+      "rel_dist": 0.02,
+      "beh_dist": 0.04
+    },
+    {
+      "case_id": "oracle_exec_vuln_001",
+      "phase": "C_stabilization",
+      "category": "vulnerability_with_correction",
+      "nearest_case": "oracle_exec_vuln_001",
+      "nearest_phase": "E_ordinary_continuation",
+      "nearest_category": "vulnerability_with_correction",
+      "rel_dist": 0.025,
+      "beh_dist": 0.0325
+    },
+    {
+      "case_id": "oracle_exec_cool_001",
+      "phase": "E_ordinary_continuation",
+      "category": "cooling_trajectory",
+      "nearest_case": "oracle_exec_cool_001",
+      "nearest_phase": "F_final_probe",
+      "nearest_category": "cooling_trajectory",
+      "rel_dist": 0.005,
+      "beh_dist": 0.0275
+    },
+    {
+      "case_id": "oracle_exec_cool_001",
+      "phase": "F_final_probe",
+      "category": "cooling_trajectory",
+      "nearest_case": "oracle_exec_cool_001",
+      "nearest_phase": "E_ordinary_continuation",
+      "nearest_category": "cooling_trajectory",
+      "rel_dist": 0.005,
+      "beh_dist": 0.0275
+    },
+    {
+      "case_id": "oracle_exec_cool_001",
+      "phase": "D_counter_signal_or_refinement",
+      "category": "cooling_trajectory",
+      "nearest_case": "oracle_exec_cool_001",
+      "nearest_phase": "E_ordinary_continuation",
+      "nearest_category": "cooling_trajectory",
+      "rel_dist": 0.01,
+      "beh_dist": 0.02
+    },
+    {
+      "case_id": "oracle_exec_cool_001",
+      "phase": "A_initial_contact",
+      "category": "cooling_trajectory",
+      "nearest_case": "oracle_exec_cool_001",
+      "nearest_phase": "B_first_relational_signal",
+      "nearest_category": "cooling_trajectory",
+      "rel_dist": 0.025,
+      "beh_dist": 0.015
+    },
+    {
+      "case_id": "oracle_exec_cool_001",
+      "phase": "B_first_relational_signal",
+      "category": "cooling_trajectory",
+      "nearest_case": "oracle_exec_cool_001",
+      "nearest_phase": "C_stabilization",
+      "nearest_category": "cooling_trajectory",
+      "rel_dist": 0.015,
+      "beh_dist": 0.005
+    },
+    {
+      "case_id": "oracle_exec_cool_001",
+      "phase": "C_stabilization",
+      "category": "cooling_trajectory",
+      "nearest_case": "oracle_exec_cool_001",
+      "nearest_phase": "B_first_relational_signal",
+      "nearest_category": "cooling_trajectory",
+      "rel_dist": 0.015,
+      "beh_dist": 0.005
+    }
+  ],
+  "avg_neighbor_behavior_variance_per_dim": {
+    "E": 0.0012,
+    "Q_clarify": 0.0008,
+    "Directness": 0.0015,
+    "T_w": 0.0017,
+    "Q_aff": 0.0013,
+    "Initiative": 0.0007,
+    "Disclosure_Content": 0.0001,
+    "Disclosure_Style": 0.0001
+  }
+}

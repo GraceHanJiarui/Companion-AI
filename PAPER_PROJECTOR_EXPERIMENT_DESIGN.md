@@ -26,6 +26,9 @@ Current interpretation:
 - not prompt bridge
 - not mainly the updater
 - not mainly final realization
+- but projector quality must now be split into two questions:
+  - oracle-space fit quality,
+  - and deployed compatibility with the `i7` execution interface / language stack
 
 ## Shared evaluation protocol
 
@@ -150,6 +153,15 @@ This line weakens if:
 - several redesigned pure projectors still leave `oracle_state_i7` far from `oracle_behavior_i7`
 - especially if the residual gap remains large across all case types
 
+### Updated note after fitted-projector deployment
+
+- supervised `fitlinear` / `fitpoly2` baselines showed that 4D relation can explain oracle behavior surprisingly well in regression space;
+- however, deployable `pfitlinear` / `pfitpoly2` still failed to bring `oracle_state_i7` close to `oracle_behavior_i7 / oracle_i7`;
+- therefore future projector work must distinguish:
+  - "better function fit in oracle space"
+  - from
+  - "better deployed projector inside the actual execution stack."
+
 ## Line B. Conditioned projector
 
 ### Research question
@@ -262,6 +274,31 @@ These are only examples, not committed final dimensions.
 
 Use reverse analysis from oracle behavior residuals.
 
+### Current first-pass finding
+
+We now have an initial oracle-only reverse analysis from:
+
+- [paper_relation_reverse_analysis_v1.json](d:/My%20Project/companion-ai/paper_relation_reverse_analysis_v1.json)
+- [PAPER_RELATION_REDESIGN_ANALYSIS.md](d:/My%20Project/companion-ai/PAPER_RELATION_REDESIGN_ANALYSIS.md)
+
+The current signal is:
+
+- there are multiple pairs of turns with very similar relation states but noticeably different oracle behavior targets;
+- the most recurrent divergent behavior dimensions are:
+  - `Q_aff`
+  - `Q_clarify`
+  - `T_w`
+  - `Initiative`
+  - and, secondarily, `E`
+
+This suggests that the current relation space is more likely under-specified for:
+
+- follow-up style,
+- support intensity,
+- and proactive interaction tendency.
+
+At the current stage, disclosure dimensions look less like the main source of representational insufficiency.
+
 #### Step 1. Residual clustering
 
 Collect turns where:
@@ -311,11 +348,69 @@ This line weakens if:
 
 ## Recommended execution order
 
+### Phase 0
+
+Run a supervised fit from:
+
+- `oracle_rel_effective`
+- to `oracle_behavior_effective`
+
+before introducing `scene/phase`.
+
+This fit does not prove that the current relation space is correct, but it gives a cleaner upper bound on how much of oracle behavior can be explained by the current relation variables alone.
+
+Recommended order inside Phase 0:
+
+1. fit a 4D baseline using the current relation dimensions
+2. test stronger pure-relation function classes on the same 4D input
+3. only then ask whether external conditioning variables are needed
+
+This ordering prevents `scene/phase` from being promoted too early when the current relation space has not yet been given a fair best-fit baseline.
+
 ### Phase 1
 
 Run Line A first:
 
 - pure relation projector redesign
+
+### Updated note after first supervised-fit baseline
+
+The 4D supervised fit baseline now shows:
+
+- linear LOOCV overall MAE: `0.0254`
+- poly2 LOOCV overall MAE: `0.0219`
+
+This means the current 4D relation space is not obviously too weak to explain oracle behavior.
+
+Therefore, after the initial reverse-analysis pass, the practical order should now be interpreted as:
+
+1. best-fit baseline over the current 4D relation space
+2. improved projector family / projector parameterization
+3. only then:
+   - conditioned projector necessity tests
+   - or more aggressive relation redesign
+
+### Updated note after unrestricted-capacity comparison
+
+We also compared higher-capacity fit families:
+
+- `mlp_h4`
+- `mlp_h8`
+- `mlp_h12`
+
+Current LOOCV results:
+
+- `linear = 0.0254`
+- `poly2 = 0.0219`
+- `mlp_h4 = 0.0249`
+- `mlp_h8 = 0.0269`
+- `mlp_h12 = 0.0269`
+
+Interpretation:
+
+- simply increasing hidden capacity does not beat the stronger explicit 4D baseline;
+- therefore the immediate next step should not be arbitrary capacity growth;
+- instead, the best current target is to operationalize the better fitted 4D mapping as a deployable projector baseline.
 
 ### Phase 2
 

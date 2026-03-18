@@ -1,0 +1,7767 @@
+{
+  "experiment_mode": "explicit_rel_state_projected_oracle_state_i7_pfitpoly2",
+  "ontology_variant": "A",
+  "i7_keys": [
+    "reply_scope",
+    "clarify_followup",
+    "affective_followup",
+    "initiative_level",
+    "warmth_level",
+    "relational_push",
+    "support_mode",
+    "meta_talk"
+  ],
+  "language_feature_keys": [
+    "char_len",
+    "line_count",
+    "question_count",
+    "list_marker_count",
+    "advice_marker_count",
+    "reassurance_marker_count",
+    "presence_marker_count",
+    "meta_control_marker_count",
+    "first_person_count"
+  ],
+  "samples": [
+    {
+      "case_id": "oracle_exec_cool_001",
+      "family": "cooling",
+      "turn_idx": 0,
+      "phase": "A_initial_contact",
+      "relation_raw4": [
+        0.2,
+        0.24,
+        0.24,
+        0.68
+      ],
+      "behavior_8d": [
+        0.12,
+        0.04,
+        0.28,
+        0.26,
+        0.02,
+        0.04,
+        0.02,
+        0.02
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        14.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_cool_001",
+      "family": "cooling",
+      "turn_idx": 1,
+      "phase": "B_first_relational_signal",
+      "relation_raw4": [
+        0.18,
+        0.22,
+        0.23,
+        0.7
+      ],
+      "behavior_8d": [
+        0.1,
+        0.02,
+        0.3,
+        0.22,
+        0.0,
+        0.02,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        12.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_cool_001",
+      "family": "cooling",
+      "turn_idx": 2,
+      "phase": "C_stabilization",
+      "relation_raw4": [
+        0.18,
+        0.21,
+        0.24,
+        0.74
+      ],
+      "behavior_8d": [
+        0.1,
+        0.02,
+        0.3,
+        0.22,
+        0.0,
+        0.02,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        18.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_cool_001",
+      "family": "cooling",
+      "turn_idx": 3,
+      "phase": "D_counter_signal_or_refinement",
+      "relation_raw4": [
+        0.19,
+        0.22,
+        0.26,
+        0.76
+      ],
+      "behavior_8d": [
+        0.12,
+        0.02,
+        0.32,
+        0.24,
+        0.02,
+        0.02,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        16.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_cool_001",
+      "family": "cooling",
+      "turn_idx": 4,
+      "phase": "E_ordinary_continuation",
+      "relation_raw4": [
+        0.19,
+        0.2,
+        0.25,
+        0.78
+      ],
+      "behavior_8d": [
+        0.18,
+        0.02,
+        0.36,
+        0.18,
+        0.0,
+        0.02,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        54.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_cool_001",
+      "family": "cooling",
+      "turn_idx": 5,
+      "phase": "F_final_probe",
+      "relation_raw4": [
+        0.2,
+        0.21,
+        0.26,
+        0.8
+      ],
+      "behavior_8d": [
+        0.08,
+        0.0,
+        0.28,
+        0.2,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        13.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        2.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_cool_002",
+      "family": "cooling",
+      "turn_idx": 0,
+      "phase": "A_initial_contact",
+      "relation_raw4": [
+        0.2,
+        0.24,
+        0.24,
+        0.69
+      ],
+      "behavior_8d": [
+        0.12,
+        0.04,
+        0.29,
+        0.26,
+        0.02,
+        0.04,
+        0.02,
+        0.02
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        20.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        2.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_cool_002",
+      "family": "cooling",
+      "turn_idx": 1,
+      "phase": "B_first_relational_signal",
+      "relation_raw4": [
+        0.18,
+        0.22,
+        0.23,
+        0.71
+      ],
+      "behavior_8d": [
+        0.1,
+        0.02,
+        0.31,
+        0.22,
+        0.0,
+        0.02,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        12.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_cool_002",
+      "family": "cooling",
+      "turn_idx": 2,
+      "phase": "C_stabilization",
+      "relation_raw4": [
+        0.18,
+        0.21,
+        0.24,
+        0.75
+      ],
+      "behavior_8d": [
+        0.1,
+        0.02,
+        0.31,
+        0.22,
+        0.0,
+        0.02,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        20.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        2.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_cool_002",
+      "family": "cooling",
+      "turn_idx": 3,
+      "phase": "D_counter_signal_or_refinement",
+      "relation_raw4": [
+        0.19,
+        0.22,
+        0.26,
+        0.77
+      ],
+      "behavior_8d": [
+        0.12,
+        0.02,
+        0.33,
+        0.24,
+        0.02,
+        0.02,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        12.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        2.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_cool_002",
+      "family": "cooling",
+      "turn_idx": 4,
+      "phase": "E_ordinary_continuation",
+      "relation_raw4": [
+        0.19,
+        0.2,
+        0.25,
+        0.79
+      ],
+      "behavior_8d": [
+        0.18,
+        0.02,
+        0.37,
+        0.18,
+        0.0,
+        0.02,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        69.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_cool_002",
+      "family": "cooling",
+      "turn_idx": 5,
+      "phase": "F_final_probe",
+      "relation_raw4": [
+        0.2,
+        0.21,
+        0.26,
+        0.81
+      ],
+      "behavior_8d": [
+        0.08,
+        0.0,
+        0.29,
+        0.2,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        14.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        2.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_cool_003",
+      "family": "cooling",
+      "turn_idx": 0,
+      "phase": "A_initial_contact",
+      "relation_raw4": [
+        0.2,
+        0.24,
+        0.25,
+        0.68
+      ],
+      "behavior_8d": [
+        0.14,
+        0.04,
+        0.28,
+        0.26,
+        0.02,
+        0.04,
+        0.02,
+        0.02
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        13.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_cool_003",
+      "family": "cooling",
+      "turn_idx": 1,
+      "phase": "B_first_relational_signal",
+      "relation_raw4": [
+        0.18,
+        0.22,
+        0.24,
+        0.7
+      ],
+      "behavior_8d": [
+        0.12,
+        0.02,
+        0.3,
+        0.22,
+        0.0,
+        0.02,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        10.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        2.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_cool_003",
+      "family": "cooling",
+      "turn_idx": 2,
+      "phase": "C_stabilization",
+      "relation_raw4": [
+        0.18,
+        0.21,
+        0.25,
+        0.74
+      ],
+      "behavior_8d": [
+        0.12,
+        0.02,
+        0.3,
+        0.22,
+        0.0,
+        0.02,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        12.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_cool_003",
+      "family": "cooling",
+      "turn_idx": 3,
+      "phase": "D_counter_signal_or_refinement",
+      "relation_raw4": [
+        0.19,
+        0.22,
+        0.27,
+        0.76
+      ],
+      "behavior_8d": [
+        0.14,
+        0.02,
+        0.32,
+        0.24,
+        0.02,
+        0.02,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        14.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        2.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_cool_003",
+      "family": "cooling",
+      "turn_idx": 4,
+      "phase": "E_ordinary_continuation",
+      "relation_raw4": [
+        0.19,
+        0.2,
+        0.26,
+        0.78
+      ],
+      "behavior_8d": [
+        0.2,
+        0.02,
+        0.36,
+        0.18,
+        0.0,
+        0.02,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        42.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        2.0,
+        2.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_cool_003",
+      "family": "cooling",
+      "turn_idx": 5,
+      "phase": "F_final_probe",
+      "relation_raw4": [
+        0.2,
+        0.21,
+        0.27,
+        0.8
+      ],
+      "behavior_8d": [
+        0.1,
+        0.0,
+        0.28,
+        0.2,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        13.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        2.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_cool_004",
+      "family": "cooling",
+      "turn_idx": 0,
+      "phase": "A_initial_contact",
+      "relation_raw4": [
+        0.21,
+        0.24,
+        0.24,
+        0.68
+      ],
+      "behavior_8d": [
+        0.12,
+        0.04,
+        0.28,
+        0.27,
+        0.02,
+        0.04,
+        0.02,
+        0.02
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        18.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        2.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_cool_004",
+      "family": "cooling",
+      "turn_idx": 1,
+      "phase": "B_first_relational_signal",
+      "relation_raw4": [
+        0.19,
+        0.22,
+        0.23,
+        0.7
+      ],
+      "behavior_8d": [
+        0.1,
+        0.02,
+        0.3,
+        0.23,
+        0.0,
+        0.02,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        16.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_cool_004",
+      "family": "cooling",
+      "turn_idx": 2,
+      "phase": "C_stabilization",
+      "relation_raw4": [
+        0.19,
+        0.21,
+        0.24,
+        0.74
+      ],
+      "behavior_8d": [
+        0.1,
+        0.02,
+        0.3,
+        0.23,
+        0.0,
+        0.02,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        18.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        2.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_cool_004",
+      "family": "cooling",
+      "turn_idx": 3,
+      "phase": "D_counter_signal_or_refinement",
+      "relation_raw4": [
+        0.2,
+        0.22,
+        0.26,
+        0.76
+      ],
+      "behavior_8d": [
+        0.12,
+        0.02,
+        0.32,
+        0.25,
+        0.02,
+        0.02,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        4.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_cool_004",
+      "family": "cooling",
+      "turn_idx": 4,
+      "phase": "E_ordinary_continuation",
+      "relation_raw4": [
+        0.2,
+        0.2,
+        0.25,
+        0.78
+      ],
+      "behavior_8d": [
+        0.18,
+        0.02,
+        0.36,
+        0.19,
+        0.0,
+        0.02,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        84.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_cool_004",
+      "family": "cooling",
+      "turn_idx": 5,
+      "phase": "F_final_probe",
+      "relation_raw4": [
+        0.21,
+        0.21,
+        0.26,
+        0.8
+      ],
+      "behavior_8d": [
+        0.08,
+        0.0,
+        0.28,
+        0.21,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        12.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_cool_005",
+      "family": "cooling",
+      "turn_idx": 0,
+      "phase": "A_initial_contact",
+      "relation_raw4": [
+        0.2,
+        0.23,
+        0.24,
+        0.7
+      ],
+      "behavior_8d": [
+        0.12,
+        0.04,
+        0.3,
+        0.24,
+        0.02,
+        0.04,
+        0.02,
+        0.02
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        20.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        2.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_cool_005",
+      "family": "cooling",
+      "turn_idx": 1,
+      "phase": "B_first_relational_signal",
+      "relation_raw4": [
+        0.18,
+        0.21,
+        0.23,
+        0.72
+      ],
+      "behavior_8d": [
+        0.1,
+        0.02,
+        0.32,
+        0.2,
+        0.0,
+        0.02,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        3.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_cool_005",
+      "family": "cooling",
+      "turn_idx": 2,
+      "phase": "C_stabilization",
+      "relation_raw4": [
+        0.18,
+        0.2,
+        0.24,
+        0.76
+      ],
+      "behavior_8d": [
+        0.1,
+        0.02,
+        0.32,
+        0.2,
+        0.0,
+        0.02,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        11.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        1.0,
+        0.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_cool_005",
+      "family": "cooling",
+      "turn_idx": 3,
+      "phase": "D_counter_signal_or_refinement",
+      "relation_raw4": [
+        0.19,
+        0.21,
+        0.26,
+        0.78
+      ],
+      "behavior_8d": [
+        0.12,
+        0.02,
+        0.34,
+        0.22,
+        0.02,
+        0.02,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        11.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_cool_005",
+      "family": "cooling",
+      "turn_idx": 4,
+      "phase": "E_ordinary_continuation",
+      "relation_raw4": [
+        0.19,
+        0.19,
+        0.25,
+        0.8
+      ],
+      "behavior_8d": [
+        0.18,
+        0.02,
+        0.38,
+        0.16,
+        0.0,
+        0.02,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        60.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_cool_005",
+      "family": "cooling",
+      "turn_idx": 5,
+      "phase": "F_final_probe",
+      "relation_raw4": [
+        0.2,
+        0.2,
+        0.26,
+        0.82
+      ],
+      "behavior_8d": [
+        0.08,
+        0.0,
+        0.3,
+        0.18,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        16.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        3.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_mixed_001",
+      "family": "mixed_signal",
+      "turn_idx": 0,
+      "phase": "A_initial_contact",
+      "relation_raw4": [
+        0.24,
+        0.25,
+        0.27,
+        0.62
+      ],
+      "behavior_8d": [
+        0.14,
+        0.06,
+        0.28,
+        0.28,
+        0.02,
+        0.06,
+        0.02,
+        0.02
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        12.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_mixed_001",
+      "family": "mixed_signal",
+      "turn_idx": 1,
+      "phase": "B_first_relational_signal",
+      "relation_raw4": [
+        0.3,
+        0.29,
+        0.33,
+        0.6
+      ],
+      "behavior_8d": [
+        0.18,
+        0.08,
+        0.28,
+        0.34,
+        0.06,
+        0.08,
+        0.02,
+        0.02
+      ],
+      "i7_numeric": [
+        1.0,
+        1.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        52.0,
+        1.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_mixed_001",
+      "family": "mixed_signal",
+      "turn_idx": 2,
+      "phase": "C_stabilization",
+      "relation_raw4": [
+        0.28,
+        0.27,
+        0.31,
+        0.68
+      ],
+      "behavior_8d": [
+        0.12,
+        0.04,
+        0.3,
+        0.26,
+        0.02,
+        0.04,
+        0.02,
+        0.02
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        25.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_mixed_001",
+      "family": "mixed_signal",
+      "turn_idx": 3,
+      "phase": "D_counter_signal_or_refinement",
+      "relation_raw4": [
+        0.27,
+        0.25,
+        0.3,
+        0.71
+      ],
+      "behavior_8d": [
+        0.1,
+        0.02,
+        0.32,
+        0.24,
+        0.0,
+        0.02,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        21.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_mixed_001",
+      "family": "mixed_signal",
+      "turn_idx": 4,
+      "phase": "E_ordinary_continuation",
+      "relation_raw4": [
+        0.27,
+        0.26,
+        0.31,
+        0.72
+      ],
+      "behavior_8d": [
+        0.2,
+        0.02,
+        0.34,
+        0.24,
+        0.0,
+        0.04,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        274.0,
+        9.0,
+        0.0,
+        7.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_mixed_001",
+      "family": "mixed_signal",
+      "turn_idx": 5,
+      "phase": "F_final_probe",
+      "relation_raw4": [
+        0.28,
+        0.27,
+        0.32,
+        0.74
+      ],
+      "behavior_8d": [
+        0.1,
+        0.0,
+        0.3,
+        0.22,
+        0.0,
+        0.02,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        19.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_mixed_002",
+      "family": "mixed_signal",
+      "turn_idx": 0,
+      "phase": "A_initial_contact",
+      "relation_raw4": [
+        0.24,
+        0.25,
+        0.28,
+        0.62
+      ],
+      "behavior_8d": [
+        0.14,
+        0.06,
+        0.28,
+        0.3,
+        0.03,
+        0.06,
+        0.02,
+        0.02
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        17.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_mixed_002",
+      "family": "mixed_signal",
+      "turn_idx": 1,
+      "phase": "B_first_relational_signal",
+      "relation_raw4": [
+        0.3,
+        0.29,
+        0.34,
+        0.6
+      ],
+      "behavior_8d": [
+        0.18,
+        0.08,
+        0.28,
+        0.36,
+        0.07,
+        0.08,
+        0.02,
+        0.02
+      ],
+      "i7_numeric": [
+        1.0,
+        1.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        45.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        2.0,
+        2.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_mixed_002",
+      "family": "mixed_signal",
+      "turn_idx": 2,
+      "phase": "C_stabilization",
+      "relation_raw4": [
+        0.28,
+        0.27,
+        0.32,
+        0.68
+      ],
+      "behavior_8d": [
+        0.12,
+        0.04,
+        0.3,
+        0.28,
+        0.03,
+        0.04,
+        0.02,
+        0.02
+      ],
+      "i7_numeric": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        10.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_mixed_002",
+      "family": "mixed_signal",
+      "turn_idx": 3,
+      "phase": "D_counter_signal_or_refinement",
+      "relation_raw4": [
+        0.27,
+        0.25,
+        0.31,
+        0.71
+      ],
+      "behavior_8d": [
+        0.1,
+        0.02,
+        0.32,
+        0.26,
+        0.01,
+        0.02,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        8.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_mixed_002",
+      "family": "mixed_signal",
+      "turn_idx": 4,
+      "phase": "E_ordinary_continuation",
+      "relation_raw4": [
+        0.27,
+        0.26,
+        0.32,
+        0.72
+      ],
+      "behavior_8d": [
+        0.2,
+        0.02,
+        0.34,
+        0.26,
+        0.01,
+        0.04,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        109.0,
+        5.0,
+        0.0,
+        4.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_mixed_002",
+      "family": "mixed_signal",
+      "turn_idx": 5,
+      "phase": "F_final_probe",
+      "relation_raw4": [
+        0.28,
+        0.27,
+        0.33,
+        0.74
+      ],
+      "behavior_8d": [
+        0.1,
+        0.0,
+        0.3,
+        0.24,
+        0.01,
+        0.02,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        21.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        2.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_mixed_003",
+      "family": "mixed_signal",
+      "turn_idx": 0,
+      "phase": "A_initial_contact",
+      "relation_raw4": [
+        0.25,
+        0.25,
+        0.27,
+        0.62
+      ],
+      "behavior_8d": [
+        0.14,
+        0.06,
+        0.3,
+        0.28,
+        0.02,
+        0.06,
+        0.02,
+        0.02
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        21.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        2.0,
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_mixed_003",
+      "family": "mixed_signal",
+      "turn_idx": 1,
+      "phase": "B_first_relational_signal",
+      "relation_raw4": [
+        0.31,
+        0.29,
+        0.33,
+        0.6
+      ],
+      "behavior_8d": [
+        0.18,
+        0.08,
+        0.3,
+        0.34,
+        0.06,
+        0.08,
+        0.02,
+        0.02
+      ],
+      "i7_numeric": [
+        1.0,
+        1.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        22.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        2.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_mixed_003",
+      "family": "mixed_signal",
+      "turn_idx": 2,
+      "phase": "C_stabilization",
+      "relation_raw4": [
+        0.29,
+        0.27,
+        0.31,
+        0.68
+      ],
+      "behavior_8d": [
+        0.12,
+        0.04,
+        0.32,
+        0.26,
+        0.02,
+        0.04,
+        0.02,
+        0.02
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        19.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        2.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_mixed_003",
+      "family": "mixed_signal",
+      "turn_idx": 3,
+      "phase": "D_counter_signal_or_refinement",
+      "relation_raw4": [
+        0.28,
+        0.25,
+        0.3,
+        0.71
+      ],
+      "behavior_8d": [
+        0.1,
+        0.02,
+        0.34,
+        0.24,
+        0.0,
+        0.02,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        27.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_mixed_003",
+      "family": "mixed_signal",
+      "turn_idx": 4,
+      "phase": "E_ordinary_continuation",
+      "relation_raw4": [
+        0.28,
+        0.26,
+        0.31,
+        0.72
+      ],
+      "behavior_8d": [
+        0.2,
+        0.02,
+        0.36,
+        0.24,
+        0.0,
+        0.04,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        334.0,
+        12.0,
+        0.0,
+        8.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        2.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_mixed_003",
+      "family": "mixed_signal",
+      "turn_idx": 5,
+      "phase": "F_final_probe",
+      "relation_raw4": [
+        0.29,
+        0.27,
+        0.32,
+        0.74
+      ],
+      "behavior_8d": [
+        0.1,
+        0.0,
+        0.32,
+        0.22,
+        0.0,
+        0.02,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        19.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        2.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_mixed_004",
+      "family": "mixed_signal",
+      "turn_idx": 0,
+      "phase": "A_initial_contact",
+      "relation_raw4": [
+        0.24,
+        0.26,
+        0.27,
+        0.63
+      ],
+      "behavior_8d": [
+        0.16,
+        0.06,
+        0.28,
+        0.28,
+        0.02,
+        0.06,
+        0.02,
+        0.02
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        11.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_mixed_004",
+      "family": "mixed_signal",
+      "turn_idx": 1,
+      "phase": "B_first_relational_signal",
+      "relation_raw4": [
+        0.3,
+        0.3,
+        0.33,
+        0.61
+      ],
+      "behavior_8d": [
+        0.2,
+        0.08,
+        0.28,
+        0.34,
+        0.06,
+        0.08,
+        0.02,
+        0.02
+      ],
+      "i7_numeric": [
+        1.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        58.0,
+        2.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        2.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_mixed_004",
+      "family": "mixed_signal",
+      "turn_idx": 2,
+      "phase": "C_stabilization",
+      "relation_raw4": [
+        0.28,
+        0.28,
+        0.31,
+        0.69
+      ],
+      "behavior_8d": [
+        0.14,
+        0.04,
+        0.3,
+        0.26,
+        0.02,
+        0.04,
+        0.02,
+        0.02
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        12.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        2.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_mixed_004",
+      "family": "mixed_signal",
+      "turn_idx": 3,
+      "phase": "D_counter_signal_or_refinement",
+      "relation_raw4": [
+        0.27,
+        0.26,
+        0.3,
+        0.72
+      ],
+      "behavior_8d": [
+        0.12,
+        0.02,
+        0.32,
+        0.24,
+        0.0,
+        0.02,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        14.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        2.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_mixed_004",
+      "family": "mixed_signal",
+      "turn_idx": 4,
+      "phase": "E_ordinary_continuation",
+      "relation_raw4": [
+        0.27,
+        0.27,
+        0.31,
+        0.73
+      ],
+      "behavior_8d": [
+        0.22,
+        0.02,
+        0.34,
+        0.24,
+        0.0,
+        0.04,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        196.0,
+        7.0,
+        0.0,
+        5.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_mixed_004",
+      "family": "mixed_signal",
+      "turn_idx": 5,
+      "phase": "F_final_probe",
+      "relation_raw4": [
+        0.28,
+        0.28,
+        0.32,
+        0.75
+      ],
+      "behavior_8d": [
+        0.12,
+        0.0,
+        0.3,
+        0.22,
+        0.0,
+        0.02,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        21.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        2.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_mixed_005",
+      "family": "mixed_signal",
+      "turn_idx": 0,
+      "phase": "A_initial_contact",
+      "relation_raw4": [
+        0.23,
+        0.25,
+        0.29,
+        0.62
+      ],
+      "behavior_8d": [
+        0.14,
+        0.06,
+        0.29,
+        0.27,
+        0.02,
+        0.06,
+        0.02,
+        0.02
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        17.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_mixed_005",
+      "family": "mixed_signal",
+      "turn_idx": 1,
+      "phase": "B_first_relational_signal",
+      "relation_raw4": [
+        0.29,
+        0.29,
+        0.35,
+        0.6
+      ],
+      "behavior_8d": [
+        0.18,
+        0.08,
+        0.29,
+        0.33,
+        0.06,
+        0.08,
+        0.02,
+        0.02
+      ],
+      "i7_numeric": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        58.0,
+        1.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        2.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_mixed_005",
+      "family": "mixed_signal",
+      "turn_idx": 2,
+      "phase": "C_stabilization",
+      "relation_raw4": [
+        0.27,
+        0.27,
+        0.33,
+        0.68
+      ],
+      "behavior_8d": [
+        0.12,
+        0.04,
+        0.31,
+        0.25,
+        0.02,
+        0.04,
+        0.02,
+        0.02
+      ],
+      "i7_numeric": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        22.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_mixed_005",
+      "family": "mixed_signal",
+      "turn_idx": 3,
+      "phase": "D_counter_signal_or_refinement",
+      "relation_raw4": [
+        0.26,
+        0.25,
+        0.32,
+        0.71
+      ],
+      "behavior_8d": [
+        0.1,
+        0.02,
+        0.33,
+        0.23,
+        0.0,
+        0.02,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        17.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_mixed_005",
+      "family": "mixed_signal",
+      "turn_idx": 4,
+      "phase": "E_ordinary_continuation",
+      "relation_raw4": [
+        0.26,
+        0.26,
+        0.33,
+        0.72
+      ],
+      "behavior_8d": [
+        0.2,
+        0.02,
+        0.35,
+        0.23,
+        0.0,
+        0.04,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        323.0,
+        10.0,
+        0.0,
+        6.0,
+        2.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_mixed_005",
+      "family": "mixed_signal",
+      "turn_idx": 5,
+      "phase": "F_final_probe",
+      "relation_raw4": [
+        0.27,
+        0.27,
+        0.34,
+        0.74
+      ],
+      "behavior_8d": [
+        0.1,
+        0.0,
+        0.31,
+        0.21,
+        0.0,
+        0.02,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        19.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        2.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_neutral_001",
+      "family": "other",
+      "turn_idx": 0,
+      "phase": "A_initial_contact",
+      "relation_raw4": [
+        0.23,
+        0.24,
+        0.25,
+        0.66
+      ],
+      "behavior_8d": [
+        0.14,
+        0.06,
+        0.28,
+        0.26,
+        0.02,
+        0.06,
+        0.02,
+        0.02
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        11.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_neutral_001",
+      "family": "other",
+      "turn_idx": 1,
+      "phase": "B_first_relational_signal",
+      "relation_raw4": [
+        0.25,
+        0.25,
+        0.28,
+        0.67
+      ],
+      "behavior_8d": [
+        0.16,
+        0.06,
+        0.28,
+        0.28,
+        0.04,
+        0.06,
+        0.02,
+        0.02
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        17.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        2.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_neutral_001",
+      "family": "other",
+      "turn_idx": 2,
+      "phase": "C_stabilization",
+      "relation_raw4": [
+        0.24,
+        0.24,
+        0.27,
+        0.71
+      ],
+      "behavior_8d": [
+        0.12,
+        0.04,
+        0.3,
+        0.24,
+        0.02,
+        0.04,
+        0.02,
+        0.02
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        18.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_neutral_001",
+      "family": "other",
+      "turn_idx": 3,
+      "phase": "D_counter_signal_or_refinement",
+      "relation_raw4": [
+        0.26,
+        0.25,
+        0.29,
+        0.73
+      ],
+      "behavior_8d": [
+        0.14,
+        0.04,
+        0.3,
+        0.26,
+        0.02,
+        0.04,
+        0.02,
+        0.02
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        19.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        2.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_neutral_001",
+      "family": "other",
+      "turn_idx": 4,
+      "phase": "E_ordinary_continuation",
+      "relation_raw4": [
+        0.25,
+        0.24,
+        0.28,
+        0.75
+      ],
+      "behavior_8d": [
+        0.18,
+        0.02,
+        0.34,
+        0.22,
+        0.0,
+        0.04,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        132.0,
+        8.0,
+        0.0,
+        6.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_neutral_001",
+      "family": "other",
+      "turn_idx": 5,
+      "phase": "F_final_probe",
+      "relation_raw4": [
+        0.26,
+        0.25,
+        0.29,
+        0.77
+      ],
+      "behavior_8d": [
+        0.08,
+        0.0,
+        0.3,
+        0.22,
+        0.0,
+        0.02,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        14.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        2.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_neutral_002",
+      "family": "other",
+      "turn_idx": 0,
+      "phase": "A_initial_contact",
+      "relation_raw4": [
+        0.23,
+        0.24,
+        0.26,
+        0.66
+      ],
+      "behavior_8d": [
+        0.14,
+        0.06,
+        0.28,
+        0.27,
+        0.02,
+        0.06,
+        0.02,
+        0.02
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        6.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_neutral_002",
+      "family": "other",
+      "turn_idx": 1,
+      "phase": "B_first_relational_signal",
+      "relation_raw4": [
+        0.25,
+        0.25,
+        0.29,
+        0.67
+      ],
+      "behavior_8d": [
+        0.16,
+        0.06,
+        0.28,
+        0.29,
+        0.04,
+        0.06,
+        0.02,
+        0.02
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        25.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_neutral_002",
+      "family": "other",
+      "turn_idx": 2,
+      "phase": "C_stabilization",
+      "relation_raw4": [
+        0.24,
+        0.24,
+        0.28,
+        0.71
+      ],
+      "behavior_8d": [
+        0.12,
+        0.04,
+        0.3,
+        0.25,
+        0.02,
+        0.04,
+        0.02,
+        0.02
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        16.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_neutral_002",
+      "family": "other",
+      "turn_idx": 3,
+      "phase": "D_counter_signal_or_refinement",
+      "relation_raw4": [
+        0.26,
+        0.25,
+        0.3,
+        0.73
+      ],
+      "behavior_8d": [
+        0.14,
+        0.04,
+        0.3,
+        0.27,
+        0.02,
+        0.04,
+        0.02,
+        0.02
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        15.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        2.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_neutral_002",
+      "family": "other",
+      "turn_idx": 4,
+      "phase": "E_ordinary_continuation",
+      "relation_raw4": [
+        0.25,
+        0.24,
+        0.29,
+        0.75
+      ],
+      "behavior_8d": [
+        0.18,
+        0.02,
+        0.34,
+        0.23,
+        0.0,
+        0.04,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        60.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_neutral_002",
+      "family": "other",
+      "turn_idx": 5,
+      "phase": "F_final_probe",
+      "relation_raw4": [
+        0.26,
+        0.25,
+        0.3,
+        0.77
+      ],
+      "behavior_8d": [
+        0.08,
+        0.0,
+        0.3,
+        0.23,
+        0.0,
+        0.02,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        21.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        2.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_neutral_003",
+      "family": "other",
+      "turn_idx": 0,
+      "phase": "A_initial_contact",
+      "relation_raw4": [
+        0.23,
+        0.24,
+        0.25,
+        0.67
+      ],
+      "behavior_8d": [
+        0.14,
+        0.06,
+        0.29,
+        0.26,
+        0.02,
+        0.06,
+        0.02,
+        0.02
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        6.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_neutral_003",
+      "family": "other",
+      "turn_idx": 1,
+      "phase": "B_first_relational_signal",
+      "relation_raw4": [
+        0.25,
+        0.25,
+        0.28,
+        0.68
+      ],
+      "behavior_8d": [
+        0.16,
+        0.06,
+        0.29,
+        0.28,
+        0.04,
+        0.06,
+        0.02,
+        0.02
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        11.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_neutral_003",
+      "family": "other",
+      "turn_idx": 2,
+      "phase": "C_stabilization",
+      "relation_raw4": [
+        0.24,
+        0.24,
+        0.27,
+        0.72
+      ],
+      "behavior_8d": [
+        0.12,
+        0.04,
+        0.31,
+        0.24,
+        0.02,
+        0.04,
+        0.02,
+        0.02
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        10.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_neutral_003",
+      "family": "other",
+      "turn_idx": 3,
+      "phase": "D_counter_signal_or_refinement",
+      "relation_raw4": [
+        0.26,
+        0.25,
+        0.29,
+        0.74
+      ],
+      "behavior_8d": [
+        0.14,
+        0.04,
+        0.31,
+        0.26,
+        0.02,
+        0.04,
+        0.02,
+        0.02
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        14.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        2.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_neutral_003",
+      "family": "other",
+      "turn_idx": 4,
+      "phase": "E_ordinary_continuation",
+      "relation_raw4": [
+        0.25,
+        0.24,
+        0.28,
+        0.76
+      ],
+      "behavior_8d": [
+        0.18,
+        0.02,
+        0.35,
+        0.22,
+        0.0,
+        0.04,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        45.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_neutral_003",
+      "family": "other",
+      "turn_idx": 5,
+      "phase": "F_final_probe",
+      "relation_raw4": [
+        0.26,
+        0.25,
+        0.29,
+        0.78
+      ],
+      "behavior_8d": [
+        0.08,
+        0.0,
+        0.31,
+        0.22,
+        0.0,
+        0.02,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        14.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        2.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_neutral_004",
+      "family": "other",
+      "turn_idx": 0,
+      "phase": "A_initial_contact",
+      "relation_raw4": [
+        0.24,
+        0.24,
+        0.25,
+        0.66
+      ],
+      "behavior_8d": [
+        0.15,
+        0.06,
+        0.28,
+        0.26,
+        0.02,
+        0.06,
+        0.02,
+        0.02
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        13.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_neutral_004",
+      "family": "other",
+      "turn_idx": 1,
+      "phase": "B_first_relational_signal",
+      "relation_raw4": [
+        0.26,
+        0.25,
+        0.28,
+        0.67
+      ],
+      "behavior_8d": [
+        0.17,
+        0.06,
+        0.28,
+        0.28,
+        0.04,
+        0.06,
+        0.02,
+        0.02
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        9.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_neutral_004",
+      "family": "other",
+      "turn_idx": 2,
+      "phase": "C_stabilization",
+      "relation_raw4": [
+        0.25,
+        0.24,
+        0.27,
+        0.71
+      ],
+      "behavior_8d": [
+        0.13,
+        0.04,
+        0.3,
+        0.24,
+        0.02,
+        0.04,
+        0.02,
+        0.02
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        17.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_neutral_004",
+      "family": "other",
+      "turn_idx": 3,
+      "phase": "D_counter_signal_or_refinement",
+      "relation_raw4": [
+        0.27,
+        0.25,
+        0.29,
+        0.73
+      ],
+      "behavior_8d": [
+        0.15,
+        0.04,
+        0.3,
+        0.26,
+        0.02,
+        0.04,
+        0.02,
+        0.02
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        11.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_neutral_004",
+      "family": "other",
+      "turn_idx": 4,
+      "phase": "E_ordinary_continuation",
+      "relation_raw4": [
+        0.26,
+        0.24,
+        0.28,
+        0.75
+      ],
+      "behavior_8d": [
+        0.19,
+        0.02,
+        0.34,
+        0.22,
+        0.0,
+        0.04,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        58.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_neutral_004",
+      "family": "other",
+      "turn_idx": 5,
+      "phase": "F_final_probe",
+      "relation_raw4": [
+        0.27,
+        0.25,
+        0.29,
+        0.77
+      ],
+      "behavior_8d": [
+        0.09,
+        0.0,
+        0.3,
+        0.22,
+        0.0,
+        0.02,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        14.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        2.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_neutral_005",
+      "family": "other",
+      "turn_idx": 0,
+      "phase": "A_initial_contact",
+      "relation_raw4": [
+        0.23,
+        0.23,
+        0.26,
+        0.66
+      ],
+      "behavior_8d": [
+        0.14,
+        0.06,
+        0.28,
+        0.25,
+        0.02,
+        0.06,
+        0.02,
+        0.02
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        13.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_neutral_005",
+      "family": "other",
+      "turn_idx": 1,
+      "phase": "B_first_relational_signal",
+      "relation_raw4": [
+        0.25,
+        0.24,
+        0.29,
+        0.67
+      ],
+      "behavior_8d": [
+        0.16,
+        0.06,
+        0.28,
+        0.27,
+        0.04,
+        0.06,
+        0.02,
+        0.02
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        12.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        1.0,
+        0.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_neutral_005",
+      "family": "other",
+      "turn_idx": 2,
+      "phase": "C_stabilization",
+      "relation_raw4": [
+        0.24,
+        0.23,
+        0.28,
+        0.71
+      ],
+      "behavior_8d": [
+        0.12,
+        0.04,
+        0.3,
+        0.23,
+        0.02,
+        0.04,
+        0.02,
+        0.02
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        10.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_neutral_005",
+      "family": "other",
+      "turn_idx": 3,
+      "phase": "D_counter_signal_or_refinement",
+      "relation_raw4": [
+        0.26,
+        0.24,
+        0.3,
+        0.73
+      ],
+      "behavior_8d": [
+        0.14,
+        0.04,
+        0.3,
+        0.25,
+        0.02,
+        0.04,
+        0.02,
+        0.02
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        7.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_neutral_005",
+      "family": "other",
+      "turn_idx": 4,
+      "phase": "E_ordinary_continuation",
+      "relation_raw4": [
+        0.25,
+        0.23,
+        0.29,
+        0.75
+      ],
+      "behavior_8d": [
+        0.18,
+        0.02,
+        0.34,
+        0.21,
+        0.0,
+        0.04,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        56.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_neutral_005",
+      "family": "other",
+      "turn_idx": 5,
+      "phase": "F_final_probe",
+      "relation_raw4": [
+        0.26,
+        0.24,
+        0.3,
+        0.77
+      ],
+      "behavior_8d": [
+        0.08,
+        0.0,
+        0.3,
+        0.21,
+        0.0,
+        0.02,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        21.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        2.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_repair_001",
+      "family": "boundary_repair",
+      "turn_idx": 0,
+      "phase": "A_initial_contact",
+      "relation_raw4": [
+        0.25,
+        0.28,
+        0.28,
+        0.54
+      ],
+      "behavior_8d": [
+        0.1,
+        0.02,
+        0.3,
+        0.22,
+        0.0,
+        0.02,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        26.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        3.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_repair_001",
+      "family": "boundary_repair",
+      "turn_idx": 1,
+      "phase": "B_first_relational_signal",
+      "relation_raw4": [
+        0.24,
+        0.26,
+        0.29,
+        0.58
+      ],
+      "behavior_8d": [
+        0.1,
+        0.02,
+        0.3,
+        0.22,
+        0.0,
+        0.02,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        31.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        3.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_repair_001",
+      "family": "boundary_repair",
+      "turn_idx": 2,
+      "phase": "C_stabilization",
+      "relation_raw4": [
+        0.24,
+        0.24,
+        0.3,
+        0.7
+      ],
+      "behavior_8d": [
+        0.1,
+        0.02,
+        0.32,
+        0.2,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        8.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_repair_001",
+      "family": "boundary_repair",
+      "turn_idx": 3,
+      "phase": "D_counter_signal_or_refinement",
+      "relation_raw4": [
+        0.25,
+        0.24,
+        0.31,
+        0.73
+      ],
+      "behavior_8d": [
+        0.12,
+        0.02,
+        0.32,
+        0.22,
+        0.0,
+        0.02,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        18.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_repair_001",
+      "family": "boundary_repair",
+      "turn_idx": 4,
+      "phase": "E_ordinary_continuation",
+      "relation_raw4": [
+        0.25,
+        0.24,
+        0.31,
+        0.75
+      ],
+      "behavior_8d": [
+        0.16,
+        0.02,
+        0.34,
+        0.2,
+        0.0,
+        0.02,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        39.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_repair_001",
+      "family": "boundary_repair",
+      "turn_idx": 5,
+      "phase": "F_final_probe",
+      "relation_raw4": [
+        0.26,
+        0.25,
+        0.32,
+        0.78
+      ],
+      "behavior_8d": [
+        0.08,
+        0.0,
+        0.3,
+        0.2,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        13.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        2.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_repair_002",
+      "family": "boundary_repair",
+      "turn_idx": 0,
+      "phase": "A_initial_contact",
+      "relation_raw4": [
+        0.25,
+        0.28,
+        0.29,
+        0.54
+      ],
+      "behavior_8d": [
+        0.1,
+        0.02,
+        0.31,
+        0.22,
+        0.0,
+        0.02,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        31.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        4.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_repair_002",
+      "family": "boundary_repair",
+      "turn_idx": 1,
+      "phase": "B_first_relational_signal",
+      "relation_raw4": [
+        0.24,
+        0.26,
+        0.3,
+        0.58
+      ],
+      "behavior_8d": [
+        0.1,
+        0.02,
+        0.31,
+        0.22,
+        0.0,
+        0.02,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        26.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        3.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_repair_002",
+      "family": "boundary_repair",
+      "turn_idx": 2,
+      "phase": "C_stabilization",
+      "relation_raw4": [
+        0.24,
+        0.24,
+        0.31,
+        0.7
+      ],
+      "behavior_8d": [
+        0.1,
+        0.02,
+        0.33,
+        0.2,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        8.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_repair_002",
+      "family": "boundary_repair",
+      "turn_idx": 3,
+      "phase": "D_counter_signal_or_refinement",
+      "relation_raw4": [
+        0.25,
+        0.24,
+        0.32,
+        0.73
+      ],
+      "behavior_8d": [
+        0.12,
+        0.02,
+        0.33,
+        0.22,
+        0.0,
+        0.02,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        32.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_repair_002",
+      "family": "boundary_repair",
+      "turn_idx": 4,
+      "phase": "E_ordinary_continuation",
+      "relation_raw4": [
+        0.25,
+        0.24,
+        0.32,
+        0.75
+      ],
+      "behavior_8d": [
+        0.16,
+        0.02,
+        0.35,
+        0.2,
+        0.0,
+        0.02,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        59.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_repair_002",
+      "family": "boundary_repair",
+      "turn_idx": 5,
+      "phase": "F_final_probe",
+      "relation_raw4": [
+        0.26,
+        0.25,
+        0.33,
+        0.78
+      ],
+      "behavior_8d": [
+        0.08,
+        0.0,
+        0.31,
+        0.2,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        14.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        2.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_repair_003",
+      "family": "boundary_repair",
+      "turn_idx": 0,
+      "phase": "A_initial_contact",
+      "relation_raw4": [
+        0.25,
+        0.28,
+        0.28,
+        0.55
+      ],
+      "behavior_8d": [
+        0.11,
+        0.02,
+        0.3,
+        0.22,
+        0.0,
+        0.02,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        19.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        4.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_repair_003",
+      "family": "boundary_repair",
+      "turn_idx": 1,
+      "phase": "B_first_relational_signal",
+      "relation_raw4": [
+        0.24,
+        0.26,
+        0.29,
+        0.59
+      ],
+      "behavior_8d": [
+        0.11,
+        0.02,
+        0.3,
+        0.22,
+        0.0,
+        0.02,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        21.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_repair_003",
+      "family": "boundary_repair",
+      "turn_idx": 2,
+      "phase": "C_stabilization",
+      "relation_raw4": [
+        0.24,
+        0.24,
+        0.3,
+        0.71
+      ],
+      "behavior_8d": [
+        0.11,
+        0.02,
+        0.32,
+        0.2,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        9.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_repair_003",
+      "family": "boundary_repair",
+      "turn_idx": 3,
+      "phase": "D_counter_signal_or_refinement",
+      "relation_raw4": [
+        0.25,
+        0.24,
+        0.31,
+        0.74
+      ],
+      "behavior_8d": [
+        0.13,
+        0.02,
+        0.32,
+        0.22,
+        0.0,
+        0.02,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        19.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_repair_003",
+      "family": "boundary_repair",
+      "turn_idx": 4,
+      "phase": "E_ordinary_continuation",
+      "relation_raw4": [
+        0.25,
+        0.24,
+        0.31,
+        0.76
+      ],
+      "behavior_8d": [
+        0.17,
+        0.02,
+        0.34,
+        0.2,
+        0.0,
+        0.02,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        43.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        2.0,
+        2.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_repair_003",
+      "family": "boundary_repair",
+      "turn_idx": 5,
+      "phase": "F_final_probe",
+      "relation_raw4": [
+        0.26,
+        0.25,
+        0.32,
+        0.79
+      ],
+      "behavior_8d": [
+        0.09,
+        0.0,
+        0.3,
+        0.2,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        25.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_repair_004",
+      "family": "boundary_repair",
+      "turn_idx": 0,
+      "phase": "A_initial_contact",
+      "relation_raw4": [
+        0.26,
+        0.28,
+        0.28,
+        0.54
+      ],
+      "behavior_8d": [
+        0.1,
+        0.02,
+        0.3,
+        0.23,
+        0.0,
+        0.02,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        25.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        2.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_repair_004",
+      "family": "boundary_repair",
+      "turn_idx": 1,
+      "phase": "B_first_relational_signal",
+      "relation_raw4": [
+        0.25,
+        0.26,
+        0.29,
+        0.58
+      ],
+      "behavior_8d": [
+        0.1,
+        0.02,
+        0.3,
+        0.23,
+        0.0,
+        0.02,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        24.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_repair_004",
+      "family": "boundary_repair",
+      "turn_idx": 2,
+      "phase": "C_stabilization",
+      "relation_raw4": [
+        0.25,
+        0.24,
+        0.3,
+        0.7
+      ],
+      "behavior_8d": [
+        0.1,
+        0.02,
+        0.32,
+        0.21,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        11.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_repair_004",
+      "family": "boundary_repair",
+      "turn_idx": 3,
+      "phase": "D_counter_signal_or_refinement",
+      "relation_raw4": [
+        0.26,
+        0.24,
+        0.31,
+        0.73
+      ],
+      "behavior_8d": [
+        0.12,
+        0.02,
+        0.32,
+        0.23,
+        0.0,
+        0.02,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        20.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_repair_004",
+      "family": "boundary_repair",
+      "turn_idx": 4,
+      "phase": "E_ordinary_continuation",
+      "relation_raw4": [
+        0.26,
+        0.24,
+        0.31,
+        0.75
+      ],
+      "behavior_8d": [
+        0.16,
+        0.02,
+        0.34,
+        0.21,
+        0.0,
+        0.02,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        28.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_repair_004",
+      "family": "boundary_repair",
+      "turn_idx": 5,
+      "phase": "F_final_probe",
+      "relation_raw4": [
+        0.27,
+        0.25,
+        0.32,
+        0.78
+      ],
+      "behavior_8d": [
+        0.08,
+        0.0,
+        0.3,
+        0.21,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        13.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        2.0,
+        0.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_repair_005",
+      "family": "boundary_repair",
+      "turn_idx": 0,
+      "phase": "A_initial_contact",
+      "relation_raw4": [
+        0.25,
+        0.27,
+        0.28,
+        0.56
+      ],
+      "behavior_8d": [
+        0.1,
+        0.02,
+        0.3,
+        0.21,
+        0.0,
+        0.02,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        28.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        4.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_repair_005",
+      "family": "boundary_repair",
+      "turn_idx": 1,
+      "phase": "B_first_relational_signal",
+      "relation_raw4": [
+        0.24,
+        0.25,
+        0.29,
+        0.6
+      ],
+      "behavior_8d": [
+        0.1,
+        0.02,
+        0.3,
+        0.21,
+        0.0,
+        0.02,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        20.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_repair_005",
+      "family": "boundary_repair",
+      "turn_idx": 2,
+      "phase": "C_stabilization",
+      "relation_raw4": [
+        0.24,
+        0.23,
+        0.3,
+        0.72
+      ],
+      "behavior_8d": [
+        0.1,
+        0.02,
+        0.32,
+        0.19,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        9.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_repair_005",
+      "family": "boundary_repair",
+      "turn_idx": 3,
+      "phase": "D_counter_signal_or_refinement",
+      "relation_raw4": [
+        0.25,
+        0.23,
+        0.31,
+        0.75
+      ],
+      "behavior_8d": [
+        0.12,
+        0.02,
+        0.32,
+        0.21,
+        0.0,
+        0.02,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        31.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_repair_005",
+      "family": "boundary_repair",
+      "turn_idx": 4,
+      "phase": "E_ordinary_continuation",
+      "relation_raw4": [
+        0.25,
+        0.23,
+        0.31,
+        0.77
+      ],
+      "behavior_8d": [
+        0.16,
+        0.02,
+        0.34,
+        0.19,
+        0.0,
+        0.02,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        68.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_repair_005",
+      "family": "boundary_repair",
+      "turn_idx": 5,
+      "phase": "F_final_probe",
+      "relation_raw4": [
+        0.26,
+        0.24,
+        0.32,
+        0.8
+      ],
+      "behavior_8d": [
+        0.08,
+        0.0,
+        0.3,
+        0.19,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "language_features": [
+        15.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        1.0,
+        0.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_vuln_001",
+      "family": "vulnerability",
+      "turn_idx": 0,
+      "phase": "A_initial_contact",
+      "relation_raw4": [
+        0.24,
+        0.42,
+        0.26,
+        0.56
+      ],
+      "behavior_8d": [
+        0.2,
+        0.06,
+        0.2,
+        0.44,
+        0.12,
+        0.1,
+        0.04,
+        0.04
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        56.0,
+        1.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0,
+        2.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_vuln_001",
+      "family": "vulnerability",
+      "turn_idx": 1,
+      "phase": "B_first_relational_signal",
+      "relation_raw4": [
+        0.26,
+        0.45,
+        0.29,
+        0.58
+      ],
+      "behavior_8d": [
+        0.12,
+        0.02,
+        0.16,
+        0.38,
+        0.06,
+        0.04,
+        0.02,
+        0.02
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        2.0,
+        2.0,
+        2.0,
+        0.0
+      ],
+      "language_features": [
+        31.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        2.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_vuln_001",
+      "family": "vulnerability",
+      "turn_idx": 2,
+      "phase": "C_stabilization",
+      "relation_raw4": [
+        0.25,
+        0.41,
+        0.3,
+        0.66
+      ],
+      "behavior_8d": [
+        0.1,
+        0.02,
+        0.24,
+        0.3,
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        24.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_vuln_001",
+      "family": "vulnerability",
+      "turn_idx": 3,
+      "phase": "D_counter_signal_or_refinement",
+      "relation_raw4": [
+        0.28,
+        0.44,
+        0.34,
+        0.69
+      ],
+      "behavior_8d": [
+        0.14,
+        0.02,
+        0.28,
+        0.36,
+        0.04,
+        0.04,
+        0.02,
+        0.02
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        27.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        2.0,
+        0.0,
+        2.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_vuln_001",
+      "family": "vulnerability",
+      "turn_idx": 4,
+      "phase": "E_ordinary_continuation",
+      "relation_raw4": [
+        0.27,
+        0.4,
+        0.33,
+        0.71
+      ],
+      "behavior_8d": [
+        0.2,
+        0.04,
+        0.32,
+        0.28,
+        0.02,
+        0.06,
+        0.02,
+        0.02
+      ],
+      "i7_numeric": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        196.0,
+        8.0,
+        0.0,
+        6.0,
+        1.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_vuln_001",
+      "family": "vulnerability",
+      "turn_idx": 5,
+      "phase": "F_final_probe",
+      "relation_raw4": [
+        0.28,
+        0.41,
+        0.34,
+        0.74
+      ],
+      "behavior_8d": [
+        0.1,
+        0.0,
+        0.24,
+        0.26,
+        0.0,
+        0.02,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        6.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_vuln_002",
+      "family": "vulnerability",
+      "turn_idx": 0,
+      "phase": "A_initial_contact",
+      "relation_raw4": [
+        0.24,
+        0.44,
+        0.26,
+        0.56
+      ],
+      "behavior_8d": [
+        0.2,
+        0.06,
+        0.2,
+        0.46,
+        0.13,
+        0.1,
+        0.04,
+        0.04
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        45.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        4.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_vuln_002",
+      "family": "vulnerability",
+      "turn_idx": 1,
+      "phase": "B_first_relational_signal",
+      "relation_raw4": [
+        0.26,
+        0.47,
+        0.29,
+        0.58
+      ],
+      "behavior_8d": [
+        0.12,
+        0.02,
+        0.16,
+        0.4,
+        0.07,
+        0.04,
+        0.02,
+        0.02
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        2.0,
+        2.0,
+        2.0,
+        0.0
+      ],
+      "language_features": [
+        16.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        2.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_vuln_002",
+      "family": "vulnerability",
+      "turn_idx": 2,
+      "phase": "C_stabilization",
+      "relation_raw4": [
+        0.25,
+        0.43,
+        0.3,
+        0.66
+      ],
+      "behavior_8d": [
+        0.1,
+        0.02,
+        0.24,
+        0.32,
+        0.03,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        16.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_vuln_002",
+      "family": "vulnerability",
+      "turn_idx": 3,
+      "phase": "D_counter_signal_or_refinement",
+      "relation_raw4": [
+        0.28,
+        0.46,
+        0.34,
+        0.69
+      ],
+      "behavior_8d": [
+        0.14,
+        0.02,
+        0.28,
+        0.38,
+        0.05,
+        0.04,
+        0.02,
+        0.02
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        15.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        2.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_vuln_002",
+      "family": "vulnerability",
+      "turn_idx": 4,
+      "phase": "E_ordinary_continuation",
+      "relation_raw4": [
+        0.27,
+        0.42,
+        0.33,
+        0.71
+      ],
+      "behavior_8d": [
+        0.2,
+        0.04,
+        0.32,
+        0.3,
+        0.03,
+        0.06,
+        0.02,
+        0.02
+      ],
+      "i7_numeric": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        186.0,
+        9.0,
+        0.0,
+        5.0,
+        1.0,
+        0.0,
+        0.0,
+        1.0,
+        2.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_vuln_002",
+      "family": "vulnerability",
+      "turn_idx": 5,
+      "phase": "F_final_probe",
+      "relation_raw4": [
+        0.28,
+        0.43,
+        0.34,
+        0.74
+      ],
+      "behavior_8d": [
+        0.1,
+        0.0,
+        0.24,
+        0.28,
+        0.01,
+        0.02,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        21.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        2.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_vuln_003",
+      "family": "vulnerability",
+      "turn_idx": 0,
+      "phase": "A_initial_contact",
+      "relation_raw4": [
+        0.25,
+        0.42,
+        0.27,
+        0.56
+      ],
+      "behavior_8d": [
+        0.2,
+        0.06,
+        0.22,
+        0.44,
+        0.12,
+        0.1,
+        0.04,
+        0.04
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        56.0,
+        2.0,
+        0.0,
+        0.0,
+        0.0,
+        2.0,
+        1.0,
+        1.0,
+        2.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_vuln_003",
+      "family": "vulnerability",
+      "turn_idx": 1,
+      "phase": "B_first_relational_signal",
+      "relation_raw4": [
+        0.27,
+        0.45,
+        0.3,
+        0.58
+      ],
+      "behavior_8d": [
+        0.12,
+        0.02,
+        0.18,
+        0.38,
+        0.06,
+        0.04,
+        0.02,
+        0.02
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        2.0,
+        2.0,
+        2.0,
+        0.0
+      ],
+      "language_features": [
+        35.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        2.0,
+        0.0,
+        2.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_vuln_003",
+      "family": "vulnerability",
+      "turn_idx": 2,
+      "phase": "C_stabilization",
+      "relation_raw4": [
+        0.26,
+        0.41,
+        0.31,
+        0.66
+      ],
+      "behavior_8d": [
+        0.1,
+        0.02,
+        0.26,
+        0.3,
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        16.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        3.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_vuln_003",
+      "family": "vulnerability",
+      "turn_idx": 3,
+      "phase": "D_counter_signal_or_refinement",
+      "relation_raw4": [
+        0.29,
+        0.44,
+        0.35,
+        0.69
+      ],
+      "behavior_8d": [
+        0.14,
+        0.02,
+        0.3,
+        0.36,
+        0.04,
+        0.04,
+        0.02,
+        0.02
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        17.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        2.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_vuln_003",
+      "family": "vulnerability",
+      "turn_idx": 4,
+      "phase": "E_ordinary_continuation",
+      "relation_raw4": [
+        0.28,
+        0.4,
+        0.34,
+        0.71
+      ],
+      "behavior_8d": [
+        0.2,
+        0.04,
+        0.34,
+        0.28,
+        0.02,
+        0.06,
+        0.02,
+        0.02
+      ],
+      "i7_numeric": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        99.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_vuln_003",
+      "family": "vulnerability",
+      "turn_idx": 5,
+      "phase": "F_final_probe",
+      "relation_raw4": [
+        0.29,
+        0.41,
+        0.35,
+        0.74
+      ],
+      "behavior_8d": [
+        0.1,
+        0.0,
+        0.26,
+        0.26,
+        0.0,
+        0.02,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        14.0,
+        1.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_vuln_004",
+      "family": "vulnerability",
+      "turn_idx": 0,
+      "phase": "A_initial_contact",
+      "relation_raw4": [
+        0.24,
+        0.41,
+        0.26,
+        0.57
+      ],
+      "behavior_8d": [
+        0.22,
+        0.06,
+        0.2,
+        0.44,
+        0.12,
+        0.11,
+        0.04,
+        0.04
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        45.0,
+        1.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_vuln_004",
+      "family": "vulnerability",
+      "turn_idx": 1,
+      "phase": "B_first_relational_signal",
+      "relation_raw4": [
+        0.26,
+        0.44,
+        0.29,
+        0.59
+      ],
+      "behavior_8d": [
+        0.14,
+        0.02,
+        0.16,
+        0.38,
+        0.06,
+        0.05,
+        0.02,
+        0.02
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        45.0,
+        1.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        2.0,
+        0.0,
+        2.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_vuln_004",
+      "family": "vulnerability",
+      "turn_idx": 2,
+      "phase": "C_stabilization",
+      "relation_raw4": [
+        0.25,
+        0.4,
+        0.3,
+        0.67
+      ],
+      "behavior_8d": [
+        0.12,
+        0.02,
+        0.24,
+        0.3,
+        0.02,
+        0.03,
+        0.02,
+        0.02
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        14.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_vuln_004",
+      "family": "vulnerability",
+      "turn_idx": 3,
+      "phase": "D_counter_signal_or_refinement",
+      "relation_raw4": [
+        0.28,
+        0.43,
+        0.34,
+        0.7
+      ],
+      "behavior_8d": [
+        0.16,
+        0.02,
+        0.28,
+        0.36,
+        0.04,
+        0.05,
+        0.02,
+        0.02
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        33.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        2.0,
+        2.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_vuln_004",
+      "family": "vulnerability",
+      "turn_idx": 4,
+      "phase": "E_ordinary_continuation",
+      "relation_raw4": [
+        0.27,
+        0.39,
+        0.33,
+        0.72
+      ],
+      "behavior_8d": [
+        0.22,
+        0.04,
+        0.32,
+        0.28,
+        0.02,
+        0.07,
+        0.02,
+        0.02
+      ],
+      "i7_numeric": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        118.0,
+        7.0,
+        0.0,
+        3.0,
+        1.0,
+        0.0,
+        0.0,
+        1.0,
+        2.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_vuln_004",
+      "family": "vulnerability",
+      "turn_idx": 5,
+      "phase": "F_final_probe",
+      "relation_raw4": [
+        0.28,
+        0.4,
+        0.34,
+        0.75
+      ],
+      "behavior_8d": [
+        0.12,
+        0.0,
+        0.24,
+        0.26,
+        0.0,
+        0.03,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        11.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        1.0,
+        0.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_vuln_005",
+      "family": "vulnerability",
+      "turn_idx": 0,
+      "phase": "A_initial_contact",
+      "relation_raw4": [
+        0.23,
+        0.43,
+        0.28,
+        0.56
+      ],
+      "behavior_8d": [
+        0.2,
+        0.06,
+        0.22,
+        0.42,
+        0.12,
+        0.1,
+        0.04,
+        0.04
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        37.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        2.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_vuln_005",
+      "family": "vulnerability",
+      "turn_idx": 1,
+      "phase": "B_first_relational_signal",
+      "relation_raw4": [
+        0.25,
+        0.46,
+        0.31,
+        0.58
+      ],
+      "behavior_8d": [
+        0.12,
+        0.02,
+        0.18,
+        0.36,
+        0.06,
+        0.04,
+        0.02,
+        0.02
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        2.0,
+        2.0,
+        2.0,
+        0.0
+      ],
+      "language_features": [
+        47.0,
+        1.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        3.0,
+        1.0,
+        2.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_vuln_005",
+      "family": "vulnerability",
+      "turn_idx": 2,
+      "phase": "C_stabilization",
+      "relation_raw4": [
+        0.24,
+        0.42,
+        0.32,
+        0.66
+      ],
+      "behavior_8d": [
+        0.1,
+        0.02,
+        0.26,
+        0.28,
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        10.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_vuln_005",
+      "family": "vulnerability",
+      "turn_idx": 3,
+      "phase": "D_counter_signal_or_refinement",
+      "relation_raw4": [
+        0.27,
+        0.45,
+        0.36,
+        0.69
+      ],
+      "behavior_8d": [
+        0.14,
+        0.02,
+        0.3,
+        0.34,
+        0.04,
+        0.04,
+        0.02,
+        0.02
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        27.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        2.0,
+        3.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_vuln_005",
+      "family": "vulnerability",
+      "turn_idx": 4,
+      "phase": "E_ordinary_continuation",
+      "relation_raw4": [
+        0.26,
+        0.41,
+        0.35,
+        0.71
+      ],
+      "behavior_8d": [
+        0.2,
+        0.04,
+        0.34,
+        0.26,
+        0.02,
+        0.06,
+        0.02,
+        0.02
+      ],
+      "i7_numeric": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        210.0,
+        8.0,
+        0.0,
+        6.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_vuln_005",
+      "family": "vulnerability",
+      "turn_idx": 5,
+      "phase": "F_final_probe",
+      "relation_raw4": [
+        0.27,
+        0.42,
+        0.36,
+        0.74
+      ],
+      "behavior_8d": [
+        0.1,
+        0.0,
+        0.26,
+        0.24,
+        0.0,
+        0.02,
+        0.0,
+        0.0
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        25.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        2.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_warm_001",
+      "family": "warm",
+      "turn_idx": 0,
+      "phase": "A_initial_contact",
+      "relation_raw4": [
+        0.26,
+        0.3,
+        0.28,
+        0.63
+      ],
+      "behavior_8d": [
+        0.18,
+        0.12,
+        0.24,
+        0.34,
+        0.08,
+        0.12,
+        0.06,
+        0.06
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        20.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        2.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_warm_001",
+      "family": "warm",
+      "turn_idx": 1,
+      "phase": "B_first_relational_signal",
+      "relation_raw4": [
+        0.3,
+        0.34,
+        0.32,
+        0.64
+      ],
+      "behavior_8d": [
+        0.22,
+        0.16,
+        0.26,
+        0.42,
+        0.16,
+        0.18,
+        0.08,
+        0.08
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        28.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        2.0,
+        1.0,
+        2.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_warm_001",
+      "family": "warm",
+      "turn_idx": 2,
+      "phase": "C_stabilization",
+      "relation_raw4": [
+        0.29,
+        0.33,
+        0.31,
+        0.68
+      ],
+      "behavior_8d": [
+        0.16,
+        0.1,
+        0.24,
+        0.34,
+        0.08,
+        0.1,
+        0.05,
+        0.05
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        26.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_warm_001",
+      "family": "warm",
+      "turn_idx": 3,
+      "phase": "D_counter_signal_or_refinement",
+      "relation_raw4": [
+        0.32,
+        0.36,
+        0.37,
+        0.7
+      ],
+      "behavior_8d": [
+        0.2,
+        0.1,
+        0.3,
+        0.44,
+        0.14,
+        0.14,
+        0.06,
+        0.06
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        29.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        3.0,
+        2.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_warm_001",
+      "family": "warm",
+      "turn_idx": 4,
+      "phase": "E_ordinary_continuation",
+      "relation_raw4": [
+        0.31,
+        0.34,
+        0.35,
+        0.72
+      ],
+      "behavior_8d": [
+        0.22,
+        0.04,
+        0.36,
+        0.32,
+        0.02,
+        0.08,
+        0.04,
+        0.04
+      ],
+      "i7_numeric": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        96.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_warm_001",
+      "family": "warm",
+      "turn_idx": 5,
+      "phase": "F_final_probe",
+      "relation_raw4": [
+        0.32,
+        0.35,
+        0.36,
+        0.75
+      ],
+      "behavior_8d": [
+        0.1,
+        0.02,
+        0.28,
+        0.34,
+        0.02,
+        0.04,
+        0.02,
+        0.02
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        15.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        2.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_warm_002",
+      "family": "warm",
+      "turn_idx": 0,
+      "phase": "A_initial_contact",
+      "relation_raw4": [
+        0.27,
+        0.31,
+        0.28,
+        0.64
+      ],
+      "behavior_8d": [
+        0.18,
+        0.12,
+        0.24,
+        0.36,
+        0.09,
+        0.12,
+        0.06,
+        0.06
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        13.0,
+        1.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_warm_002",
+      "family": "warm",
+      "turn_idx": 1,
+      "phase": "B_first_relational_signal",
+      "relation_raw4": [
+        0.31,
+        0.35,
+        0.32,
+        0.65
+      ],
+      "behavior_8d": [
+        0.22,
+        0.16,
+        0.26,
+        0.44,
+        0.17,
+        0.18,
+        0.08,
+        0.08
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        25.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        2.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_warm_002",
+      "family": "warm",
+      "turn_idx": 2,
+      "phase": "C_stabilization",
+      "relation_raw4": [
+        0.3,
+        0.34,
+        0.31,
+        0.69
+      ],
+      "behavior_8d": [
+        0.16,
+        0.1,
+        0.24,
+        0.36,
+        0.09,
+        0.1,
+        0.05,
+        0.05
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        22.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        3.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_warm_002",
+      "family": "warm",
+      "turn_idx": 3,
+      "phase": "D_counter_signal_or_refinement",
+      "relation_raw4": [
+        0.33,
+        0.37,
+        0.37,
+        0.71
+      ],
+      "behavior_8d": [
+        0.2,
+        0.1,
+        0.3,
+        0.46,
+        0.15,
+        0.14,
+        0.06,
+        0.06
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        36.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        2.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_warm_002",
+      "family": "warm",
+      "turn_idx": 4,
+      "phase": "E_ordinary_continuation",
+      "relation_raw4": [
+        0.32,
+        0.35,
+        0.35,
+        0.73
+      ],
+      "behavior_8d": [
+        0.22,
+        0.04,
+        0.36,
+        0.34,
+        0.03,
+        0.08,
+        0.04,
+        0.04
+      ],
+      "i7_numeric": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        112.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        2.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_warm_002",
+      "family": "warm",
+      "turn_idx": 5,
+      "phase": "F_final_probe",
+      "relation_raw4": [
+        0.33,
+        0.36,
+        0.36,
+        0.76
+      ],
+      "behavior_8d": [
+        0.1,
+        0.02,
+        0.28,
+        0.36,
+        0.03,
+        0.04,
+        0.02,
+        0.02
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        24.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        1.0,
+        0.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_warm_003",
+      "family": "warm",
+      "turn_idx": 0,
+      "phase": "A_initial_contact",
+      "relation_raw4": [
+        0.25,
+        0.3,
+        0.29,
+        0.63
+      ],
+      "behavior_8d": [
+        0.18,
+        0.12,
+        0.26,
+        0.34,
+        0.08,
+        0.11,
+        0.06,
+        0.06
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        15.0,
+        1.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        2.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_warm_003",
+      "family": "warm",
+      "turn_idx": 1,
+      "phase": "B_first_relational_signal",
+      "relation_raw4": [
+        0.29,
+        0.34,
+        0.33,
+        0.64
+      ],
+      "behavior_8d": [
+        0.22,
+        0.16,
+        0.28,
+        0.42,
+        0.16,
+        0.17,
+        0.08,
+        0.08
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        27.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        2.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_warm_003",
+      "family": "warm",
+      "turn_idx": 2,
+      "phase": "C_stabilization",
+      "relation_raw4": [
+        0.28,
+        0.33,
+        0.32,
+        0.68
+      ],
+      "behavior_8d": [
+        0.16,
+        0.1,
+        0.26,
+        0.34,
+        0.08,
+        0.09,
+        0.05,
+        0.05
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        22.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        2.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_warm_003",
+      "family": "warm",
+      "turn_idx": 3,
+      "phase": "D_counter_signal_or_refinement",
+      "relation_raw4": [
+        0.31,
+        0.36,
+        0.38,
+        0.7
+      ],
+      "behavior_8d": [
+        0.2,
+        0.1,
+        0.32,
+        0.44,
+        0.14,
+        0.13,
+        0.06,
+        0.06
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        23.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        2.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_warm_003",
+      "family": "warm",
+      "turn_idx": 4,
+      "phase": "E_ordinary_continuation",
+      "relation_raw4": [
+        0.3,
+        0.34,
+        0.36,
+        0.72
+      ],
+      "behavior_8d": [
+        0.22,
+        0.04,
+        0.38,
+        0.32,
+        0.02,
+        0.07,
+        0.04,
+        0.04
+      ],
+      "i7_numeric": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        162.0,
+        8.0,
+        0.0,
+        6.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_warm_003",
+      "family": "warm",
+      "turn_idx": 5,
+      "phase": "F_final_probe",
+      "relation_raw4": [
+        0.31,
+        0.35,
+        0.37,
+        0.75
+      ],
+      "behavior_8d": [
+        0.1,
+        0.02,
+        0.3,
+        0.34,
+        0.02,
+        0.03,
+        0.02,
+        0.02
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        18.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        2.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_warm_004",
+      "family": "warm",
+      "turn_idx": 0,
+      "phase": "A_initial_contact",
+      "relation_raw4": [
+        0.26,
+        0.32,
+        0.29,
+        0.62
+      ],
+      "behavior_8d": [
+        0.2,
+        0.11,
+        0.24,
+        0.35,
+        0.08,
+        0.12,
+        0.06,
+        0.06
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        19.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        2.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_warm_004",
+      "family": "warm",
+      "turn_idx": 1,
+      "phase": "B_first_relational_signal",
+      "relation_raw4": [
+        0.3,
+        0.36,
+        0.33,
+        0.63
+      ],
+      "behavior_8d": [
+        0.24,
+        0.15,
+        0.26,
+        0.43,
+        0.16,
+        0.18,
+        0.08,
+        0.08
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        16.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        2.0,
+        0.0,
+        2.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_warm_004",
+      "family": "warm",
+      "turn_idx": 2,
+      "phase": "C_stabilization",
+      "relation_raw4": [
+        0.29,
+        0.35,
+        0.32,
+        0.67
+      ],
+      "behavior_8d": [
+        0.18,
+        0.09,
+        0.24,
+        0.35,
+        0.08,
+        0.1,
+        0.05,
+        0.05
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        23.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_warm_004",
+      "family": "warm",
+      "turn_idx": 3,
+      "phase": "D_counter_signal_or_refinement",
+      "relation_raw4": [
+        0.32,
+        0.38,
+        0.38,
+        0.69
+      ],
+      "behavior_8d": [
+        0.22,
+        0.09,
+        0.3,
+        0.45,
+        0.14,
+        0.14,
+        0.06,
+        0.06
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        17.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_warm_004",
+      "family": "warm",
+      "turn_idx": 4,
+      "phase": "E_ordinary_continuation",
+      "relation_raw4": [
+        0.31,
+        0.36,
+        0.36,
+        0.71
+      ],
+      "behavior_8d": [
+        0.24,
+        0.03,
+        0.36,
+        0.33,
+        0.02,
+        0.08,
+        0.04,
+        0.04
+      ],
+      "i7_numeric": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        163.0,
+        8.0,
+        0.0,
+        5.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_warm_004",
+      "family": "warm",
+      "turn_idx": 5,
+      "phase": "F_final_probe",
+      "relation_raw4": [
+        0.32,
+        0.37,
+        0.37,
+        0.74
+      ],
+      "behavior_8d": [
+        0.12,
+        0.01,
+        0.28,
+        0.35,
+        0.02,
+        0.04,
+        0.02,
+        0.02
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        16.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        2.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_warm_005",
+      "family": "warm",
+      "turn_idx": 0,
+      "phase": "A_initial_contact",
+      "relation_raw4": [
+        0.27,
+        0.29,
+        0.28,
+        0.65
+      ],
+      "behavior_8d": [
+        0.18,
+        0.12,
+        0.25,
+        0.33,
+        0.08,
+        0.12,
+        0.06,
+        0.06
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        22.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_warm_005",
+      "family": "warm",
+      "turn_idx": 1,
+      "phase": "B_first_relational_signal",
+      "relation_raw4": [
+        0.31,
+        0.33,
+        0.32,
+        0.66
+      ],
+      "behavior_8d": [
+        0.22,
+        0.16,
+        0.27,
+        0.41,
+        0.16,
+        0.18,
+        0.08,
+        0.08
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        27.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        2.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_warm_005",
+      "family": "warm",
+      "turn_idx": 2,
+      "phase": "C_stabilization",
+      "relation_raw4": [
+        0.3,
+        0.32,
+        0.31,
+        0.7
+      ],
+      "behavior_8d": [
+        0.16,
+        0.1,
+        0.25,
+        0.33,
+        0.08,
+        0.1,
+        0.05,
+        0.05
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        12.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_warm_005",
+      "family": "warm",
+      "turn_idx": 3,
+      "phase": "D_counter_signal_or_refinement",
+      "relation_raw4": [
+        0.33,
+        0.35,
+        0.37,
+        0.72
+      ],
+      "behavior_8d": [
+        0.2,
+        0.1,
+        0.31,
+        0.43,
+        0.14,
+        0.14,
+        0.06,
+        0.06
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        25.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        2.0,
+        1.0,
+        2.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_warm_005",
+      "family": "warm",
+      "turn_idx": 4,
+      "phase": "E_ordinary_continuation",
+      "relation_raw4": [
+        0.32,
+        0.33,
+        0.35,
+        0.74
+      ],
+      "behavior_8d": [
+        0.22,
+        0.04,
+        0.37,
+        0.31,
+        0.02,
+        0.08,
+        0.04,
+        0.04
+      ],
+      "i7_numeric": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        173.0,
+        10.0,
+        0.0,
+        6.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "case_id": "oracle_exec_warm_005",
+      "family": "warm",
+      "turn_idx": 5,
+      "phase": "F_final_probe",
+      "relation_raw4": [
+        0.33,
+        0.34,
+        0.36,
+        0.77
+      ],
+      "behavior_8d": [
+        0.1,
+        0.02,
+        0.29,
+        0.33,
+        0.02,
+        0.04,
+        0.02,
+        0.02
+      ],
+      "i7_numeric": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "language_features": [
+        17.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  ]
+}

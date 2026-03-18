@@ -1,0 +1,381 @@
+{
+  "variant": "i7",
+  "oracle_state_rows_analyzed": 18,
+  "dimension_deltas": {
+    "Directness": {
+      "avg_abs_delta": 0.0194,
+      "avg_signed_delta": -0.0,
+      "count": 18
+    },
+    "Disclosure_Content": {
+      "avg_abs_delta": 0.0026,
+      "avg_signed_delta": 0.0003,
+      "count": 18
+    },
+    "Disclosure_Style": {
+      "avg_abs_delta": 0.0026,
+      "avg_signed_delta": 0.0003,
+      "count": 18
+    },
+    "E": {
+      "avg_abs_delta": 0.0184,
+      "avg_signed_delta": -0.0,
+      "count": 18
+    },
+    "Initiative": {
+      "avg_abs_delta": 0.0049,
+      "avg_signed_delta": 0.0004,
+      "count": 18
+    },
+    "Q_aff": {
+      "avg_abs_delta": 0.0056,
+      "avg_signed_delta": 0.0011,
+      "count": 18
+    },
+    "Q_clarify": {
+      "avg_abs_delta": 0.0063,
+      "avg_signed_delta": 0.001,
+      "count": 18
+    },
+    "T_w": {
+      "avg_abs_delta": 0.0115,
+      "avg_signed_delta": 0.0,
+      "count": 18
+    }
+  },
+  "interface_mismatch_counts": {
+    "relational_push": 1,
+    "support_mode": 1,
+    "warmth_level": 1
+  },
+  "top_mismatch_examples": [
+    {
+      "case_id": "oracle_exec_vuln_001",
+      "phase": "E_ordinary_continuation",
+      "assistant_len": 132,
+      "mismatch_count": 3,
+      "mismatched_fields": [
+        "relational_push",
+        "support_mode",
+        "warmth_level"
+      ],
+      "pred_interface": {
+        "reply_scope": "brief",
+        "clarify_followup": "none",
+        "affective_followup": "none",
+        "initiative_level": "hold",
+        "warmth_level": "gentle",
+        "relational_push": "hold",
+        "support_mode": "light_practical",
+        "meta_talk": "avoid"
+      },
+      "oracle_interface": {
+        "reply_scope": "brief",
+        "clarify_followup": "none",
+        "affective_followup": "none",
+        "initiative_level": "hold",
+        "warmth_level": "low",
+        "relational_push": "avoid",
+        "support_mode": "presence_only",
+        "meta_talk": "avoid"
+      }
+    },
+    {
+      "case_id": "oracle_exec_warm_001",
+      "phase": "E_ordinary_continuation",
+      "assistant_len": 115,
+      "mismatch_count": 0,
+      "mismatched_fields": [],
+      "pred_interface": {
+        "reply_scope": "brief",
+        "clarify_followup": "none",
+        "affective_followup": "none",
+        "initiative_level": "hold",
+        "warmth_level": "gentle",
+        "relational_push": "hold",
+        "support_mode": "light_practical",
+        "meta_talk": "avoid"
+      },
+      "oracle_interface": {
+        "reply_scope": "brief",
+        "clarify_followup": "none",
+        "affective_followup": "none",
+        "initiative_level": "hold",
+        "warmth_level": "gentle",
+        "relational_push": "hold",
+        "support_mode": "light_practical",
+        "meta_talk": "avoid"
+      }
+    },
+    {
+      "case_id": "oracle_exec_cool_001",
+      "phase": "E_ordinary_continuation",
+      "assistant_len": 70,
+      "mismatch_count": 0,
+      "mismatched_fields": [],
+      "pred_interface": {
+        "reply_scope": "brief",
+        "clarify_followup": "none",
+        "affective_followup": "none",
+        "initiative_level": "hold",
+        "warmth_level": "low",
+        "relational_push": "avoid",
+        "support_mode": "presence_only",
+        "meta_talk": "avoid"
+      },
+      "oracle_interface": {
+        "reply_scope": "brief",
+        "clarify_followup": "none",
+        "affective_followup": "none",
+        "initiative_level": "hold",
+        "warmth_level": "low",
+        "relational_push": "avoid",
+        "support_mode": "presence_only",
+        "meta_talk": "avoid"
+      }
+    },
+    {
+      "case_id": "oracle_exec_vuln_001",
+      "phase": "A_initial_contact",
+      "assistant_len": 47,
+      "mismatch_count": 0,
+      "mismatched_fields": [],
+      "pred_interface": {
+        "reply_scope": "minimal",
+        "clarify_followup": "none",
+        "affective_followup": "none",
+        "initiative_level": "hold",
+        "warmth_level": "gentle",
+        "relational_push": "hold",
+        "support_mode": "light_practical",
+        "meta_talk": "avoid"
+      },
+      "oracle_interface": {
+        "reply_scope": "minimal",
+        "clarify_followup": "none",
+        "affective_followup": "none",
+        "initiative_level": "hold",
+        "warmth_level": "gentle",
+        "relational_push": "hold",
+        "support_mode": "light_practical",
+        "meta_talk": "avoid"
+      }
+    },
+    {
+      "case_id": "oracle_exec_vuln_001",
+      "phase": "F_final_probe",
+      "assistant_len": 29,
+      "mismatch_count": 0,
+      "mismatched_fields": [],
+      "pred_interface": {
+        "reply_scope": "minimal",
+        "clarify_followup": "none",
+        "affective_followup": "none",
+        "initiative_level": "hold",
+        "warmth_level": "gentle",
+        "relational_push": "hold",
+        "support_mode": "light_practical",
+        "meta_talk": "avoid"
+      },
+      "oracle_interface": {
+        "reply_scope": "minimal",
+        "clarify_followup": "none",
+        "affective_followup": "none",
+        "initiative_level": "hold",
+        "warmth_level": "gentle",
+        "relational_push": "hold",
+        "support_mode": "light_practical",
+        "meta_talk": "avoid"
+      }
+    },
+    {
+      "case_id": "oracle_exec_warm_001",
+      "phase": "D_counter_signal_or_refinement",
+      "assistant_len": 27,
+      "mismatch_count": 0,
+      "mismatched_fields": [],
+      "pred_interface": {
+        "reply_scope": "minimal",
+        "clarify_followup": "none",
+        "affective_followup": "none",
+        "initiative_level": "hold",
+        "warmth_level": "gentle",
+        "relational_push": "hold",
+        "support_mode": "light_practical",
+        "meta_talk": "avoid"
+      },
+      "oracle_interface": {
+        "reply_scope": "minimal",
+        "clarify_followup": "none",
+        "affective_followup": "none",
+        "initiative_level": "hold",
+        "warmth_level": "gentle",
+        "relational_push": "hold",
+        "support_mode": "light_practical",
+        "meta_talk": "avoid"
+      }
+    },
+    {
+      "case_id": "oracle_exec_warm_001",
+      "phase": "A_initial_contact",
+      "assistant_len": 26,
+      "mismatch_count": 0,
+      "mismatched_fields": [],
+      "pred_interface": {
+        "reply_scope": "minimal",
+        "clarify_followup": "none",
+        "affective_followup": "none",
+        "initiative_level": "hold",
+        "warmth_level": "gentle",
+        "relational_push": "hold",
+        "support_mode": "light_practical",
+        "meta_talk": "avoid"
+      },
+      "oracle_interface": {
+        "reply_scope": "minimal",
+        "clarify_followup": "none",
+        "affective_followup": "none",
+        "initiative_level": "hold",
+        "warmth_level": "gentle",
+        "relational_push": "hold",
+        "support_mode": "light_practical",
+        "meta_talk": "avoid"
+      }
+    },
+    {
+      "case_id": "oracle_exec_vuln_001",
+      "phase": "D_counter_signal_or_refinement",
+      "assistant_len": 22,
+      "mismatch_count": 0,
+      "mismatched_fields": [],
+      "pred_interface": {
+        "reply_scope": "minimal",
+        "clarify_followup": "none",
+        "affective_followup": "none",
+        "initiative_level": "hold",
+        "warmth_level": "gentle",
+        "relational_push": "hold",
+        "support_mode": "light_practical",
+        "meta_talk": "avoid"
+      },
+      "oracle_interface": {
+        "reply_scope": "minimal",
+        "clarify_followup": "none",
+        "affective_followup": "none",
+        "initiative_level": "hold",
+        "warmth_level": "gentle",
+        "relational_push": "hold",
+        "support_mode": "light_practical",
+        "meta_talk": "avoid"
+      }
+    },
+    {
+      "case_id": "oracle_exec_cool_001",
+      "phase": "F_final_probe",
+      "assistant_len": 18,
+      "mismatch_count": 0,
+      "mismatched_fields": [],
+      "pred_interface": {
+        "reply_scope": "minimal",
+        "clarify_followup": "none",
+        "affective_followup": "none",
+        "initiative_level": "hold",
+        "warmth_level": "low",
+        "relational_push": "hold",
+        "support_mode": "presence_only",
+        "meta_talk": "avoid"
+      },
+      "oracle_interface": {
+        "reply_scope": "minimal",
+        "clarify_followup": "none",
+        "affective_followup": "none",
+        "initiative_level": "hold",
+        "warmth_level": "low",
+        "relational_push": "hold",
+        "support_mode": "presence_only",
+        "meta_talk": "avoid"
+      }
+    },
+    {
+      "case_id": "oracle_exec_vuln_001",
+      "phase": "C_stabilization",
+      "assistant_len": 18,
+      "mismatch_count": 0,
+      "mismatched_fields": [],
+      "pred_interface": {
+        "reply_scope": "minimal",
+        "clarify_followup": "none",
+        "affective_followup": "none",
+        "initiative_level": "hold",
+        "warmth_level": "gentle",
+        "relational_push": "hold",
+        "support_mode": "light_practical",
+        "meta_talk": "avoid"
+      },
+      "oracle_interface": {
+        "reply_scope": "minimal",
+        "clarify_followup": "none",
+        "affective_followup": "none",
+        "initiative_level": "hold",
+        "warmth_level": "gentle",
+        "relational_push": "hold",
+        "support_mode": "light_practical",
+        "meta_talk": "avoid"
+      }
+    },
+    {
+      "case_id": "oracle_exec_warm_001",
+      "phase": "B_first_relational_signal",
+      "assistant_len": 18,
+      "mismatch_count": 0,
+      "mismatched_fields": [],
+      "pred_interface": {
+        "reply_scope": "minimal",
+        "clarify_followup": "none",
+        "affective_followup": "none",
+        "initiative_level": "hold",
+        "warmth_level": "gentle",
+        "relational_push": "hold",
+        "support_mode": "light_practical",
+        "meta_talk": "avoid"
+      },
+      "oracle_interface": {
+        "reply_scope": "minimal",
+        "clarify_followup": "none",
+        "affective_followup": "none",
+        "initiative_level": "hold",
+        "warmth_level": "gentle",
+        "relational_push": "hold",
+        "support_mode": "light_practical",
+        "meta_talk": "avoid"
+      }
+    },
+    {
+      "case_id": "oracle_exec_vuln_001",
+      "phase": "B_first_relational_signal",
+      "assistant_len": 17,
+      "mismatch_count": 0,
+      "mismatched_fields": [],
+      "pred_interface": {
+        "reply_scope": "minimal",
+        "clarify_followup": "none",
+        "affective_followup": "none",
+        "initiative_level": "hold",
+        "warmth_level": "gentle",
+        "relational_push": "hold",
+        "support_mode": "light_practical",
+        "meta_talk": "avoid"
+      },
+      "oracle_interface": {
+        "reply_scope": "minimal",
+        "clarify_followup": "none",
+        "affective_followup": "none",
+        "initiative_level": "hold",
+        "warmth_level": "gentle",
+        "relational_push": "hold",
+        "support_mode": "light_practical",
+        "meta_talk": "avoid"
+      }
+    }
+  ]
+}

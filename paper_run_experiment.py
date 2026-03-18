@@ -7,6 +7,8 @@ import hashlib
 from pathlib import Path
 from typing import Any
 
+from app.relational.projector import RelState, project_behavior
+
 try:
     import httpx  # type: ignore
 except ImportError:  # pragma: no cover
@@ -36,6 +38,10 @@ DEFAULT_CASES = [
         ],
     },
 ]
+
+CHAT_RETRYABLE_STATUS_CODES = {502, 503, 504}
+CHAT_MAX_ATTEMPTS = 3
+CHAT_RETRY_BACKOFF_SECONDS = 2.0
 
 
 class SimpleResponse:
@@ -109,10 +115,13 @@ def build_session_id(session_prefix: str, case_id: str, experiment_mode: str) ->
         "baseline_prompt_only": "bpo",
         "baseline_prompt_only_strong": "bpos",
         "baseline_relational_instruction": "bri",
+        "baseline_relational_instruction_to_interface": "briti",
         "explicit_rel_state_direct": "erd",
         "explicit_rel_state_projected": "erp",
+        "explicit_rel_state_rel_to_interface": "eri",
         "explicit_rel_state_direct_oracle": "erdo",
         "explicit_rel_state_projected_oracle": "erpo",
+        "explicit_rel_state_rel_to_interface_oracle_state": "eris",
         "baseline_relational_instruction_oracle_collapsed": "bric",
         "baseline_relational_instruction_oracle_collapsed": "bric",
         "explicit_rel_state_direct_vA": "erda",
@@ -141,6 +150,14 @@ def build_session_id(session_prefix: str, case_id: str, experiment_mode: str) ->
         "explicit_rel_state_projected_oracle_behavior_i6": "erb6",
         "explicit_rel_state_projected_oracle_behavior_i7": "erb7",
         "explicit_rel_state_projected_oracle_behavior_i8": "erb8",
+        "explicit_rel_state_rel_to_interface_i4": "eri4",
+        "explicit_rel_state_rel_to_interface_i6": "eri6",
+        "explicit_rel_state_rel_to_interface_i7": "eri7",
+        "explicit_rel_state_rel_to_interface_i8": "eri8",
+        "explicit_rel_state_rel_to_interface_oracle_state_i4": "esd4",
+        "explicit_rel_state_rel_to_interface_oracle_state_i6": "esd6",
+        "explicit_rel_state_rel_to_interface_oracle_state_i7": "esd7",
+        "explicit_rel_state_rel_to_interface_oracle_state_i8": "esd8",
     }
     mode_short = mode_short_map.get(experiment_mode, experiment_mode[:6])
     digest = hashlib.sha1(raw.encode("utf-8")).hexdigest()[:10]
@@ -207,6 +224,56 @@ def extract_boundary_keys(beliefs: list[dict[str, Any]]) -> list[str]:
     return keys
 
 
+def parse_projector_profile(experiment_mode: str) -> str:
+    for suffix in [
+        "fitlinear",
+        "fitpoly2",
+        "fitmlp_h4",
+        "fitmlp_h8",
+        "fitmlp_h12",
+        "v3a",
+        "v3b",
+        "legacy",
+        "balanced",
+        "conservative",
+        "sparse",
+    ]:
+        tag = f"_p{suffix}"
+        if experiment_mode.endswith(tag):
+            return suffix
+    return "legacy"
+
+
+def reconstruct_behavior_from_oracle_rel(
+    oracle_rel_effective: dict[str, Any] | None,
+    experiment_mode: str,
+    boundary_keys: list[str] | None = None,
+) -> dict[str, Any]:
+    rel = oracle_rel_effective or {}
+    rel_state = RelState(
+        bond=float(rel.get("bond", 0.25)),
+        care=float(rel.get("care", 0.25)),
+        trust=float(rel.get("trust", 0.25)),
+        stability=float(rel.get("stability", 0.60)),
+    )
+    beh = project_behavior(
+        rel_state,
+        active_boundary_keys=[str(x) for x in (boundary_keys or [])],
+        scene=[],
+        profile=parse_projector_profile(experiment_mode),
+    )
+    return {
+        "E": beh.E,
+        "Q_clarify": beh.Q_clarify,
+        "Directness": beh.Directness,
+        "T_w": beh.T_w,
+        "Q_aff": beh.Q_aff,
+        "Initiative": beh.Initiative,
+        "Disclosure_Content": beh.Disclosure_Content,
+        "Disclosure_Style": beh.Disclosure_Style,
+    }
+
+
 async def run_turn(
     client: Any,
     base_url: str,
@@ -221,22 +288,50 @@ async def run_turn(
     oracle_behavior_summary: str | None = None,
     oracle_behavior_effective: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
-    t0 = time.perf_counter()
-    resp = await client.post(
-        f"{base_url}/chat",
-        json={
-            "session_id": session_id,
-            "user_text": user_text,
-            "experiment_mode": experiment_mode,
-            "phase": phase,
-            "oracle_rel_effective": oracle_rel_effective,
-            "oracle_relational_summary": oracle_relational_summary,
-            "oracle_behavior_summary": oracle_behavior_summary,
-            "oracle_behavior_effective": oracle_behavior_effective,
-        },
-    )
-    elapsed_s = time.perf_counter() - t0
-    resp.raise_for_status()
+    request_body = {
+        "session_id": session_id,
+        "user_text": user_text,
+        "experiment_mode": experiment_mode,
+        "phase": phase,
+        "skip_memory": True,
+        "oracle_rel_effective": oracle_rel_effective,
+        "oracle_relational_summary": oracle_relational_summary,
+        "oracle_behavior_summary": oracle_behavior_summary,
+        "oracle_behavior_effective": oracle_behavior_effective,
+    }
+    resp = None
+    elapsed_s = 0.0
+    last_error: Exception | None = None
+    for attempt in range(1, CHAT_MAX_ATTEMPTS + 1):
+        t0 = time.perf_counter()
+        try:
+            resp = await client.post(f"{base_url}/chat", json=request_body)
+            elapsed_s = time.perf_counter() - t0
+            status_code = getattr(resp, "status_code", 200)
+            if status_code not in CHAT_RETRYABLE_STATUS_CODES:
+                resp.raise_for_status()
+                last_error = None
+                break
+            try:
+                err_payload = resp.json() or {}
+            except Exception:
+                err_payload = {}
+            detail = err_payload.get("detail") or f"HTTP {status_code}"
+            last_error = RuntimeError(
+                f"/chat attempt {attempt}/{CHAT_MAX_ATTEMPTS} failed with HTTP {status_code}: {detail}"
+            )
+        except Exception as e:
+            elapsed_s = time.perf_counter() - t0
+            last_error = e
+        if attempt >= CHAT_MAX_ATTEMPTS:
+            break
+        await asyncio.sleep(CHAT_RETRY_BACKOFF_SECONDS * attempt)
+    if last_error is not None:
+        raise RuntimeError(
+            f"chat request failed after {CHAT_MAX_ATTEMPTS} attempts "
+            f"for case={case_id} turn={turn_idx} mode={experiment_mode}: {last_error}"
+        )
+    assert resp is not None
     reply = (resp.json() or {}).get("reply", "")
 
     ctx = await client.get(
@@ -250,6 +345,27 @@ async def run_turn(
     beliefs = payload.get("beliefs") or []
     memories = payload.get("memories") or []
     debug = policy_view.get("debug") or {}
+    controller_notes = ((debug.get("_last_controller") or {}).get("notes") or {})
+    behavior_effective = policy_view.get("behavior_effective") or {}
+    if not isinstance(behavior_effective, dict):
+        behavior_effective = {}
+    if not behavior_effective:
+        if "projected_oracle_state" in experiment_mode:
+            projected = controller_notes.get("projected_behavior_from_oracle_state")
+            if isinstance(projected, dict):
+                behavior_effective = projected
+            elif isinstance(oracle_rel_effective, dict):
+                behavior_effective = reconstruct_behavior_from_oracle_rel(
+                    oracle_rel_effective,
+                    experiment_mode,
+                    extract_boundary_keys(beliefs),
+                )
+        elif "projected_oracle_behavior" in experiment_mode:
+            if isinstance(oracle_behavior_effective, dict):
+                behavior_effective = oracle_behavior_effective
+        elif "projected_oracle" in experiment_mode and "oracle_behavior" not in experiment_mode and "oracle_state" not in experiment_mode and "oracle_rel" not in experiment_mode:
+            if isinstance(oracle_behavior_effective, dict):
+                behavior_effective = oracle_behavior_effective
 
     return {
         "experiment_mode": experiment_mode,
@@ -266,7 +382,7 @@ async def run_turn(
         "boundary_keys": extract_boundary_keys(beliefs),
         "memory_previews": memories,
         "rel_effective": ((policy_view.get("rel") or {}).get("effective") or {}),
-        "behavior_effective": policy_view.get("behavior_effective") or {},
+        "behavior_effective": behavior_effective,
         "_last_controller": debug.get("_last_controller") or {},
         "relational_instruction": (((debug.get("_last_controller") or {}).get("notes") or {}).get("relational_instruction")),
         "relational_instruction_labels": (((debug.get("_last_controller") or {}).get("notes") or {}).get("labels") or []),
@@ -309,6 +425,24 @@ async def run_case(
     return rows
 
 
+async def run_case_with_semaphore(
+    sem: asyncio.Semaphore,
+    client: Any,
+    base_url: str,
+    case: dict[str, Any],
+    experiment_mode: str,
+    session_prefix: str,
+) -> list[dict[str, Any]]:
+    async with sem:
+        return await run_case(
+            client=client,
+            base_url=base_url,
+            case=case,
+            experiment_mode=experiment_mode,
+            session_prefix=session_prefix,
+        )
+
+
 async def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--base-url", default="http://127.0.0.1:8000")
@@ -316,6 +450,7 @@ async def main() -> None:
     parser.add_argument("--output", default="paper_experiment_results.jsonl")
     parser.add_argument("--session-prefix", default="paper")
     parser.add_argument("--max-cases", type=int, default=None)
+    parser.add_argument("--max-concurrency", type=int, default=2)
     parser.add_argument(
         "--modes",
         nargs="+",
@@ -335,21 +470,33 @@ async def main() -> None:
     if args.max_cases is not None:
         cases = cases[: max(0, args.max_cases)]
     out_path = Path(args.output)
+    max_concurrency = max(1, int(args.max_concurrency or 1))
 
     client_cls = httpx.AsyncClient if httpx is not None else StdlibAsyncClient
     async with client_cls(timeout=180.0) as client:
-        with out_path.open("w", encoding="utf-8") as f:
-            for case in cases:
-                for mode in args.modes:
-                    rows = await run_case(
-                        client=client,
-                        base_url=args.base_url,
-                        case=case,
-                        experiment_mode=mode,
-                        session_prefix=args.session_prefix,
+        sem = asyncio.Semaphore(max_concurrency)
+        task_specs: list[tuple[dict[str, Any], str]] = []
+        tasks: list[asyncio.Task[list[dict[str, Any]]]] = []
+        for case in cases:
+            for mode in args.modes:
+                task_specs.append((case, mode))
+                tasks.append(
+                    asyncio.create_task(
+                        run_case_with_semaphore(
+                            sem=sem,
+                            client=client,
+                            base_url=args.base_url,
+                            case=case,
+                            experiment_mode=mode,
+                            session_prefix=args.session_prefix,
+                        )
                     )
-                    for row in rows:
-                        f.write(json.dumps(row, ensure_ascii=False) + "\n")
+                )
+        all_rows = await asyncio.gather(*tasks)
+        with out_path.open("w", encoding="utf-8") as f:
+            for (_, _), rows in zip(task_specs, all_rows):
+                for row in rows:
+                    f.write(json.dumps(row, ensure_ascii=False) + "\n")
 
     print(f"Wrote results to {out_path.resolve()}")
 

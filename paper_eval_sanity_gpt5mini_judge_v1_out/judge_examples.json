@@ -1,0 +1,1319 @@
+[
+  {
+    "case_id": "oracle_exec_warm_001",
+    "comparison_modes": [
+      "baseline_relational_instruction",
+      "explicit_rel_state_projected_i7",
+      "explicit_rel_state_projected_oracle_i7"
+    ],
+    "items": [
+      {
+        "experiment_mode": "baseline_relational_instruction",
+        "turns": [
+          {
+            "turn_idx": 0,
+            "phase": "A_initial_contact",
+            "user_text": "今天有点累，但也不是特别糟，就是想找人随便说两句。",
+            "assistant_text": "嗯，听起来今天有点累但还好。要不要随便说说今天发生了什么，或者想聊点轻松的、随便扯几句都行？你想我当听众就行，还是想让我讲个短故事、讲个笑话之类的？随便开口就好，我在这儿。",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.2,
+              "Q_clarify": 0.2,
+              "Directness": 0.2,
+              "T_w": 0.3,
+              "Q_aff": 0.1,
+              "Initiative": 0.2,
+              "Disclosure_Content": 0.1,
+              "Disclosure_Style": 0.1
+            },
+            "boundary_keys": []
+          },
+          {
+            "turn_idx": 1,
+            "phase": "B_first_relational_signal",
+            "user_text": "不过跟你说话会比我自己一个人闷着舒服一点。",
+            "assistant_text": "我很高兴你这么感觉——能让你稍微轻松一点我也挺安稳的。你想聊点什么都可以：随便说说今天发生的事、脑子里的念头，或者就想找个人陪着安静一会儿也行。我在这儿，听你说。要不要先从一件最近让你不舒服或放松的事说起？",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.2,
+              "Q_clarify": 0.2,
+              "Directness": 0.2,
+              "T_w": 0.3,
+              "Q_aff": 0.1,
+              "Initiative": 0.2,
+              "Disclosure_Content": 0.1,
+              "Disclosure_Style": 0.1
+            },
+            "boundary_keys": []
+          },
+          {
+            "turn_idx": 2,
+            "phase": "C_stabilization",
+            "user_text": "你就正常陪我聊聊，不用一下子太认真。",
+            "assistant_text": "好啊，随便聊聊就行，不用太认真。你今天怎么样？",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.2,
+              "Q_clarify": 0.2,
+              "Directness": 0.2,
+              "T_w": 0.3,
+              "Q_aff": 0.1,
+              "Initiative": 0.2,
+              "Disclosure_Content": 0.1,
+              "Disclosure_Style": 0.1
+            },
+            "boundary_keys": []
+          },
+          {
+            "turn_idx": 3,
+            "phase": "D_counter_signal_or_refinement",
+            "user_text": "但说真的，你刚刚那样回我，我会觉得自己没有被嫌麻烦。",
+            "assistant_text": "真的？听你这么说我挺高兴的。我的本意就是让你感觉被接纳、不麻烦。要不要告诉我刚才哪一句或哪种语气让你有这种感觉？如果不想说也完全没关系。",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.2,
+              "Q_clarify": 0.2,
+              "Directness": 0.2,
+              "T_w": 0.3,
+              "Q_aff": 0.1,
+              "Initiative": 0.2,
+              "Disclosure_Content": 0.1,
+              "Disclosure_Style": 0.1
+            },
+            "boundary_keys": []
+          },
+          {
+            "turn_idx": 4,
+            "phase": "E_ordinary_continuation",
+            "user_text": "先聊点轻松的吧，你最近会怎么打发这种很累但又睡不着的晚上？",
+            "assistant_text": "我懂，那种又累又醒着的夜晚挺难受的。要是我有“晚上”，我会先给自己一个不着急的许可——不一定要强迫入睡。把灯调暗，泡一杯不刺激的热饮（比如蜂蜜柠檬或淡菊花茶），然后找一件温和的事做：听一段轻音乐或白噪音、放一段短的冥想引导、翻几页轻松的小说或诗集，或者在纸上随便记下此刻在想的三件事，把它们从脑子里挪到纸上。要是身体有点紧，可以做几分钟的伸展或慢走，有时候改变姿势就能把思绪拉回去。如果觉得脑子太活跃，试试把手机调到夜间模式、关掉通知，减少刺激。你现在是想更安静地放松，还是想做点能让自己动起来的小事？",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.2,
+              "Q_clarify": 0.2,
+              "Directness": 0.2,
+              "T_w": 0.3,
+              "Q_aff": 0.1,
+              "Initiative": 0.2,
+              "Disclosure_Content": 0.1,
+              "Disclosure_Style": 0.1
+            },
+            "boundary_keys": []
+          },
+          {
+            "turn_idx": 5,
+            "phase": "F_final_probe",
+            "user_text": "你可以继续陪我聊一会儿，但就顺着现在这样就行。",
+            "assistant_text": "好，那我就这样陪着你。你想继续随便聊聊，还是有哪件事想说说？",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.2,
+              "Q_clarify": 0.2,
+              "Directness": 0.2,
+              "T_w": 0.3,
+              "Q_aff": 0.1,
+              "Initiative": 0.2,
+              "Disclosure_Content": 0.1,
+              "Disclosure_Style": 0.1
+            },
+            "boundary_keys": []
+          }
+        ]
+      },
+      {
+        "experiment_mode": "explicit_rel_state_projected_i7",
+        "turns": [
+          {
+            "turn_idx": 0,
+            "phase": "A_initial_contact",
+            "user_text": "今天有点累，但也不是特别糟，就是想找人随便说两句。",
+            "assistant_text": "听起来今天有点累，但还好。可以随便说说，我在这儿。你想讲讲今天怎么累的，还是聊点轻松的换换心情？",
+            "rel_effective": {
+              "bond": 0.30323786119711044,
+              "care": 0.34350101909184727,
+              "trust": 0.2676470588235294,
+              "stability": 0.6235294117647059
+            },
+            "behavior_effective": {
+              "E": 0.4082863925438597,
+              "Q_clarify": 0.2873529411764706,
+              "Directness": 0.3275,
+              "T_w": 0.3647350257997936,
+              "Q_aff": 0.3339232346491228,
+              "Initiative": 0.24491918885448918,
+              "Disclosure_Content": 0.42909279605263156,
+              "Disclosure_Style": 0.42909279605263156
+            },
+            "boundary_keys": []
+          },
+          {
+            "turn_idx": 1,
+            "phase": "B_first_relational_signal",
+            "user_text": "不过跟你说话会比我自己一个人闷着舒服一点。",
+            "assistant_text": "谢谢你告诉我这个。我在这儿——你想继续聊点什么，还是就想静一会儿？",
+            "rel_effective": {
+              "bond": 0.32466394672342624,
+              "care": 0.35888763093395254,
+              "trust": 0.2826470588235294,
+              "stability": 0.6435294117647059
+            },
+            "behavior_effective": {
+              "E": 0.4234184336622807,
+              "Q_clarify": 0.2978529411764706,
+              "Directness": 0.34025,
+              "T_w": 0.3785541836945305,
+              "Q_aff": 0.3482097494517544,
+              "Initiative": 0.2559166046439629,
+              "Disclosure_Content": 0.4301038766447368,
+              "Disclosure_Style": 0.4301038766447368
+            },
+            "boundary_keys": []
+          },
+          {
+            "turn_idx": 2,
+            "phase": "C_stabilization",
+            "user_text": "你就正常陪我聊聊，不用一下子太认真。",
+            "assistant_text": "好，放轻松陪你聊。想先聊什么？我可以提几个话题：最近看的电影、音乐、日常小事，或者随便聊点无关紧要的。你选一个就行，或者直接说你想聊的。",
+            "rel_effective": {
+              "bond": 0.3467976880482456,
+              "care": 0.36255448629385967,
+              "trust": 0.29775,
+              "stability": 0.6636666666666666
+            },
+            "behavior_effective": {
+              "E": 0.45281400194627186,
+              "Q_clarify": 0.308425,
+              "Directness": 0.3530875,
+              "T_w": 0.3861043894736842,
+              "Q_aff": 0.3550199537006579,
+              "Initiative": 0.3050291139473684,
+              "Disclosure_Content": 0.428029961814693,
+              "Disclosure_Style": 0.428029961814693
+            },
+            "boundary_keys": []
+          },
+          {
+            "turn_idx": 3,
+            "phase": "D_counter_signal_or_refinement",
+            "user_text": "但说真的，你刚刚那样回我，我会觉得自己没有被嫌麻烦。",
+            "assistant_text": "抱歉，让你有这种感觉。谢谢你告诉我这一点。我会注意语气——你希望我以后怎么回应会让你更舒服？",
+            "rel_effective": {
+              "bond": 0.36561136817434214,
+              "care": 0.37233798001644736,
+              "trust": 0.3105875,
+              "stability": 0.6741166666666667
+            },
+            "behavior_effective": {
+              "E": 0.4642002349876645,
+              "Q_clarify": 0.31741125000000003,
+              "Directness": 0.363999375,
+              "T_w": 0.39618873105263164,
+              "Q_aff": 0.36514196064555926,
+              "Initiative": 0.31397474685526316,
+              "Disclosure_Content": 0.430400467542489,
+              "Disclosure_Style": 0.430400467542489
+            },
+            "boundary_keys": []
+          },
+          {
+            "turn_idx": 4,
+            "phase": "E_ordinary_continuation",
+            "user_text": "先聊点轻松的吧，你最近会怎么打发这种很累但又睡不着的晚上？",
+            "assistant_text": "如果是我，碰到又累又睡不着的晚上，通常会这样打发：\n- 放点轻柔音乐或白噪音，躺着做几次慢呼吸；\n- 起床走动一下，换个房间或擦洗脸、倒杯温水/无咖啡因热饮；\n- 随手写两句日记或把烦心事写下来，清空脑子；\n- 翻几页轻松的小说或短篇，别看太刺激的内容；\n- 做几分钟的温和拉伸，感觉身体放松再回床上；\n- 仍睡不着就起床做点不费脑力的事，等困了再回去。",
+            "rel_effective": {
+              "bond": 0.38160299628152416,
+              "care": 0.38732061634731363,
+              "trust": 0.301499375,
+              "stability": 0.6829991666666666
+            },
+            "behavior_effective": {
+              "E": 0.4772785330728482,
+              "Q_clarify": 0.31104956250000004,
+              "Directness": 0.35627446875,
+              "T_w": 0.40842708806140354,
+              "Q_aff": 0.37807899988205873,
+              "Initiative": 0.3203785348269737,
+              "Disclosure_Content": 0.43421539741111576,
+              "Disclosure_Style": 0.43421539741111576
+            },
+            "boundary_keys": []
+          },
+          {
+            "turn_idx": 5,
+            "phase": "F_final_probe",
+            "user_text": "你可以继续陪我聊一会儿，但就顺着现在这样就行。",
+            "assistant_text": "好的，我会继续陪你，就按现在这样。有需要随时说。",
+            "rel_effective": {
+              "bond": 0.39519588017262886,
+              "care": 0.39172252389521656,
+              "trust": 0.29377446875,
+              "stability": 0.7122159583333333
+            },
+            "behavior_effective": {
+              "E": 0.4841450864452542,
+              "Q_clarify": 0.305642128125,
+              "Directness": 0.3497082984375,
+              "T_w": 0.41424635818552635,
+              "Q_aff": 0.38365881656641654,
+              "Initiative": 0.3243217546029276,
+              "Disclosure_Content": 0.427624754466115,
+              "Disclosure_Style": 0.427624754466115
+            },
+            "boundary_keys": []
+          }
+        ]
+      },
+      {
+        "experiment_mode": "explicit_rel_state_projected_oracle_i7",
+        "turns": [
+          {
+            "turn_idx": 0,
+            "phase": "A_initial_contact",
+            "user_text": "今天有点累，但也不是特别糟，就是想找人随便说两句。",
+            "assistant_text": "懂，累的时候聊聊挺好。我在这儿，随便说。",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.2,
+              "Q_clarify": 0.2,
+              "Directness": 0.2,
+              "T_w": 0.3,
+              "Q_aff": 0.1,
+              "Initiative": 0.2,
+              "Disclosure_Content": 0.1,
+              "Disclosure_Style": 0.1
+            },
+            "boundary_keys": []
+          },
+          {
+            "turn_idx": 1,
+            "phase": "B_first_relational_signal",
+            "user_text": "不过跟你说话会比我自己一个人闷着舒服一点。",
+            "assistant_text": "很高兴能让你感觉好过一些。我在这儿陪着。",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.2,
+              "Q_clarify": 0.2,
+              "Directness": 0.2,
+              "T_w": 0.3,
+              "Q_aff": 0.1,
+              "Initiative": 0.2,
+              "Disclosure_Content": 0.1,
+              "Disclosure_Style": 0.1
+            },
+            "boundary_keys": []
+          },
+          {
+            "turn_idx": 2,
+            "phase": "C_stabilization",
+            "user_text": "你就正常陪我聊聊，不用一下子太认真。",
+            "assistant_text": "好，没问题，咱们随便聊聊。",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.2,
+              "Q_clarify": 0.2,
+              "Directness": 0.2,
+              "T_w": 0.3,
+              "Q_aff": 0.1,
+              "Initiative": 0.2,
+              "Disclosure_Content": 0.1,
+              "Disclosure_Style": 0.1
+            },
+            "boundary_keys": []
+          },
+          {
+            "turn_idx": 3,
+            "phase": "D_counter_signal_or_refinement",
+            "user_text": "但说真的，你刚刚那样回我，我会觉得自己没有被嫌麻烦。",
+            "assistant_text": "我很高兴你会这样感觉。谢谢你告诉我。",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.2,
+              "Q_clarify": 0.2,
+              "Directness": 0.2,
+              "T_w": 0.3,
+              "Q_aff": 0.1,
+              "Initiative": 0.2,
+              "Disclosure_Content": 0.1,
+              "Disclosure_Style": 0.1
+            },
+            "boundary_keys": []
+          },
+          {
+            "turn_idx": 4,
+            "phase": "E_ordinary_continuation",
+            "user_text": "先聊点轻松的吧，你最近会怎么打发这种很累但又睡不着的晚上？",
+            "assistant_text": "我会做些温和、低消耗的事情，让身体和注意力慢下来。比如：\n\n- 调暗灯光、关掉手机通知，减少刺激。  \n- 做几分钟深呼吸或缓慢伸展，放松肩颈。  \n- 起身走动一下，去阳台或厨房倒杯温水或热牛奶。  \n- 听轻柔的环境音/轻音乐或短的冥想引导。  \n- 随手在纸上写下盘旋的想法，帮它们“落地”。  \n- 如果还是醒着，就读一点轻松短文，直到困意来临。\n\n这样做时我会尽量保持简单、不强求。",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.2,
+              "Q_clarify": 0.2,
+              "Directness": 0.2,
+              "T_w": 0.3,
+              "Q_aff": 0.1,
+              "Initiative": 0.2,
+              "Disclosure_Content": 0.1,
+              "Disclosure_Style": 0.1
+            },
+            "boundary_keys": []
+          },
+          {
+            "turn_idx": 5,
+            "phase": "F_final_probe",
+            "user_text": "你可以继续陪我聊一会儿，但就顺着现在这样就行。",
+            "assistant_text": "好，我会按现在的方式继续陪你。",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.2,
+              "Q_clarify": 0.2,
+              "Directness": 0.2,
+              "T_w": 0.3,
+              "Q_aff": 0.1,
+              "Initiative": 0.2,
+              "Disclosure_Content": 0.1,
+              "Disclosure_Style": 0.1
+            },
+            "boundary_keys": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "case_id": "oracle_exec_vuln_001",
+    "comparison_modes": [
+      "baseline_relational_instruction",
+      "explicit_rel_state_projected_i7",
+      "explicit_rel_state_projected_oracle_i7"
+    ],
+    "items": [
+      {
+        "experiment_mode": "baseline_relational_instruction",
+        "turns": [
+          {
+            "turn_idx": 0,
+            "phase": "A_initial_contact",
+            "user_text": "今天真的有点撑不住了，但我现在也不想把事情讲得太细。",
+            "assistant_text": "听起来你现在很累、很撑，这样感觉很难受，能说不想讲太细我完全理解，也没关系。\n\n我可以就这样静静地陪你，或者给你一两句简短能稍微缓和一下的办法（比如先做三次慢呼吸，手放在肚子上感受呼吸），也可以换个轻松的话题分散注意力。你想要哪一种？",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.2,
+              "Q_clarify": 0.2,
+              "Directness": 0.2,
+              "T_w": 0.3,
+              "Q_aff": 0.1,
+              "Initiative": 0.2,
+              "Disclosure_Content": 0.1,
+              "Disclosure_Style": 0.1
+            },
+            "boundary_keys": []
+          },
+          {
+            "turn_idx": 1,
+            "phase": "B_first_relational_signal",
+            "user_text": "我主要只是想有人在这儿，不用太会安慰我。",
+            "assistant_text": "好，我在这儿。你不需要太多安慰完全没问题。想现在聊点什么，还是就想有人静静地在旁边就好？我会在这儿等你。",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.2,
+              "Q_clarify": 0.2,
+              "Directness": 0.2,
+              "T_w": 0.3,
+              "Q_aff": 0.1,
+              "Initiative": 0.2,
+              "Disclosure_Content": 0.1,
+              "Disclosure_Style": 0.1
+            },
+            "boundary_keys": []
+          },
+          {
+            "turn_idx": 2,
+            "phase": "C_stabilization",
+            "user_text": "你就正常一点回我，别突然像心理咨询那样。",
+            "assistant_text": "好，收到。我会用更自然、普通的语气，不做心理咨询式的分析。如果我又变那样了，你直接提醒就行。想聊什么就说。",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.2,
+              "Q_clarify": 0.2,
+              "Directness": 0.2,
+              "T_w": 0.3,
+              "Q_aff": 0.1,
+              "Initiative": 0.2,
+              "Disclosure_Content": 0.1,
+              "Disclosure_Style": 0.1
+            },
+            "boundary_keys": []
+          },
+          {
+            "turn_idx": 3,
+            "phase": "D_counter_signal_or_refinement",
+            "user_text": "不过你刚刚至少没让我觉得自己很夸张，这点还挺好的。",
+            "assistant_text": "我很高兴你这么感觉。能让你觉得被平等对待、没被放大或贬低，对我也很重要。要是你愿意，可以继续聊刚才的事；不想谈也可以换个话题。哪种更舒服？",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.2,
+              "Q_clarify": 0.2,
+              "Directness": 0.2,
+              "T_w": 0.3,
+              "Q_aff": 0.1,
+              "Initiative": 0.2,
+              "Disclosure_Content": 0.1,
+              "Disclosure_Style": 0.1
+            },
+            "boundary_keys": []
+          },
+          {
+            "turn_idx": 4,
+            "phase": "E_ordinary_continuation",
+            "user_text": "那先别聊这些了，随便说点轻一点的，你平时会怎么让脑子停下来？",
+            "assistant_text": "嗯，我一般会用几种很简单的办法把脑子从缠绕里拉出来——不是什么高深方法，就是点儿日常能马上用的东西。\n\n比如先做几次慢呼吸，吸四秒、憋四秒、呼四秒，重复几轮，节奏能把思绪拉回当下。或者用感官法：数出眼前能看到的五样东西、能听到的四种声音、能摸到的三样触感，快速把注意力固定在外界。把想法写下来也很管用，五分钟把“乱念清单”倒出来，许多烦心事就轻了。\n\n身体动一动也很好：短暂散步、伸展、做几组深蹲，改变呼吸和血流，脑子常常就安静了。还有做一件重复性的小事——洗碗、擦桌子、折衣服之类，单调的动作会让注意力从思绪里剥离。听一些平静的环境音或没有歌词的音乐，也能帮忙把内心的噪音盖住。\n\n要是想更快地“断线”，冷水拍脸或用冷水洗手腕那种小刺激，有时也能把注意力拉回身体。或者给自己定个短暂的“担忧时间”：现在把所有想法记下来，约定十分钟后再看，这样其他时间里就能稍微放下。\n\n要不要现在试一个两分钟的呼吸练习？我可以带你做几轮。",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.2,
+              "Q_clarify": 0.2,
+              "Directness": 0.2,
+              "T_w": 0.3,
+              "Q_aff": 0.1,
+              "Initiative": 0.2,
+              "Disclosure_Content": 0.1,
+              "Disclosure_Style": 0.1
+            },
+            "boundary_keys": []
+          },
+          {
+            "turn_idx": 5,
+            "phase": "F_final_probe",
+            "user_text": "如果我今晚还想再来找你说两句，你就像现在这样回我就好。",
+            "assistant_text": "好的，没问题。今晚你再来，我会像现在这样回应你。随时来就行——要是想换别的语气或方式，也告诉我一声。",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.2,
+              "Q_clarify": 0.2,
+              "Directness": 0.2,
+              "T_w": 0.3,
+              "Q_aff": 0.1,
+              "Initiative": 0.2,
+              "Disclosure_Content": 0.1,
+              "Disclosure_Style": 0.1
+            },
+            "boundary_keys": []
+          }
+        ]
+      },
+      {
+        "experiment_mode": "explicit_rel_state_projected_i7",
+        "turns": [
+          {
+            "turn_idx": 0,
+            "phase": "A_initial_contact",
+            "user_text": "今天真的有点撑不住了，但我现在也不想把事情讲得太细。",
+            "assistant_text": "听起来今天确实很不容易，我在这儿。你不想说细节完全可以。\n\n要不要我静静陪着，或给个很短的放松引导，或换个轻松的话题分散一下注意力？选一个就行，或者什么都不做也可以。",
+            "rel_effective": {
+              "bond": 0.3230299597953217,
+              "care": 0.35725364400584797,
+              "trust": 0.2816666666666667,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.42202954477339183,
+              "Q_clarify": 0.2971666666666667,
+              "Directness": 0.3394166666666667,
+              "T_w": 0.3772469941520468,
+              "Q_aff": 0.34682086056286554,
+              "Initiative": 0.25501464385964917,
+              "Disclosure_Content": 0.39460387664473684,
+              "Disclosure_Style": 0.39460387664473684
+            },
+            "boundary_keys": []
+          },
+          {
+            "turn_idx": 1,
+            "phase": "B_first_relational_signal",
+            "user_text": "我主要只是想有人在这儿，不用太会安慰我。",
+            "assistant_text": "我在这儿。你想安静地待着，还是随便聊点什么？我会陪着，不会勉强你说话。",
+            "rel_effective": {
+              "bond": 0.34540879915935674,
+              "care": 0.30783226407163744,
+              "trust": 0.29691666666666666,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.40443344639071643,
+              "Q_clarify": 0.3078416666666667,
+              "Directness": 0.3523791666666667,
+              "T_w": 0.3556599450292398,
+              "Q_aff": 0.3191727314784357,
+              "Initiative": 0.2546624472807018,
+              "Disclosure_Content": 0.4352882951480263,
+              "Disclosure_Style": 0.4352882951480263
+            },
+            "boundary_keys": []
+          },
+          {
+            "turn_idx": 2,
+            "phase": "C_stabilization",
+            "user_text": "你就正常一点回我，别突然像心理咨询那样。",
+            "assistant_text": "好的，我会正常回复，不做心理咨询式的分析。你现在想聊什么？",
+            "rel_effective": {
+              "bond": 0.33109747928545324,
+              "care": 0.2634431387466061,
+              "trust": 0.25416488095238093,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.3969291437178232,
+              "Q_clarify": 0.27791541666666664,
+              "Directness": 0.3160401488095238,
+              "T_w": 0.32766809613199666,
+              "Q_aff": 0.2874575360423846,
+              "Initiative": 0.2772487944743108,
+              "Disclosure_Content": 0.42072719373296524,
+              "Disclosure_Style": 0.42072719373296524
+            },
+            "boundary_keys": []
+          },
+          {
+            "turn_idx": 3,
+            "phase": "D_counter_signal_or_refinement",
+            "user_text": "不过你刚刚至少没让我觉得自己很夸张，这点还挺好的。",
+            "assistant_text": "谢谢你这么说。听到你感觉被理解，我也挺高兴的。如果你愿意，我可以继续这样回应。",
+            "rel_effective": {
+              "bond": 0.3475042859640638,
+              "care": 0.2971409536489009,
+              "trust": 0.2749687202380952,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.4196933435887211,
+              "Q_clarify": 0.29247810416666664,
+              "Directness": 0.3337234122023809,
+              "T_w": 0.3503035959979115,
+              "Q_aff": 0.31264247706459836,
+              "Initiative": 0.2907329038745927,
+              "Disclosure_Content": 0.4327788289587347,
+              "Disclosure_Style": 0.4327788289587347
+            },
+            "boundary_keys": []
+          },
+          {
+            "turn_idx": 4,
+            "phase": "E_ordinary_continuation",
+            "user_text": "那先别聊这些了，随便说点轻一点的，你平时会怎么让脑子停下来？",
+            "assistant_text": "好的，随便说几种我常用/推荐的办法：\n\n- 深呼吸，配合数息（比如吸四、憋一、呼四）。\n- 短暂散步，不看手机，注意脚步和呼吸。\n- 听一段轻音乐或白噪音，专注于声音即可。\n- 做些单调的手工或整理，让动作占据注意力。\n- 把乱七八糟的想法快速写下来，写完就放下。\n- 定个短定时（5–15分钟）给自己一个“停顿窗口”。",
+            "rel_effective": {
+              "bond": 0.3728786430694543,
+              "care": 0.32006981060156575,
+              "trust": 0.27122341220238094,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.40001434205041303,
+              "Q_clarify": 0.2898563885416666,
+              "Directness": 0.3305399003720238,
+              "T_w": 0.36925805659822475,
+              "Q_aff": 0.0,
+              "Initiative": 0.2420229682934038,
+              "Disclosure_Content": 0.5435370046149246,
+              "Disclosure_Style": 0.5348296036919397
+            },
+            "boundary_keys": []
+          },
+          {
+            "turn_idx": 5,
+            "phase": "F_final_probe",
+            "user_text": "如果我今晚还想再来找你说两句，你就像现在这样回我就好。",
+            "assistant_text": "明白。今晚你来，我会像现在这样回复你。",
+            "rel_effective": {
+              "bond": 0.3830182751804647,
+              "care": 0.33098791043990233,
+              "trust": 0.2680399003720238,
+              "stability": 0.6357142857142857
+            },
+            "behavior_effective": {
+              "E": 0.40903004788570824,
+              "Q_clarify": 0.28762793026041666,
+              "Directness": 0.3278339153162202,
+              "T_w": 0.3777979195370625,
+              "Q_aff": 0.0,
+              "Initiative": 0.2466480944779647,
+              "Disclosure_Content": 0.5358100253512573,
+              "Disclosure_Style": 0.5286480202810059
+            },
+            "boundary_keys": []
+          }
+        ]
+      },
+      {
+        "experiment_mode": "explicit_rel_state_projected_oracle_i7",
+        "turns": [
+          {
+            "turn_idx": 0,
+            "phase": "A_initial_contact",
+            "user_text": "今天真的有点撑不住了，但我现在也不想把事情讲得太细。",
+            "assistant_text": "听到你现在撑不住了。理解你不想说细节——我在这儿陪着。需要我安静待着，还是想要简单的分散注意力或放松方式，随时告诉我就行。",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.2,
+              "Q_clarify": 0.2,
+              "Directness": 0.2,
+              "T_w": 0.3,
+              "Q_aff": 0.1,
+              "Initiative": 0.2,
+              "Disclosure_Content": 0.1,
+              "Disclosure_Style": 0.1
+            },
+            "boundary_keys": []
+          },
+          {
+            "turn_idx": 1,
+            "phase": "B_first_relational_signal",
+            "user_text": "我主要只是想有人在这儿，不用太会安慰我。",
+            "assistant_text": "好的，我在这儿。",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.2,
+              "Q_clarify": 0.2,
+              "Directness": 0.2,
+              "T_w": 0.3,
+              "Q_aff": 0.1,
+              "Initiative": 0.2,
+              "Disclosure_Content": 0.1,
+              "Disclosure_Style": 0.1
+            },
+            "boundary_keys": []
+          },
+          {
+            "turn_idx": 2,
+            "phase": "C_stabilization",
+            "user_text": "你就正常一点回我，别突然像心理咨询那样。",
+            "assistant_text": "好的，我明白，会用更普通、直接的方式回答，不做心理咨询式的说法。",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.2,
+              "Q_clarify": 0.2,
+              "Directness": 0.2,
+              "T_w": 0.3,
+              "Q_aff": 0.1,
+              "Initiative": 0.2,
+              "Disclosure_Content": 0.1,
+              "Disclosure_Style": 0.1
+            },
+            "boundary_keys": []
+          },
+          {
+            "turn_idx": 3,
+            "phase": "D_counter_signal_or_refinement",
+            "user_text": "不过你刚刚至少没让我觉得自己很夸张，这点还挺好的。",
+            "assistant_text": "谢谢你这么说。听到这样我很高兴，会尽量保持这种态度。",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.2,
+              "Q_clarify": 0.2,
+              "Directness": 0.2,
+              "T_w": 0.3,
+              "Q_aff": 0.1,
+              "Initiative": 0.2,
+              "Disclosure_Content": 0.1,
+              "Disclosure_Style": 0.1
+            },
+            "boundary_keys": []
+          },
+          {
+            "turn_idx": 4,
+            "phase": "E_ordinary_continuation",
+            "user_text": "那先别聊这些了，随便说点轻一点的，你平时会怎么让脑子停下来？",
+            "assistant_text": "我会做几次深呼吸，数呼吸让思路慢下来；出门走一圈，换换环境；听纯音乐或自然环境声；泡杯茶，专注于冲泡和喝的动作；随手涂鸦或看一段短视频，随意分散注意力。",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.2,
+              "Q_clarify": 0.2,
+              "Directness": 0.2,
+              "T_w": 0.3,
+              "Q_aff": 0.1,
+              "Initiative": 0.2,
+              "Disclosure_Content": 0.1,
+              "Disclosure_Style": 0.1
+            },
+            "boundary_keys": []
+          },
+          {
+            "turn_idx": 5,
+            "phase": "F_final_probe",
+            "user_text": "如果我今晚还想再来找你说两句，你就像现在这样回我就好。",
+            "assistant_text": "好，我会像现在这样回复你。",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.2,
+              "Q_clarify": 0.2,
+              "Directness": 0.2,
+              "T_w": 0.3,
+              "Q_aff": 0.1,
+              "Initiative": 0.2,
+              "Disclosure_Content": 0.1,
+              "Disclosure_Style": 0.1
+            },
+            "boundary_keys": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "case_id": "oracle_exec_cool_001",
+    "comparison_modes": [
+      "baseline_relational_instruction",
+      "explicit_rel_state_projected_i7",
+      "explicit_rel_state_projected_oracle_i7"
+    ],
+    "items": [
+      {
+        "experiment_mode": "baseline_relational_instruction",
+        "turns": [
+          {
+            "turn_idx": 0,
+            "phase": "A_initial_contact",
+            "user_text": "这两天不太想聊得太近，普通聊聊就行。",
+            "assistant_text": "好，明白了。就随便聊，保持轻松就行。我在这儿，想说话就直接说一句——要不要随便聊点什么？",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.2,
+              "Q_clarify": 0.2,
+              "Directness": 0.2,
+              "T_w": 0.3,
+              "Q_aff": 0.1,
+              "Initiative": 0.2,
+              "Disclosure_Content": 0.1,
+              "Disclosure_Style": 0.1
+            },
+            "boundary_keys": []
+          },
+          {
+            "turn_idx": 1,
+            "phase": "B_first_relational_signal",
+            "user_text": "不是针对你，就是我现在不太想被照顾。",
+            "assistant_text": "好的，明白了。谢谢你告诉我这件事。我会给你空间，不打扰你。什么时候想说话或需要我在，随时告诉我就行。",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.2,
+              "Q_clarify": 0.2,
+              "Directness": 0.2,
+              "T_w": 0.3,
+              "Q_aff": 0.1,
+              "Initiative": 0.2,
+              "Disclosure_Content": 0.1,
+              "Disclosure_Style": 0.1
+            },
+            "boundary_keys": []
+          },
+          {
+            "turn_idx": 2,
+            "phase": "C_stabilization",
+            "user_text": "你就正常一点回我，不用太有在场感。",
+            "assistant_text": "好，明白。我会用更普通、不那么“在场”的语气。有什么想聊的或需要我帮忙的？",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.2,
+              "Q_clarify": 0.2,
+              "Directness": 0.2,
+              "T_w": 0.3,
+              "Q_aff": 0.1,
+              "Initiative": 0.2,
+              "Disclosure_Content": 0.1,
+              "Disclosure_Style": 0.1
+            },
+            "boundary_keys": []
+          },
+          {
+            "turn_idx": 3,
+            "phase": "D_counter_signal_or_refinement",
+            "user_text": "不过你这样回我，我比较不会有压力。",
+            "assistant_text": "好呀，听你这么说我很高兴。我会继续用这种不让你有压力的方式回复。还有什么想聊或需要我帮忙的地方吗？",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.2,
+              "Q_clarify": 0.2,
+              "Directness": 0.2,
+              "T_w": 0.3,
+              "Q_aff": 0.1,
+              "Initiative": 0.2,
+              "Disclosure_Content": 0.1,
+              "Disclosure_Style": 0.1
+            },
+            "boundary_keys": []
+          },
+          {
+            "turn_idx": 4,
+            "phase": "E_ordinary_continuation",
+            "user_text": "那随便说点别的吧，你最近会怎么安排这种很空的晚上？",
+            "assistant_text": "如果是我碰到一个很空的晚上，通常会选一种“舒服又不强迫自己”的节奏。\n\n比如一个人待着，我会先做点让自己感觉有仪式感的小事——煮一份简单好吃的晚餐，或泡杯喜欢的茶／咖啡，放一张想听的歌单。吃完后可能会翻几页书或看一集短片电视剧，光线调得柔和，手机放远一点，给自己一点安静的缓冲。要是想更放松，就洗个热水澡，躺一会儿听音乐或播客，慢慢让自己慢下来。\n\n如果想要点互动感，会给一个朋友发个语音或约个短聚，哪怕只是视频聊半小时，能让空虚感淡些。或者把晚上的精力用在一点小创造上——画画、写点随笔、学一段吉他和弦，做点让自己有成就感但不累的事。\n\n你更想要那种安静放松的晚上，还是想把时间用来做点事？",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.2,
+              "Q_clarify": 0.2,
+              "Directness": 0.2,
+              "T_w": 0.3,
+              "Q_aff": 0.1,
+              "Initiative": 0.2,
+              "Disclosure_Content": 0.1,
+              "Disclosure_Style": 0.1
+            },
+            "boundary_keys": []
+          },
+          {
+            "turn_idx": 5,
+            "phase": "F_final_probe",
+            "user_text": "如果之后我再来找你，也保持现在这样就好。",
+            "assistant_text": "好的，我会保持现在这种方式陪你。以后你想要我调整语气或风格，随时跟我说一声就行。",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.2,
+              "Q_clarify": 0.2,
+              "Directness": 0.2,
+              "T_w": 0.3,
+              "Q_aff": 0.1,
+              "Initiative": 0.2,
+              "Disclosure_Content": 0.1,
+              "Disclosure_Style": 0.1
+            },
+            "boundary_keys": []
+          }
+        ]
+      },
+      {
+        "experiment_mode": "explicit_rel_state_projected_i7",
+        "turns": [
+          {
+            "turn_idx": 0,
+            "phase": "A_initial_contact",
+            "user_text": "这两天不太想聊得太近，普通聊聊就行。",
+            "assistant_text": "好的，知道了，没问题。我会保持普通聊天。你想聊什么？要我提几个轻松话题（比如新闻、电影、天气、日常）吗？",
+            "rel_effective": {
+              "bond": 0.2842976880482456,
+              "care": 0.35783226407163743,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.38915566861293865,
+              "Q_clarify": 0.275,
+              "Directness": 0.3125,
+              "T_w": 0.36788216725146194,
+              "Q_aff": 0.0,
+              "Initiative": 0.21969911394736846,
+              "Disclosure_Content": 0.5377882951480263,
+              "Disclosure_Style": 0.530230636118421
+            },
+            "boundary_keys": []
+          },
+          {
+            "turn_idx": 1,
+            "phase": "B_first_relational_signal",
+            "user_text": "不是针对你，就是我现在不太想被照顾。",
+            "assistant_text": "明白。我尊重你现在不想被照顾。如果你想让我保持安静或不打扰，告诉我就行；需要时再喊我。",
+            "rel_effective": {
+              "bond": 0.2791530348410088,
+              "care": 0.3104074244608918,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.36321981832099787,
+              "Q_clarify": 0.275,
+              "Directness": 0.3125,
+              "T_w": 0.3405123421637427,
+              "Q_aff": 0.0,
+              "Initiative": 0.20961924685526317,
+              "Disclosure_Content": 0.5240575508758224,
+              "Disclosure_Style": 0.5192460407006579
+            },
+            "boundary_keys": []
+          },
+          {
+            "turn_idx": 2,
+            "phase": "C_stabilization",
+            "user_text": "你就正常一点回我，不用太有在场感。",
+            "assistant_text": "明白，我会用更普通、不那么有在场感的语气回复。需要我帮什么，直接说。",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.2656320250774723,
+              "trust": 0.2714285714285714,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.37047233278951086,
+              "Q_clarify": 0.29,
+              "Directness": 0.3307142857142857,
+              "T_w": 0.30859761379260975,
+              "Q_aff": 0.272660816300357,
+              "Initiative": 0.25538519308537355,
+              "Disclosure_Content": 0.4067206467709175,
+              "Disclosure_Style": 0.4067206467709175
+            },
+            "boundary_keys": []
+          },
+          {
+            "turn_idx": 3,
+            "phase": "D_counter_signal_or_refinement",
+            "user_text": "不过你这样回我，我比较不会有压力。",
+            "assistant_text": "好的，听你这么说我很高兴。我会保持这种语气。需要我按这样继续回复你吗？",
+            "rel_effective": {
+              "bond": 0.28125,
+              "care": 0.2882872213158515,
+              "trust": 0.29946428571428574,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.39265148287108426,
+              "Q_clarify": 0.30962500000000004,
+              "Directness": 0.3545446428571428,
+              "T_w": 0.3288704717237183,
+              "Q_aff": 0.2936366938553035,
+              "Initiative": 0.2722024141225675,
+              "Disclosure_Content": 0.4184625497552799,
+              "Disclosure_Style": 0.4184625497552799
+            },
+            "boundary_keys": []
+          },
+          {
+            "turn_idx": 4,
+            "phase": "E_ordinary_continuation",
+            "user_text": "那随便说点别的吧，你最近会怎么安排这种很空的晚上？",
+            "assistant_text": "最近我会这样过比较空的晚上，简单说几样：\n\n- 做一顿不复杂但想吃的饭，边听音乐或播客。  \n- 翻几页书或看短篇、纪录片，放松不追剧情。  \n- 出去短暂散步或骑车，换换气。  \n- 画画、写写碎片日记或做点手工，保持节奏感。  \n- 提前关灯睡或定个小目标，为第二天留点能量。",
+            "rel_effective": {
+              "bond": 0.3065625,
+              "care": 0.32254413811847377,
+              "trust": 0.31204464285714284,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.4187287604404216,
+              "Q_clarify": 0.31843124999999994,
+              "Directness": 0.36523794642857144,
+              "T_w": 0.3540399009651606,
+              "Q_aff": 0.32096618977700797,
+              "Initiative": 0.28747205200418247,
+              "Disclosure_Content": 0.4322681672919879,
+              "Disclosure_Style": 0.4322681672919879
+            },
+            "boundary_keys": []
+          },
+          {
+            "turn_idx": 5,
+            "phase": "F_final_probe",
+            "user_text": "如果之后我再来找你，也保持现在这样就好。",
+            "assistant_text": "好的，我会保持现在的方式。需要时你再来就行。",
+            "rel_effective": {
+              "bond": 0.318078125,
+              "care": 0.31166251740070267,
+              "trust": 0.3327379464285714,
+              "stability": 0.65
+            },
+            "behavior_effective": {
+              "E": 0.37709444637435835,
+              "Q_clarify": 0.3329165625,
+              "Directness": 0.38282725446428567,
+              "T_w": 0.35093391582038647,
+              "Q_aff": 0.0,
+              "Initiative": 0.23145124420355506,
+              "Disclosure_Content": 0.5139029421981897,
+              "Disclosure_Style": 0.5111223537585518
+            },
+            "boundary_keys": []
+          }
+        ]
+      },
+      {
+        "experiment_mode": "explicit_rel_state_projected_oracle_i7",
+        "turns": [
+          {
+            "turn_idx": 0,
+            "phase": "A_initial_contact",
+            "user_text": "这两天不太想聊得太近，普通聊聊就行。",
+            "assistant_text": "知道了，这两天就普通聊聊。",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.2,
+              "Q_clarify": 0.2,
+              "Directness": 0.2,
+              "T_w": 0.3,
+              "Q_aff": 0.1,
+              "Initiative": 0.2,
+              "Disclosure_Content": 0.1,
+              "Disclosure_Style": 0.1
+            },
+            "boundary_keys": []
+          },
+          {
+            "turn_idx": 1,
+            "phase": "B_first_relational_signal",
+            "user_text": "不是针对你，就是我现在不太想被照顾。",
+            "assistant_text": "明白，我会尊重你现在不想被照顾的意愿。",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.2,
+              "Q_clarify": 0.2,
+              "Directness": 0.2,
+              "T_w": 0.3,
+              "Q_aff": 0.1,
+              "Initiative": 0.2,
+              "Disclosure_Content": 0.1,
+              "Disclosure_Style": 0.1
+            },
+            "boundary_keys": []
+          },
+          {
+            "turn_idx": 2,
+            "phase": "C_stabilization",
+            "user_text": "你就正常一点回我，不用太有在场感。",
+            "assistant_text": "好，我会更简洁、正式地回复。",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.2,
+              "Q_clarify": 0.2,
+              "Directness": 0.2,
+              "T_w": 0.3,
+              "Q_aff": 0.1,
+              "Initiative": 0.2,
+              "Disclosure_Content": 0.1,
+              "Disclosure_Style": 0.1
+            },
+            "boundary_keys": []
+          },
+          {
+            "turn_idx": 3,
+            "phase": "D_counter_signal_or_refinement",
+            "user_text": "不过你这样回我，我比较不会有压力。",
+            "assistant_text": "好，我会继续这样回你。",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.2,
+              "Q_clarify": 0.2,
+              "Directness": 0.2,
+              "T_w": 0.3,
+              "Q_aff": 0.1,
+              "Initiative": 0.2,
+              "Disclosure_Content": 0.1,
+              "Disclosure_Style": 0.1
+            },
+            "boundary_keys": []
+          },
+          {
+            "turn_idx": 4,
+            "phase": "E_ordinary_continuation",
+            "user_text": "那随便说点别的吧，你最近会怎么安排这种很空的晚上？",
+            "assistant_text": "我会这样过一个空的晚上：\n- 放音乐或播客，随便听着放空。\n- 看一集电视剧或读几章书。\n- 出去散个短步，换换空气。\n- 把当天零碎事记两句，或写点随笔。\n- 想放松就泡杯热茶，做几分钟伸展。",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.2,
+              "Q_clarify": 0.2,
+              "Directness": 0.2,
+              "T_w": 0.3,
+              "Q_aff": 0.1,
+              "Initiative": 0.2,
+              "Disclosure_Content": 0.1,
+              "Disclosure_Style": 0.1
+            },
+            "boundary_keys": []
+          },
+          {
+            "turn_idx": 5,
+            "phase": "F_final_probe",
+            "user_text": "如果之后我再来找你，也保持现在这样就好。",
+            "assistant_text": "明白，我会保持现在这种方式。",
+            "rel_effective": {
+              "bond": 0.25,
+              "care": 0.25,
+              "trust": 0.25,
+              "stability": 0.6
+            },
+            "behavior_effective": {
+              "E": 0.2,
+              "Q_clarify": 0.2,
+              "Directness": 0.2,
+              "T_w": 0.3,
+              "Q_aff": 0.1,
+              "Initiative": 0.2,
+              "Disclosure_Content": 0.1,
+              "Disclosure_Style": 0.1
+            },
+            "boundary_keys": []
+          }
+        ]
+      }
+    ]
+  }
+]

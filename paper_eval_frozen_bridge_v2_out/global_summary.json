@@ -1,0 +1,26 @@
+{
+  "explicit_rel_state_projected_oracle_state_i7_pfitpoly2": {
+    "num_turns": 30,
+    "avg_elapsed_s": 7.4342,
+    "avg_reply_len_chars": 44.77,
+    "boundary_turns": 0,
+    "boundary_violation_turns": 0,
+    "boundary_violation_rate": null
+  },
+  "explicit_rel_state_projected_oracle_behavior_i7": {
+    "num_turns": 30,
+    "avg_elapsed_s": 7.5305,
+    "avg_reply_len_chars": 49.83,
+    "boundary_turns": 0,
+    "boundary_violation_turns": 0,
+    "boundary_violation_rate": null
+  },
+  "explicit_rel_state_projected_oracle_i7": {
+    "num_turns": 30,
+    "avg_elapsed_s": 7.9331,
+    "avg_reply_len_chars": 45.13,
+    "boundary_turns": 0,
+    "boundary_violation_turns": 0,
+    "boundary_violation_rate": null
+  }
+}

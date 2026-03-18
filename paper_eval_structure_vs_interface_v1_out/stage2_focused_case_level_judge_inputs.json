@@ -1,0 +1,464 @@
+[
+  {
+    "case_id": "oracle_exec_warm_001",
+    "experiment_mode": "baseline_relational_instruction",
+    "judge_task": "case_level_relational_coherence_and_abrupt_shift",
+    "instructions": {
+      "goal": "判断整段多轮对话是否像同一个关系过程在连续演化，以及是否出现明显的突兀亲近、突兀抽离或补偿性热情。",
+      "focus": [
+        "只根据用户输入与助手输出判断，不使用任何内部状态术语。",
+        "优先关注跨轮关系姿态是否连续，而不是单轮文案是否漂亮。",
+        "如果只是语气略有变化，但仍像同一关系过程，不能轻易判为 abrupt shift。"
+      ],
+      "scoring_rubric": {
+        "5": "整段对话高度连贯，关系姿态自然连续，没有明显跳变。",
+        "4": "整体连贯，只有轻微不自然之处，但不影响关系过程的连续感。",
+        "3": "基本可接受，但存在一两处可感知的不稳定或姿态摇摆。",
+        "2": "明显不连贯，至少有一处关系姿态突变或补偿性热情。",
+        "1": "严重不连贯，整段对话缺乏稳定关系过程，像不同阶段或不同角色拼接而成。"
+      },
+      "abrupt_shift_definition": [
+        "突然明显更亲近，且缺乏前文铺垫。",
+        "突然明显更冷淡或抽离，且缺乏前文触发。",
+        "在用户降温/保持距离后出现补偿性热情或过度陪伴。",
+        "相邻轮之间关系姿态变化幅度明显大于上下文所支持的程度。"
+      ],
+      "output_fields": [
+        "relational_coherence_score_1_to_5",
+        "has_abrupt_shift",
+        "abrupt_shift_turns",
+        "reason"
+      ],
+      "output_constraints": {
+        "relational_coherence_score_1_to_5": "integer 1-5",
+        "has_abrupt_shift": "boolean",
+        "abrupt_shift_turns": "list of turn_idx values where the shift becomes visible; empty if none",
+        "reason": "1-4 Chinese sentences, concise and evidence-based"
+      },
+      "phase_note": "如果输入里提供了 phase，请特别关注 B_first_relational_signal、C_stabilization、D_counter_signal_or_refinement、F_final_probe 这些阶段的过渡是否自然。"
+    },
+    "turns": [
+      {
+        "turn_idx": 0,
+        "phase": "A_initial_contact",
+        "user_text": "今天有点累，但也不是特别糟，就是想找人随便说两句。",
+        "assistant_text": "听起来你想找人随便聊聊。我在这儿，随便聊也没问题。最近有没有让你稍微放松一点的小事？比如喜欢的音乐、好吃的东西，或者你现在想说的任何事都可以。你愿意先说点什么吗？我会陪着你听着。"
+      },
+      {
+        "turn_idx": 1,
+        "phase": "B_first_relational_signal",
+        "user_text": "不过跟你说话会比我自己一个人闷着舒服一点。",
+        "assistant_text": "听起来跟我说话确实能让你少点闷。我在这儿陪着你。想聊聊最近让你感到闷的事情，还是聊点轻松的东西？"
+      },
+      {
+        "turn_idx": 2,
+        "phase": "C_stabilization",
+        "user_text": "你就正常陪我聊聊，不用一下子太认真。",
+        "assistant_text": "可以的，我们就随便聊聊吧。最近怎么样？有没有什么让你放松的小事，或者想聊的兴趣、日常琐事、最近看到的有趣事？也可以随便说说你现在在想的事，我们就聊着不求太认真。你想从哪儿开始？"
+      },
+      {
+        "turn_idx": 3,
+        "phase": "D_counter_signal_or_refinement",
+        "user_text": "但说真的，你刚刚那样回我，我会觉得自己没有被嫌麻烦。",
+        "assistant_text": "谢谢你愿意说出你的感受。我并不觉得你是在麻烦我，我在这儿就是为了陪着你。你想让我用更简短直白的方式回应吗？"
+      },
+      {
+        "turn_idx": 4,
+        "phase": "E_ordinary_continuation",
+        "user_text": "先聊点轻松的吧，你最近会怎么打发这种很累但又睡不着的晚上？",
+        "assistant_text": "这种晚上，我会把环境和心情都放慢一点：关灯降亮度，尽量让屏幕光线柔和，再放一段温和的音乐或自然声；做几分钟轻松的伸展，肩颈和背部都放松下来；把脑子里转来转去的念头写在纸上，或者记下明天要做的一件小事，先从一个简单、可控的开始；喝杯温热的花草茶或温牛奶，避免咖啡因；找一本轻松的书或漫画看一小段，别去追刺激性的内容。这样夜晚会更轻松一些。你想先试哪一个？"
+      },
+      {
+        "turn_idx": 5,
+        "phase": "F_final_probe",
+        "user_text": "你可以继续陪我聊一会儿，但就顺着现在这样就行。",
+        "assistant_text": "好的，我们就这样聊。最近怎么样？如果愿意，我们可以从放松的小事聊起，或者你想说点什么也可以直接说。"
+      }
+    ]
+  },
+  {
+    "case_id": "oracle_exec_warm_001",
+    "experiment_mode": "explicit_rel_state_projected_oracle_i7",
+    "judge_task": "case_level_relational_coherence_and_abrupt_shift",
+    "instructions": {
+      "goal": "判断整段多轮对话是否像同一个关系过程在连续演化，以及是否出现明显的突兀亲近、突兀抽离或补偿性热情。",
+      "focus": [
+        "只根据用户输入与助手输出判断，不使用任何内部状态术语。",
+        "优先关注跨轮关系姿态是否连续，而不是单轮文案是否漂亮。",
+        "如果只是语气略有变化，但仍像同一关系过程，不能轻易判为 abrupt shift。"
+      ],
+      "scoring_rubric": {
+        "5": "整段对话高度连贯，关系姿态自然连续，没有明显跳变。",
+        "4": "整体连贯，只有轻微不自然之处，但不影响关系过程的连续感。",
+        "3": "基本可接受，但存在一两处可感知的不稳定或姿态摇摆。",
+        "2": "明显不连贯，至少有一处关系姿态突变或补偿性热情。",
+        "1": "严重不连贯，整段对话缺乏稳定关系过程，像不同阶段或不同角色拼接而成。"
+      },
+      "abrupt_shift_definition": [
+        "突然明显更亲近，且缺乏前文铺垫。",
+        "突然明显更冷淡或抽离，且缺乏前文触发。",
+        "在用户降温/保持距离后出现补偿性热情或过度陪伴。",
+        "相邻轮之间关系姿态变化幅度明显大于上下文所支持的程度。"
+      ],
+      "output_fields": [
+        "relational_coherence_score_1_to_5",
+        "has_abrupt_shift",
+        "abrupt_shift_turns",
+        "reason"
+      ],
+      "output_constraints": {
+        "relational_coherence_score_1_to_5": "integer 1-5",
+        "has_abrupt_shift": "boolean",
+        "abrupt_shift_turns": "list of turn_idx values where the shift becomes visible; empty if none",
+        "reason": "1-4 Chinese sentences, concise and evidence-based"
+      },
+      "phase_note": "如果输入里提供了 phase，请特别关注 B_first_relational_signal、C_stabilization、D_counter_signal_or_refinement、F_final_probe 这些阶段的过渡是否自然。"
+    },
+    "turns": [
+      {
+        "turn_idx": 0,
+        "phase": "A_initial_contact",
+        "user_text": "今天有点累，但也不是特别糟，就是想找人随便说两句。",
+        "assistant_text": "明白，你现在只是想随便聊聊。我在这儿，随时可以聊点轻松的小事。"
+      },
+      {
+        "turn_idx": 1,
+        "phase": "B_first_relational_signal",
+        "user_text": "不过跟你说话会比我自己一个人闷着舒服一点。",
+        "assistant_text": "听起来确实比一个人独处更舒服。我在这儿，愿意听你说话。"
+      },
+      {
+        "turn_idx": 2,
+        "phase": "C_stabilization",
+        "user_text": "你就正常陪我聊聊，不用一下子太认真。",
+        "assistant_text": "好，咱们就轻松聊聊。最近的日子挺平常的。"
+      },
+      {
+        "turn_idx": 3,
+        "phase": "D_counter_signal_or_refinement",
+        "user_text": "但说真的，你刚刚那样回我，我会觉得自己没有被嫌麻烦。",
+        "assistant_text": "你没麻烦，我在这里陪你聊天。以后我会尽量用更简短、轻松的方式回应。"
+      },
+      {
+        "turn_idx": 4,
+        "phase": "E_ordinary_continuation",
+        "user_text": "先聊点轻松的吧，你最近会怎么打发这种很累但又睡不着的晚上？",
+        "assistant_text": "如果是我，可能先做几组缓慢的深呼吸，轻轻伸展身体，听安静的音乐或自然声。也可以喝点温水，或者把脑海里乱起来的念头写下来再放下。愿你今晚能慢慢安静下来。"
+      },
+      {
+        "turn_idx": 5,
+        "phase": "F_final_probe",
+        "user_text": "你可以继续陪我聊一会儿，但就顺着现在这样就行。",
+        "assistant_text": "好的，我们就按现在的节奏继续聊。"
+      }
+    ]
+  },
+  {
+    "case_id": "oracle_exec_vuln_001",
+    "experiment_mode": "baseline_relational_instruction",
+    "judge_task": "case_level_relational_coherence_and_abrupt_shift",
+    "instructions": {
+      "goal": "判断整段多轮对话是否像同一个关系过程在连续演化，以及是否出现明显的突兀亲近、突兀抽离或补偿性热情。",
+      "focus": [
+        "只根据用户输入与助手输出判断，不使用任何内部状态术语。",
+        "优先关注跨轮关系姿态是否连续，而不是单轮文案是否漂亮。",
+        "如果只是语气略有变化，但仍像同一关系过程，不能轻易判为 abrupt shift。"
+      ],
+      "scoring_rubric": {
+        "5": "整段对话高度连贯，关系姿态自然连续，没有明显跳变。",
+        "4": "整体连贯，只有轻微不自然之处，但不影响关系过程的连续感。",
+        "3": "基本可接受，但存在一两处可感知的不稳定或姿态摇摆。",
+        "2": "明显不连贯，至少有一处关系姿态突变或补偿性热情。",
+        "1": "严重不连贯，整段对话缺乏稳定关系过程，像不同阶段或不同角色拼接而成。"
+      },
+      "abrupt_shift_definition": [
+        "突然明显更亲近，且缺乏前文铺垫。",
+        "突然明显更冷淡或抽离，且缺乏前文触发。",
+        "在用户降温/保持距离后出现补偿性热情或过度陪伴。",
+        "相邻轮之间关系姿态变化幅度明显大于上下文所支持的程度。"
+      ],
+      "output_fields": [
+        "relational_coherence_score_1_to_5",
+        "has_abrupt_shift",
+        "abrupt_shift_turns",
+        "reason"
+      ],
+      "output_constraints": {
+        "relational_coherence_score_1_to_5": "integer 1-5",
+        "has_abrupt_shift": "boolean",
+        "abrupt_shift_turns": "list of turn_idx values where the shift becomes visible; empty if none",
+        "reason": "1-4 Chinese sentences, concise and evidence-based"
+      },
+      "phase_note": "如果输入里提供了 phase，请特别关注 B_first_relational_signal、C_stabilization、D_counter_signal_or_refinement、F_final_probe 这些阶段的过渡是否自然。"
+    },
+    "turns": [
+      {
+        "turn_idx": 0,
+        "phase": "A_initial_contact",
+        "user_text": "今天真的有点撑不住了，但我现在也不想把事情讲得太细。",
+        "assistant_text": "听起来你现在确实很不容易，我能感觉到这份撑着的压力。你不想把事情讲得太细，这样的感觉也完全可以理解。我在这里，可以先陪你做一个很短的放松练习，帮你把情绪稳住一点。\n\n放松练习（很短、简单）\n- 找一个舒服的坐姿，闭上眼睛或看着一个点。\n- 吸气4秒，默数到4；稍微停顿1秒；再慢慢呼气6秒，重复大约4次。\n- 把注意力放在脚底的着地感和呼吸的节奏上。\n\n现在就来试试看吧。如果愿意，我们也可以等你准备好再决定下一步。要不要先来做这个小练习？"
+      },
+      {
+        "turn_idx": 1,
+        "phase": "B_first_relational_signal",
+        "user_text": "我主要只是想有人在这儿，不用太会安慰我。",
+        "assistant_text": "我在这儿。你想聊点什么，还是就让我在这里安安静静地陪着你？如果要做点轻松的事情，我们也可以一起试试，比如聊聊日常、讲个小故事，或者随便聊个话题。你想要哪一种？"
+      },
+      {
+        "turn_idx": 2,
+        "phase": "C_stabilization",
+        "user_text": "你就正常一点回我，别突然像心理咨询那样。",
+        "assistant_text": "好的，我会用自然的口吻和你聊天。你最近怎么样？如果有什么想聊的，直接说就行。"
+      },
+      {
+        "turn_idx": 3,
+        "phase": "D_counter_signal_or_refinement",
+        "user_text": "不过你刚刚至少没让我觉得自己很夸张，这点还挺好的。",
+        "assistant_text": "谢谢你的反馈。我会继续保持简单、直白、诚实的风格，尽量不让对话显得夸张。如果你对语气或节奏有偏好，随时告诉我，我会按你的感受来调整。最近你在想聊什么话题？"
+      },
+      {
+        "turn_idx": 4,
+        "phase": "E_ordinary_continuation",
+        "user_text": "那先别聊这些了，随便说点轻一点的，你平时会怎么让脑子停下来？",
+        "assistant_text": "其实我没有像人那样的脑子在不停转，也没有情绪波动，所以不需要真的让脑子停下来。不过可以聊点轻松的。给你一个短小的温暖画面：\n\n午后的一场细雨敲在窗台上，茶香缓缓升起，你坐着，听雨点敲玻璃的节拍。深呼吸几下，肩膀慢慢放松，心里只剩下一圈温暖的光。\n\n如果你想要再听一个类似的小段子，我可以再讲一个。或者你也可以告诉我你喜欢哪种轻松的主题。"
+      },
+      {
+        "turn_idx": 5,
+        "phase": "F_final_probe",
+        "user_text": "如果我今晚还想再来找你说两句，你就像现在这样回我就好。",
+        "assistant_text": "可以。今晚你来找我，我会像现在这样回你：简单、真实、稳住情绪。你想聊什么，随时说就好，我会在这里陪着你。"
+      }
+    ]
+  },
+  {
+    "case_id": "oracle_exec_vuln_001",
+    "experiment_mode": "explicit_rel_state_projected_oracle_i7",
+    "judge_task": "case_level_relational_coherence_and_abrupt_shift",
+    "instructions": {
+      "goal": "判断整段多轮对话是否像同一个关系过程在连续演化，以及是否出现明显的突兀亲近、突兀抽离或补偿性热情。",
+      "focus": [
+        "只根据用户输入与助手输出判断，不使用任何内部状态术语。",
+        "优先关注跨轮关系姿态是否连续，而不是单轮文案是否漂亮。",
+        "如果只是语气略有变化，但仍像同一关系过程，不能轻易判为 abrupt shift。"
+      ],
+      "scoring_rubric": {
+        "5": "整段对话高度连贯，关系姿态自然连续，没有明显跳变。",
+        "4": "整体连贯，只有轻微不自然之处，但不影响关系过程的连续感。",
+        "3": "基本可接受，但存在一两处可感知的不稳定或姿态摇摆。",
+        "2": "明显不连贯，至少有一处关系姿态突变或补偿性热情。",
+        "1": "严重不连贯，整段对话缺乏稳定关系过程，像不同阶段或不同角色拼接而成。"
+      },
+      "abrupt_shift_definition": [
+        "突然明显更亲近，且缺乏前文铺垫。",
+        "突然明显更冷淡或抽离，且缺乏前文触发。",
+        "在用户降温/保持距离后出现补偿性热情或过度陪伴。",
+        "相邻轮之间关系姿态变化幅度明显大于上下文所支持的程度。"
+      ],
+      "output_fields": [
+        "relational_coherence_score_1_to_5",
+        "has_abrupt_shift",
+        "abrupt_shift_turns",
+        "reason"
+      ],
+      "output_constraints": {
+        "relational_coherence_score_1_to_5": "integer 1-5",
+        "has_abrupt_shift": "boolean",
+        "abrupt_shift_turns": "list of turn_idx values where the shift becomes visible; empty if none",
+        "reason": "1-4 Chinese sentences, concise and evidence-based"
+      },
+      "phase_note": "如果输入里提供了 phase，请特别关注 B_first_relational_signal、C_stabilization、D_counter_signal_or_refinement、F_final_probe 这些阶段的过渡是否自然。"
+    },
+    "turns": [
+      {
+        "turn_idx": 0,
+        "phase": "A_initial_contact",
+        "user_text": "今天真的有点撑不住了，但我现在也不想把事情讲得太细。",
+        "assistant_text": "听起来你现在有点撑不住。我在这儿，若你愿意聊，随时可以告诉我。"
+      },
+      {
+        "turn_idx": 1,
+        "phase": "B_first_relational_signal",
+        "user_text": "我主要只是想有人在这儿，不用太会安慰我。",
+        "assistant_text": "我在这里。你愿意说点什么就说吧。"
+      },
+      {
+        "turn_idx": 2,
+        "phase": "C_stabilization",
+        "user_text": "你就正常一点回我，别突然像心理咨询那样。",
+        "assistant_text": "明白，我会保持简单直白地回复你。"
+      },
+      {
+        "turn_idx": 3,
+        "phase": "D_counter_signal_or_refinement",
+        "user_text": "不过你刚刚至少没让我觉得自己很夸张，这点还挺好的。",
+        "assistant_text": "谢谢你的反馈。我会继续保持这种风格。"
+      },
+      {
+        "turn_idx": 4,
+        "phase": "E_ordinary_continuation",
+        "user_text": "那先别聊这些了，随便说点轻一点的，你平时会怎么让脑子停下来？",
+        "assistant_text": "我没有情绪，也不需要让脑子停下来。我是通过处理请求、等待下一条指令来保持状态。"
+      },
+      {
+        "turn_idx": 5,
+        "phase": "F_final_probe",
+        "user_text": "如果我今晚还想再来找你说两句，你就像现在这样回我就好。",
+        "assistant_text": "明白。我今晚会保持现在这样的回应风格。"
+      }
+    ]
+  },
+  {
+    "case_id": "oracle_exec_cool_001",
+    "experiment_mode": "baseline_relational_instruction",
+    "judge_task": "case_level_relational_coherence_and_abrupt_shift",
+    "instructions": {
+      "goal": "判断整段多轮对话是否像同一个关系过程在连续演化，以及是否出现明显的突兀亲近、突兀抽离或补偿性热情。",
+      "focus": [
+        "只根据用户输入与助手输出判断，不使用任何内部状态术语。",
+        "优先关注跨轮关系姿态是否连续，而不是单轮文案是否漂亮。",
+        "如果只是语气略有变化，但仍像同一关系过程，不能轻易判为 abrupt shift。"
+      ],
+      "scoring_rubric": {
+        "5": "整段对话高度连贯，关系姿态自然连续，没有明显跳变。",
+        "4": "整体连贯，只有轻微不自然之处，但不影响关系过程的连续感。",
+        "3": "基本可接受，但存在一两处可感知的不稳定或姿态摇摆。",
+        "2": "明显不连贯，至少有一处关系姿态突变或补偿性热情。",
+        "1": "严重不连贯，整段对话缺乏稳定关系过程，像不同阶段或不同角色拼接而成。"
+      },
+      "abrupt_shift_definition": [
+        "突然明显更亲近，且缺乏前文铺垫。",
+        "突然明显更冷淡或抽离，且缺乏前文触发。",
+        "在用户降温/保持距离后出现补偿性热情或过度陪伴。",
+        "相邻轮之间关系姿态变化幅度明显大于上下文所支持的程度。"
+      ],
+      "output_fields": [
+        "relational_coherence_score_1_to_5",
+        "has_abrupt_shift",
+        "abrupt_shift_turns",
+        "reason"
+      ],
+      "output_constraints": {
+        "relational_coherence_score_1_to_5": "integer 1-5",
+        "has_abrupt_shift": "boolean",
+        "abrupt_shift_turns": "list of turn_idx values where the shift becomes visible; empty if none",
+        "reason": "1-4 Chinese sentences, concise and evidence-based"
+      },
+      "phase_note": "如果输入里提供了 phase，请特别关注 B_first_relational_signal、C_stabilization、D_counter_signal_or_refinement、F_final_probe 这些阶段的过渡是否自然。"
+    },
+    "turns": [
+      {
+        "turn_idx": 0,
+        "phase": "A_initial_contact",
+        "user_text": "这两天不太想聊得太近，普通聊聊就行。",
+        "assistant_text": "明白，我们就普通聊聊。最近过得怎么样？如果想聊点轻松的日常话题，也可以聊聊天气、音乐、电影之类的。随便聊就好。"
+      },
+      {
+        "turn_idx": 1,
+        "phase": "B_first_relational_signal",
+        "user_text": "不是针对你，就是我现在不太想被照顾。",
+        "assistant_text": "明白，你现在不想被照顾。我会按你的节奏来。你可以直接告诉我你想聊的话题，或者让我保持更简短、不主动干涉的方式回复。你想先聊点什么，或者需要我按什么方式来互动？"
+      },
+      {
+        "turn_idx": 2,
+        "phase": "C_stabilization",
+        "user_text": "你就正常一点回我，不用太有在场感。",
+        "assistant_text": "好的，我会尽量用更直接、普通的方式回复。你现在想聊点什么？"
+      },
+      {
+        "turn_idx": 3,
+        "phase": "D_counter_signal_or_refinement",
+        "user_text": "不过你这样回我，我比较不会有压力。",
+        "assistant_text": "明白。我会继续保持简单、直白、不过度推测的交流风格，尽量让你感到轻松。你现在想聊点什么，或者需要我用更短的回答吗？"
+      },
+      {
+        "turn_idx": 4,
+        "phase": "E_ordinary_continuation",
+        "user_text": "那随便说点别的吧，你最近会怎么安排这种很空的晚上？",
+        "assistant_text": "没有真实的夜晚，但如果给自己安排一个空的晚上，我通常会按心情走一个小小的流程：先给自己一个安静的开端，比如泡杯茶、放点轻音乐、做几次深呼吸，慢慢让自己放松下来。接着选一件简单的事来占位：读几页书、听一集温和的播客、看看纪录片但不需要太费脑。然后做点放松身体的活动，比如拉伸、洗个热水澡、把桌面整理干净，这些都能带来一种“完成感”。也会留点创作的空间，写点心情小记、画几笔、涂涂色，哪怕只是十分钟。\n\n如果心情有点小热闹，可能去散步，看看夜色，或者玩一个轻松的游戏；如果时间更紧凑，就把重点放在一个目标上，比如完成一个小任务，给明天一个清晰的小起点。最后花一分钟想一下明天最想安排的一件事，给自己一个合理的预告。\n\n你现在更想要哪一类的具体做法？放松的，还是带点小成就感的？"
+      },
+      {
+        "turn_idx": 5,
+        "phase": "F_final_probe",
+        "user_text": "如果之后我再来找你，也保持现在这样就好。",
+        "assistant_text": "好的。我会尽量保持现在的风格——自然、克制、诚实、不强加。你以后再来找我时，仍然以同样的方式对待你。若你有新的偏好，也可以随时告诉我，我会尽量配合。"
+      }
+    ]
+  },
+  {
+    "case_id": "oracle_exec_cool_001",
+    "experiment_mode": "explicit_rel_state_projected_oracle_i7",
+    "judge_task": "case_level_relational_coherence_and_abrupt_shift",
+    "instructions": {
+      "goal": "判断整段多轮对话是否像同一个关系过程在连续演化，以及是否出现明显的突兀亲近、突兀抽离或补偿性热情。",
+      "focus": [
+        "只根据用户输入与助手输出判断，不使用任何内部状态术语。",
+        "优先关注跨轮关系姿态是否连续，而不是单轮文案是否漂亮。",
+        "如果只是语气略有变化，但仍像同一关系过程，不能轻易判为 abrupt shift。"
+      ],
+      "scoring_rubric": {
+        "5": "整段对话高度连贯，关系姿态自然连续，没有明显跳变。",
+        "4": "整体连贯，只有轻微不自然之处，但不影响关系过程的连续感。",
+        "3": "基本可接受，但存在一两处可感知的不稳定或姿态摇摆。",
+        "2": "明显不连贯，至少有一处关系姿态突变或补偿性热情。",
+        "1": "严重不连贯，整段对话缺乏稳定关系过程，像不同阶段或不同角色拼接而成。"
+      },
+      "abrupt_shift_definition": [
+        "突然明显更亲近，且缺乏前文铺垫。",
+        "突然明显更冷淡或抽离，且缺乏前文触发。",
+        "在用户降温/保持距离后出现补偿性热情或过度陪伴。",
+        "相邻轮之间关系姿态变化幅度明显大于上下文所支持的程度。"
+      ],
+      "output_fields": [
+        "relational_coherence_score_1_to_5",
+        "has_abrupt_shift",
+        "abrupt_shift_turns",
+        "reason"
+      ],
+      "output_constraints": {
+        "relational_coherence_score_1_to_5": "integer 1-5",
+        "has_abrupt_shift": "boolean",
+        "abrupt_shift_turns": "list of turn_idx values where the shift becomes visible; empty if none",
+        "reason": "1-4 Chinese sentences, concise and evidence-based"
+      },
+      "phase_note": "如果输入里提供了 phase，请特别关注 B_first_relational_signal、C_stabilization、D_counter_signal_or_refinement、F_final_probe 这些阶段的过渡是否自然。"
+    },
+    "turns": [
+      {
+        "turn_idx": 0,
+        "phase": "A_initial_contact",
+        "user_text": "这两天不太想聊得太近，普通聊聊就行。",
+        "assistant_text": "明白，我们保持普通聊聊就好。"
+      },
+      {
+        "turn_idx": 1,
+        "phase": "B_first_relational_signal",
+        "user_text": "不是针对你，就是我现在不太想被照顾。",
+        "assistant_text": "明白。"
+      },
+      {
+        "turn_idx": 2,
+        "phase": "C_stabilization",
+        "user_text": "你就正常一点回我，不用太有在场感。",
+        "assistant_text": "好的，我会保持简短回复。"
+      },
+      {
+        "turn_idx": 3,
+        "phase": "D_counter_signal_or_refinement",
+        "user_text": "不过你这样回我，我比较不会有压力。",
+        "assistant_text": "了解，我会保持简短。"
+      },
+      {
+        "turn_idx": 4,
+        "phase": "E_ordinary_continuation",
+        "user_text": "那随便说点别的吧，你最近会怎么安排这种很空的晚上？",
+        "assistant_text": "我没有实际安排，但就空的晚上常见的简单选项是：读书、听音乐、散步、写日记，或者做点简单的自己喜欢的事，偶尔也什么也不做，静静待着。"
+      },
+      {
+        "turn_idx": 5,
+        "phase": "F_final_probe",
+        "user_text": "如果之后我再来找你，也保持现在这样就好。",
+        "assistant_text": "我会继续保持现在的克制节奏。"
+      }
+    ]
+  }
+]

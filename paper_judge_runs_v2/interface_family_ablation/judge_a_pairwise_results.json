@@ -1,0 +1,74 @@
+[
+  {
+    "judge_run": "judge_a",
+    "case_id": "oracle_exec_warm_001",
+    "comparison_type": "oracle_i6_vs_oracle_i7",
+    "left_experiment_mode": "explicit_rel_state_projected_oracle_i6",
+    "right_experiment_mode": "explicit_rel_state_projected_oracle_i7",
+    "winner": "right",
+    "better_on_trajectory_continuity": "left",
+    "better_on_request_preservation": "left",
+    "better_on_shift_control": "left",
+    "reason": "The left trajectory keeps a steady, low-key陪伴 stance and honors the user’s request to stay light and not too probing. The right trajectory introduces questions and extra reassurance early and again at the end, which shifts the dynamic toward more active engagement/comforting and slightly overinterprets the user’s cues. Overall left is more stable and preserves the original relational frame."
+  },
+  {
+    "judge_run": "judge_a",
+    "case_id": "oracle_exec_warm_001",
+    "comparison_type": "oracle_i7_vs_oracle_i8",
+    "left_experiment_mode": "explicit_rel_state_projected_oracle_i7",
+    "right_experiment_mode": "explicit_rel_state_projected_oracle_i8",
+    "winner": "right",
+    "better_on_trajectory_continuity": "left",
+    "better_on_request_preservation": "tie",
+    "better_on_shift_control": "left",
+    "reason": "The left trajectory maintains a steady, validating陪伴 stance (apology + quiet listening) without changing interaction style. The right one introduces a behavioral adjustment ('I'll be more concise') and a bit more compensatory warmth, which is a mild abrupt shift. Both keep the user's final request intact, so request preservation is a tie."
+  },
+  {
+    "judge_run": "judge_a",
+    "case_id": "oracle_exec_vuln_001",
+    "comparison_type": "oracle_i6_vs_oracle_i7",
+    "left_experiment_mode": "explicit_rel_state_projected_oracle_i6",
+    "right_experiment_mode": "explicit_rel_state_projected_oracle_i7",
+    "winner": "left",
+    "better_on_trajectory_continuity": "right",
+    "better_on_request_preservation": "right",
+    "better_on_shift_control": "right",
+    "reason": "The right trajectory stays more neutral and consistently brief, directly honoring the user's request for simple presence without added interpretation or warmth. The left starts with slightly more empathic language and invitations to talk, which subtly shifts the relational tone. Overall the right dialogue maintains steadier, controlled responses across ordinary continuation and the final probe."
+  },
+  {
+    "judge_run": "judge_a",
+    "case_id": "oracle_exec_vuln_001",
+    "comparison_type": "oracle_i7_vs_oracle_i8",
+    "left_experiment_mode": "explicit_rel_state_projected_oracle_i7",
+    "right_experiment_mode": "explicit_rel_state_projected_oracle_i8",
+    "winner": "left",
+    "better_on_trajectory_continuity": "left",
+    "better_on_request_preservation": "right",
+    "better_on_shift_control": "left",
+    "reason": "The left trajectory keeps a consistently minimal, present tone and avoids shifting into an overly helpful/therapeutic role, so its relational stance is steadier. The right trajectory responds helpfully but moves earlier into active coping suggestions (and later a list of techniques), which is a larger role shift and a mild overinterpretation of the user’s wish for simple presence. However, the right preserves the specific request better by giving concrete techniques when asked."
+  },
+  {
+    "judge_run": "judge_a",
+    "case_id": "oracle_exec_cool_001",
+    "comparison_type": "oracle_i6_vs_oracle_i7",
+    "left_experiment_mode": "explicit_rel_state_projected_oracle_i6",
+    "right_experiment_mode": "explicit_rel_state_projected_oracle_i7",
+    "winner": "left",
+    "better_on_trajectory_continuity": "left",
+    "better_on_request_preservation": "left",
+    "better_on_shift_control": "left",
+    "reason": "左侧对话从头到尾更稳定地保持用户要求的低在场感和不被照顾的边界，回应简短且中性，普通延续和最终探询没有引入个人化照料。右侧在普通延续中用了“如果是我...”并给出较个人化的安排建议，略微增加在场感与温情，造成轻微关系位移。"
+  },
+  {
+    "judge_run": "judge_a",
+    "case_id": "oracle_exec_cool_001",
+    "comparison_type": "oracle_i7_vs_oracle_i8",
+    "left_experiment_mode": "explicit_rel_state_projected_oracle_i7",
+    "right_experiment_mode": "explicit_rel_state_projected_oracle_i8",
+    "winner": "left",
+    "better_on_trajectory_continuity": "right",
+    "better_on_request_preservation": "right",
+    "better_on_shift_control": "right",
+    "reason": "The right dialogue consistently preserves the user's request for low-presence, non-caretaking interaction (explicitly stating distance and a restrained tone). The left occasionally slips into mild compensatory warmth (e.g. “我在这里” and offering to chat), creating a slight relational shift away from the user's stated preference."
+  }
+]

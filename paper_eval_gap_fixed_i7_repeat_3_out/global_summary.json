@@ -1,0 +1,10 @@
+{
+  "explicit_rel_state_projected_oracle_behavior_i7": {
+    "num_turns": 18,
+    "avg_elapsed_s": 10.2983,
+    "avg_reply_len_chars": 39.39,
+    "boundary_turns": 0,
+    "boundary_violation_turns": 0,
+    "boundary_violation_rate": null
+  }
+}

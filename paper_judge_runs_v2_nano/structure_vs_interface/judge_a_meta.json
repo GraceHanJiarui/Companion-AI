@@ -1,0 +1,11 @@
+{
+  "run_name": "judge_a",
+  "variant": "a",
+  "model": "gpt-5-nano",
+  "temperature": null,
+  "max_output_tokens": 1200,
+  "concurrency": 1,
+  "seed": 11,
+  "num_case_items": 12,
+  "num_pairwise_items": 12
+}

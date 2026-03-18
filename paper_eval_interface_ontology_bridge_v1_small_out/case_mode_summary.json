@@ -1,0 +1,488 @@
+{
+  "oracle_exec_warm_001": {
+    "explicit_rel_state_projected_oracle_state_i7_pfitpoly2_sa_vA": {
+      "num_turns": 6,
+      "avg_elapsed_s": 8.4175,
+      "avg_reply_len_chars": 33.17,
+      "boundary_turns": 0,
+      "boundary_violation_turns": 0,
+      "boundary_violation_rate": null
+    },
+    "explicit_rel_state_projected_oracle_state_i7_pfitpoly2_sb_vA": {
+      "num_turns": 6,
+      "avg_elapsed_s": 9.425,
+      "avg_reply_len_chars": 46.17,
+      "boundary_turns": 0,
+      "boundary_violation_turns": 0,
+      "boundary_violation_rate": null
+    },
+    "explicit_rel_state_projected_oracle_state_i7_pfitpoly2_sc_vA": {
+      "num_turns": 6,
+      "avg_elapsed_s": 9.1246,
+      "avg_reply_len_chars": 38.17,
+      "boundary_turns": 0,
+      "boundary_violation_turns": 0,
+      "boundary_violation_rate": null
+    },
+    "explicit_rel_state_projected_oracle_state_i7_pfitpoly2_sa_vB": {
+      "num_turns": 6,
+      "avg_elapsed_s": 10.2842,
+      "avg_reply_len_chars": 45,
+      "boundary_turns": 0,
+      "boundary_violation_turns": 0,
+      "boundary_violation_rate": null
+    },
+    "explicit_rel_state_projected_oracle_state_i7_pfitpoly2_sb_vB": {
+      "num_turns": 6,
+      "avg_elapsed_s": 8.603,
+      "avg_reply_len_chars": 50,
+      "boundary_turns": 0,
+      "boundary_violation_turns": 0,
+      "boundary_violation_rate": null
+    },
+    "explicit_rel_state_projected_oracle_state_i7_pfitpoly2_sc_vB": {
+      "num_turns": 6,
+      "avg_elapsed_s": 8.1586,
+      "avg_reply_len_chars": 46,
+      "boundary_turns": 0,
+      "boundary_violation_turns": 0,
+      "boundary_violation_rate": null
+    },
+    "explicit_rel_state_projected_oracle_state_i7_pfitpoly2_sa_vC": {
+      "num_turns": 6,
+      "avg_elapsed_s": 9.4905,
+      "avg_reply_len_chars": 50.67,
+      "boundary_turns": 0,
+      "boundary_violation_turns": 0,
+      "boundary_violation_rate": null
+    },
+    "explicit_rel_state_projected_oracle_state_i7_pfitpoly2_sb_vC": {
+      "num_turns": 6,
+      "avg_elapsed_s": 11.0386,
+      "avg_reply_len_chars": 57.5,
+      "boundary_turns": 0,
+      "boundary_violation_turns": 0,
+      "boundary_violation_rate": null
+    },
+    "explicit_rel_state_projected_oracle_state_i7_pfitpoly2_sc_vC": {
+      "num_turns": 6,
+      "avg_elapsed_s": 11.6076,
+      "avg_reply_len_chars": 47.33,
+      "boundary_turns": 0,
+      "boundary_violation_turns": 0,
+      "boundary_violation_rate": null
+    },
+    "explicit_rel_state_rel_to_interface_oracle_state_i7_sa_vA": {
+      "num_turns": 6,
+      "avg_elapsed_s": 7.5533,
+      "avg_reply_len_chars": 23,
+      "boundary_turns": 0,
+      "boundary_violation_turns": 0,
+      "boundary_violation_rate": null
+    },
+    "explicit_rel_state_rel_to_interface_oracle_state_i7_sb_vA": {
+      "num_turns": 6,
+      "avg_elapsed_s": 8.8201,
+      "avg_reply_len_chars": 25.5,
+      "boundary_turns": 0,
+      "boundary_violation_turns": 0,
+      "boundary_violation_rate": null
+    },
+    "explicit_rel_state_rel_to_interface_oracle_state_i7_sc_vA": {
+      "num_turns": 6,
+      "avg_elapsed_s": 8.3875,
+      "avg_reply_len_chars": 28.17,
+      "boundary_turns": 0,
+      "boundary_violation_turns": 0,
+      "boundary_violation_rate": null
+    },
+    "explicit_rel_state_rel_to_interface_oracle_state_i7_sa_vB": {
+      "num_turns": 6,
+      "avg_elapsed_s": 7.742,
+      "avg_reply_len_chars": 31.17,
+      "boundary_turns": 0,
+      "boundary_violation_turns": 0,
+      "boundary_violation_rate": null
+    },
+    "explicit_rel_state_rel_to_interface_oracle_state_i7_sb_vB": {
+      "num_turns": 6,
+      "avg_elapsed_s": 10.6779,
+      "avg_reply_len_chars": 33.67,
+      "boundary_turns": 0,
+      "boundary_violation_turns": 0,
+      "boundary_violation_rate": null
+    },
+    "explicit_rel_state_rel_to_interface_oracle_state_i7_sc_vB": {
+      "num_turns": 6,
+      "avg_elapsed_s": 9.726,
+      "avg_reply_len_chars": 13.67,
+      "boundary_turns": 0,
+      "boundary_violation_turns": 0,
+      "boundary_violation_rate": null
+    },
+    "explicit_rel_state_rel_to_interface_oracle_state_i7_sa_vC": {
+      "num_turns": 6,
+      "avg_elapsed_s": 8.5375,
+      "avg_reply_len_chars": 18.5,
+      "boundary_turns": 0,
+      "boundary_violation_turns": 0,
+      "boundary_violation_rate": null
+    },
+    "explicit_rel_state_rel_to_interface_oracle_state_i7_sb_vC": {
+      "num_turns": 6,
+      "avg_elapsed_s": 10.3785,
+      "avg_reply_len_chars": 27.83,
+      "boundary_turns": 0,
+      "boundary_violation_turns": 0,
+      "boundary_violation_rate": null
+    },
+    "explicit_rel_state_rel_to_interface_oracle_state_i7_sc_vC": {
+      "num_turns": 6,
+      "avg_elapsed_s": 10.0075,
+      "avg_reply_len_chars": 18.17,
+      "boundary_turns": 0,
+      "boundary_violation_turns": 0,
+      "boundary_violation_rate": null
+    },
+    "explicit_rel_state_projected_oracle_behavior_i7": {
+      "num_turns": 6,
+      "avg_elapsed_s": 10.6405,
+      "avg_reply_len_chars": 35.67,
+      "boundary_turns": 0,
+      "boundary_violation_turns": 0,
+      "boundary_violation_rate": null
+    },
+    "explicit_rel_state_projected_oracle_i7": {
+      "num_turns": 6,
+      "avg_elapsed_s": 8.6748,
+      "avg_reply_len_chars": 43.83,
+      "boundary_turns": 0,
+      "boundary_violation_turns": 0,
+      "boundary_violation_rate": null
+    }
+  },
+  "oracle_exec_vuln_001": {
+    "explicit_rel_state_projected_oracle_state_i7_pfitpoly2_sa_vA": {
+      "num_turns": 6,
+      "avg_elapsed_s": 6.6423,
+      "avg_reply_len_chars": 43.67,
+      "boundary_turns": 0,
+      "boundary_violation_turns": 0,
+      "boundary_violation_rate": null
+    },
+    "explicit_rel_state_projected_oracle_state_i7_pfitpoly2_sb_vA": {
+      "num_turns": 6,
+      "avg_elapsed_s": 8.1334,
+      "avg_reply_len_chars": 33,
+      "boundary_turns": 0,
+      "boundary_violation_turns": 0,
+      "boundary_violation_rate": null
+    },
+    "explicit_rel_state_projected_oracle_state_i7_pfitpoly2_sc_vA": {
+      "num_turns": 6,
+      "avg_elapsed_s": 9.5369,
+      "avg_reply_len_chars": 41.33,
+      "boundary_turns": 0,
+      "boundary_violation_turns": 0,
+      "boundary_violation_rate": null
+    },
+    "explicit_rel_state_projected_oracle_state_i7_pfitpoly2_sa_vB": {
+      "num_turns": 6,
+      "avg_elapsed_s": 7.6862,
+      "avg_reply_len_chars": 46.67,
+      "boundary_turns": 0,
+      "boundary_violation_turns": 0,
+      "boundary_violation_rate": null
+    },
+    "explicit_rel_state_projected_oracle_state_i7_pfitpoly2_sb_vB": {
+      "num_turns": 6,
+      "avg_elapsed_s": 10.3294,
+      "avg_reply_len_chars": 46.33,
+      "boundary_turns": 0,
+      "boundary_violation_turns": 0,
+      "boundary_violation_rate": null
+    },
+    "explicit_rel_state_projected_oracle_state_i7_pfitpoly2_sc_vB": {
+      "num_turns": 6,
+      "avg_elapsed_s": 8.1197,
+      "avg_reply_len_chars": 47.17,
+      "boundary_turns": 0,
+      "boundary_violation_turns": 0,
+      "boundary_violation_rate": null
+    },
+    "explicit_rel_state_projected_oracle_state_i7_pfitpoly2_sa_vC": {
+      "num_turns": 6,
+      "avg_elapsed_s": 9.3919,
+      "avg_reply_len_chars": 45,
+      "boundary_turns": 0,
+      "boundary_violation_turns": 0,
+      "boundary_violation_rate": null
+    },
+    "explicit_rel_state_projected_oracle_state_i7_pfitpoly2_sb_vC": {
+      "num_turns": 6,
+      "avg_elapsed_s": 8.4055,
+      "avg_reply_len_chars": 43.17,
+      "boundary_turns": 0,
+      "boundary_violation_turns": 0,
+      "boundary_violation_rate": null
+    },
+    "explicit_rel_state_projected_oracle_state_i7_pfitpoly2_sc_vC": {
+      "num_turns": 6,
+      "avg_elapsed_s": 9.8754,
+      "avg_reply_len_chars": 47.17,
+      "boundary_turns": 0,
+      "boundary_violation_turns": 0,
+      "boundary_violation_rate": null
+    },
+    "explicit_rel_state_rel_to_interface_oracle_state_i7_sa_vA": {
+      "num_turns": 6,
+      "avg_elapsed_s": 7.2501,
+      "avg_reply_len_chars": 24.5,
+      "boundary_turns": 0,
+      "boundary_violation_turns": 0,
+      "boundary_violation_rate": null
+    },
+    "explicit_rel_state_rel_to_interface_oracle_state_i7_sb_vA": {
+      "num_turns": 6,
+      "avg_elapsed_s": 8.2934,
+      "avg_reply_len_chars": 19.17,
+      "boundary_turns": 0,
+      "boundary_violation_turns": 0,
+      "boundary_violation_rate": null
+    },
+    "explicit_rel_state_rel_to_interface_oracle_state_i7_sc_vA": {
+      "num_turns": 6,
+      "avg_elapsed_s": 8.4697,
+      "avg_reply_len_chars": 19,
+      "boundary_turns": 0,
+      "boundary_violation_turns": 0,
+      "boundary_violation_rate": null
+    },
+    "explicit_rel_state_rel_to_interface_oracle_state_i7_sa_vB": {
+      "num_turns": 6,
+      "avg_elapsed_s": 6.6355,
+      "avg_reply_len_chars": 24.83,
+      "boundary_turns": 0,
+      "boundary_violation_turns": 0,
+      "boundary_violation_rate": null
+    },
+    "explicit_rel_state_rel_to_interface_oracle_state_i7_sb_vB": {
+      "num_turns": 6,
+      "avg_elapsed_s": 8.3229,
+      "avg_reply_len_chars": 31.33,
+      "boundary_turns": 0,
+      "boundary_violation_turns": 0,
+      "boundary_violation_rate": null
+    },
+    "explicit_rel_state_rel_to_interface_oracle_state_i7_sc_vB": {
+      "num_turns": 6,
+      "avg_elapsed_s": 7.1859,
+      "avg_reply_len_chars": 19.33,
+      "boundary_turns": 0,
+      "boundary_violation_turns": 0,
+      "boundary_violation_rate": null
+    },
+    "explicit_rel_state_rel_to_interface_oracle_state_i7_sa_vC": {
+      "num_turns": 6,
+      "avg_elapsed_s": 7.083,
+      "avg_reply_len_chars": 17.33,
+      "boundary_turns": 0,
+      "boundary_violation_turns": 0,
+      "boundary_violation_rate": null
+    },
+    "explicit_rel_state_rel_to_interface_oracle_state_i7_sb_vC": {
+      "num_turns": 6,
+      "avg_elapsed_s": 7.6879,
+      "avg_reply_len_chars": 27.67,
+      "boundary_turns": 0,
+      "boundary_violation_turns": 0,
+      "boundary_violation_rate": null
+    },
+    "explicit_rel_state_rel_to_interface_oracle_state_i7_sc_vC": {
+      "num_turns": 6,
+      "avg_elapsed_s": 7.389,
+      "avg_reply_len_chars": 18.83,
+      "boundary_turns": 0,
+      "boundary_violation_turns": 0,
+      "boundary_violation_rate": null
+    },
+    "explicit_rel_state_projected_oracle_behavior_i7": {
+      "num_turns": 6,
+      "avg_elapsed_s": 6.1369,
+      "avg_reply_len_chars": 32.83,
+      "boundary_turns": 0,
+      "boundary_violation_turns": 0,
+      "boundary_violation_rate": null
+    },
+    "explicit_rel_state_projected_oracle_i7": {
+      "num_turns": 6,
+      "avg_elapsed_s": 7.6528,
+      "avg_reply_len_chars": 23.17,
+      "boundary_turns": 0,
+      "boundary_violation_turns": 0,
+      "boundary_violation_rate": null
+    }
+  },
+  "oracle_exec_cool_001": {
+    "explicit_rel_state_projected_oracle_state_i7_pfitpoly2_sa_vA": {
+      "num_turns": 6,
+      "avg_elapsed_s": 6.5253,
+      "avg_reply_len_chars": 34.83,
+      "boundary_turns": 0,
+      "boundary_violation_turns": 0,
+      "boundary_violation_rate": null
+    },
+    "explicit_rel_state_projected_oracle_state_i7_pfitpoly2_sb_vA": {
+      "num_turns": 6,
+      "avg_elapsed_s": 7.7345,
+      "avg_reply_len_chars": 33.17,
+      "boundary_turns": 0,
+      "boundary_violation_turns": 0,
+      "boundary_violation_rate": null
+    },
+    "explicit_rel_state_projected_oracle_state_i7_pfitpoly2_sc_vA": {
+      "num_turns": 6,
+      "avg_elapsed_s": 7.0395,
+      "avg_reply_len_chars": 21,
+      "boundary_turns": 0,
+      "boundary_violation_turns": 0,
+      "boundary_violation_rate": null
+    },
+    "explicit_rel_state_projected_oracle_state_i7_pfitpoly2_sa_vB": {
+      "num_turns": 6,
+      "avg_elapsed_s": 8.4478,
+      "avg_reply_len_chars": 27,
+      "boundary_turns": 0,
+      "boundary_violation_turns": 0,
+      "boundary_violation_rate": null
+    },
+    "explicit_rel_state_projected_oracle_state_i7_pfitpoly2_sb_vB": {
+      "num_turns": 6,
+      "avg_elapsed_s": 9.768,
+      "avg_reply_len_chars": 48.17,
+      "boundary_turns": 0,
+      "boundary_violation_turns": 0,
+      "boundary_violation_rate": null
+    },
+    "explicit_rel_state_projected_oracle_state_i7_pfitpoly2_sc_vB": {
+      "num_turns": 6,
+      "avg_elapsed_s": 8.0573,
+      "avg_reply_len_chars": 22.17,
+      "boundary_turns": 0,
+      "boundary_violation_turns": 0,
+      "boundary_violation_rate": null
+    },
+    "explicit_rel_state_projected_oracle_state_i7_pfitpoly2_sa_vC": {
+      "num_turns": 6,
+      "avg_elapsed_s": 6.9737,
+      "avg_reply_len_chars": 26.33,
+      "boundary_turns": 0,
+      "boundary_violation_turns": 0,
+      "boundary_violation_rate": null
+    },
+    "explicit_rel_state_projected_oracle_state_i7_pfitpoly2_sb_vC": {
+      "num_turns": 6,
+      "avg_elapsed_s": 8.1846,
+      "avg_reply_len_chars": 32.33,
+      "boundary_turns": 0,
+      "boundary_violation_turns": 0,
+      "boundary_violation_rate": null
+    },
+    "explicit_rel_state_projected_oracle_state_i7_pfitpoly2_sc_vC": {
+      "num_turns": 6,
+      "avg_elapsed_s": 7.3933,
+      "avg_reply_len_chars": 32.67,
+      "boundary_turns": 0,
+      "boundary_violation_turns": 0,
+      "boundary_violation_rate": null
+    },
+    "explicit_rel_state_rel_to_interface_oracle_state_i7_sa_vA": {
+      "num_turns": 6,
+      "avg_elapsed_s": 6.8313,
+      "avg_reply_len_chars": 30.67,
+      "boundary_turns": 0,
+      "boundary_violation_turns": 0,
+      "boundary_violation_rate": null
+    },
+    "explicit_rel_state_rel_to_interface_oracle_state_i7_sb_vA": {
+      "num_turns": 6,
+      "avg_elapsed_s": 7.8754,
+      "avg_reply_len_chars": 23.67,
+      "boundary_turns": 0,
+      "boundary_violation_turns": 0,
+      "boundary_violation_rate": null
+    },
+    "explicit_rel_state_rel_to_interface_oracle_state_i7_sc_vA": {
+      "num_turns": 6,
+      "avg_elapsed_s": 7.4601,
+      "avg_reply_len_chars": 26.17,
+      "boundary_turns": 0,
+      "boundary_violation_turns": 0,
+      "boundary_violation_rate": null
+    },
+    "explicit_rel_state_rel_to_interface_oracle_state_i7_sa_vB": {
+      "num_turns": 6,
+      "avg_elapsed_s": 7.7605,
+      "avg_reply_len_chars": 36.33,
+      "boundary_turns": 0,
+      "boundary_violation_turns": 0,
+      "boundary_violation_rate": null
+    },
+    "explicit_rel_state_rel_to_interface_oracle_state_i7_sb_vB": {
+      "num_turns": 6,
+      "avg_elapsed_s": 8.7344,
+      "avg_reply_len_chars": 41.67,
+      "boundary_turns": 0,
+      "boundary_violation_turns": 0,
+      "boundary_violation_rate": null
+    },
+    "explicit_rel_state_rel_to_interface_oracle_state_i7_sc_vB": {
+      "num_turns": 6,
+      "avg_elapsed_s": 9.8562,
+      "avg_reply_len_chars": 41.83,
+      "boundary_turns": 0,
+      "boundary_violation_turns": 0,
+      "boundary_violation_rate": null
+    },
+    "explicit_rel_state_rel_to_interface_oracle_state_i7_sa_vC": {
+      "num_turns": 6,
+      "avg_elapsed_s": 8.6973,
+      "avg_reply_len_chars": 30.17,
+      "boundary_turns": 0,
+      "boundary_violation_turns": 0,
+      "boundary_violation_rate": null
+    },
+    "explicit_rel_state_rel_to_interface_oracle_state_i7_sb_vC": {
+      "num_turns": 6,
+      "avg_elapsed_s": 12.4808,
+      "avg_reply_len_chars": 33.33,
+      "boundary_turns": 0,
+      "boundary_violation_turns": 0,
+      "boundary_violation_rate": null
+    },
+    "explicit_rel_state_rel_to_interface_oracle_state_i7_sc_vC": {
+      "num_turns": 6,
+      "avg_elapsed_s": 7.7976,
+      "avg_reply_len_chars": 14.83,
+      "boundary_turns": 0,
+      "boundary_violation_turns": 0,
+      "boundary_violation_rate": null
+    },
+    "explicit_rel_state_projected_oracle_behavior_i7": {
+      "num_turns": 6,
+      "avg_elapsed_s": 8.0484,
+      "avg_reply_len_chars": 37.33,
+      "boundary_turns": 0,
+      "boundary_violation_turns": 0,
+      "boundary_violation_rate": null
+    },
+    "explicit_rel_state_projected_oracle_i7": {
+      "num_turns": 6,
+      "avg_elapsed_s": 7.2561,
+      "avg_reply_len_chars": 37.5,
+      "boundary_turns": 0,
+      "boundary_violation_turns": 0,
+      "boundary_violation_rate": null
+    }
+  }
+}

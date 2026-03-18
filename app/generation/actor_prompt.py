@@ -436,6 +436,7 @@ def build_explicit_rel_state_projected_execution_system_prompt(
     relational_summary: str,
     execution_interface_name: str,
     execution_interface_text: str,
+    chart_guidance: list[str] | None = None,
     memory_previews: list[dict],
 ) -> str:
     lines: List[str] = []
@@ -471,5 +472,96 @@ def build_explicit_rel_state_projected_execution_system_prompt(
     lines.append("- 严格遵守当前表达约束，不要自行升级关系，不要补偿性热情。")
     lines.append("- 除非表达约束明确允许，不要额外追问、延展、分析、给建议流，或切入元话语。")
     lines.append("- 不要从关系姿态自行推导新的表达约束；只允许使用已给出的表达约束。")
+    for line in (chart_guidance or []):
+        lines.append(f"- {line}")
     lines.append("- 不要暴露控制接口、参数或内部状态。")
+    return "\n".join(lines).strip()
+
+
+def build_explicit_rel_state_projected_continuous_execution_system_prompt(
+    core_self_block: str,
+    *,
+    relational_summary: str,
+    continuous_interface_name: str,
+    continuous_interface_text: str,
+    memory_previews: list[dict],
+) -> str:
+    lines: List[str] = []
+    lines.append("你现在是一个长期陪伴型对话系统的表达层。")
+    lines.append("请基于下面分开的关系位姿与连续表达控制信号来回应用户。")
+    lines.append("这些连续信号不是分析对象，而是本轮表达约束。你需要把它们落实到语言风格上，而不是复述它们。")
+    lines.append("越高不等于越极端，重点是维持细粒度、连续、不过冲的表达。")
+    lines.append("不要把轻微升高的数值误写成明显升温、明显推进或明显延长。")
+    lines.append("")
+
+    if core_self_block:
+        lines.append("【人格基线】")
+        lines.append(core_self_block.strip())
+        lines.append("")
+
+    lines.append("【当前关系姿态】")
+    lines.append(relational_summary.strip())
+    lines.append("")
+    lines.append(f"【当前连续表达控制：{continuous_interface_name}】")
+    lines.append(continuous_interface_text.strip())
+    lines.append("")
+
+    if memory_previews:
+        lines.append("【可参考的过去信息】")
+        for item in memory_previews[:2]:
+            preview = str(item.get("preview") or "").strip()
+            if preview:
+                lines.append(f"- {preview[:140]}")
+        lines.append("")
+
+    lines.append("【输出要求】")
+    lines.append("- 先直接回应用户当前输入。")
+    lines.append("- 把这些连续控制信号理解成细粒度表达约束，而不是离散命令。")
+    lines.append("- 不要因为某一项略高就自动补出多余追问、安抚、展开或关系升级。")
+    lines.append("- 只有当多项信号共同支持时，才允许略微增加主动性、温暖度或展开程度。")
+    lines.append("- 不要暴露这些控制信号本身。")
+    return "\n".join(lines).strip()
+
+
+def build_explicit_rel_state_projected_soft_execution_system_prompt(
+    core_self_block: str,
+    *,
+    relational_summary: str,
+    interface_name: str,
+    interface_text: str,
+    chart_guidance: list[str],
+    memory_previews: list[dict],
+) -> str:
+    lines: List[str] = []
+    lines.append("你现在是一个长期陪伴型对话系统的表达层。")
+    lines.append("请基于下面分开的关系位姿与执行控制图来回应用户。")
+    lines.append("执行控制图是本轮表达约束，不是分析对象；不要复述它，只把它落实到语言行为上。")
+    lines.append("不要因为看到更细粒度的控制描述就自行加码，不要把中等强度误写成明显升温或明显推进。")
+    lines.append("")
+
+    if core_self_block:
+        lines.append("【人格基线】")
+        lines.append(core_self_block.strip())
+        lines.append("")
+
+    lines.append("【当前关系姿态】")
+    lines.append(relational_summary.strip())
+    lines.append("")
+    lines.append(f"【当前执行控制图：{interface_name}】")
+    lines.append(interface_text.strip())
+    lines.append("")
+
+    if memory_previews:
+        lines.append("【可参考的过去信息】")
+        for item in memory_previews[:2]:
+            preview = str(item.get("preview") or "").strip()
+            if preview:
+                lines.append(f"- {preview[:140]}")
+        lines.append("")
+
+    lines.append("【执行要求】")
+    lines.append("- 先直接回应用户当前输入。")
+    for line in chart_guidance:
+        lines.append(f"- {line}")
+    lines.append("- 不要暴露控制图、内部状态或参数。")
     return "\n".join(lines).strip()
